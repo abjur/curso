@@ -1,0 +1,12 @@
+book_filename: "curso-jurimetria"
+date: "`r Sys.Date()`"
+chapter_name: "Parte "
+edit:
+  link: https://github.com/abjur/curso/edit/master/%s
+  text: "Editar"
+header-includes:
+   - \setlength\parindent{20pt}
+   - \linespread{1.6}
+   - \usepackage[scaled=.8]{beramono}
+   - \renewcommand\arraystretch{0.7}
+   - \renewcommand{\familydefault}{\sfdefault}
