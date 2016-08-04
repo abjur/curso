@@ -25,21 +25,16 @@
 
 <meta name="author" content="Associação Brasileira de Jurimetria">
 
-<meta name="date" content="2016-07-28">
+<meta name="date" content="2016-08-04">
 
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="o-pacote-ggplot2.html">
-<link rel="next" href="applications.html">
+<link rel="prev" href="visualizacao-de-dados.html">
+<link rel="next" href="aulas.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -109,69 +104,53 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">Curso de Jurimetria</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html"><i class="fa fa-check"></i><b>3</b> Ferramental de trabalho da ABJ</a><ul>
-<li class="chapter" data-level="3.1" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#exemplos-trabalhados"><i class="fa fa-check"></i><b>3.1</b> Exemplos trabalhados</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#camaras-de-gas"><i class="fa fa-check"></i><b>3.1.1</b> Câmaras de gás</a></li>
-<li class="chapter" data-level="3.1.2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#waze-do-judiciario"><i class="fa fa-check"></i><b>3.1.2</b> Waze do Judiciário</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="definicao-de-jurimetria.html"><a href="definicao-de-jurimetria.html"><i class="fa fa-check"></i><b>1.1</b> Definição de Jurimetria</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#data-tidying"><i class="fa fa-check"></i><b>3.2</b> Data tidying</a></li>
-<li class="chapter" data-level="3.3" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#web-scraping"><i class="fa fa-check"></i><b>3.3</b> Web scraping</a></li>
-<li class="chapter" data-level="3.4" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#informacoes-iniciais"><i class="fa fa-check"></i><b>3.4</b> Informações iniciais</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#diferenca-entre-procurar-baixar-e-processar."><i class="fa fa-check"></i><b>3.4.1</b> Diferença entre procurar, baixar e processar.</a></li>
+<li class="chapter" data-level="2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html"><i class="fa fa-check"></i><b>2</b> Ferramental de trabalho da ABJ</a><ul>
+<li class="chapter" data-level="2.1" data-path="exemplos-trabalhados.html"><a href="exemplos-trabalhados.html"><i class="fa fa-check"></i><b>2.1</b> Exemplos trabalhados</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="exemplos-trabalhados.html"><a href="exemplos-trabalhados.html#camaras-de-gas"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras de gás</a></li>
+<li class="chapter" data-level="2.1.2" data-path="exemplos-trabalhados.html"><a href="exemplos-trabalhados.html#waze-do-judiciario"><i class="fa fa-check"></i><b>2.1.2</b> Waze do Judiciário</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#procurar-documentos"><i class="fa fa-check"></i><b>3.5</b> Procurar documentos</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#search-docs"><i class="fa fa-check"></i><b>3.5.1</b> Search docs</a></li>
-<li class="chapter" data-level="3.5.2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#paginate"><i class="fa fa-check"></i><b>3.5.2</b> Paginate</a></li>
+<li class="chapter" data-level="2.2" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>2.2</b> Pipe</a></li>
+<li class="chapter" data-level="2.3" data-path="data-tidying.html"><a href="data-tidying.html"><i class="fa fa-check"></i><b>2.3</b> Data tidying</a></li>
+<li class="chapter" data-level="2.4" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html"><i class="fa fa-check"></i><b>2.4</b> Pacotes <code>dplyr</code> e <code>tidyr</code></a><ul>
+<li class="chapter" data-level="2.4.1" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#trabalhando-com-tibbles"><i class="fa fa-check"></i><b>2.4.1</b> Trabalhando com tibbles</a></li>
+<li class="chapter" data-level="2.4.2" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#as-cinco-funcoes-principais-do-dplyr"><i class="fa fa-check"></i><b>2.4.2</b> As cinco funções principais do dplyr</a></li>
+<li class="chapter" data-level="2.4.3" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#caracteristicas"><i class="fa fa-check"></i><b>2.4.3</b> Características</a></li>
+<li class="chapter" data-level="2.4.4" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#vantagens"><i class="fa fa-check"></i><b>2.4.4</b> Vantagens</a></li>
+<li class="chapter" data-level="2.4.5" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#select"><i class="fa fa-check"></i><b>2.4.5</b> select</a></li>
+<li class="chapter" data-level="2.4.6" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#filter"><i class="fa fa-check"></i><b>2.4.6</b> filter</a></li>
+<li class="chapter" data-level="2.4.7" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#mutate"><i class="fa fa-check"></i><b>2.4.7</b> mutate</a></li>
+<li class="chapter" data-level="2.4.8" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#arrange"><i class="fa fa-check"></i><b>2.4.8</b> arrange</a></li>
+<li class="chapter" data-level="2.4.9" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#summarise"><i class="fa fa-check"></i><b>2.4.9</b> summarise</a></li>
+<li class="chapter" data-level="2.4.10" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#spread"><i class="fa fa-check"></i><b>2.4.10</b> spread</a></li>
+<li class="chapter" data-level="2.4.11" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#gather"><i class="fa fa-check"></i><b>2.4.11</b> gather</a></li>
+<li class="chapter" data-level="2.4.12" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#funcoes-auxiliares"><i class="fa fa-check"></i><b>2.4.12</b> Funções auxiliares</a></li>
+<li class="chapter" data-level="2.4.13" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#um-pouco-mais-de-manipulacao-de-dados"><i class="fa fa-check"></i><b>2.4.13</b> Um pouco mais de manipulação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#processar"><i class="fa fa-check"></i><b>3.6</b> Processar</a></li>
-<li class="chapter" data-level="3.7" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#todo"><i class="fa fa-check"></i><b>3.7</b> TODO</a></li>
-<li class="chapter" data-level="3.8" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#manipulacao-de-dados-com-dplyr"><i class="fa fa-check"></i><b>3.8</b> Manipulação de dados com dplyr</a><ul>
-<li class="chapter" data-level="3.8.1" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#trabalhando-com-tibbles"><i class="fa fa-check"></i><b>3.8.1</b> Trabalhando com tibbles</a></li>
-<li class="chapter" data-level="3.8.2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#filosofia-do-hadley-para-analise-de-dados"><i class="fa fa-check"></i><b>3.8.2</b> Filosofia do Hadley para análise de dados</a></li>
-<li class="chapter" data-level="3.8.3" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#as-cinco-funcoes-principais-do-dplyr"><i class="fa fa-check"></i><b>3.8.3</b> As cinco funções principais do dplyr</a></li>
-<li class="chapter" data-level="3.8.4" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#caracteristicas"><i class="fa fa-check"></i><b>3.8.4</b> Características</a></li>
-<li class="chapter" data-level="3.8.5" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#vantagens"><i class="fa fa-check"></i><b>3.8.5</b> Vantagens</a></li>
-<li class="chapter" data-level="3.8.6" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#select"><i class="fa fa-check"></i><b>3.8.6</b> select</a></li>
-<li class="chapter" data-level="3.8.7" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#filter"><i class="fa fa-check"></i><b>3.8.7</b> filter</a></li>
-<li class="chapter" data-level="3.8.8" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#mutate"><i class="fa fa-check"></i><b>3.8.8</b> mutate</a></li>
-<li class="chapter" data-level="3.8.9" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#arrange"><i class="fa fa-check"></i><b>3.8.9</b> arrange</a></li>
-<li class="chapter" data-level="3.8.10" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#summarise"><i class="fa fa-check"></i><b>3.8.10</b> summarise</a></li>
-<li class="chapter" data-level="3.8.11" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#data-tidying-com-tidyr"><i class="fa fa-check"></i><b>3.8.11</b> Data Tidying com tidyr</a></li>
-<li class="chapter" data-level="3.8.12" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#spread"><i class="fa fa-check"></i><b>3.8.12</b> spread</a></li>
-<li class="chapter" data-level="3.8.13" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#gather"><i class="fa fa-check"></i><b>3.8.13</b> gather</a></li>
-<li class="chapter" data-level="3.8.14" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#funcoes-auxiliares"><i class="fa fa-check"></i><b>3.8.14</b> Funções auxiliares</a></li>
-<li class="chapter" data-level="3.8.15" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#um-pouco-mais-de-manipulacao-de-dados"><i class="fa fa-check"></i><b>3.8.15</b> Um pouco mais de manipulação de dados</a></li>
-<li class="chapter" data-level="3.8.16" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#acessando-paginas-web"><i class="fa fa-check"></i><b>3.8.16</b> Acessando páginas web</a></li>
-<li class="chapter" data-level="3.8.17" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#armazenamento-de-documentos-web"><i class="fa fa-check"></i><b>3.8.17</b> Armazenamento de documentos web</a></li>
-<li class="chapter" data-level="3.8.18" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#trabalhando-com-arquivos-pdf"><i class="fa fa-check"></i><b>3.8.18</b> Trabalhando com arquivos pdf</a></li>
+<li class="chapter" data-level="2.5" data-path="pacotes-lubridate-e-stringr.html"><a href="pacotes-lubridate-e-stringr.html"><i class="fa fa-check"></i><b>2.5</b> Pacotes <code>lubridate</code> e <code>stringr</code></a></li>
+<li class="chapter" data-level="2.6" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html"><i class="fa fa-check"></i><b>2.6</b> Pacotes <code>httr</code>, <code>xml2</code> e <code>rvest</code></a></li>
+<li class="chapter" data-level="2.7" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>2.7</b> Web scraping</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="web-scraping.html"><a href="web-scraping.html#informacoes-iniciais"><i class="fa fa-check"></i><b>2.7.1</b> Informações iniciais</a></li>
+<li class="chapter" data-level="2.7.2" data-path="web-scraping.html"><a href="web-scraping.html#diferenca-entre-buscar-baixar-e-processar."><i class="fa fa-check"></i><b>2.7.2</b> Diferença entre buscar, baixar e processar.</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#text-mining"><i class="fa fa-check"></i><b>3.9</b> Text mining</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#expressoes-regulares"><i class="fa fa-check"></i><b>3.9.1</b> Expressões regulares</a></li>
-<li class="chapter" data-level="3.9.2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html#trabalhando-com-datas"><i class="fa fa-check"></i><b>3.9.2</b> Trabalhando com datas</a></li>
+<li class="chapter" data-level="2.8" data-path="buscar-documentos.html"><a href="buscar-documentos.html"><i class="fa fa-check"></i><b>2.8</b> Buscar documentos</a></li>
+<li class="chapter" data-level="2.9" data-path="coletar-processos.html"><a href="coletar-processos.html"><i class="fa fa-check"></i><b>2.9</b> Coletar processos</a></li>
+<li class="chapter" data-level="2.10" data-path="visualizacao-de-dados.html"><a href="visualizacao-de-dados.html"><i class="fa fa-check"></i><b>2.10</b> Visualização de dados</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="visualizacao-de-dados.html"><a href="visualizacao-de-dados.html#instalacao"><i class="fa fa-check"></i><b>2.10.1</b> Instalação</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="construindo-graficos.html"><a href="construindo-graficos.html"><i class="fa fa-check"></i><b>2.11</b> Construindo gráficos</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="construindo-graficos.html"><a href="construindo-graficos.html#as-camadas-de-um-grafico"><i class="fa fa-check"></i><b>2.11.1</b> As camadas de um gráfico</a></li>
+<li class="chapter" data-level="2.11.2" data-path="construindo-graficos.html"><a href="construindo-graficos.html#personalizando-os-graficos"><i class="fa fa-check"></i><b>2.11.2</b> Personalizando os gráficos</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="o-pacote-ggplot2.html"><a href="o-pacote-ggplot2.html"><i class="fa fa-check"></i><b>4</b> O pacote ggplot2</a><ul>
-<li class="chapter" data-level="4.1" data-path="o-pacote-ggplot2.html"><a href="o-pacote-ggplot2.html#instalacao"><i class="fa fa-check"></i><b>4.1</b> Instalação</a></li>
+<li class="chapter" data-level="3" data-path="aulas.html"><a href="aulas.html"><i class="fa fa-check"></i><b>3</b> Aulas</a></li>
+<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
+<li class="chapter" data-level="4.1" data-path="example-one.html"><a href="example-one.html"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
+<li class="chapter" data-level="4.2" data-path="example-two.html"><a href="example-two.html"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="construindo-graficos.html"><a href="construindo-graficos.html"><i class="fa fa-check"></i><b>5</b> Construindo gráficos</a><ul>
-<li class="chapter" data-level="5.1" data-path="construindo-graficos.html"><a href="construindo-graficos.html#as-camadas-de-um-grafico"><i class="fa fa-check"></i><b>5.1</b> As camadas de um gráfico</a><ul>
-<li class="chapter" data-level="5.1.1" data-path="construindo-graficos.html"><a href="construindo-graficos.html#aesthetics"><i class="fa fa-check"></i><b>5.1.1</b> Aesthetics</a></li>
-<li class="chapter" data-level="5.1.2" data-path="construindo-graficos.html"><a href="construindo-graficos.html#geoms"><i class="fa fa-check"></i><b>5.1.2</b> Geoms</a></li>
-</ul></li>
-<li class="chapter" data-level="5.2" data-path="construindo-graficos.html"><a href="construindo-graficos.html#personalizando-os-graficos"><i class="fa fa-check"></i><b>5.2</b> Personalizando os gráficos</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="construindo-graficos.html"><a href="construindo-graficos.html#cores"><i class="fa fa-check"></i><b>5.2.1</b> Cores</a></li>
-<li class="chapter" data-level="5.2.2" data-path="construindo-graficos.html"><a href="construindo-graficos.html#eixos"><i class="fa fa-check"></i><b>5.2.2</b> Eixos</a></li>
-<li class="chapter" data-level="5.2.3" data-path="construindo-graficos.html"><a href="construindo-graficos.html#legendas"><i class="fa fa-check"></i><b>5.2.3</b> Legendas</a></li>
-<li class="chapter" data-level="5.2.4" data-path="construindo-graficos.html"><a href="construindo-graficos.html#facets"><i class="fa fa-check"></i><b>5.2.4</b> Facets</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>6</b> Applications</a><ul>
-<li class="chapter" data-level="6.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>6.1</b> Example one</a></li>
-<li class="chapter" data-level="6.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>6.2</b> Example two</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
+<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -193,8 +172,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="construindo-graficos" class="section level1">
-<h1><span class="header-section-number">Parte 5</span> Construindo gráficos</h1>
+<div id="construindo-graficos" class="section level2">
+<h2><span class="header-section-number">2.11</span> Construindo gráficos</h2>
 <p>A seguir, vamos discutir os aspcetos básicos para a construção de gráficos com o pacote <code>gglplot2</code>. Para isso, utilizaremos o banco de dados contido no objeto <code>mtcars</code>. Para visualizar as primeiras linhas deste banco, utilize o comando:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(mtcars)</code></pre></div>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
@@ -204,15 +183,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div id="as-camadas-de-um-grafico" class="section level2">
-<h2><span class="header-section-number">5.1</span> As camadas de um gráfico</h2>
+<div id="as-camadas-de-um-grafico" class="section level3">
+<h3><span class="header-section-number">2.11.1</span> As camadas de um gráfico</h3>
 <p>No <code>ggplot2</code>, os gráficos são construídos camada por camada (ou, <em>layers</em>, em inglês), sendo que a primeira delas é dada pela função <code>ggplot</code> (não tem o “2”). Cada camada representa um tipo de mapeamento ou personalização do gráfico. O código abaixo é um exemplo de um gráfico bem simples, construído a partir das duas principais camadas.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> disp, <span class="dt">y =</span> mpg)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
 <p><img src="curso-jurimetria_files/figure-html/aula05chunk03-1.png" width="672" /></p>
 <p>Observe que o primeiro argumento da função <code>ggplot</code> é um data frame. A função <code>aes()</code> descreve como as variáveis são mapeadas em aspectos visuais de formas geométricas definidas pelos <em>geoms</em>. Aqui, essas formas geométricas são pontos, selecionados pela função <code>geom_point()</code>, gerando, assim, um gráfico de dispersão. A combinação dessas duas camadas define o tipo de gráfico que você deseja construir.</p>
-<div id="aesthetics" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Aesthetics</h3>
+<div id="aesthetics" class="section level4">
+<h4><span class="header-section-number">2.11.1.1</span> Aesthetics</h4>
 <p>A primeira camada de um gráfico deve indicar a relação entre os dados e cada aspecto visual do gráfico, como qual variável será representada no eixo x, qual será representada no eixo y, a cor e o tamanho dos componentes geométricos etc. Os aspectos que podem ou devem ser mapeados depende do tipo de gráfico que você deseja fazer.</p>
 <p>No exemplo acima, atribuímos aspectos de posição: ao eixo y mapeamos a variável <code>mpg</code> (milhas por galão) e ao eixo x a variável <code>disp</code> (cilindradas). Outro aspecto que pode ser mapeado nesse gráfico é a cor dos pontos</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> disp, <span class="dt">y =</span> mpg, <span class="dt">colour =</span> <span class="kw">as.factor</span>(am))) +<span class="st"> </span>
@@ -230,8 +209,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><img src="curso-jurimetria_files/figure-html/aula05chunk06-1.png" width="672" /></p>
 <p><strong>Exercício</strong>: pesquisar mais aspectos que podem ser alterados no gráfico de dispersão.</p>
 </div>
-<div id="geoms" class="section level3">
-<h3><span class="header-section-number">5.1.2</span> Geoms</h3>
+<div id="geoms" class="section level4">
+<h4><span class="header-section-number">2.11.1.2</span> Geoms</h4>
 <p>Os <em>geoms</em> definem qual forma geométrica será utilizada para a visualização dos dados no gráfico. Como já vimos, a função <code>geom_point()</code> gera gráficos de dispersão transformando pares (x,y) em pontos. Veja a seguir outros <em>geoms</em> bastante utilizados:</p>
 <ul>
 <li>geom_line: para retas definidas por pares (x,y)</li>
@@ -257,10 +236,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Para fazer um boxplot para cada grupo, precisamos passar para o aspecto x do gráfico uma variável do tipo fator.</p>
 </div>
 </div>
-<div id="personalizando-os-graficos" class="section level2">
-<h2><span class="header-section-number">5.2</span> Personalizando os gráficos</h2>
-<div id="cores" class="section level3">
-<h3><span class="header-section-number">5.2.1</span> Cores</h3>
+<div id="personalizando-os-graficos" class="section level3">
+<h3><span class="header-section-number">2.11.2</span> Personalizando os gráficos</h3>
+<div id="cores" class="section level4">
+<h4><span class="header-section-number">2.11.2.1</span> Cores</h4>
 <p>O aspecto colour do boxplot, muda a cor do contorno. Para mudar o preenchimento, basta usar o <code>fill</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(cyl), <span class="dt">y =</span> mpg, <span class="dt">colour =</span> <span class="kw">as.factor</span>(cyl))) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
@@ -272,8 +251,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;pink&quot;</span>)</code></pre></div>
 <p><img src="curso-jurimetria_files/figure-html/aula05chunk12-1.png" width="480" /></p>
 </div>
-<div id="eixos" class="section level3">
-<h3><span class="header-section-number">5.2.2</span> Eixos</h3>
+<div id="eixos" class="section level4">
+<h4><span class="header-section-number">2.11.2.2</span> Eixos</h4>
 <p>Para alterar os labels dos eixos acrescentamos as funções <code>xlab()</code> ou <code>ylab()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> mpg)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_histogram</span>() +
@@ -291,8 +270,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="curso-jurimetria_files/figure-html/aula05chunk14-1.png" width="480" /></p>
 </div>
-<div id="legendas" class="section level3">
-<h3><span class="header-section-number">5.2.3</span> Legendas</h3>
+<div id="legendas" class="section level4">
+<h4><span class="header-section-number">2.11.2.3</span> Legendas</h4>
 <p>A legenda de um gráfico pode ser facilmente personalizada.</p>
 <p>Para trocar o <em>label</em> da leganda:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(cyl), <span class="dt">fill =</span> <span class="kw">as.factor</span>(cyl))) +<span class="st"> </span>
@@ -312,8 +291,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><img src="curso-jurimetria_files/figure-html/aula05chunk17-1.png" width="480" /></p>
 <p>Veja mais opções de personalização <a href="http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/">aqui!</a></p>
 </div>
-<div id="facets" class="section level3">
-<h3><span class="header-section-number">5.2.4</span> Facets</h3>
+<div id="facets" class="section level4">
+<h4><span class="header-section-number">2.11.2.4</span> Facets</h4>
 <p>Outra funcionalidade muito importante do ggplot é o uso de <em>facets</em>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> mpg, <span class="dt">y =</span> disp, <span class="dt">colour =</span> <span class="kw">as.factor</span>(cyl))) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
@@ -328,13 +307,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="o-pacote-ggplot2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="applications.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="visualizacao-de-dados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="aulas.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -361,10 +341,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/abjur/curso/edit/master/03-method.Rmd",
+"link": "https://github.com/abjur/curso/edit/master/02-ferramental.Rmd",
 "text": "Editar"
 },
-"download": null,
+"download": ["curso-jurimetria.pdf"],
 "toc": {
 "collapse": "subsection"
 }
@@ -372,17 +352,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

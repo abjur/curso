@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="text-mining.html">
-<link rel="next" href="instalacao.html">
+<link rel="prev" href="as-camadas-de-um-grafico.html">
+<link rel="next" href="applications.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -199,18 +199,84 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="o-pacote-ggplot2" class="section level1">
-<h1><span class="header-section-number">4</span> O pacote ggplot2</h1>
-<p>O <code>ggplot2</code> é um pacote do R voltado para a criação de gráficos estatísticos. Ele é baseado na Gramática dos Gráficos (<em>grammar of graphics</em>, em inglês), criado por Leland Wilkinson, que é uma resposta para a pergunta: o que é um gráfico estatístico? Resumidamente, a gramática diz que um gráfico estatístico é um mapeamento dos dados a partir de atributos estéticos (cores, formas, tamanho) de formas geométricas (pontos, linhas, barras).</p>
-<p>Para mais informações sobre a Gramática dos Gráficos, você pode consultar o livro <a href="http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7"><em>The Grammar of graphics</em></a>, escrito pelo Leland Wilkinson, ou o livro <a href="http://ggplot2.org/book/">ggplot2: elegant graphics for data analysis</a>, do Hadley Wickham. Um <a href="http://moderngraphics11.pbworks.com/f/ggplot2-Book09hWickham.pdf">pdf do livro</a> também está disponível.</p> 
+<div id="personalizando-os-graficos" class="section level2">
+<h2><span class="header-section-number">5.2</span> Personalizando os gráficos</h2>
+<div id="cores" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Cores</h3>
+<p>O aspecto colour do boxplot, muda a cor do contorno. Para mudar o preenchimento, basta usar o <code>fill</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(cyl), <span class="dt">y =</span> mpg, <span class="dt">colour =</span> <span class="kw">as.factor</span>(cyl))) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/aula05chunk10-1.png" width="480" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(cyl), <span class="dt">y =</span> mpg, <span class="dt">fill =</span> <span class="kw">as.factor</span>(cyl))) +<span class="st"> </span><span class="kw">geom_boxplot</span>()</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/aula05chunk11-1.png" width="480" /></p>
+<p>Você pode também mudar a cor dos objetos sem mapeá-la a uma variável. Para isso, observe que os aspectos <code>colour</code> e <code>fill</code> são especificados fora do <code>aes()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(cyl), <span class="dt">y =</span> mpg)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;pink&quot;</span>)</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/aula05chunk12-1.png" width="480" /></p>
 </div>
+<div id="eixos" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Eixos</h3>
+<p>Para alterar os labels dos eixos acrescentamos as funções <code>xlab()</code> ou <code>ylab()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> mpg)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>() +
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Milhas por galão&quot;</span>) +
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequência&quot;</span>)</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="curso-jurimetria_files/figure-html/aula05chunk13-1.png" width="480" /></p>
+<p>Para alterar os limites dos gráficos usamos as funções <code>xlim()</code> e <code>ylim()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> mpg)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>() +
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Milhas por galão&quot;</span>) +
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Frequência&quot;</span>) +
+<span class="st">  </span><span class="kw">xlim</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">40</span>)) +
+<span class="st">  </span><span class="kw">ylim</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">8</span>))</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="curso-jurimetria_files/figure-html/aula05chunk14-1.png" width="480" /></p>
+</div>
+<div id="legendas" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Legendas</h3>
+<p>A legenda de um gráfico pode ser facilmente personalizada.</p>
+<p>Para trocar o <em>label</em> da leganda:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(cyl), <span class="dt">fill =</span> <span class="kw">as.factor</span>(cyl))) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>() +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">fill =</span> <span class="st">&quot;cyl&quot;</span>)</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/aula05chunk15-1.png" width="480" /></p>
+<p>Para trocar a posição da legenda:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(cyl), <span class="dt">fill =</span> <span class="kw">as.factor</span>(cyl))) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>() +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">fill =</span> <span class="st">&quot;cyl&quot;</span>) +
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;top&quot;</span>)</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/aula05chunk16-1.png" width="480" /></p>
+<p>Para retirar a legenda:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">as.factor</span>(cyl), <span class="dt">fill =</span> <span class="kw">as.factor</span>(cyl))) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>() +
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="ot">FALSE</span>)</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/aula05chunk17-1.png" width="480" /></p>
+<p>Veja mais opções de personalização <a href="http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/">aqui!</a></p>
+</div>
+<div id="facets" class="section level3">
+<h3><span class="header-section-number">5.2.4</span> Facets</h3>
+<p>Outra funcionalidade muito importante do ggplot é o uso de <em>facets</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> mpg, <span class="dt">y =</span> disp, <span class="dt">colour =</span> <span class="kw">as.factor</span>(cyl))) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_grid</span>(am~.)</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/aula05chunk18-1.png" width="672" /></p>
+<p>Podemos colocar os graficos lado a lado também:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(<span class="dt">x =</span> mpg, <span class="dt">y =</span> disp, <span class="dt">colour =</span> <span class="kw">as.factor</span>(cyl))) +
+<span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_grid</span>(.~am)</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/aula05chunk19-1.png" width="672" /></p>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="text-mining.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="instalacao.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="as-camadas-de-um-grafico.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="applications.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>

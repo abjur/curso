@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="definicao-de-jurimetria.html">
+<link rel="prev" href="pipe.html">
+<link rel="next" href="pacotes-dplyr-e-tidyr.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -172,24 +172,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Curso de Jurimetria</h1>
-<h4 class="author"><em>Associação Brasileira de Jurimetria</em></h4>
-<h4 class="date"><em>2016-08-04</em></h4>
+<div id="data-tidying" class="section level2">
+<h2><span class="header-section-number">2.3</span> Data tidying</h2>
+<p>Uma base de dados é considerada “tidy” se</p>
+<ul>
+<li>Cada observação é uma linha do bd.</li>
+<li>Cada variável é uma coluna do bd.</li>
+<li>Para cada unidade observacional temos um <code>data_frame</code> separado (possivelmente com chaves de associação).</li>
+</ul>
+<p>Nessa parte do curso, vamos trabalhar com <a href="http://r4ds.had.co.nz/wrangle-intro.html"><em>arrumação de dados</em></a>, que consiste em trabalhar com ferramentas de extração, consolidação e transformação de dados. As ferramentas utilizadas fazem parte do chamado <code>tidyverse</code>, um universo de pacotes contemporâneos do <code>R</code> que são intuitivas, eficientes e úteis.</p>
+<p>O objetivo em <em>arrumação de dados</em> é extrair e transformar uma base de dados até que ela esteja em formato <em>tidy</em>. Em seguida, mostraremos como fizemos isso no exemplo das câmaras. Adicionalmente, vamos apresentar como foram trabalhados os arquivos PDF no caso do Waze do judiciário.</p>
+<p><img src="http://r4ds.had.co.nz/diagrams/data-science-wrangle.png" style="width: 600px;"/></p>
 </div>
-<div id="introducao" class="section level1">
-<h1><span class="header-section-number">1. </span> Introdução</h1>
-<p>Essa é a primeira iteração do curso de Jurimetria da ABJ. Nesse curso abordamos aspectos teóricos e práticos da Jurimetria, essenciais para um profissional da Estatística que tenha interesse em trabalhar nessa área de pesquisa.</p>
-<p>O curso é voltado para estatísticos e está organizado em duas partes principais. Na primeira parte, apresentamos as ferramentas de trabalho do laboratório de Jurimetria, que permitem a execução de nossas pesquisas. Na segunda parte, apresentamos diversas aplicações da Jurimetria, focando em metodolodia de pesquisa, técnicas estatísticas e conceitos fundamentais de Jurimetria.</p>
-<p>Para a primeira parte do curso, será necessário ter conhecimentos do software estatístico <code>R</code>, como a lógica de programação, sintaxe do R e ambientação com o <code>RStudio</code>. Para as partes seguintes, será necessário ter conhecimentos básicos de estatística, como probabilidade, verossimilhança, inferência e processos estocásticos.</p>
-
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="definicao-de-jurimetria.html" class="navigation navigation-next navigation-unique" aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="pipe.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pacotes-dplyr-e-tidyr.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -216,7 +217,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/abjur/curso/edit/master/index.Rmd",
+"link": "https://github.com/abjur/curso/edit/master/02-ferramental.Rmd",
 "text": "Editar"
 },
 "download": ["curso-jurimetria.pdf"],
