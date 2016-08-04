@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="definicao-de-jurimetria.html">
+<link rel="prev" href="pacotes-httr-xml2-e-rvest.html">
+<link rel="next" href="buscar-documentos.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -172,24 +172,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Curso de Jurimetria</h1>
-<h4 class="author"><em>Associação Brasileira de Jurimetria</em></h4>
-<h4 class="date"><em>2016-08-04</em></h4>
+<div id="web-scraping" class="section level2">
+<h2><span class="header-section-number">2.7</span> Web scraping</h2>
+<p>Esta seção contém algumas melhores práticas na contrução de ferramentas no R que baixam e processam informações de sites disponíveis na web. O objetivo é ajudar o jurimetrista a desenvolver programas que sejam fáceis de adaptar no tempo.</p>
+<p>É importante ressaltar que só estamos trabalhando com páginas que são acessíveis publicamente. Caso tenha interesse e “raspar” páginas que precisam de autenticação, recomendamos que estude os termos de uso do site.</p>
+<p>Para ilustrar este texto, usaremos como exemplo o código utilizado no trabalho das câmaras, que acessa o site do Tribunal de Justiça de São Paulo para obter informações de processos judiciais. Trabalharemos principalmente com a <a href="https://esaj.tjsp.jus.br/cjsg/consultaCompleta.do">Consulta de Jurisprudência</a> e a <a href="https://esaj.tjsp.jus.br/cpo/sg/open.do">Consulta de de Processos de Segundo Grau</a> do TJSP.</p>
+<div id="informacoes-iniciais" class="section level3">
+<h3><span class="header-section-number">2.7.1</span> Informações iniciais</h3>
+<p>Antes de iniciar um programa de web scraping, verifique se existe alguma forma mais fácil de conseguir os dados que necessita. Construir um web scraper do zero é muitas vezes uma tarefa dolorosa e, caso o site seja atualizado, pode ser que boa parte do trabalho seja inútil. Se os dados precisarem ser extraídos apenas uma vez, verifique com os responsáveis pela manutenção do site se eles podem fazer a extração que precisa. Se os dados precisarem ser atualizados, verifique se a entidade não possui uma API para acesso aos dados.</p>
+<p>Ao escrever um web scraper, as primeiras coisas que devemos pensar são</p>
+<ul>
+<li>Como o site a ser acessado foi contruído, se tem limites de requisições, utilização de cookies, states, etc.</li>
+<li>Como e com que frequência o site é atualizado, tanto em relação à sua interface como em relação aos dados que queremos extrair.</li>
+<li>Como conseguir a lista das páginas que queremos acessar.</li>
+<li>Qual o caminho percorrido para acessar uma página específica.</li>
+</ul>
+<p>Sugerimos como melhores práticas dividir todas as atividades em três tarefas principais: i) <em>buscar</em>; ii) <em>coletar</em> e iii) <em>processar</em>. Quando já sabemos de antemão quais são as URLs que vamos acessar, a etapa de busca é desnecessária.</p>
+<p>Na maior parte dos casos, deixar os algoritmos de <em>coleta</em> e <em>processamento</em> dos dados em funções distintas é uma boa prática pois aumenta o controle sobre o que as ferramentas estão fazendo, facilita o debug e a atualização. Por outro lado, em alguns casos isso pode tornar o código mais ineficiente e os arquivos obtidos podem ficar pesados.</p>
 </div>
-<div id="introducao" class="section level1">
-<h1><span class="header-section-number">1. </span> Introdução</h1>
-<p>Essa é a primeira iteração do curso de Jurimetria da ABJ. Nesse curso abordamos aspectos teóricos e práticos da Jurimetria, essenciais para um profissional da Estatística que tenha interesse em trabalhar nessa área de pesquisa.</p>
-<p>O curso é voltado para estatísticos e está organizado em duas partes principais. Na primeira parte, apresentamos as ferramentas de trabalho do laboratório de Jurimetria, que permitem a execução de nossas pesquisas. Na segunda parte, apresentamos diversas aplicações da Jurimetria, focando em metodolodia de pesquisa, técnicas estatísticas e conceitos fundamentais de Jurimetria.</p>
-<p>Para a primeira parte do curso, será necessário ter conhecimentos do software estatístico <code>R</code>, como a lógica de programação, sintaxe do R e ambientação com o <code>RStudio</code>. Para as partes seguintes, será necessário ter conhecimentos básicos de estatística, como probabilidade, verossimilhança, inferência e processos estocásticos.</p>
-
+<div id="diferenca-entre-buscar-baixar-e-processar." class="section level3">
+<h3><span class="header-section-number">2.7.2</span> Diferença entre buscar, baixar e processar.</h3>
+<p>Buscar documentos significa, de uma forma geral, utilizar ferramentas de busca (ou acessar links de um site) para obter informações de uma nova requisição a ser realizada. Ou seja, essa etapa do scraper serve para “procurar links” que não sabíamos que existiam previamente. Isso será resolvido através da função <code>cjsg</code>.</p>
+<p>Baixar documentos, no entando, significa simplesmente acessar páginas pré-estabelecidas e salvá-las em disco. Em algumas situações, os documentos baixados (depois de limpos) podem conter uma nova lista de páginas a serem baixadas, formando iterações de coletas. A tarefa de baixar documentos pré-estabelecidos será realizada pela função <code>cposg</code>.</p>
+<p>Finalmente, processar documentos significa carregar dados acessíveis em disco e transformar os dados brutos uma base <em>tidy</em>. Usualmente separamos a estruturação em duas etapas: i) transformar arquivos não-estruturados em um arquivos semi-estruturados (e.g. um arquivo HTML em uma tabela mais um conjunto de textos livres) e ii) transformar arquivos semi-estruturados em uma base analítica (estruturada). A tarefa de processar as páginas HTML será realizada pelas funções <code>parse_cjsg</code> e <code>parse_cpopg</code>.</p>
+<p>Na pesquisa das câmaras, seguimos o fluxo</p>
+<pre><code>buscar -&gt; coletar -&gt; processar -&gt; coletar -&gt; processar</code></pre>
+<p>para conseguir nossos dados.</p>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="definicao-de-jurimetria.html" class="navigation navigation-next navigation-unique" aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="pacotes-httr-xml2-e-rvest.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="buscar-documentos.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -216,7 +233,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/abjur/curso/edit/master/index.Rmd",
+"link": "https://github.com/abjur/curso/edit/master/02-ferramental.Rmd",
 "text": "Editar"
 },
 "download": ["curso-jurimetria.pdf"],
