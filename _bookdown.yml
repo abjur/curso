@@ -1,6 +1,6 @@
 book_filename: "curso-jurimetria"
 date: "`r Sys.Date()`"
-chapter_name: "Parte "
+chapter_name: !expr function(i) paste0(i, '. ')
 edit:
   link: https://github.com/abjur/curso/edit/master/%s
   text: "Editar"
