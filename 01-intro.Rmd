@@ -1,21 +1,211 @@
-# Introduction {#intro}
+## Definição de Jurimetria
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+Podemos definir Jurimetria como a 
+*disciplina do conhecimento que utiliza a metodologia estatística para 
+investigar o funcionamento de uma ordem jurídica*. 
+A partir dela, fica claro que a Jurimetria se distingue das
+demais disciplinas jurídicas, 
+tanto pelo objeto como pela metodologia empregada nas análises. 
 
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+A Jurimetria tem três pilares operacionais: jurídico, estatístico e computacional.
+É claro que a reunião dessas especialidades em uma só pessoa é atualmente rara. 
+Por isso, a prática da Jurimetria vem sendo desenvolvida em
+um ambiente laboratorial em que bacharéis em direito, 
+estatísticos e cientistas da computação unem esforços na resolução de problemas.
 
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
+A Jurimetria propõe um giro epistemológico, 
+análogo àquele proposto pelo *realismo jurídico*, 
+deslocando o centro de interesse da pesquisa 
+do plano abstrato para o plano concreto. 
+O conceito norteador deste giro é que o direito efetivo, 
+aquele capaz de afetar a relação entre sujeitos, 
+correspondente às sentenças, acórdãos, contratos e 
+demais ordens jurídicas produzidas no plano concreto. 
 
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+A lei é uma declaração de intenções do legislador, 
+que muitas vezes se mostra plurívoca, contraditória e lacunosa. 
+Para a jurimetria, é no plano concreto que o Direito se revela, sendo a lei
+apenas um dos fatores - ao lado dos valores pessoais, religião, empatia, experiência
+pessoal de vida e outros tantos -, capaz de influenciar o processo de concretização
+das normas do Direito. Por tal razão, o Direito não pode ser reduzido a um conjunto
+de normas editado por autoridades competentes e deve ser visto, sim, como um
+aparato de solução de conflitos, no qual a lei desempenha um papel importante,
+porém não suficiente.
 
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
+Estudar de forma concreta significa 
+**situar o objeto de estudo no tempo e no espaço**. 
+Uma vantagem desse tipo de abordagem é que há clareza na
+construção do escopo das pesquisas, o que pode levar a conclusões mais
+diretas. Para tornar os estudos factíveis, no entanto, também é
+necessário definir claramente o arcabouço de suposições 
+no qual as conclusões são válidas.
 
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. ddd aaa
+Utilizar a abordagem concreta não significa que pensar
+de forma abstrata é ruim. Para construção de modelos capazes de mensurar 
+certas quantidades de forma adequada, ou para elaborar soluções para
+um problema na lei, é necessário desconstruir o fenômeno de 
+maneira ampla, utilizar criatividade e intuição. 
+A concretude ajuda ao direcionar as abstrações e 
+ligá-las a um objetivo pragmático.
+
+A jurimetria também assume como ponto de partida 
+a possibilidade modelar certos fenômenos do direito como eventos aleatórios. 
+Essa abordagem contrasta com a abordagem clássica, 
+que usa o determinismo fatalista como realidade do direito.
+As vantagens em assumir aleatoriedade em modelos jurimétricos
+confundem-se com as vantagens da utilização da metodologia estatística em geral. 
+Ao aceitar que há incerteza nos modelos e que não somos em geral
+capazes de dar respostas definitivas às nossas perguntas, 
+ganhamos a habilidade de afirmar mais sobre o desconhecido,
+associando possíveis resultados a suas respectivas verossimilhanças. 
+
+Neste curso, abordaremos aplicações dentro dos tribunais, 
+na administração e para a sociedade. 
+Após estudar este material, 
+o estatístico terá base suficiente para planejar e executar estudos jurimétricos,
+que poderão auxiliar na elaboração de políticas públicas,
+na gestão judiciária e administração de tribunais.
+
+<!-- A importância da utilização da jurimetria no estudo de -->
+<!-- fenômenos jurídicos pode ser explicada a partir de diversos pontos de -->
+<!-- vista. Em políticas públicas, por exemplo, a estatística auxilia na -->
+<!-- elaboração de estudos de impacto regulatório e sugestões de melhoria no -->
+<!-- sistema judiciário. Para administração dos tribunais, existem trabalhos -->
+<!-- como o Relatório Justiça em Números, do Conselho Nacional de Justiça[^1],  -->
+<!-- que visam descrever e mensurar o desempenho de tribunais com base em  -->
+<!-- estatísticas de produtividade. -->
+
+<!-- [^1]: [Justiça em Números](http://www.cnj.jus.br/programas-e-acoes/pj-justica-em-numeros). -->
+
+<!-- Atualmente há amplo espaço para produção acadêmica em jurimetria.  -->
+<!-- Nos Estados Unidos, por exemplo, um dos principais termos  -->
+<!-- utilizados são os ***Empirical Legal Studies*** (ELS), e -->
+<!-- envolvendo pesquisas de diversas correntes do direito, economia, sociologia -->
+<!-- e psicologia, organizados no ***Journal of Empirical Legal Studies (JELS)***.  -->
+<!-- Outra revista importante é o ***Jurimetrics Journal***, que tem como  -->
+<!-- prerrogativa a aplicação de ciência e tecnologia no direito. Podemos -->
+<!-- também encontrar textos relevantes sobre jurimetria nas revistas -->
+<!-- ***Journal of Legal Studies***, -->
+<!-- ***Journal of Law and Economics***, -->
+<!-- ***Law, Probability and Risk*** e  -->
+<!-- ***Journal of Law, Economics and Organization***. -->
+
+<!--' No Brasil, temos poucos pesquisadores e institutos que se dedicam à jurimetria.  -->
+<!--' O termo apareceu pela primeira vez em -->
+<!--' @ribeiro1998avaliaccao, mas só é discutido com profundidade em -->
+<!--' @nunes2012jurimetria. O primeiro artigo sobre o tema escrito por -->
+<!--' estatísticos e profissionais do direito é de -->
+<!--' @zabala2014jurimetria.  -->
+<!--' A ***Rede de Estudos Empíricos no Direito (REED)[^reed]*** -->
+<!--' também publica anualmente uma revista de produção própria.  -->
+<!--' O crescente interesse no tema e o surgimento de produção acadêmica  -->
+<!--' sugerem boas oportunidades para pesquisadores interessados em -->
+<!--' jurimetria, tanto no Brasil quanto no exterior. -->
+
+<!--' [^reed]: [Site da REED](http://reedpesquisa.org/). -->
+
+<!--' ## Áreas e tópicos {#areas-e-topicos} -->
+
+<!--' No atual estado da arte, seria complicado -- ou até presunçoso --  -->
+<!--' definir uma forma fechada para todas as aplicações e áreas que fazem ou  -->
+<!--' não parte do território  jurimétrico.  -->
+<!--' Ainda assim, é possível elaborar alguns rascunhos baseados no que -->
+<!--' já foi feito até o momento, que podem servir como base para guiar -->
+<!--' novos interessados e motivar discussões de pesquisadores mais -->
+<!--' experientes. -->
+
+<!--' Uma abordagem para delimitar áreas da jurimetria é a partir dos -->
+<!--' diferentes interesses dos pesquisadores. @zabala2014jurimetria -->
+<!--' denominam esses pontos como *os três prismas da jurimetria*.  -->
+<!--' Segundo os autores, os prismas seriam a i) elaboração -->
+<!--' legislativa e gestão pública, -->
+<!--' ii) a decisão judicial e iii) a instrução probatória. -->
+
+<!--' Outra forma similar de definir áreas da jurimetria seria de forma escalar,  -->
+<!--' nos diferentes contextos que aparecem em cada estudo. Ao invés -->
+<!--' de prismas, poderíamos pensar em *esferas*. -->
+
+<!--' ### O processo como objeto -->
+
+<!--' Na primeira esfera, temos o processo judicial como objeto de estudo. -->
+<!--' Nele, estamos interessados em dois aspectos principais, i) a prova -->
+<!--' estatística e ii) a mensuração de valores. -->
+
+<!--' No primeiro ponto, o interesse é verificar se um evento de fato ocorreu -->
+<!--' (e.g. um ato ilícito), o que pode ser objeto de testes de hipóteses, -->
+<!--' construído com base em argumentos jurídicos e testado a partir da -->
+<!--' observação de conjuntos de dados. Exemplos desse -->
+<!--' tema são processos de investigação de paternidade, estudos para avaliar -->
+<!--' se algum indivíduo cometeu certo tipo de crime, entre outros (Ver -->
+<!--' @degroot1986statistics para detalhes). -->
+
+<!--' Já no segundo ponto, o interesse é a mensuração de um dano.  -->
+<!--' Esse tipo de problema ocorre quando um -->
+<!--' valor de indenização não pode ser calculado de forma puramente contábil, -->
+<!--' por envolver incerteza ou subjetividade. Alguns exemplos sobre esse tema -->
+<!--' são processos que envolvem lucros cessantes, perda de uma chance e danos -->
+<!--' morais[^2]. -->
+<!--' Recomendamos a leitura de @stern2014compensating como um -->
+<!--' exemplo de estudo nessa esfera. -->
+
+<!--' [^2]: O segundo ponto levantado pode envolver o problema do -->
+<!--' *contrafactual*, que geralmente é complexo de se avaliar, pois -->
+<!--' está relacionado com perguntas sobre um evento do passado que não -->
+<!--' ocorreu. Estudos para avaliação de efeitos contrafactuais muitas vezes -->
+<!--' procuram responder perguntas como "O que teria ocorrido com $A$ -->
+<!--' caso $B$ não tivesse ocorrido, *dado que* na realidade observamos -->
+<!--' $B$ e $A$". Ver @pearl2009causality. -->
+
+<!--' ### Uma entidade como objeto -->
+
+<!--' Na segunda esfera, temos um conjunto de processos como objeto de -->
+<!--' estudo. Tais processos podem fazer parte de um ou mais temas -->
+<!--' específicos, ou então de uma vara ou tribunal. A principal diferença em -->
+<!--' relação à primeira esfera é que nesse caso olhamos para as -->
+<!--' características de um conjunto de casos, buscando padrões, -->
+<!--' e não especificidades individuais. -->
+
+<!--' Nessa esfera poderíamos utilizar as informações dos processos para -->
+<!--' inferir sobre o comportamento de um tribunal, de uma empresa ou de um -->
+<!--' tema jurídico. Além disso, seria possível elaborar modelos preditivos -->
+<!--' para antecipar eventos dos processos, como a decisão do juiz, com o -->
+<!--' intuito de desenvolver estratégias advocatícias ou auxiliar na gestão -->
+<!--' pública. -->
+
+<!--' A presente pesquisa é um exemplo de análise na segunda esfera. Outro -->
+<!--' exemplo de pesquisa na segunda esfera é um estudo realizado no -->
+<!--' Centro de Estatística Aplicada do IME-USP [@bonassi], cujo  -->
+<!--' objetivo era construir uma ferramenta que auxiliasse o cliente na tomada de -->
+<!--' decisão de entrar na Justiça, num cenário de incertezas a respeito de  -->
+<!--' acontecimentos futuros. Uma diferença entre as duas pesquisas é -->
+<!--' que a primeira trata de decisões a serem tomadas a partir da decisão de -->
+<!--' litigar e a segunda trata justamente da decisão de litigar. -->
+
+<!--' ### A sociedade como objeto -->
+
+<!--' Na esfera mais ampla, temos uma sociedade ou um conjunto de -->
+<!--' sociedades como objeto. Com efeito, nos estudos da terceira esfera, -->
+<!--' não estamos interessados somente nos aspectos jurídicos de um -->
+<!--' tema, mas no funcionamento da sociedade como um todo, levando em -->
+<!--' consideração a economia, aspectos psicológicos e sociais. -->
+
+<!--' Pesquisas que colocam a sociedade como objeto geralmente aplicam seus -->
+<!--' estudos para elaboração legislativa, avaliação de impacto regulatório e -->
+<!--' administração dos tribunais. Usualmente, as análises levam em conta, mas -->
+<!--' não se limitam às análises dos litígios, considerando também bases de -->
+<!--' dados relacionadas a aspectos econômicos, demográficos de saúde, etc. -->
+
+<!--' Um exemplo de pesquisa nesse sentido é um projeto desenvolvido pela -->
+<!--' Associação Brasileira de Jurimetria sobre impacto do tempo dos processos -->
+<!--' relacionados à adoção na probabilidade de adoção de -->
+<!--' crianças[^3]. No estudo, foram analisados processos -->
+<!--' relacionados à adoção e também o Cadastro Nacional de Adoção, mostrando -->
+<!--' que existem indícios de que o tempo elevado de tramitação de processos -->
+<!--' de destituição do poder familiar poderiam influenciar negativamente na -->
+<!--' adotabilidade da criança. -->
+
+<!--' [^3]: Disponível [neste link](http://www.cnj.jus.br/files/conteudo/destaques/arquivo/2015/07/8aab4515becd037933960ba8e91e1efc.pdf). -->
+
+<!--' Note que todas as áreas são intimamente conectadas e, em muitos casos, -->
+<!--' seria difícil classificar um estudo a uma esfera ou outra.  -->
+
