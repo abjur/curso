@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Curso de Jurimetria</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Curso de Jurimetria dado ao TSE nos dias 08, 09 e 10 de agosto de 2016.">
+  <meta name="generator" content="bookdown 0.1.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Curso de Jurimetria" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Curso de Jurimetria dado ao TSE nos dias 08, 09 e 10 de agosto de 2016." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Curso de Jurimetria" />
+  
+  <meta name="twitter:description" content="Curso de Jurimetria dado ao TSE nos dias 08, 09 e 10 de agosto de 2016." />
+  
+
+<meta name="author" content="Associação Brasileira de Jurimetria">
+
+<meta name="date" content="2016-08-07">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="pacote-lubridate-para-trabalhar-com-datas.html">
+<link rel="next" href="pacotes-dplyr-e-tidyr.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Curso de Jurimetria</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="definicao-de-jurimetria.html"><a href="definicao-de-jurimetria.html"><i class="fa fa-check"></i><b>1.1</b> Definição de Jurimetria</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html"><i class="fa fa-check"></i><b>2</b> Ferramental de trabalho da ABJ</a><ul>
+<li class="chapter" data-level="2.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html"><i class="fa fa-check"></i><b>2.1</b> Exemplo trabalhado</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-de-gas"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras de gás</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-tidying.html"><a href="data-tidying.html"><i class="fa fa-check"></i><b>2.2</b> Data tidying</a></li>
+<li class="chapter" data-level="2.3" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>2.3</b> Pipe</a></li>
+<li class="chapter" data-level="2.4" data-path="pacote-lubridate-para-trabalhar-com-datas.html"><a href="pacote-lubridate-para-trabalhar-com-datas.html"><i class="fa fa-check"></i><b>2.4</b> Pacote <code>lubridate</code> para trabalhar com datas</a></li>
+<li class="chapter" data-level="2.5" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html"><i class="fa fa-check"></i><b>2.5</b> Pacote <code>stringr</code> para trabalhar com textos</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#expressoes-regulares"><i class="fa fa-check"></i><b>2.5.1</b> Expressões regulares</a></li>
+<li class="chapter" data-level="2.5.2" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#funcoes-do-stringr"><i class="fa fa-check"></i><b>2.5.2</b> Funções do <code>stringr</code></a></li>
+<li class="chapter" data-level="2.5.3" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#exemplo-decisoes-das-camaras"><i class="fa fa-check"></i><b>2.5.3</b> Exemplo: decisões das câmaras</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html"><i class="fa fa-check"></i><b>2.6</b> Pacotes <code>dplyr</code> e <code>tidyr</code></a><ul>
+<li class="chapter" data-level="2.6.1" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#trabalhando-com-tibbles"><i class="fa fa-check"></i><b>2.6.1</b> Trabalhando com <code>tibble</code>s</a></li>
+<li class="chapter" data-level="2.6.2" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#as-cinco-funcoes-principais-do-dplyr"><i class="fa fa-check"></i><b>2.6.2</b> As cinco funções principais do <code>dplyr</code></a></li>
+<li class="chapter" data-level="2.6.3" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#caracteristicas"><i class="fa fa-check"></i><b>2.6.3</b> Características</a></li>
+<li class="chapter" data-level="2.6.4" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#vantagens"><i class="fa fa-check"></i><b>2.6.4</b> Vantagens</a></li>
+<li class="chapter" data-level="2.6.5" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#select"><i class="fa fa-check"></i><b>2.6.5</b> <code>select</code></a></li>
+<li class="chapter" data-level="2.6.6" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#filter"><i class="fa fa-check"></i><b>2.6.6</b> <code>filter</code></a></li>
+<li class="chapter" data-level="2.6.7" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#mutate"><i class="fa fa-check"></i><b>2.6.7</b> <code>mutate</code></a></li>
+<li class="chapter" data-level="2.6.8" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#arrange"><i class="fa fa-check"></i><b>2.6.8</b> <code>arrange</code></a></li>
+<li class="chapter" data-level="2.6.9" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#summarise"><i class="fa fa-check"></i><b>2.6.9</b> <code>summarise</code></a></li>
+<li class="chapter" data-level="2.6.10" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#gather"><i class="fa fa-check"></i><b>2.6.10</b> <code>gather</code></a></li>
+<li class="chapter" data-level="2.6.11" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#spread"><i class="fa fa-check"></i><b>2.6.11</b> <code>spread</code></a></li>
+<li class="chapter" data-level="2.6.12" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#funcoes-auxiliares"><i class="fa fa-check"></i><b>2.6.12</b> Funções auxiliares</a></li>
+<li class="chapter" data-level="2.6.13" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#um-pouco-mais-de-transformacao-de-dados"><i class="fa fa-check"></i><b>2.6.13</b> Um pouco mais de transformação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html"><i class="fa fa-check"></i><b>2.7</b> Pacotes <code>httr</code>, <code>xml2</code> e <code>rvest</code></a><ul>
+<li class="chapter" data-level="2.7.1" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#sessoes-e-cookies"><i class="fa fa-check"></i><b>2.7.1</b> Sessões e cookies</a></li>
+<li class="chapter" data-level="2.7.2" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#get-e-post"><i class="fa fa-check"></i><b>2.7.2</b> <code>GET</code> e <code>POST</code></a></li>
+<li class="chapter" data-level="2.7.3" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#outras-funcoes-do-httr"><i class="fa fa-check"></i><b>2.7.3</b> Outras funções do <code>httr</code></a></li>
+<li class="chapter" data-level="2.7.4" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#principais-funcoes-do-rvest"><i class="fa fa-check"></i><b>2.7.4</b> Principais funções do <code>rvest</code></a></li>
+<li class="chapter" data-level="2.7.5" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#css-path-e-xpath"><i class="fa fa-check"></i><b>2.7.5</b> CSS path e XPath</a></li>
+<li class="chapter" data-level="2.7.6" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#apis-com-httr"><i class="fa fa-check"></i><b>2.7.6</b> APIs com <code>httr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>2.8</b> Web scraping</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="web-scraping.html"><a href="web-scraping.html#informacoes-iniciais"><i class="fa fa-check"></i><b>2.8.1</b> Informações iniciais</a></li>
+<li class="chapter" data-level="2.8.2" data-path="web-scraping.html"><a href="web-scraping.html#diferenca-entre-buscar-baixar-e-processar."><i class="fa fa-check"></i><b>2.8.2</b> Diferença entre buscar, baixar e processar.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="buscar-documentos.html"><a href="buscar-documentos.html"><i class="fa fa-check"></i><b>2.9</b> Buscar documentos</a></li>
+<li class="chapter" data-level="2.10" data-path="coletar-processos.html"><a href="coletar-processos.html"><i class="fa fa-check"></i><b>2.10</b> Coletar processos</a></li>
+<li class="chapter" data-level="2.11" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><i class="fa fa-check"></i><b>2.11</b> A importância da criação de APIs públicos nos tribunais</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#busca-e-extracao"><i class="fa fa-check"></i><b>2.11.1</b> Busca e extração</a></li>
+<li class="chapter" data-level="2.11.2" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-profissional-do-direito-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.2</b> Como o profissional do Direito acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.3" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-estatistico-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.3</b> Como o estatístico acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.4" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-jurimetrista-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.4</b> Como o jurimetrista acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.5" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-melhorar"><i class="fa fa-check"></i><b>2.11.5</b> Como melhorar?</a></li>
+<li class="chapter" data-level="2.11.6" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#solucao-a-longo-prazo"><i class="fa fa-check"></i><b>2.11.6</b> Solução a longo prazo:</a></li>
+<li class="chapter" data-level="2.11.7" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#vantagens-de-permitir-o-acesso-aos-dados"><i class="fa fa-check"></i><b>2.11.7</b> Vantagens de permitir o acesso aos dados</a></li>
+<li class="chapter" data-level="2.11.8" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#expectativas"><i class="fa fa-check"></i><b>2.11.8</b> Expectativas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html"><i class="fa fa-check"></i><b>2.12</b> Visualização de dados com <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="2.12.1" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html#construindo-graficos"><i class="fa fa-check"></i><b>2.12.1</b> Construindo gráficos</a></li>
+<li class="chapter" data-level="2.12.2" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html#as-camadas-de-um-grafico"><i class="fa fa-check"></i><b>2.12.2</b> As camadas de um gráfico</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="exemplo-visualizacao.html"><a href="exemplo-visualizacao.html"><i class="fa fa-check"></i><b>2.13</b> Exemplo visualização</a></li>
+<li class="chapter" data-level="2.14" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html"><i class="fa fa-check"></i><b>2.14</b> Ferramentas de visualização com <code>shiny</code></a><ul>
+<li class="chapter" data-level="2.14.1" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html#comecando-com-um-exemplo"><i class="fa fa-check"></i><b>2.14.1</b> Começando com um exemplo</a></li>
+<li class="chapter" data-level="2.14.2" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html#criando-outputs"><i class="fa fa-check"></i><b>2.14.2</b> Criando outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.15" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html"><i class="fa fa-check"></i><b>2.15</b> Fazendo mais com o shiny</a><ul>
+<li class="chapter" data-level="2.15.1" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#shiny-server-pro"><i class="fa fa-check"></i><b>2.15.1</b> Shiny Server Pro</a></li>
+<li class="chapter" data-level="2.15.2" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#shinyapps.io"><i class="fa fa-check"></i><b>2.15.2</b> shinyapps.io</a></li>
+<li class="chapter" data-level="2.15.3" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#ainda-mais"><i class="fa fa-check"></i><b>2.15.3</b> Ainda mais!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="simulacao.html"><a href="simulacao.html"><i class="fa fa-check"></i><b>3</b> Simulação</a><ul>
+<li class="chapter" data-level="3.1" data-path="primeiros-passos.html"><a href="primeiros-passos.html"><i class="fa fa-check"></i><b>3.1</b> Primeiros passos</a></li>
+<li class="chapter" data-level="3.2" data-path="estruturacao.html"><a href="estruturacao.html"><i class="fa fa-check"></i><b>3.2</b> Estruturação</a></li>
+<li class="chapter" data-level="3.3" data-path="dados.html"><a href="dados.html"><i class="fa fa-check"></i><b>3.3</b> Dados</a></li>
+<li class="chapter" data-level="3.4" data-path="implementacao.html"><a href="implementacao.html"><i class="fa fa-check"></i><b>3.4</b> Implementação</a></li>
+<li class="chapter" data-level="3.5" data-path="analise-dos-resultados.html"><a href="analise-dos-resultados.html"><i class="fa fa-check"></i><b>3.5</b> Análise dos resultados</a></li>
+<li class="chapter" data-level="3.6" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html"><i class="fa fa-check"></i><b>3.6</b> Exemplo - Cadastro Nacional de Adoção</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#primeiros-passos-1"><i class="fa fa-check"></i><b>3.6.1</b> Primeiros passos</a></li>
+<li class="chapter" data-level="3.6.2" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#estruturacao-1"><i class="fa fa-check"></i><b>3.6.2</b> Estruturação</a></li>
+<li class="chapter" data-level="3.6.3" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#dados-1"><i class="fa fa-check"></i><b>3.6.3</b> Dados</a></li>
+<li class="chapter" data-level="3.6.4" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#implementacao-1"><i class="fa fa-check"></i><b>3.6.4</b> Implementação</a></li>
+<li class="chapter" data-level="3.6.5" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#analise-dos-resultados-1"><i class="fa fa-check"></i><b>3.6.5</b> Análise dos resultados</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso de Jurimetria</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="pacote-stringr-para-trabalhar-com-textos" class="section level2">
+<h2><span class="header-section-number">2.5</span> Pacote <code>stringr</code> para trabalhar com textos</h2>
+<p>O R básico não tem uma sintaxe consistente para trabalhar com textos. O pacote <code>stringr</code> ajuda a realizar todas as tarefas básicas de manipulação de texto, exigindo que o usuário estude apenas uma sintaxe. O <code>stringr</code> também é construído sobre a <a href="http://site.icu-project.org/">biblioteca ICU</a>, implementada em <code>C</code> e <code>C++</code>, apresentando resultados rápidos e confiáveis.</p>
+<p>As regras básicas do pacote são:</p>
+<ul>
+<li>As funções de manipulação de texto começam com <code>str_</code>. Caso esqueça o nome de uma função, basta digitar <code>stringr::str_</code> e apertar <code>TAB</code> para ver quais são as opções.</li>
+<li>O primeiro argumento da função é sempre uma <code>string</code>.</li>
+</ul>
+<p>Antes de listar as funções, precisamos estudar o básico de expressões regulares.</p>
+<div id="expressoes-regulares" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Expressões regulares</h3>
+<p>Expressão regular ou <em>regex</em> é uma sequência concisa de caracteres que representa várias strings. Entender o básico de expressões regulares é indispensável para trabalhar com textos.</p>
+<p>Vamos estudar expressões regulares através de exemplos e com a função <code>str_detect()</code>. Essa função retorna <code>TRUE</code> se uma string atende à uma expressão regular e <code>FALSE</code> em caso contrário.</p>
+<p>A tabela abaixo mostra a aplicação de seis <code>regex</code> a seis strings distintas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringr)
+testes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;ban&#39;</span>, <span class="st">&#39;banana&#39;</span>, <span class="st">&#39;abandonado&#39;</span>, <span class="st">&#39;pranab anderson&#39;</span>, <span class="st">&#39;BANANA&#39;</span>, <span class="st">&#39;ele levou ban&#39;</span>)
+expressoes &lt;-<span class="st"> </span><span class="kw">list</span>(
+  <span class="st">&#39;ban&#39;</span>, <span class="co"># reconhece tudo que tenha &quot;ban&quot;, mas não ignora case</span>
+  <span class="st">&#39;BAN&#39;</span>, <span class="co"># reconhece tudo que tenha &quot;BAN&quot;, mas não ignora case</span>
+  <span class="kw">regex</span>(<span class="st">&#39;ban&#39;</span>, <span class="dt">ignore_case =</span> <span class="ot">TRUE</span>), <span class="co"># reconhece tudo que tenha &quot;ban&quot;, ignorando case</span>
+  <span class="st">&#39;ban$&#39;</span>, <span class="co"># reconhece apenas o que termina exatamente em &quot;ban&quot;</span>
+  <span class="st">&#39;^ban&#39;</span>, <span class="co"># reconhece apenas o que começa exatamente com &quot;ban&quot;</span>
+  <span class="st">&#39;b ?an&#39;</span> <span class="co"># reconhece tudo que tenha &quot;ban&quot;, com ou sem espaço entre o &quot;b&quot; e o &quot;a&quot;</span>
+)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">regex</th>
+<th align="left">ban</th>
+<th align="left">banana</th>
+<th align="left">abandonado</th>
+<th align="left">pranab anderson</th>
+<th align="left">BANANA</th>
+<th align="left">ele levou ban</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ban</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="left">BAN</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="left">ban</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">ban$</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="left">^ban</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="left">b ?an</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+</tr>
+</tbody>
+</table>
+<div id="quantificadores" class="section level4">
+<h4><span class="header-section-number">2.5.1.1</span> Quantificadores</h4>
+<p>Os caracteres <code>+</code>, <code>*</code> e <code>{x,y}</code> indicam quantas vezes um padrão se repete:</p>
+<ul>
+<li><code>ey+</code> significa <code>e</code> e depois <code>y</code> “<strong>uma vez</strong> ou mais”. Por exemplo, reconhece <code>hey</code>, <code>heyy</code>, <code>a eyyy</code>, mas não reconhece <code>e</code>, <code>y</code> nem <code>yy</code>.</li>
+<li><code>ey*</code> significa “<strong>zero vezes</strong> ou mais”. Por exemplo, reconhece <code>hey</code>, <code>heyy</code>, <code>a eyyy</code> e <code>e</code>, mas não reconhece <code>y</code> nem <code>yy</code>.</li>
+<li><code>ey{3}</code> significa “exatamente três vezes”. Por exemplo, reconhece <code>eyyy</code> e <code>eyyyy</code>, mas não reconhece <code>ey</code>.</li>
+<li><code>ey{1,3}</code> significa “entre uma e três vezes”.</li>
+</ul>
+<p>Para aplicar um quantificador a um conjunto de caracteres, use parênteses. Por exemplo, <code>(ey)+</code> reconhece <code>eyey</code>.</p>
+</div>
+<div id="conjuntos" class="section level4">
+<h4><span class="header-section-number">2.5.1.2</span> Conjuntos</h4>
+<p>Colocando caracteres dentro de <code>[]</code>, reconhecemos quaisquer caracteres desse conjunto. Alguns exemplos práticos:</p>
+<ul>
+<li><code>[Cc]asa</code> para reconhecer “casa” em maiúsculo ou minúsculo.</li>
+<li><code>[0-9]</code> para reconhecer somente números. O mesmo vale para letras <code>[a-z]</code>, <code>[A-Z]</code>, <code>[a-zA-Z]</code> etc.</li>
+<li>O símbolo <code>^</code> dentro do colchete significa negação. Por exemplo, <code>[^0-9]</code> significa pegar tudo o que não é número.</li>
+<li>O símbolo <code>.</code> fora do colchete indica “qualquer caractere”, mas dentro do colchete é apenas ponto.</li>
+<li>Use <code>[[:space:]]+</code> para reconhecer espaços e <code>[[:punct:]]+</code> para reconhecer pontuações.</li>
+</ul>
+</div>
+<div id="miscelanea" class="section level4">
+<h4><span class="header-section-number">2.5.1.3</span> Miscelânea</h4>
+<ul>
+<li>Use <code>abjutils::rm_accent()</code> para retirar os acentos de um texto.</li>
+<li>Use <code>|</code> para opções, por exemplo <code>desfavor|desprov</code> reconhece tanto “desfavorável” quanto “desprovido”</li>
+<li><code>\n</code> pula linha, <code>\f</code> é final da página, <code>\t</code> é tab. Use <code>\</code> para transformar caracteres especiais em literais.</li>
+<li><code>tolower()</code> e <code>toupper()</code> para mudar o case de uma string.</li>
+</ul>
+<p>A lista de possibilidades com expressões regulares é extensa. Um bom lugar para testar o funcionamento de expressões regulares é o <a href="https://regex101.com/">regex101</a>.</p>
+</div>
+</div>
+<div id="funcoes-do-stringr" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> Funções do <code>stringr</code></h3>
+<ul>
+<li><p><code>str_detect()</code> retorna <code>TRUE</code> se a regex é compatível com a string e <code>FALSE</code> caso contrário</p></li>
+<li><p><code>str_lengh()</code> retorna o comprimento de uma string.</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_length</span>(<span class="st">&#39;hye&#39;</span>)</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<ul>
+<li><code>str_trim()</code> retira espaços e quebras de linha/tabs no início ou final de string.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string &lt;-<span class="st"> &#39;</span><span class="ch">\n</span><span class="st">essa string é muito suja       </span><span class="ch">\n</span><span class="st">&#39;</span>
+<span class="kw">str_trim</span>(string)</code></pre></div>
+<pre><code>## [1] &quot;essa string é muito suja&quot;</code></pre>
+<ul>
+<li><code>str_replace()</code> e <code>str_replace_all()</code> substituem um padrão (ou todos) encontrado para um outro padrão</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string &lt;-<span class="st"> &#39;heyyy ui yy&#39;</span>
+<span class="kw">str_replace</span>(string, <span class="st">&#39;y&#39;</span>, <span class="st">&#39;x&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;hexyy ui yy&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_replace</span>(string, <span class="st">&#39;y+&#39;</span>, <span class="st">&#39;x&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;hex ui yy&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_replace_all</span>(string, <span class="st">&#39;y&#39;</span>, <span class="st">&#39;x&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;hexxx ui xx&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_replace_all</span>(<span class="st">&#39;string     com    muitos espaços&#39;</span>, <span class="st">&#39; +&#39;</span>, <span class="st">&#39; &#39;</span>) <span class="co"># tirar espaços extras</span></code></pre></div>
+<pre><code>## [1] &quot;string com muitos espaços&quot;</code></pre>
+<ul>
+<li><code>str_match()</code> e <code>str_match_all()</code> extrai pedaços da string identificados pela regex. Caso queira extrair somente a parte identificada, use parênteses.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">frases &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a roupa do rei&#39;</span>, <span class="st">&#39;de roma&#39;</span>, <span class="st">&#39;o rato roeu&#39;</span>)
+<span class="kw">str_match</span>(frases, <span class="st">&#39;ro&#39;</span>)</code></pre></div>
+<pre><code>##      [,1]
+## [1,] &quot;ro&quot;
+## [2,] &quot;ro&quot;
+## [3,] &quot;ro&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_match_all</span>(frases, <span class="st">&#39;ro&#39;</span>)</code></pre></div>
+<pre><code>## [[1]]
+##      [,1]
+## [1,] &quot;ro&quot;
+## 
+## [[2]]
+##      [,1]
+## [1,] &quot;ro&quot;
+## 
+## [[3]]
+##      [,1]
+## [1,] &quot;ro&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_match</span>(frases, <span class="st">&#39;o (ro)&#39;</span>)</code></pre></div>
+<pre><code>##      [,1]   [,2]
+## [1,] NA     NA  
+## [2,] NA     NA  
+## [3,] &quot;o ro&quot; &quot;ro&quot;</code></pre>
+<ul>
+<li><code>str_split()</code> separa uma string em várias de acordo com um separador.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string &lt;-<span class="st"> &#39;eu sei, usar virgulas, de forma, perfeita&#39;</span>
+
+<span class="kw">str_split</span>(string, <span class="st">&#39;, &#39;</span>)</code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;eu sei&quot;        &quot;usar virgulas&quot; &quot;de forma&quot;      &quot;perfeita&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_split</span>(string, <span class="st">&#39;, &#39;</span>, <span class="dt">simplify =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>##      [,1]     [,2]            [,3]       [,4]      
+## [1,] &quot;eu sei&quot; &quot;usar virgulas&quot; &quot;de forma&quot; &quot;perfeita&quot;</code></pre>
+<ul>
+<li><code>str_split_fixed()</code> faz o mesmo que <code>str_split()</code>, mas separa apenas <code>n</code> vezes</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_split_fixed</span>(string, <span class="st">&#39;, &#39;</span>, <span class="dv">3</span>)</code></pre></div>
+<pre><code>##      [,1]     [,2]            [,3]                
+## [1,] &quot;eu sei&quot; &quot;usar virgulas&quot; &quot;de forma, perfeita&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_split_fixed</span>(string, <span class="st">&#39;, &#39;</span>, <span class="dv">4</span>) <span class="co"># igual a str_split(string, simplify = TRUE)</span></code></pre></div>
+<pre><code>##      [,1]     [,2]            [,3]       [,4]      
+## [1,] &quot;eu sei&quot; &quot;usar virgulas&quot; &quot;de forma&quot; &quot;perfeita&quot;</code></pre>
+<ul>
+<li><code>str_sub()</code> extrai uma parte da string de acordo com os índices.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string &lt;-<span class="st"> &#39;quero pegar só uma parte disso&#39;</span>
+<span class="kw">str_sub</span>(string, <span class="dv">13</span>, <span class="dv">14</span>)</code></pre></div>
+<pre><code>## [1] &quot;só&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_sub</span>(string, -<span class="dv">5</span>, -<span class="dv">1</span>) <span class="co"># usar números negativos para voltar do final da string</span></code></pre></div>
+<pre><code>## [1] &quot;disso&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">indices &lt;-<span class="st"> </span><span class="kw">str_locate</span>(string, <span class="st">&#39;parte&#39;</span>)
+indices</code></pre></div>
+<pre><code>##      start end
+## [1,]    20  24</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_sub</span>(string, indices) <span class="co"># pode ser útil usar com str_locate.</span></code></pre></div>
+<pre><code>## [1] &quot;parte&quot;</code></pre>
+<ul>
+<li><code>str_subset()</code> retorna somente as strings compatíveis com a regex.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">frases &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a roupa do rei&#39;</span>, <span class="st">&#39;de roma&#39;</span>, <span class="st">&#39;o rato roeu&#39;</span>)
+<span class="kw">str_subset</span>(frases, <span class="st">&#39;d[eo]&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;a roupa do rei&quot; &quot;de roma&quot;</code></pre>
+</div>
+<div id="exemplo-decisoes-das-camaras" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> Exemplo: decisões das câmaras</h3>
+<p>Suponha que temos o seguinte vetor de textos de decisões:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d_decisoes &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&#39;data-raw/d_decisoes.rds&#39;</span>)
+
+condicao &lt;-<span class="st"> </span><span class="kw">str_length</span>(d_decisoes$decisao) &lt;<span class="st"> </span><span class="dv">200</span> &amp;<span class="st"> </span>d_decisoes$situacao ==<span class="st"> &#39;Julgado&#39;</span>
+<span class="kw">set.seed</span>(<span class="dv">1247</span>) <span class="co"># reprodutibilidade</span>
+decisoes &lt;-<span class="st"> </span>d_decisoes$decisao[condicao] %&gt;%<span class="st"> </span><span class="kw">sample</span>(<span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)
+decisoes</code></pre></div>
+<pre><code>##  [1] &quot;Negaram provimento ao recurso. V. U.&quot;                                                                                           
+##  [2] &quot;NEGARAM PROVIMENTO ao recurso. V.U.&quot;                                                                                            
+##  [3] &quot;Negaram provimento ao apelo do réu.V.U.&quot;                                                                                        
+##  [4] &quot;Deram provimento ao apelo ministerial para anular o julgamento pelo Tribunal do Júri, devendo a outro ser submetido o réu. V.U.&quot;
+##  [5] &quot;Declararam prejudicado o exame do recurso.V.U.&quot;                                                                                 
+##  [6] &quot;DERAM PROVIMENTO PARCIAL ao recurso para corrigir a pena de multa para 87 dias-multa, mantida, no mais, a r. sentença. V.U.&quot;    
+##  [7] &quot;Rejeitaram as preliminares arguidas e negaram provimento à apelação. V.U.&quot;                                                      
+##  [8] &quot;Negaram provimento ao recurso. V. U.&quot;                                                                                           
+##  [9] &quot;Negaram provimento ao recurso. V. U.&quot;                                                                                           
+## [10] &quot;Negaram provimento aos recursos defensivos e deram provimento ao recurso ministerial nos termos do V. Acórdão. V.U.&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">negaram &lt;-<span class="st"> </span><span class="kw">regex</span>(<span class="st">&#39;negaram&#39;</span>, <span class="dt">ignore_case =</span> <span class="ot">TRUE</span>)
+parcial &lt;-<span class="st"> </span><span class="kw">regex</span>(<span class="st">&#39;parcial&#39;</span>, <span class="dt">ignore_case =</span> <span class="ot">TRUE</span>)
+deram &lt;-<span class="st"> </span><span class="kw">regex</span>(<span class="st">&#39;deram&#39;</span>, <span class="dt">ignore_case =</span> <span class="ot">TRUE</span>)
+
+tipos_decisao &lt;-<span class="st"> </span>function(decisoes) {
+  <span class="kw">ifelse</span>(
+    <span class="kw">str_detect</span>(decisoes, negaram), <span class="st">&#39;negado&#39;</span>, <span class="kw">ifelse</span>(
+      <span class="kw">str_detect</span>(decisoes, parcial), <span class="st">&#39;parcial&#39;</span>, <span class="kw">ifelse</span>(
+        <span class="kw">str_detect</span>(decisoes, deram), <span class="st">&#39;provido&#39;</span>, <span class="st">&#39;outros&#39;</span>
+    ))
+  )
+}</code></pre></div>
+<p>Resultados:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tibble::<span class="kw">tibble</span>(<span class="dt">tipo_decisao =</span> <span class="kw">tipos_decisao</span>(decisoes), <span class="dt">decisao =</span> decisoes_min)</code></pre></div>
+<pre><code>## # A tibble: 10 x 2
+##    tipo_decisao
+##           &lt;chr&gt;
+## 1        negado
+## 2        negado
+## 3        negado
+## 4       provido
+## 5        outros
+## 6       parcial
+## 7        negado
+## 8        negado
+## 9        negado
+## 10       negado
+## # ... with 1 more variables: decisao &lt;chr&gt;</code></pre>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="pacote-lubridate-para-trabalhar-com-datas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pacotes-dplyr-e-tidyr.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/abjur/curso/edit/master/02-ferramental.Rmd",
+"text": "Editar"
+},
+"download": ["curso-jurimetria.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

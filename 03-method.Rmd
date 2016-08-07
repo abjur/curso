@@ -1,1 +1,603 @@
-# Aulas
+# Simulação
+
+```{r, echo = FALSE}
+
+distr <- c(0.1478,0.1833,0.1974,0.1879,0.1056,0.0981,0.0362,
+           0.0176,0.0095,0.0032,0.0066,0.0015,0.0020,0.0007,
+           0.0005,0.0006,0.0003,0.0012)
+sorteia_preferencias <- function(n_pretendentes, distribuicao = distr){
+  sapply(runif(n_pretendentes), function(x) {which.max(x < distribuicao) - 1})
+}
+
+
+tnorMix <- function(n,fit){
+  x <- nor1mix::rnorMix(n,fit)
+  while(x < 0 | x > 18){
+    x <- nor1mix::rnorMix(n,fit)
+  }
+  return(x)
+}
+
+trgamma <- function(n,shape,rate){
+  x <- rgamma(n,shape,rate)
+  while(x < 0 | x > 18){
+    x <- rgamma(n,shape,rate)
+  }
+  return(x)
+}
+
+sorteia_idades <- function(n_criancas_para_adocao, shape, rate, mu1, mu2, sigma, p, peso = 0.5){
+  distr <- nor1mix::norMix(mu = c(mu1,mu2), sigma = rep(sigma,2), w = c(1-peso,peso))
+  sapply(runif(n_criancas_para_adocao), function(x){ifelse(x < p, trgamma(1,shape,rate), tnorMix(1,distr))})
+}
+
+matching <- function(pretendentes, criancas, tipo = 1){
+
+  criancas_floor <- floor(sort(criancas, decreasing = T))
+  pretendentes <- sort(pretendentes, decreasing = T)
+  criancas <- sort(criancas, decreasing = T)
+
+  i = 1
+  num_match = 0
+  while(i <= length(criancas)){
+
+    if(criancas_floor[i] <= pretendentes[1]){
+
+      j = 1
+
+      while(tipo == 2 & j != length(pretendentes) & criancas_floor[i]<=pretendentes[ifelse(j < length(pretendentes), j+1, length(pretendentes))]){
+        j = j + 1
+      }
+
+      criancas <- criancas[-i]
+      criancas_floor <- criancas_floor[-i]
+
+      pretendentes <- pretendentes[-j]
+      num_match = num_match + 1
+      i <- i-1
+    }
+    i <- i + 1
+  }
+
+  return(list(criancas,pretendentes, num_match))
+}
+
+realiza_processo <- function(tipo = 1, tempos = 1:10, K = 100, p_cada_tipo = 0.1, unidade = 1, idade_maxima = 9){
+
+  maiores_de_idade <- NULL
+  m <- NULL
+  d <- NULL
+  k <- NULL
+  p <- NULL
+  n <- NULL
+  idades <- NULL
+
+  prob_idades_pretendentes <- c(0.1478,0.1833,0.1974,0.1879,0.1056,0.0981,0.0362,0.0176,0.0095,0.0032,0.0066,0.0015,0.0020,0.0007,0.0005,0.0006,0.0003,0.0012)
+  dist_idades_pretendentes <- cumsum(prob_idades_pretendentes)
+
+  P <- 3.52*K
+
+  p <- c(p, sorteia_preferencias(P,dist_idades_pretendentes))
+  idades <- c(idades, sorteia_idades(K, 1.1, 0.15, 1, idade_maxima, 2.8, p_cada_tipo, 0.5))
+
+  for(i in tempos){
+
+    idades <- idades + 1/unidade
+
+    p <- c(p, sorteia_preferencias(P,dist_idades_pretendentes))
+    idades <- c(idades, sorteia_idades(K, 1.1, 0.15, 1, idade_maxima, 2.8, p_cada_tipo, 0.5))
+
+    # pareamentos <- matching2(p,idades)
+    # pareamentos <- matching(p, idades, tipo = 2)
+    pareamentos <- matching(p,idades,tipo)
+    
+    p <- pareamentos[[2]]
+    idades <- pareamentos[[1]]
+
+    maiores_de_idade <- c(maiores_de_idade,length(which(idades >= 18)))
+    n <- c(n,length(which(idades < 18)))
+    m <- c(m, pareamentos[[3]])
+
+    idades <- idades[which(idades < 18)]
+  }
+
+  return(list(criancas_disponiveis = n, maiores_de_idade = maiores_de_idade, numero_de_pareamentos = m))
+
+}
+
+```
+
+Esta parte do curso tratará do uso de simulação de eventos discretos e modelagem de fenômenos do mundo real em processos estocásticos. Este tipo de simulação é apenas uma das muitas existentes, considerando que até mesmo experimentos sociais com voluntários podem ser encaixados nessa categoria.
+
+O que motiva a construção e o estudo de simulações no contexto da jurimetria é a natureza complexa do objeto de estudo. Frequentemente, nossas investigações objetivam avaliar o impacto de certa medida, que já ocorreu ou que ainda ocorrerá, ou embasar concretamente uma determinada decisão. Nesses casos, uma saída sofisticada e eficiente para a viabilidade do estudo é a construção de um procedimento computacional que copie as propriedades do sistema de interesse, de forma que seja possível replicar "em laboratório" o que acontece (ou aconteceria) nas situações reais.
+
+Como exemplo de aplicação bem sucedida desta metodologia, podemos citar Allen and Bernshteyn (2008). Neste estudo, conclui-se que, devido à má alocação de máquinas de votação nos Estados Unidos, 20000 votantes deixaram de votar nas eleições de 2008 por conta das filas serem longas demais. Como agravante, verificaram que a maior parte destes votantes seriam afrodescendentes. A má alocação introduziria um viés racial na eleição. Com isso em mente, na elição de 2008, métodos de simulação foram utilizados para alocar as máquinas de votação de forma a minimizar o número de pessoas que deixam de votar.
+
+## Primeiros passos
+
+Segundo Karnon (2012), simulações computacionais são particularmente úteis quando:
+
+1. O problema envolve recursos restritos ou limitados. Embora muitos problemas desse tipo possam ser tratadas utilizando métodos de otimização linear, Bertsimas (1997), ou otimização não linear, Sodolov e Ismailov (2007), situações muito complicadas podem dificultar a aplicação de técnicas bem consolidadas na literatura.
+
+2. O problema envolve avaliar a interação de muitas variáveis, como por exemplo um conjunto de pessoas numa fila ou andamento de processos judiciais. Também se encaixam nessa categoria problemas com poucas variáveis e relações de dependência complicadas.
+
+3. O problema envolve considerar a evolução no tempo de um conjunto de variáveis muito dependentes.
+
+Uma vez que decide-se usar uma simulação para resolver um problema, o próximo passo é modelá-lo de forma que a simulação seja possível. Esta fase é muito importante pois nela são feitas suposições que tornam viável o modelo de simulação. Suposições mal escolhidas implicam em resultados que não representam bem a situação modelada. Na seção seguinte, descreveremos um conjunto de passos que podem auxiliar este procedimento.
+
+## Estruturação
+
+A construção de um modelo para simulação pode ser feita respondendo às seguintes perguntas:
+
+1. Quais são as quantidades de interesse?
+2. Quais são as informações necessárias para calcular as quantidades de interesse?
+3. Qual a relação entre elas?
+4. As quantidades de interesse variam no tempo? Como?
+
+É importante observar que as respostas às perguntas acima não são independentes e não é necessário evitar repetições nas respostas. Na verdade, é interessante que as respostas sejam bem completas, fornecendo mais insumos à modelagem.
+
+Para simplificar, vamos chamar as quantidades listadas no item 1 de variáveis. As informações necessárias para o cálculo de uma variável, quantidades listadas no item 2, podem depender, ou não, de uma outra variável. Quando não dependem, chamaremos esta informação de parâmetro. Quanto uma variável é necessária para o cálculo de outra, precisaremos notificar esta dependência no item 3 e incluí-la no nosso modelo na forma de uma equação ou algoritmo.
+
+A distinção entre parâmetros e variáveis é importante pois, no geral, gostaríamos de realizar as simulações para verificar o efeito da variação de um parâmetro (quantidade que não depende de nenhuma outra informação) numa variável (quantidade que precisa de outras para ser calculada).
+
+Por serem muito abertas, as respostas à essas perguntas podem tomar muito tempo. Podemos construir modelos super complexos, o que torna todas as fases subsequentes mais difíceis, ou simplicar o problema introduzindo muitas hipóteses, o que pode diminuir a precisão dos resultados. Conclui-se, então, que modelar de maneira simples e eficiente é uma tarefa que exige muito conhecimento sobre o assunto estudado, pois depende de compreender quais informações são importantes e quais são supérfluas. Por isso, é importante conhecer muitos estudos sobre a questão de interesse antes de prosseguir com a construção de um modelo. 
+
+As respostas às perguntas 3. e 4. auxiliam na construção dos procedimentos que conduzem a evolução das variáveis. Esse procedimento de "evolução" pode ser pensado para acontecer no tempo, como por exemplo um número de processos que aumenta ou diminui ao longo dos anos, ou num determinado instante, como quando cálculos complicados ou sorteios são realizados utilizando como insumo um conjunto de variáveis ou de parâmetros.
+
+Por fim, complementando a pergunta 3., é comum que representem relações ou dependências entre as variáveis/parâmetros através de equações ou distribuições conjuntas de probabilidade.
+
+## Dados
+
+Para maior precisão e confiabilidade da simulações, é recomendado o uso de séries históricas ou outras fontes de dados como insumos.
+
+Por exemplo, um certo parâmetro descrito na fase de estruturação do modelo pode ter seu valor aproximado utilizando um conjunto de observações passadas. Em outras situações, pode ser interessante inserir quantidades aleatórias para considerar variabilidades intrínsecas em certos fenômenos. Neste caso, a distribuição das quantidades aleatórias pode ser obtida a partir dos dados reais.
+
+## Implementação
+
+Nesta fase, o resultado das seções anteriores é traduzido num programa de computador que efetivamente produzirá as simulações.
+
+Não é necessário ater-se aos detalhes da delimitação de variáveis e parâmetros quando planeja-se o programa. Basta que todas as informações necessárias para análise estejam disponíveis em algum formato. Por exemplo, se uma quantidade de interesse é uma contagem de processos, mas os processos estão guardados na coluna de uma tabela, não há necessidade de guardar o número de linhas em uma nova variável.
+
+O principal cuidado a ser tomado durante a implementação é garantir que a produção dos cenários de interesse seja realizada de forma simples e em tempo hábil, possibilitando a avaliação desejada. 
+
+## Análise dos resultados
+
+Uma vez que o procedimento computacional foi implementado, chega a hora de analisar os resultados produzidos pelas simulações. Antes de prosseguir, é interessante responder às seguintes questões:
+
+1. Desejamos analisar o impacto de quais parâmetros?
+2. Quais são as variáveis sobre as quais desejamos analisar o impacto?
+3. O que a alteração dos parâmetros de interesse deve causar em cada variável?
+
+A resposta à essas perguntas é importante pois fornece diretrizes para a elaboração de um relatório de pesquisa pós simulação. Em linhas gerais, desejamos avaliar, com relação às variáveis listadas no item 2, simulações que modifiquem os valores para os parâmetros listados no item 1. Essa avaliação deve ser feita à luz do que se espera obter, informação descrita no item 3. 
+
+O principal cuidado a se tomar nesta fase de análise dos resultados deve-se ao fato de, em algumas situações, alguns parâmetros inseridos no modelo servirem apenas para deixá-lo mais verossímil, sem que se tenha interesse em analisar o seu impacto. Nessa situação, é interessante caracterizar o impacto dos parâmetros de interesse eliminando a parte deste que pode ser atribuída aos parâmetros que não importam.
+
+Essa "eliminação" é feita verificando qual se o mesmo efeito de um parâmetro "relevante" é observado para vários valores de parâmetros "irrelevantes".
+
+## Exemplo - Cadastro Nacional de Adoção
+
+Nesta sessão, estudaremos um modelo de simulação proposto pela Associação Brasileira de Jurimetria num relatório da série Justiça Pesquisa sobre os tempos de processos de adoção no Brasil.
+
+O modelo em questão tinha como interesse estudar o impacto de uma redução na duração de processos de adoção no Cadastro Nacional de Adoção (CNA) do Conselho Nacional de Justiça.
+
+Argumenta-se que, caso ocorresse uma diminuição na duração dos processos de adoção, a idade de entrada nas crianças no CNA também diminuiria. Como a maior parte dos pretendentes prefere adotar crianças mais jovens, o número de crianças adotadas tende a aumentar. Além disso, espera-se obter uma diminuição no número de crianças que atingem a maioridade.
+
+A partir do contexto descrito acima, a modelagem desse problema pode ser realizada seguindo o roteiro proposto anteriormente. 
+
+### Primeiros passos
+
+Primeiramente justificamos o uso de um modelo de simulação, já que o problema envolve analisar o que acontece com o CNA no decorrer tempo. Além disso, como número de crianças adotadas depende de pareamentos entre pretendentes e crianças disponíveis no CNA, podemos estudar o impacto de diferentes estratégias de pareamento realizando poucas alterações no procedimento de simulação, o que torna essa abordagem computacionalmente atraente.
+
+### Estruturação
+
+A segunda parte da modelagem consiste na resposta do questionário proposto anteriormente:
+
+1. Quais são as quantidades de interesse?
+
+O número de crianças disponíveis no CNA e suas respectivas idades, o número de crianças que atingem a maioridade, o número de crianças adotadas num determinado período e o número de pretendentes à adoção e as idades máximas preferidas por cada um deles.
+
+2. Quais são as informações necessárias para calcular as quantidades de interesse?
+
+O número de crianças que atingem a maioridade pode ser calculado a partir da idade das crianças cadastradas no período anterior.
+
+O número de crianças adotadas pode ser obtido comparando as idades das crianças do período anterior com as idades máximas preferidas por cada pretendente no período anterior.
+
+O número de pretendentes e suas preferências dependem da quantidade de pretendentes que se cadastram periodicamente no CNA e da distribuição desses novos pretendentes com relação à idades máximas preferidas.
+
+O número de crianças disponíveis no CNA depende do número de crianças que foram adotadas, do número de crianças que são cadastradas periodicamente no CNA e da distribuição de idade dessas novas crianças.
+
+4. As quantidades de interesse variam no tempo? Como?
+
+A simulação precisa atualizar os seus valores periodicamente, de forma que o período seguinte utilize informação de período anterior.
+
+Os períodos analisados podem ser anos ou semestres.
+
+3. Qual a relação entre as quantidades de interesse?
+
+Vamos definir, para cada período $t$, as seguintes quantidades:
+
+$$N(t) = \hbox{número de crianças disponíveis para adoção no instante } t $$
+
+$$M(t) = \hbox{número de crianças adotadas no instante }t $$
+
+$$D(t) = \hbox{número de crianças que atingiram a maioridade no instante }t $$
+
+$$K(t) = \hbox{número de crianças que entram no cadastro no instante }t $$
+
+$$P(t) = \hbox{número de pretendentes cadastrados no instante }t$$
+
+$$P_i(t) = \hbox{número de pretendentes cadastrados no instante } t $$
+$$\hbox{que preferem crianças de idade até }i $$
+
+$$N_i(t) = \hbox{número de crianças cadastradas de idade } $$
+
+$$0 \leq i < 18$$
+
+A relação fundamental entre essas quantidades é 
+
+$$N(t) = N(t-1)-M(t-1)-D(t-1)+K(t)$$
+$$N(t) = \sum_{i=0}^{17}N_i(t)$$
+$$P(t) = \sum_{i=0}^{17}P_i(t)$$
+
+O número de adoções $M(t)$ é calculado utilizando as idades das crianças adotadas, $N_i(t)$, e as preferências dos pretendentes cadastrados no sistema, $M_i(t)$, através de uma estratégia de pareamento.
+
+Para viabilizar a aplicação do modelo vamos fazer algumas hipóteses sobre as quantidades descritas acima:
+
+1. $K(t)$ é dado por uma constante $K$.
+
+2. A distribuição de idades das $K(t)$ crianças é a mesma encontrada nos dados.
+
+3. $P(t)$ é dado por uma constante $P$.
+
+4. A distribuição de preferências dos $P(t)$ pretendentes é a mesma encontrada nos dados.
+
+5. A estratégia de pareamento de crianças disponíveis e pretendentes é maximizar o número de adotados priorizando crianças mais velhas.
+
+### Dados
+
+Anteriormente citamos que a distribuição de idades e de preferências seria obtida através de uma análise dos dados.
+
+A distribuição observada de preferências de idades máximas, segundo um levantamento da ABJ, está descrita na tabela abaixo.
+
+```{r, echo = FALSE, results = T, warning = F}
+  prob_idades_pretendentes <- c(0.1478,0.1833,0.1974,0.1879,0.1056,0.0981,0.0362,0.0176,0.0095,0.0032,0.0066,0.0015,0.0020,0.0007,0.0005,0.0006,0.0003,0.0012)
+
+
+tabela <- dplyr::data_frame(Idade = 0:17, `Proporção` = prob_idades_pretendentes)
+
+tabela <- dplyr::mutate(tabela, `Proporção` = paste0(`Proporção`*100,"%"))
+
+pander::pander(tabela, style = 'multiline')
+
+```
+
+Outra importante informação obtida através da análise de dados é a distribuição de idade das crianças cadastradas no CNA. Analisando a idade de entrada dos cadastrados, obtivemos as seguintes distribuições:
+
+```{r, echo = FALSE, warning = F, results = T, fig.align='center', error = F}
+
+  idades_rest <- sorteia_idades(50000, 1.1, 0.15, 1.5, 9.04, 2.4, 0, 0.5)
+
+  idades_n_rest <- sorteia_idades(50000, 1.1, 0.15, 1.5, 9.04, 2.4, 1, 0.5)
+
+dados <- dplyr::bind_rows(dplyr::data_frame(idades = idades_rest, tipo = 'Com restituição familiar'), dplyr::data_frame(idades = idades_n_rest, tipo = 'Sem restituição familiar'))  
+
+library(ggplot2)  
+
+  ggplot(dados, aes(x = idades))+
+  geom_histogram(bins = 60, fill = 'white', color = 'black')+
+  facet_wrap(~tipo)+
+  theme_bw()
+```
+
+Note que, como cada uma destas distriuições está associada a uma causa de cadastro no CNA, vamos incluir a proporção de crianças registradas devido a processos de restituição familiar como um parâmetro do modelo. Por simplicidade, fixaremos este valor em 15%, equivalente à proporção observada no relatório supra citado.
+
+O impacto de variações na distribuição de idades das crianças cadastradas no CNA será resumido no parâmetro que controla a localização da segunda "corcova" da distribuição de idades das crianças cadastradas no CNA após processos com restituição familiar.
+
+Por fim, precisamos fixar os valores de $K$ e $P$. Para isso, fixaremos a razão $\frac{K}{P}$ em $3,52$, pois este número representa a razão do número total de crianças cadastradas no CNA, ativas ou inativas, pelo número total de pretendentes cadastrados no CNA, ativos ou inativos. Como $P=3,52K$, vamos nos preocupar apenas variar o parâmetro $K$.
+
+### Implementação
+
+As simulações propriamente ditas serão realizadas utilizando programas desenvolvidos no software R. 
+
+Em linhas gerais, a implementação utilizará dois vetores. Um deles conterá as idades das crianças cadastradas e o outro conterá as idades máximas preferidas por cada pretendente cadastrado. A cada iteração, o vetor das crianças é atualizado retirando as crianças que foram adotadas ou que atingiram a maioridade e adicionando as novas crianças cadastradas no CNA. O vetor dos pretendentes é atualizado retirando aqueles que adotaram alguma criança e adicionando nos novos cadastrados.
+
+Primeiramente, construíremos funções que sorteiem as idades das crianças que são registradas no CNA e preferências dos pretendenentes registrados no CNA.
+
+```{r, eval = F}
+
+#Sorteia n_pretendentes a partir de uma distribuição desejada. Por default, utiliza a distribuição disponível no relatório sobre adoção.
+
+distr <- c(0.1478,0.1833,0.1974,0.1879,0.1056,0.0981,0.0362,
+           0.0176,0.0095,0.0032,0.0066,0.0015,0.0020,0.0007,
+           0.0005,0.0006,0.0003,0.0012)
+sorteia_preferencias <- function(n_pretendentes, distribuicao = distr){
+  sapply(runif(n_pretendentes), function(x) {which.max(x < distribuicao) - 1})
+}
+
+#Sorteia n valores de uma mistura de normais limitada ao intervalo de 0 a 18.
+
+tnorMix <- function(n,fit){
+  x <- nor1mix::rnorMix(n,fit)
+  while(x < 0 | x > 18){
+    x <- nor1mix::rnorMix(n,fit)
+  }
+  return(x)
+}
+
+#Sorteia n valores de uma distribuição gama limitada ao intervalo de 0 a 18.
+
+trgamma <- function(n,shape,rate){
+  x <- rgamma(n,shape,rate)
+  while(x < 0 | x > 18){
+    x <- rgamma(n,shape,rate)
+  }
+  return(x)
+}
+
+#Sorteia as idades de n_criancas_para_adocao a partir das distribuições acima, utilizando um conjunto de parâmetros.
+
+sorteia_idades <- function(n_criancas_para_adocao, shape, rate, mu1, mu2, sigma, p, peso = 0.5){
+  distr <- nor1mix::norMix(mu = c(mu1,mu2), sigma = rep(sigma,2), w = c(1-peso,peso))
+  sapply(runif(n_criancas_para_adocao), function(x){ifelse(x < p, ifelse(runif(1) < 0.5,trgamma(1,shape,rate),rexp(1)), tnorMix(1,distr))})
+}
+
+```
+
+A partir dessas funções, podemos inicializar os nossos vetores:
+
+```{r, eval = T, include = F}
+library(dplyr)
+
+K <- 100
+p_cada_tipo <- 0.1 
+idade_maxima <- 9
+P <- 3.52*K
+
+p <- NULL
+idades <- NULL
+
+p <- c(p, sorteia_preferencias(P))
+idades <- c(idades, sorteia_idades(K, 1.1, 0.15, 1, idade_maxima, 2.8, p_cada_tipo, 0.5))
+
+criancas_cadastradas <- data_frame(idades) %>% 
+  mutate(id = 1:n())
+pretendentes_cadastrados <- data_frame(idade_maxima_preferida = p) %>% 
+  mutate(id = 1:n())
+```
+
+As listas inicializadas seguem abaixo
+
+```{r, echo = F, results = T}
+
+pander::pander(head(criancas_cadastradas,10), caption = 'Exemplo de conjunto de crianças simulado')
+
+```
+
+```{r, echo = F, results = T}
+
+pander::pander(head(pretendentes_cadastrados,10), caption = 'Exemplo de conjunto de pretendentes simulado')
+
+```
+
+Para completar a inicialização e finalizar a implementação, precisamos desenvolver um algoritmo que maximize o número de matchs a partir de um conjunto de idades e preferências. O algoritmo abaixo cumpre esse papel, realizando uma varredura das idades ordenadas para checar a viabilidade da adoção de cada criança.
+
+```{r, eval = F, results = F}
+
+  # Arredonda a idade das crianças cadastradas para baixo e ordena as idades arredondadas em ordem decrescente.
+  criancas_floor <- floor(sort(idades, decreasing = T))
+
+  # Ordena as idades máximas preferidas de cada pretendente em ordem decrescente.
+  pretendentes <- sort(pretendentes, decreasing = T)
+  
+  # Ordena a idade das crianças cadastradas em ordem decrescente.
+  criancas <- sort(idades, decreasing = T)
+
+  # Contador que percorre o vetor de idades.
+  i = 1
+  
+  # Inicialização do número de pareamentos.
+  num_match = 0
+  
+  while(i <= length(criancas)){
+
+    #Se a idade arredondada da criança de maior idade for menor que a maior idade máxima tolerada por um pretendente, um pareamento é possível. 
+    if(criancas_floor[i] <= pretendentes[1]){
+
+      #Remove a criança adotada do vetor de crianças
+      criancas <- criancas[-i]
+      
+      #Remove a criança adotada do vetor de idades arredondadas
+      criancas_floor <- criancas_floor[-i]
+
+      #Remove o pretendente que adotou a criança dos pretendentes disponíveis
+      pretendentes <- pretendentes[-1]
+      
+      #Conta um novo pareamento
+      num_match = num_match + 1
+      
+      #O contador recua uma posição por conta da remoção da criança adotada
+      i <- i-1
+    }
+    
+    #Continua a contagem
+    i <- i + 1
+  }
+
+
+```
+
+Na verdade, este algoritmo pode ser melhorado se realizarmos uma adaptação na regra de pareamento. Não é necessário que a criança de maior idade seja pareada com o pretendente de maior idade máxima tolerada. Embora seja improvável, essa regra de pareamento pode produzir a adoção de uma criança de 10 anos por um pretendente que não se opõe a adotar jovens de até 17 anos. De certa forma, este tipo de pareamento é um "desperdício", já que pretendentes com idades máximas toleradas grandes são mais raros, de forma que é mais interessante pareá-los com jovens mais velhos.
+
+A adaptação sugerida no parágrafo anterior pode ser implementada da forma que segue, notando que, na função, as duas estratégias estão disponíveis na simulação através do parâmetro "tipo".
+
+```{r, eval = F}
+matching <- function(pretendentes, criancas, tipo = 1){
+
+  criancas_floor <- floor(sort(criancas, decreasing = T))
+  pretendentes <- sort(pretendentes, decreasing = T)
+  criancas <- sort(criancas, decreasing = T)
+
+  i = 1
+  num_match = 0
+  while(i <= length(criancas)){
+
+    if(criancas_floor[i] <= pretendentes[1]){
+
+      j = 1
+
+      while(tipo == 2 & j != length(pretendentes) & criancas_floor[i]<=pretendentes[ifelse(j < length(pretendentes), j+1, length(pretendentes))]){
+        j = j + 1
+      }
+
+      criancas <- criancas[-i]
+      criancas_floor <- criancas_floor[-i]
+
+      pretendentes <- pretendentes[-j]
+      num_match = num_match + 1
+      i <- i-1
+    }
+    i <- i + 1
+  }
+
+  return(list(criancas,pretendentes, num_match))
+}
+```
+
+O exemplo abaixo ilustra o funcionamento dessas estratégias de pareamento.
+
+```{r, eval = T}
+
+p <- sorteia_preferencias(30)
+idades <- sorteia_idades(30, 1.1, 0.15, 1, 9, 2.8, 0.1, 0.5)
+
+print(sort(round(idades, 2), decreasing = T))
+print(sort(round(p, 2), decreasing = T))
+
+#Lista contendo o vetor de crianças e de pretendentes restantes.
+pareamentos_estrategia_1 <- matching(p, idades, 1)
+pareamentos_estrategia_2 <- matching(p, idades, 2)
+
+print(pareamentos_estrategia_1)
+print(pareamentos_estrategia_2)
+
+```
+
+### Análise dos resultados
+
+Antes de proceder com a análise de resultados vamos responder às perguntas propostas anteriormente:
+
+1. Desejamos analisar o impacto de quais parâmetros?
+
+A idade de entrada das crianças no CNA e as estratégias de pareamento de crianças e pretendentes.
+
+2. Quais são as variáveis sobre as quais desejamos analisar o impacto?
+
+Desejamos a variação do número de crianças que atingem a maioridade ao longo do tempo, o número de crianças e pretendentes disponíveis e o número de adoções.
+
+3. O que a alteração dos parâmetros de interesse deve causar em cada variável?
+ 
+ Espera-se que uma menor idade de regitro no CNA diminua o número de crianças que atingem a maioridade, aumente o número de adoções e, consequentemente, diminuia o número de crianças disponíveis para adoção. Temos interesse especial em avaliar o tamanho dessas diminuições/acréscimos.
+ 
+#### Idade de entrada no CNA
+ 
+Desejamos checar se, conforme a idade de entrada no CNA diminui, o número de maiores de idade por iteração fica menor. Este é o caso, como se observa na figura abaixo.
+ 
+```{r}
+
+maiores_de_idade <- function(tipo = 1, tempos = 1:10, K = 100, p_cada_tipo = 0.1, unidade = 1, idade_maxima = 9){
+    realiza_processo(tipo, tempos, K, p_cada_tipo, unidade, idade_maxima)$maiores_de_idade
+}
+
+expand.grid(K = c(100,200,300), idade_maxima = 7:9) %>%    plyr:::mdply(maiores_de_idade, tempo = 1:20) %>% 
+  reshape2::melt(id.vars = c('K','idade_maxima')) %>% 
+  select(-variable) %>% 
+  group_by(K, idade_maxima) %>% 
+  mutate(periodo = 1:n()) %>%
+  ungroup() %>% 
+  mutate(idade_maxima = paste0(idade_maxima,' anos')) %>% 
+  ggplot(aes(x = periodo, y = value, color = idade_maxima))+
+    geom_line()+
+    facet_grid(K ~ idade_maxima)+
+  theme_bw()+
+  xlab('Iteração')+
+  ylab('Número de maiores de idade')
+```
+
+A diminuição no número de maiores de idade implica em mais crianças sendo adotadas ao longo do tempo, de forma que devemos verificar uma diminuição nesta variável também. O resultado deste teste segue na figura abaixo.
+
+```{r}
+
+criancas_disponiveis <- function(tipo = 1, tempos = 1:10, K = 100, p_cada_tipo = 0.1, unidade = 1, idade_maxima = 9){
+    realiza_processo(tipo, tempos, K, p_cada_tipo, unidade, idade_maxima)$criancas_disponiveis
+}
+
+expand.grid(K = c(100,200,300), idade_maxima = 7:9) %>%    plyr:::mdply(criancas_disponiveis, tempo = 1:20) %>% 
+  reshape2::melt(id.vars = c('K','idade_maxima')) %>% 
+  select(-variable) %>% 
+  group_by(K, idade_maxima) %>% 
+  mutate(periodo = 1:n()) %>%
+  ungroup() %>% 
+  mutate(idade_maxima = paste0(idade_maxima,' anos')) %>% 
+  ggplot(aes(x = periodo, y = value, color = idade_maxima))+
+    geom_line()+
+    facet_grid(K ~ idade_maxima)+
+  theme_bw()+
+  xlab('Iteração')+
+  ylab('Número de crianças disponíveis para adoção')
+```
+
+Por fim, uma diminuição na idade das crianças cadastradas no CNA deve favorecer a ocorrência de um maior número de pareamentos entre pretendentes e crianças, considerando que grande parte dos pretendentes prefere crianças mais jovens.
+
+```{r}
+
+numero_de_pareamentos <- function(tipo = 1, tempos = 1:10, K = 100, p_cada_tipo = 0.1, unidade = 1, idade_maxima = 9){
+    realiza_processo(tipo, tempos, K, p_cada_tipo, unidade, idade_maxima)$numero_de_pareamentos
+}
+
+expand.grid(K = c(100,200,300), idade_maxima = 7:9) %>%    plyr:::mdply(numero_de_pareamentos, tempo = 1:20) %>% 
+  reshape2::melt(id.vars = c('K','idade_maxima')) %>% 
+  select(-variable) %>% 
+  group_by(K, idade_maxima) %>% 
+  mutate(periodo = 1:n()) %>%
+  ungroup() %>% 
+  mutate(idade_maxima = paste0(idade_maxima,' anos')) %>% 
+  ggplot(aes(x = periodo, y = value, color = idade_maxima))+
+    geom_line()+
+    facet_grid(K ~ idade_maxima)+
+  theme_bw()+
+  xlab('Iteração')+
+  ylab('Número de pareamentos')
+```
+
+#### Estratégia utilizada
+
+O número de pareamentos certamente é invariante com relação à estratégia utilizada, já que a diferença entre os dois métodos está apenas em qual pretendente será escolhido.
+
+Por outro lado, o número de crianças disponíveis pode diminuir conforme pretendentes menos restritivos forem sendo preteridos. A figura abaixo sugere que este efeito não é sentido. Isso deve-se, provavelmente, a distância entre a idade máxima tolerada pelos pretendentes e as idades das crianças cadastradas.
+
+```{r}
+
+expand.grid(tipo = 1:2 , K = c(100,200,300)) %>%    plyr:::mdply(criancas_disponiveis, tempo = 1:20) %>% 
+  reshape2::melt(id.vars = c('tipo','K')) %>% 
+  select(-variable) %>% 
+  group_by(tipo, K) %>% 
+  mutate(periodo = 1:n()) %>%
+  ungroup() %>% 
+  mutate(tipo = factor(tipo)) %>% 
+  ggplot(aes(x = periodo, y = value, fill = tipo, color = tipo))+
+  geom_line()+
+    facet_wrap(~K)+
+  theme_bw()
+
+expand.grid(tipo = 1:2 , K = c(100,200,300)) %>%    plyr:::mdply(maiores_de_idade, tempo = 1:20) %>% 
+  reshape2::melt(id.vars = c('tipo','K')) %>% 
+  select(-variable) %>% 
+  group_by(tipo, K) %>% 
+  mutate(periodo = 1:n()) %>%
+  ungroup() %>% 
+  mutate(tipo = factor(tipo)) %>% 
+  ggplot(aes(x = periodo, y = value, fill = tipo, color = tipo))+
+  geom_line()+
+    facet_wrap(~K)+
+  theme_bw()
+```

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Curso de Jurimetria</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Curso de Jurimetria dado ao TSE nos dias 08, 09 e 10 de agosto de 2016.">
+  <meta name="generator" content="bookdown 0.1.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Curso de Jurimetria" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Curso de Jurimetria dado ao TSE nos dias 08, 09 e 10 de agosto de 2016." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Curso de Jurimetria" />
+  
+  <meta name="twitter:description" content="Curso de Jurimetria dado ao TSE nos dias 08, 09 e 10 de agosto de 2016." />
+  
+
+<meta name="author" content="Associação Brasileira de Jurimetria">
+
+<meta name="date" content="2016-08-07">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="analise-dos-resultados.html">
+<link rel="next" href="referencias.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Curso de Jurimetria</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="definicao-de-jurimetria.html"><a href="definicao-de-jurimetria.html"><i class="fa fa-check"></i><b>1.1</b> Definição de Jurimetria</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html"><i class="fa fa-check"></i><b>2</b> Ferramental de trabalho da ABJ</a><ul>
+<li class="chapter" data-level="2.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html"><i class="fa fa-check"></i><b>2.1</b> Exemplo trabalhado</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-de-gas"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras de gás</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-tidying.html"><a href="data-tidying.html"><i class="fa fa-check"></i><b>2.2</b> Data tidying</a></li>
+<li class="chapter" data-level="2.3" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>2.3</b> Pipe</a></li>
+<li class="chapter" data-level="2.4" data-path="pacote-lubridate-para-trabalhar-com-datas.html"><a href="pacote-lubridate-para-trabalhar-com-datas.html"><i class="fa fa-check"></i><b>2.4</b> Pacote <code>lubridate</code> para trabalhar com datas</a></li>
+<li class="chapter" data-level="2.5" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html"><i class="fa fa-check"></i><b>2.5</b> Pacote <code>stringr</code> para trabalhar com textos</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#expressoes-regulares"><i class="fa fa-check"></i><b>2.5.1</b> Expressões regulares</a></li>
+<li class="chapter" data-level="2.5.2" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#funcoes-do-stringr"><i class="fa fa-check"></i><b>2.5.2</b> Funções do <code>stringr</code></a></li>
+<li class="chapter" data-level="2.5.3" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#exemplo-decisoes-das-camaras"><i class="fa fa-check"></i><b>2.5.3</b> Exemplo: decisões das câmaras</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html"><i class="fa fa-check"></i><b>2.6</b> Pacotes <code>dplyr</code> e <code>tidyr</code></a><ul>
+<li class="chapter" data-level="2.6.1" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#trabalhando-com-tibbles"><i class="fa fa-check"></i><b>2.6.1</b> Trabalhando com <code>tibble</code>s</a></li>
+<li class="chapter" data-level="2.6.2" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#as-cinco-funcoes-principais-do-dplyr"><i class="fa fa-check"></i><b>2.6.2</b> As cinco funções principais do <code>dplyr</code></a></li>
+<li class="chapter" data-level="2.6.3" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#caracteristicas"><i class="fa fa-check"></i><b>2.6.3</b> Características</a></li>
+<li class="chapter" data-level="2.6.4" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#vantagens"><i class="fa fa-check"></i><b>2.6.4</b> Vantagens</a></li>
+<li class="chapter" data-level="2.6.5" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#select"><i class="fa fa-check"></i><b>2.6.5</b> <code>select</code></a></li>
+<li class="chapter" data-level="2.6.6" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#filter"><i class="fa fa-check"></i><b>2.6.6</b> <code>filter</code></a></li>
+<li class="chapter" data-level="2.6.7" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#mutate"><i class="fa fa-check"></i><b>2.6.7</b> <code>mutate</code></a></li>
+<li class="chapter" data-level="2.6.8" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#arrange"><i class="fa fa-check"></i><b>2.6.8</b> <code>arrange</code></a></li>
+<li class="chapter" data-level="2.6.9" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#summarise"><i class="fa fa-check"></i><b>2.6.9</b> <code>summarise</code></a></li>
+<li class="chapter" data-level="2.6.10" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#gather"><i class="fa fa-check"></i><b>2.6.10</b> <code>gather</code></a></li>
+<li class="chapter" data-level="2.6.11" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#spread"><i class="fa fa-check"></i><b>2.6.11</b> <code>spread</code></a></li>
+<li class="chapter" data-level="2.6.12" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#funcoes-auxiliares"><i class="fa fa-check"></i><b>2.6.12</b> Funções auxiliares</a></li>
+<li class="chapter" data-level="2.6.13" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#um-pouco-mais-de-transformacao-de-dados"><i class="fa fa-check"></i><b>2.6.13</b> Um pouco mais de transformação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html"><i class="fa fa-check"></i><b>2.7</b> Pacotes <code>httr</code>, <code>xml2</code> e <code>rvest</code></a><ul>
+<li class="chapter" data-level="2.7.1" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#sessoes-e-cookies"><i class="fa fa-check"></i><b>2.7.1</b> Sessões e cookies</a></li>
+<li class="chapter" data-level="2.7.2" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#get-e-post"><i class="fa fa-check"></i><b>2.7.2</b> <code>GET</code> e <code>POST</code></a></li>
+<li class="chapter" data-level="2.7.3" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#outras-funcoes-do-httr"><i class="fa fa-check"></i><b>2.7.3</b> Outras funções do <code>httr</code></a></li>
+<li class="chapter" data-level="2.7.4" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#principais-funcoes-do-rvest"><i class="fa fa-check"></i><b>2.7.4</b> Principais funções do <code>rvest</code></a></li>
+<li class="chapter" data-level="2.7.5" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#css-path-e-xpath"><i class="fa fa-check"></i><b>2.7.5</b> CSS path e XPath</a></li>
+<li class="chapter" data-level="2.7.6" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#apis-com-httr"><i class="fa fa-check"></i><b>2.7.6</b> APIs com <code>httr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>2.8</b> Web scraping</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="web-scraping.html"><a href="web-scraping.html#informacoes-iniciais"><i class="fa fa-check"></i><b>2.8.1</b> Informações iniciais</a></li>
+<li class="chapter" data-level="2.8.2" data-path="web-scraping.html"><a href="web-scraping.html#diferenca-entre-buscar-baixar-e-processar."><i class="fa fa-check"></i><b>2.8.2</b> Diferença entre buscar, baixar e processar.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="buscar-documentos.html"><a href="buscar-documentos.html"><i class="fa fa-check"></i><b>2.9</b> Buscar documentos</a></li>
+<li class="chapter" data-level="2.10" data-path="coletar-processos.html"><a href="coletar-processos.html"><i class="fa fa-check"></i><b>2.10</b> Coletar processos</a></li>
+<li class="chapter" data-level="2.11" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><i class="fa fa-check"></i><b>2.11</b> A importância da criação de APIs públicos nos tribunais</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#busca-e-extracao"><i class="fa fa-check"></i><b>2.11.1</b> Busca e extração</a></li>
+<li class="chapter" data-level="2.11.2" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-profissional-do-direito-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.2</b> Como o profissional do Direito acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.3" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-estatistico-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.3</b> Como o estatístico acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.4" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-jurimetrista-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.4</b> Como o jurimetrista acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.5" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-melhorar"><i class="fa fa-check"></i><b>2.11.5</b> Como melhorar?</a></li>
+<li class="chapter" data-level="2.11.6" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#solucao-a-longo-prazo"><i class="fa fa-check"></i><b>2.11.6</b> Solução a longo prazo:</a></li>
+<li class="chapter" data-level="2.11.7" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#vantagens-de-permitir-o-acesso-aos-dados"><i class="fa fa-check"></i><b>2.11.7</b> Vantagens de permitir o acesso aos dados</a></li>
+<li class="chapter" data-level="2.11.8" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#expectativas"><i class="fa fa-check"></i><b>2.11.8</b> Expectativas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html"><i class="fa fa-check"></i><b>2.12</b> Visualização de dados com <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="2.12.1" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html#construindo-graficos"><i class="fa fa-check"></i><b>2.12.1</b> Construindo gráficos</a></li>
+<li class="chapter" data-level="2.12.2" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html#as-camadas-de-um-grafico"><i class="fa fa-check"></i><b>2.12.2</b> As camadas de um gráfico</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="exemplo-visualizacao.html"><a href="exemplo-visualizacao.html"><i class="fa fa-check"></i><b>2.13</b> Exemplo visualização</a></li>
+<li class="chapter" data-level="2.14" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html"><i class="fa fa-check"></i><b>2.14</b> Ferramentas de visualização com <code>shiny</code></a><ul>
+<li class="chapter" data-level="2.14.1" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html#comecando-com-um-exemplo"><i class="fa fa-check"></i><b>2.14.1</b> Começando com um exemplo</a></li>
+<li class="chapter" data-level="2.14.2" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html#criando-outputs"><i class="fa fa-check"></i><b>2.14.2</b> Criando outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.15" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html"><i class="fa fa-check"></i><b>2.15</b> Fazendo mais com o shiny</a><ul>
+<li class="chapter" data-level="2.15.1" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#shiny-server-pro"><i class="fa fa-check"></i><b>2.15.1</b> Shiny Server Pro</a></li>
+<li class="chapter" data-level="2.15.2" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#shinyapps.io"><i class="fa fa-check"></i><b>2.15.2</b> shinyapps.io</a></li>
+<li class="chapter" data-level="2.15.3" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#ainda-mais"><i class="fa fa-check"></i><b>2.15.3</b> Ainda mais!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="simulacao.html"><a href="simulacao.html"><i class="fa fa-check"></i><b>3</b> Simulação</a><ul>
+<li class="chapter" data-level="3.1" data-path="primeiros-passos.html"><a href="primeiros-passos.html"><i class="fa fa-check"></i><b>3.1</b> Primeiros passos</a></li>
+<li class="chapter" data-level="3.2" data-path="estruturacao.html"><a href="estruturacao.html"><i class="fa fa-check"></i><b>3.2</b> Estruturação</a></li>
+<li class="chapter" data-level="3.3" data-path="dados.html"><a href="dados.html"><i class="fa fa-check"></i><b>3.3</b> Dados</a></li>
+<li class="chapter" data-level="3.4" data-path="implementacao.html"><a href="implementacao.html"><i class="fa fa-check"></i><b>3.4</b> Implementação</a></li>
+<li class="chapter" data-level="3.5" data-path="analise-dos-resultados.html"><a href="analise-dos-resultados.html"><i class="fa fa-check"></i><b>3.5</b> Análise dos resultados</a></li>
+<li class="chapter" data-level="3.6" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html"><i class="fa fa-check"></i><b>3.6</b> Exemplo - Cadastro Nacional de Adoção</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#primeiros-passos-1"><i class="fa fa-check"></i><b>3.6.1</b> Primeiros passos</a></li>
+<li class="chapter" data-level="3.6.2" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#estruturacao-1"><i class="fa fa-check"></i><b>3.6.2</b> Estruturação</a></li>
+<li class="chapter" data-level="3.6.3" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#dados-1"><i class="fa fa-check"></i><b>3.6.3</b> Dados</a></li>
+<li class="chapter" data-level="3.6.4" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#implementacao-1"><i class="fa fa-check"></i><b>3.6.4</b> Implementação</a></li>
+<li class="chapter" data-level="3.6.5" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#analise-dos-resultados-1"><i class="fa fa-check"></i><b>3.6.5</b> Análise dos resultados</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso de Jurimetria</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exemplo---cadastro-nacional-de-adocao" class="section level2">
+<h2><span class="header-section-number">3.6</span> Exemplo - Cadastro Nacional de Adoção</h2>
+<p>Nesta sessão, estudaremos um modelo de simulação proposto pela Associação Brasileira de Jurimetria num relatório da série Justiça Pesquisa sobre os tempos de processos de adoção no Brasil.</p>
+<p>O modelo em questão tinha como interesse estudar o impacto de uma redução na duração de processos de adoção no Cadastro Nacional de Adoção (CNA) do Conselho Nacional de Justiça.</p>
+<p>Argumenta-se que, caso ocorresse uma diminuição na duração dos processos de adoção, a idade de entrada nas crianças no CNA também diminuiria. Como a maior parte dos pretendentes prefere adotar crianças mais jovens, o número de crianças adotadas tende a aumentar. Além disso, espera-se obter uma diminuição no número de crianças que atingem a maioridade.</p>
+<p>A partir do contexto descrito acima, a modelagem desse problema pode ser realizada seguindo o roteiro proposto anteriormente.</p>
+<div id="primeiros-passos-1" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> Primeiros passos</h3>
+<p>Primeiramente justificamos o uso de um modelo de simulação, já que o problema envolve analisar o que acontece com o CNA no decorrer tempo. Além disso, como número de crianças adotadas depende de pareamentos entre pretendentes e crianças disponíveis no CNA, podemos estudar o impacto de diferentes estratégias de pareamento realizando poucas alterações no procedimento de simulação, o que torna essa abordagem computacionalmente atraente.</p>
+</div>
+<div id="estruturacao-1" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> Estruturação</h3>
+<p>A segunda parte da modelagem consiste na resposta do questionário proposto anteriormente:</p>
+<ol style="list-style-type: decimal">
+<li>Quais são as quantidades de interesse?</li>
+</ol>
+<p>O número de crianças disponíveis no CNA e suas respectivas idades, o número de crianças que atingem a maioridade, o número de crianças adotadas num determinado período e o número de pretendentes à adoção e as idades máximas preferidas por cada um deles.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Quais são as informações necessárias para calcular as quantidades de interesse?</li>
+</ol>
+<p>O número de crianças que atingem a maioridade pode ser calculado a partir da idade das crianças cadastradas no período anterior.</p>
+<p>O número de crianças adotadas pode ser obtido comparando as idades das crianças do período anterior com as idades máximas preferidas por cada pretendente no período anterior.</p>
+<p>O número de pretendentes e suas preferências dependem da quantidade de pretendentes que se cadastram periodicamente no CNA e da distribuição desses novos pretendentes com relação à idades máximas preferidas.</p>
+<p>O número de crianças disponíveis no CNA depende do número de crianças que foram adotadas, do número de crianças que são cadastradas periodicamente no CNA e da distribuição de idade dessas novas crianças.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>As quantidades de interesse variam no tempo? Como?</li>
+</ol>
+<p>A simulação precisa atualizar os seus valores periodicamente, de forma que o período seguinte utilize informação de período anterior.</p>
+<p>Os períodos analisados podem ser anos ou semestres.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Qual a relação entre as quantidades de interesse?</li>
+</ol>
+<p>Vamos definir, para cada período <span class="math inline">\(t\)</span>, as seguintes quantidades:</p>
+<p><span class="math display">\[N(t) = \hbox{número de crianças disponíveis para adoção no instante } t \]</span></p>
+<p><span class="math display">\[M(t) = \hbox{número de crianças adotadas no instante }t \]</span></p>
+<p><span class="math display">\[D(t) = \hbox{número de crianças que atingiram a maioridade no instante }t \]</span></p>
+<p><span class="math display">\[K(t) = \hbox{número de crianças que entram no cadastro no instante }t \]</span></p>
+<p><span class="math display">\[P(t) = \hbox{número de pretendentes cadastrados no instante }t\]</span></p>
+<p><span class="math display">\[P_i(t) = \hbox{número de pretendentes cadastrados no instante } t \]</span> <span class="math display">\[\hbox{que preferem crianças de idade até }i \]</span></p>
+<p><span class="math display">\[N_i(t) = \hbox{número de crianças cadastradas de idade } \]</span></p>
+<p><span class="math display">\[0 \leq i &lt; 18\]</span></p>
+<p>A relação fundamental entre essas quantidades é</p>
+<p><span class="math display">\[N(t) = N(t-1)-M(t-1)-D(t-1)+K(t)\]</span> <span class="math display">\[N(t) = \sum_{i=0}^{17}N_i(t)\]</span> <span class="math display">\[P(t) = \sum_{i=0}^{17}P_i(t)\]</span></p>
+<p>O número de adoções <span class="math inline">\(M(t)\)</span> é calculado utilizando as idades das crianças adotadas, <span class="math inline">\(N_i(t)\)</span>, e as preferências dos pretendentes cadastrados no sistema, <span class="math inline">\(M_i(t)\)</span>, através de uma estratégia de pareamento.</p>
+<p>Para viabilizar a aplicação do modelo vamos fazer algumas hipóteses sobre as quantidades descritas acima:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(K(t)\)</span> é dado por uma constante <span class="math inline">\(K\)</span>.</p></li>
+<li><p>A distribuição de idades das <span class="math inline">\(K(t)\)</span> crianças é a mesma encontrada nos dados.</p></li>
+<li><p><span class="math inline">\(P(t)\)</span> é dado por uma constante <span class="math inline">\(P\)</span>.</p></li>
+<li><p>A distribuição de preferências dos <span class="math inline">\(P(t)\)</span> pretendentes é a mesma encontrada nos dados.</p></li>
+<li><p>A estratégia de pareamento de crianças disponíveis e pretendentes é maximizar o número de adotados priorizando crianças mais velhas.</p></li>
+</ol>
+</div>
+<div id="dados-1" class="section level3">
+<h3><span class="header-section-number">3.6.3</span> Dados</h3>
+<p>Anteriormente citamos que a distribuição de idades e de preferências seria obtida através de uma análise dos dados.</p>
+<p>A distribuição observada de preferências de idades máximas, segundo um levantamento da ABJ, está descrita na tabela abaixo.</p>
+<table style="width:26%;">
+<colgroup>
+<col width="11%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Idade</th>
+<th align="center">Proporção</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">14.78%</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">18.33%</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">19.74%</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">18.79%</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">10.56%</td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="center">9.81%</td>
+</tr>
+<tr class="odd">
+<td align="center">6</td>
+<td align="center">3.62%</td>
+</tr>
+<tr class="even">
+<td align="center">7</td>
+<td align="center">1.76%</td>
+</tr>
+<tr class="odd">
+<td align="center">8</td>
+<td align="center">0.95%</td>
+</tr>
+<tr class="even">
+<td align="center">9</td>
+<td align="center">0.32%</td>
+</tr>
+<tr class="odd">
+<td align="center">10</td>
+<td align="center">0.66%</td>
+</tr>
+<tr class="even">
+<td align="center">11</td>
+<td align="center">0.15%</td>
+</tr>
+<tr class="odd">
+<td align="center">12</td>
+<td align="center">0.2%</td>
+</tr>
+<tr class="even">
+<td align="center">13</td>
+<td align="center">0.07%</td>
+</tr>
+<tr class="odd">
+<td align="center">14</td>
+<td align="center">0.05%</td>
+</tr>
+<tr class="even">
+<td align="center">15</td>
+<td align="center">0.06%</td>
+</tr>
+<tr class="odd">
+<td align="center">16</td>
+<td align="center">0.03%</td>
+</tr>
+<tr class="even">
+<td align="center">17</td>
+<td align="center">0.12%</td>
+</tr>
+</tbody>
+</table>
+<p>Outra importante informação obtida através da análise de dados é a distribuição de idade das crianças cadastradas no CNA. Analisando a idade de entrada dos cadastrados, obtivemos as seguintes distribuições:</p>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-66-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Note que, como cada uma destas distriuições está associada a uma causa de cadastro no CNA, vamos incluir a proporção de crianças registradas devido a processos de restituição familiar como um parâmetro do modelo. Por simplicidade, fixaremos este valor em 15%, equivalente à proporção observada no relatório supra citado.</p>
+<p>O impacto de variações na distribuição de idades das crianças cadastradas no CNA será resumido no parâmetro que controla a localização da segunda “corcova” da distribuição de idades das crianças cadastradas no CNA após processos com restituição familiar.</p>
+<p>Por fim, precisamos fixar os valores de <span class="math inline">\(K\)</span> e <span class="math inline">\(P\)</span>. Para isso, fixaremos a razão <span class="math inline">\(\frac{K}{P}\)</span> em <span class="math inline">\(3,52\)</span>, pois este número representa a razão do número total de crianças cadastradas no CNA, ativas ou inativas, pelo número total de pretendentes cadastrados no CNA, ativos ou inativos. Como <span class="math inline">\(P=3,52K\)</span>, vamos nos preocupar apenas variar o parâmetro <span class="math inline">\(K\)</span>.</p>
+</div>
+<div id="implementacao-1" class="section level3">
+<h3><span class="header-section-number">3.6.4</span> Implementação</h3>
+<p>As simulações propriamente ditas serão realizadas utilizando programas desenvolvidos no software R.</p>
+<p>Em linhas gerais, a implementação utilizará dois vetores. Um deles conterá as idades das crianças cadastradas e o outro conterá as idades máximas preferidas por cada pretendente cadastrado. A cada iteração, o vetor das crianças é atualizado retirando as crianças que foram adotadas ou que atingiram a maioridade e adicionando as novas crianças cadastradas no CNA. O vetor dos pretendentes é atualizado retirando aqueles que adotaram alguma criança e adicionando nos novos cadastrados.</p>
+<p>Primeiramente, construíremos funções que sorteiem as idades das crianças que são registradas no CNA e preferências dos pretendenentes registrados no CNA.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Sorteia n_pretendentes a partir de uma distribuição desejada. Por default, utiliza a distribuição disponível no relatório sobre adoção.</span>
+
+distr &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.1478</span>,<span class="fl">0.1833</span>,<span class="fl">0.1974</span>,<span class="fl">0.1879</span>,<span class="fl">0.1056</span>,<span class="fl">0.0981</span>,<span class="fl">0.0362</span>,
+           <span class="fl">0.0176</span>,<span class="fl">0.0095</span>,<span class="fl">0.0032</span>,<span class="fl">0.0066</span>,<span class="fl">0.0015</span>,<span class="fl">0.0020</span>,<span class="fl">0.0007</span>,
+           <span class="fl">0.0005</span>,<span class="fl">0.0006</span>,<span class="fl">0.0003</span>,<span class="fl">0.0012</span>)
+sorteia_preferencias &lt;-<span class="st"> </span>function(n_pretendentes, <span class="dt">distribuicao =</span> distr){
+  <span class="kw">sapply</span>(<span class="kw">runif</span>(n_pretendentes), function(x) {<span class="kw">which.max</span>(x &lt;<span class="st"> </span>distribuicao) -<span class="st"> </span><span class="dv">1</span>})
+}
+
+<span class="co">#Sorteia n valores de uma mistura de normais limitada ao intervalo de 0 a 18.</span>
+
+tnorMix &lt;-<span class="st"> </span>function(n,fit){
+  x &lt;-<span class="st"> </span>nor1mix::<span class="kw">rnorMix</span>(n,fit)
+  while(x &lt;<span class="st"> </span><span class="dv">0</span> |<span class="st"> </span>x &gt;<span class="st"> </span><span class="dv">18</span>){
+    x &lt;-<span class="st"> </span>nor1mix::<span class="kw">rnorMix</span>(n,fit)
+  }
+  <span class="kw">return</span>(x)
+}
+
+<span class="co">#Sorteia n valores de uma distribuição gama limitada ao intervalo de 0 a 18.</span>
+
+trgamma &lt;-<span class="st"> </span>function(n,shape,rate){
+  x &lt;-<span class="st"> </span><span class="kw">rgamma</span>(n,shape,rate)
+  while(x &lt;<span class="st"> </span><span class="dv">0</span> |<span class="st"> </span>x &gt;<span class="st"> </span><span class="dv">18</span>){
+    x &lt;-<span class="st"> </span><span class="kw">rgamma</span>(n,shape,rate)
+  }
+  <span class="kw">return</span>(x)
+}
+
+<span class="co">#Sorteia as idades de n_criancas_para_adocao a partir das distribuições acima, utilizando um conjunto de parâmetros.</span>
+
+sorteia_idades &lt;-<span class="st"> </span>function(n_criancas_para_adocao, shape, rate, mu1, mu2, sigma, p, <span class="dt">peso =</span> <span class="fl">0.5</span>){
+  distr &lt;-<span class="st"> </span>nor1mix::<span class="kw">norMix</span>(<span class="dt">mu =</span> <span class="kw">c</span>(mu1,mu2), <span class="dt">sigma =</span> <span class="kw">rep</span>(sigma,<span class="dv">2</span>), <span class="dt">w =</span> <span class="kw">c</span>(<span class="dv">1</span>-peso,peso))
+  <span class="kw">sapply</span>(<span class="kw">runif</span>(n_criancas_para_adocao), function(x){<span class="kw">ifelse</span>(x &lt;<span class="st"> </span>p, <span class="kw">ifelse</span>(<span class="kw">runif</span>(<span class="dv">1</span>) &lt;<span class="st"> </span><span class="fl">0.5</span>,<span class="kw">trgamma</span>(<span class="dv">1</span>,shape,rate),<span class="kw">rexp</span>(<span class="dv">1</span>)), <span class="kw">tnorMix</span>(<span class="dv">1</span>,distr))})
+}</code></pre></div>
+<p>A partir dessas funções, podemos inicializar os nossos vetores:</p>
+<p>As listas inicializadas seguem abaixo</p>
+<table style="width:19%;">
+<caption>Exemplo de conjunto de crianças simulado</caption>
+<colgroup>
+<col width="13%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">idades</th>
+<th align="center">id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0.2006772</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">9.7013161</td>
+<td align="center">2</td>
+</tr>
+<tr class="odd">
+<td align="center">3.6083768</td>
+<td align="center">3</td>
+</tr>
+<tr class="even">
+<td align="center">2.0634004</td>
+<td align="center">4</td>
+</tr>
+<tr class="odd">
+<td align="center">4.1576919</td>
+<td align="center">5</td>
+</tr>
+<tr class="even">
+<td align="center">1.5176869</td>
+<td align="center">6</td>
+</tr>
+<tr class="odd">
+<td align="center">5.6406676</td>
+<td align="center">7</td>
+</tr>
+<tr class="even">
+<td align="center">3.2431550</td>
+<td align="center">8</td>
+</tr>
+<tr class="odd">
+<td align="center">5.6340124</td>
+<td align="center">9</td>
+</tr>
+<tr class="even">
+<td align="center">4.5060209</td>
+<td align="center">10</td>
+</tr>
+</tbody>
+</table>
+<table style="width:40%;">
+<caption>Exemplo de conjunto de pretendentes simulado</caption>
+<colgroup>
+<col width="34%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">idade_maxima_preferida</th>
+<th align="center">id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">2</td>
+</tr>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">3</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">4</td>
+</tr>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">5</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">6</td>
+</tr>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">7</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">8</td>
+</tr>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">9</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">10</td>
+</tr>
+</tbody>
+</table>
+<p>Para completar a inicialização e finalizar a implementação, precisamos desenvolver um algoritmo que maximize o número de matchs a partir de um conjunto de idades e preferências. O algoritmo abaixo cumpre esse papel, realizando uma varredura das idades ordenadas para checar a viabilidade da adoção de cada criança.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Arredonda a idade das crianças cadastradas para baixo e ordena as idades arredondadas em ordem decrescente.</span>
+  criancas_floor &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">sort</span>(idades, <span class="dt">decreasing =</span> T))
+
+  <span class="co"># Ordena as idades máximas preferidas de cada pretendente em ordem decrescente.</span>
+  pretendentes &lt;-<span class="st"> </span><span class="kw">sort</span>(pretendentes, <span class="dt">decreasing =</span> T)
+  
+  <span class="co"># Ordena a idade das crianças cadastradas em ordem decrescente.</span>
+  criancas &lt;-<span class="st"> </span><span class="kw">sort</span>(idades, <span class="dt">decreasing =</span> T)
+
+  <span class="co"># Contador que percorre o vetor de idades.</span>
+  i =<span class="st"> </span><span class="dv">1</span>
+  
+  <span class="co"># Inicialização do número de pareamentos.</span>
+  num_match =<span class="st"> </span><span class="dv">0</span>
+  
+  while(i &lt;=<span class="st"> </span><span class="kw">length</span>(criancas)){
+
+    <span class="co">#Se a idade arredondada da criança de maior idade for menor que a maior idade máxima tolerada por um pretendente, um pareamento é possível. </span>
+    if(criancas_floor[i] &lt;=<span class="st"> </span>pretendentes[<span class="dv">1</span>]){
+
+      <span class="co">#Remove a criança adotada do vetor de crianças</span>
+      criancas &lt;-<span class="st"> </span>criancas[-i]
+      
+      <span class="co">#Remove a criança adotada do vetor de idades arredondadas</span>
+      criancas_floor &lt;-<span class="st"> </span>criancas_floor[-i]
+
+      <span class="co">#Remove o pretendente que adotou a criança dos pretendentes disponíveis</span>
+      pretendentes &lt;-<span class="st"> </span>pretendentes[-<span class="dv">1</span>]
+      
+      <span class="co">#Conta um novo pareamento</span>
+      num_match =<span class="st"> </span>num_match +<span class="st"> </span><span class="dv">1</span>
+      
+      <span class="co">#O contador recua uma posição por conta da remoção da criança adotada</span>
+      i &lt;-<span class="st"> </span>i<span class="dv">-1</span>
+    }
+    
+    <span class="co">#Continua a contagem</span>
+    i &lt;-<span class="st"> </span>i +<span class="st"> </span><span class="dv">1</span>
+  }</code></pre></div>
+<p>Na verdade, este algoritmo pode ser melhorado se realizarmos uma adaptação na regra de pareamento. Não é necessário que a criança de maior idade seja pareada com o pretendente de maior idade máxima tolerada. Embora seja improvável, essa regra de pareamento pode produzir a adoção de uma criança de 10 anos por um pretendente que não se opõe a adotar jovens de até 17 anos. De certa forma, este tipo de pareamento é um “desperdício”, já que pretendentes com idades máximas toleradas grandes são mais raros, de forma que é mais interessante pareá-los com jovens mais velhos.</p>
+<p>A adaptação sugerida no parágrafo anterior pode ser implementada da forma que segue, notando que, na função, as duas estratégias estão disponíveis na simulação através do parâmetro “tipo”.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">matching &lt;-<span class="st"> </span>function(pretendentes, criancas, <span class="dt">tipo =</span> <span class="dv">1</span>){
+
+  criancas_floor &lt;-<span class="st"> </span><span class="kw">floor</span>(<span class="kw">sort</span>(criancas, <span class="dt">decreasing =</span> T))
+  pretendentes &lt;-<span class="st"> </span><span class="kw">sort</span>(pretendentes, <span class="dt">decreasing =</span> T)
+  criancas &lt;-<span class="st"> </span><span class="kw">sort</span>(criancas, <span class="dt">decreasing =</span> T)
+
+  i =<span class="st"> </span><span class="dv">1</span>
+  num_match =<span class="st"> </span><span class="dv">0</span>
+  while(i &lt;=<span class="st"> </span><span class="kw">length</span>(criancas)){
+
+    if(criancas_floor[i] &lt;=<span class="st"> </span>pretendentes[<span class="dv">1</span>]){
+
+      j =<span class="st"> </span><span class="dv">1</span>
+
+      while(tipo ==<span class="st"> </span><span class="dv">2</span> &amp;<span class="st"> </span>j !=<span class="st"> </span><span class="kw">length</span>(pretendentes) &amp;<span class="st"> </span>criancas_floor[i]&lt;=pretendentes[<span class="kw">ifelse</span>(j &lt;<span class="st"> </span><span class="kw">length</span>(pretendentes), j<span class="dv">+1</span>, <span class="kw">length</span>(pretendentes))]){
+        j =<span class="st"> </span>j +<span class="st"> </span><span class="dv">1</span>
+      }
+
+      criancas &lt;-<span class="st"> </span>criancas[-i]
+      criancas_floor &lt;-<span class="st"> </span>criancas_floor[-i]
+
+      pretendentes &lt;-<span class="st"> </span>pretendentes[-j]
+      num_match =<span class="st"> </span>num_match +<span class="st"> </span><span class="dv">1</span>
+      i &lt;-<span class="st"> </span>i<span class="dv">-1</span>
+    }
+    i &lt;-<span class="st"> </span>i +<span class="st"> </span><span class="dv">1</span>
+  }
+
+  <span class="kw">return</span>(<span class="kw">list</span>(criancas,pretendentes, num_match))
+}</code></pre></div>
+<p>O exemplo abaixo ilustra o funcionamento dessas estratégias de pareamento.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p &lt;-<span class="st"> </span><span class="kw">sorteia_preferencias</span>(<span class="dv">30</span>)
+idades &lt;-<span class="st"> </span><span class="kw">sorteia_idades</span>(<span class="dv">30</span>, <span class="fl">1.1</span>, <span class="fl">0.15</span>, <span class="dv">1</span>, <span class="dv">9</span>, <span class="fl">2.8</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>)
+
+<span class="kw">print</span>(<span class="kw">sort</span>(<span class="kw">round</span>(idades, <span class="dv">2</span>), <span class="dt">decreasing =</span> T))</code></pre></div>
+<pre><code>##  [1] 13.22 12.96 12.72 12.41 10.82 10.44  9.79  9.30  8.93  8.71  7.30
+## [12]  7.13  7.03  6.66  6.59  6.51  5.29  4.98  4.66  3.55  3.32  3.01
+## [23]  2.72  2.14  1.31  1.21  1.09  0.65  0.42  0.42</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">sort</span>(<span class="kw">round</span>(p, <span class="dv">2</span>), <span class="dt">decreasing =</span> T))</code></pre></div>
+<pre><code>##  [1] 2 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Lista contendo o vetor de crianças e de pretendentes restantes.</span>
+pareamentos_estrategia_1 &lt;-<span class="st"> </span><span class="kw">matching</span>(p, idades, <span class="dv">1</span>)
+pareamentos_estrategia_2 &lt;-<span class="st"> </span><span class="kw">matching</span>(p, idades, <span class="dv">2</span>)
+
+<span class="kw">print</span>(pareamentos_estrategia_1)</code></pre></div>
+<pre><code>## [[1]]
+##  [1] 13.220144 12.963619 12.720426 12.409301 10.816369 10.435139  9.794466
+##  [8]  9.298955  8.934183  8.711584  7.295204  7.132229  7.025862  6.656854
+## [15]  6.590421  6.507732  5.285900  4.983965  4.661280  3.550157  3.320593
+## [22]  3.011672  2.139547
+## 
+## [[2]]
+##  [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## 
+## [[3]]
+## [1] 7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(pareamentos_estrategia_2)</code></pre></div>
+<pre><code>## [[1]]
+##  [1] 13.220144 12.963619 12.720426 12.409301 10.816369 10.435139  9.794466
+##  [8]  9.298955  8.934183  8.711584  7.295204  7.132229  7.025862  6.656854
+## [15]  6.590421  6.507732  5.285900  4.983965  4.661280  3.550157  3.320593
+## [22]  3.011672  2.139547
+## 
+## [[2]]
+##  [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+## 
+## [[3]]
+## [1] 7</code></pre>
+</div>
+<div id="analise-dos-resultados-1" class="section level3">
+<h3><span class="header-section-number">3.6.5</span> Análise dos resultados</h3>
+<p>Antes de proceder com a análise de resultados vamos responder às perguntas propostas anteriormente:</p>
+<ol style="list-style-type: decimal">
+<li>Desejamos analisar o impacto de quais parâmetros?</li>
+</ol>
+<p>A idade de entrada das crianças no CNA e as estratégias de pareamento de crianças e pretendentes.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Quais são as variáveis sobre as quais desejamos analisar o impacto?</li>
+</ol>
+<p>Desejamos a variação do número de crianças que atingem a maioridade ao longo do tempo, o número de crianças e pretendentes disponíveis e o número de adoções.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>O que a alteração dos parâmetros de interesse deve causar em cada variável?</li>
+</ol>
+<p>Espera-se que uma menor idade de regitro no CNA diminua o número de crianças que atingem a maioridade, aumente o número de adoções e, consequentemente, diminuia o número de crianças disponíveis para adoção. Temos interesse especial em avaliar o tamanho dessas diminuições/acréscimos.</p>
+<div id="idade-de-entrada-no-cna" class="section level4">
+<h4><span class="header-section-number">3.6.5.1</span> Idade de entrada no CNA</h4>
+<p>Desejamos checar se, conforme a idade de entrada no CNA diminui, o número de maiores de idade por iteração fica menor. Este é o caso, como se observa na figura abaixo.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">maiores_de_idade &lt;-<span class="st"> </span>function(<span class="dt">tipo =</span> <span class="dv">1</span>, <span class="dt">tempos =</span> <span class="dv">1</span>:<span class="dv">10</span>, <span class="dt">K =</span> <span class="dv">100</span>, <span class="dt">p_cada_tipo =</span> <span class="fl">0.1</span>, <span class="dt">unidade =</span> <span class="dv">1</span>, <span class="dt">idade_maxima =</span> <span class="dv">9</span>){
+    <span class="kw">realiza_processo</span>(tipo, tempos, K, p_cada_tipo, unidade, idade_maxima)$maiores_de_idade
+}
+
+<span class="kw">expand.grid</span>(<span class="dt">K =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">300</span>), <span class="dt">idade_maxima =</span> <span class="dv">7</span>:<span class="dv">9</span>) %&gt;%<span class="st">    </span>plyr:::<span class="kw">mdply</span>(maiores_de_idade, <span class="dt">tempo =</span> <span class="dv">1</span>:<span class="dv">20</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span>reshape2::<span class="kw">melt</span>(<span class="dt">id.vars =</span> <span class="kw">c</span>(<span class="st">&#39;K&#39;</span>,<span class="st">&#39;idade_maxima&#39;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(-variable) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(K, idade_maxima) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">periodo =</span> <span class="dv">1</span>:<span class="kw">n</span>()) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">idade_maxima =</span> <span class="kw">paste0</span>(idade_maxima,<span class="st">&#39; anos&#39;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> periodo, <span class="dt">y =</span> value, <span class="dt">color =</span> idade_maxima))+
+<span class="st">    </span><span class="kw">geom_line</span>()+
+<span class="st">    </span><span class="kw">facet_grid</span>(K ~<span class="st"> </span>idade_maxima)+
+<span class="st">  </span><span class="kw">theme_bw</span>()+
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&#39;Iteração&#39;</span>)+
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&#39;Número de maiores de idade&#39;</span>)</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p>A diminuição no número de maiores de idade implica em mais crianças sendo adotadas ao longo do tempo, de forma que devemos verificar uma diminuição nesta variável também. O resultado deste teste segue na figura abaixo.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">criancas_disponiveis &lt;-<span class="st"> </span>function(<span class="dt">tipo =</span> <span class="dv">1</span>, <span class="dt">tempos =</span> <span class="dv">1</span>:<span class="dv">10</span>, <span class="dt">K =</span> <span class="dv">100</span>, <span class="dt">p_cada_tipo =</span> <span class="fl">0.1</span>, <span class="dt">unidade =</span> <span class="dv">1</span>, <span class="dt">idade_maxima =</span> <span class="dv">9</span>){
+    <span class="kw">realiza_processo</span>(tipo, tempos, K, p_cada_tipo, unidade, idade_maxima)$criancas_disponiveis
+}
+
+<span class="kw">expand.grid</span>(<span class="dt">K =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">300</span>), <span class="dt">idade_maxima =</span> <span class="dv">7</span>:<span class="dv">9</span>) %&gt;%<span class="st">    </span>plyr:::<span class="kw">mdply</span>(criancas_disponiveis, <span class="dt">tempo =</span> <span class="dv">1</span>:<span class="dv">20</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span>reshape2::<span class="kw">melt</span>(<span class="dt">id.vars =</span> <span class="kw">c</span>(<span class="st">&#39;K&#39;</span>,<span class="st">&#39;idade_maxima&#39;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(-variable) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(K, idade_maxima) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">periodo =</span> <span class="dv">1</span>:<span class="kw">n</span>()) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">idade_maxima =</span> <span class="kw">paste0</span>(idade_maxima,<span class="st">&#39; anos&#39;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> periodo, <span class="dt">y =</span> value, <span class="dt">color =</span> idade_maxima))+
+<span class="st">    </span><span class="kw">geom_line</span>()+
+<span class="st">    </span><span class="kw">facet_grid</span>(K ~<span class="st"> </span>idade_maxima)+
+<span class="st">  </span><span class="kw">theme_bw</span>()+
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&#39;Iteração&#39;</span>)+
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&#39;Número de crianças disponíveis para adoção&#39;</span>)</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<p>Por fim, uma diminuição na idade das crianças cadastradas no CNA deve favorecer a ocorrência de um maior número de pareamentos entre pretendentes e crianças, considerando que grande parte dos pretendentes prefere crianças mais jovens.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numero_de_pareamentos &lt;-<span class="st"> </span>function(<span class="dt">tipo =</span> <span class="dv">1</span>, <span class="dt">tempos =</span> <span class="dv">1</span>:<span class="dv">10</span>, <span class="dt">K =</span> <span class="dv">100</span>, <span class="dt">p_cada_tipo =</span> <span class="fl">0.1</span>, <span class="dt">unidade =</span> <span class="dv">1</span>, <span class="dt">idade_maxima =</span> <span class="dv">9</span>){
+    <span class="kw">realiza_processo</span>(tipo, tempos, K, p_cada_tipo, unidade, idade_maxima)$numero_de_pareamentos
+}
+
+<span class="kw">expand.grid</span>(<span class="dt">K =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">300</span>), <span class="dt">idade_maxima =</span> <span class="dv">7</span>:<span class="dv">9</span>) %&gt;%<span class="st">    </span>plyr:::<span class="kw">mdply</span>(numero_de_pareamentos, <span class="dt">tempo =</span> <span class="dv">1</span>:<span class="dv">20</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span>reshape2::<span class="kw">melt</span>(<span class="dt">id.vars =</span> <span class="kw">c</span>(<span class="st">&#39;K&#39;</span>,<span class="st">&#39;idade_maxima&#39;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(-variable) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(K, idade_maxima) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">periodo =</span> <span class="dv">1</span>:<span class="kw">n</span>()) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">idade_maxima =</span> <span class="kw">paste0</span>(idade_maxima,<span class="st">&#39; anos&#39;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> periodo, <span class="dt">y =</span> value, <span class="dt">color =</span> idade_maxima))+
+<span class="st">    </span><span class="kw">geom_line</span>()+
+<span class="st">    </span><span class="kw">facet_grid</span>(K ~<span class="st"> </span>idade_maxima)+
+<span class="st">  </span><span class="kw">theme_bw</span>()+
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&#39;Iteração&#39;</span>)+
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&#39;Número de pareamentos&#39;</span>)</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+</div>
+<div id="estrategia-utilizada" class="section level4">
+<h4><span class="header-section-number">3.6.5.2</span> Estratégia utilizada</h4>
+<p>O número de pareamentos certamente é invariante com relação à estratégia utilizada, já que a diferença entre os dois métodos está apenas em qual pretendente será escolhido.</p>
+<p>Por outro lado, o número de crianças disponíveis pode diminuir conforme pretendentes menos restritivos forem sendo preteridos. A figura abaixo sugere que este efeito não é sentido. Isso deve-se, provavelmente, a distância entre a idade máxima tolerada pelos pretendentes e as idades das crianças cadastradas.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">expand.grid</span>(<span class="dt">tipo =</span> <span class="dv">1</span>:<span class="dv">2</span> , <span class="dt">K =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">300</span>)) %&gt;%<span class="st">    </span>plyr:::<span class="kw">mdply</span>(criancas_disponiveis, <span class="dt">tempo =</span> <span class="dv">1</span>:<span class="dv">20</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span>reshape2::<span class="kw">melt</span>(<span class="dt">id.vars =</span> <span class="kw">c</span>(<span class="st">&#39;tipo&#39;</span>,<span class="st">&#39;K&#39;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(-variable) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(tipo, K) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">periodo =</span> <span class="dv">1</span>:<span class="kw">n</span>()) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tipo =</span> <span class="kw">factor</span>(tipo)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> periodo, <span class="dt">y =</span> value, <span class="dt">fill =</span> tipo, <span class="dt">color =</span> tipo))+
+<span class="st">  </span><span class="kw">geom_line</span>()+
+<span class="st">    </span><span class="kw">facet_wrap</span>(~K)+
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">expand.grid</span>(<span class="dt">tipo =</span> <span class="dv">1</span>:<span class="dv">2</span> , <span class="dt">K =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">300</span>)) %&gt;%<span class="st">    </span>plyr:::<span class="kw">mdply</span>(maiores_de_idade, <span class="dt">tempo =</span> <span class="dv">1</span>:<span class="dv">20</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span>reshape2::<span class="kw">melt</span>(<span class="dt">id.vars =</span> <span class="kw">c</span>(<span class="st">&#39;tipo&#39;</span>,<span class="st">&#39;K&#39;</span>)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(-variable) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(tipo, K) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">periodo =</span> <span class="dv">1</span>:<span class="kw">n</span>()) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tipo =</span> <span class="kw">factor</span>(tipo)) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> periodo, <span class="dt">y =</span> value, <span class="dt">fill =</span> tipo, <span class="dt">color =</span> tipo))+
+<span class="st">  </span><span class="kw">geom_line</span>()+
+<span class="st">    </span><span class="kw">facet_wrap</span>(~K)+
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-77-2.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="analise-dos-resultados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="referencias.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/abjur/curso/edit/master/03-method.Rmd",
+"text": "Editar"
+},
+"download": ["curso-jurimetria.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

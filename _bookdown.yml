@@ -10,3 +10,4 @@ header-includes:
    - \usepackage[scaled=.8]{beramono}
    - \renewcommand\arraystretch{0.7}
    - \renewcommand{\familydefault}{\sfdefault}
+   - \setmonofont{\ttdefault}

@@ -1,1 +1,16 @@
-`r if (knitr:::is_html_output()) '# References {-}'`
+`r if (knitr:::is_html_output()) '# Referências {-}' else '# Referências \nocite'`
+
+Allen TT, Bernshteyn M (2008) Helping Franklin county vote in 2008: Waiting line report to
+Michael Stinziano and Matthew Damschroder and The Franklin County Board of Elections
+http://vote.franklincountyohio.gov/assets/pdf/press-releases/PR-07302008.pdf
+
+ Karnon J, Stahl J, Brennan A, et al. Modeling using discrete
+event simulation: a report of the ISPOR-SMDM Modeling Good
+Research Practices Task Force—4. Med Decis Making. 2012;
+32(5):701–11.
+
+Dimitris Bertsimas and John N. Tsitsiklis (1997), Introduction to Linear Optimization,
+Athena Scientific.
+
+Alexey Izmailov and Mikhail Solodov (2007). Optimization, Volume 2: Computational Methods. 
+Rio de Janeiro, Brazil. Second Edition

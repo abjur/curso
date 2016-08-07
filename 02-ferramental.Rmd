@@ -17,13 +17,14 @@ mas gera muito valor ao extrair suas informações.
 Por isso, o profissional precisa dominar o ferramental  
 de extração, transformação e visualização de dados,
 e é sobre isso que discutiremos nesta primeira parte do curso.
-Utilizaremos como base o software estatístico `R`,
+Utilizaremos como base o software estatístico `R`, 
+que atualmente possui diversas ferramentas que ajudam nessas atividades.
 
-Os pacotes utilizados são 
+Os pacotes utilizados nessa parte são 
 `httr`, `xml2`, `rvest`, `dplyr`, `tidyr`, `purrr`,
 `lubridate`, `stringr` e `ggplot2`.
 Também utilizamos um pacote chamado `abjutils`, 
-construído para atender algumas necessidades frequentes na ABJ.
+construído para atender algumas necessidades frequentes da ABJ.
 Recomenda-se a utilização do `R 3.3.1` e o *RStudio preview version*[^rstudio].
 É possível instalar todos esses pacotes de uma vez rodando
 
@@ -34,12 +35,6 @@ if (!require(devtools)) install.packages('devtools')
 devtools::install_github('abjur/abjutils')
 ```
 
-```{r pacotess, echo=FALSE, message=FALSE, warning=FALSE}
-require(dplyr)
-require(tidyr)
-data(pnud_muni, package = 'abjutils')
-```
-
 <!-- ---------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------- -->
@@ -48,7 +43,7 @@ data(pnud_muni, package = 'abjutils')
 <!-- ---------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------- -->
 
-## Exemplos trabalhados
+## Exemplo trabalhado
 
 ### Câmaras de gás
 
@@ -74,19 +69,18 @@ a presente pesquisa utiliza como base de dados um levantamento de
 157.379 decisões em segunda instância, 
 das quais pouco menos de 60.000 envolvem apelações contra o Ministério Público, 
 todas proferidas entre 01/01/2014 e 31/12/2014 nas 
-dezesseis Câmaras de Direito Criminal do Estado de São Paulo, 
-e nas quatro Câmaras Extraordinárias. 
-Todas as informações foram obtidas através de ferramentas computacionais 
+dezesseis Câmaras de Direito Criminal, 
+e nas quatro Câmaras Extraordinárias do Tribunal de Justiça de São Paulo. 
+Todas as informações foram obtidas através de *web scraping* 
 a partir de bases de dados disponíveis publicamente, 
 o que permite a reprodutibilidade da pesquisa. 
 Os dados semi-estruturados foram organizados 
 a partir da utilização de técnicas de mineração de texto. 
-Também foi necessário utilizar procedimentos estatísticos adequados para 
-lidar com problemas de dados faltantes.
 
 Os resultados revelam taxas de reforma próximas a 50%. 
 As taxas obtidas são relevantes e justificam a não antecipação
 do cumprimento de pena para a decisão em primeira instância. 
+
 Com o intuito de complementar e aprofundar a pesquisa, 
 realizamos análises para tipos específicos de crime, 
 como roubo e tráfico de drogas, 
@@ -101,53 +95,88 @@ câmaras com menos de 30% de recursos negados (primeira, segunda e décima segun
 O resultado é contraintuitivo pois teoricamente 
 a alocação de novos recursos nas câmaras é aleatória.
 
-### Waze do Judiciário
+No curso, vamos replicar o estudo das câmaras para 2015, 
+passando por todas as fases! Como são muitos processos, 
+vamos trabalhar com uma amostra de apenas mil casos para as visualizações finais.
 
-A produtividade de varas e juízes é 
-um tema corrente na administração do judiciário.
-É importante mensurar a produtividade para fins de promoção e 
-identificação de boas ou más práticas de atuação. 
-No entanto, a complexidade processual, que não é observável, 
-torna o problema de mensuração mais complicado do que 
-simplesmente contar estatísticas de sentenças por mês.
+<!-- ### Waze do Judiciário -->
 
-Em 2014 a ABJ trabalhou com o TJSP na 
-realização de um projeto para auxiliar na administração do judiciário.
-Um dos objetivos desse projeto foi 
-realizar análise de agrupamento de varas do Tribunal, 
-com o intuito de detectar varas problemáticas e também varas-modelo, 
-que poderiam auxiliar outras varas na gestão dos processos.
+<!-- A produtividade de varas e juízes é  -->
+<!-- um tema corrente na administração do judiciário. -->
+<!-- É importante mensurar a produtividade para fins de promoção e  -->
+<!-- identificação de boas ou más práticas de atuação.  -->
+<!-- No entanto, a complexidade processual, que não é observável,  -->
+<!-- torna o problema de mensuração mais complicado do que  -->
+<!-- simplesmente contar estatísticas de sentenças por mês. -->
 
-A análise de agrupamento pode ser utilizada para separar varas em grupos e 
-investigar o perfil de produtividade das varas de cada um dos grupos formados. 
-Por exemplo, ao separar um conjunto de 10 varas em 3 grupos, 
-poderíamos detectar um grupo que está produzindo pouco em relação à 
-quantidade de funcionários, ou então um conjunto formado por uma vara só, 
-que possui processos de execução de títulos extrajudiciais em excesso. 
-Dessa forma, a identificação e investigação das características desses grupos 
-poderiam ajudar em ações estratégicas do tribunal, 
-como critérios para alocação de recursos (investimento em varas problemáticas) e 
-criação de treinamentos (a partir da identificação de varas-modelo).
+<!-- Em 2014 a ABJ trabalhou com o TJSP na  -->
+<!-- realização de um projeto para auxiliar na administração do judiciário. -->
+<!-- Um dos objetivos desse projeto foi  -->
+<!-- realizar análise de agrupamento de varas do Tribunal,  -->
+<!-- com o intuito de detectar varas problemáticas e também varas-modelo,  -->
+<!-- que poderiam auxiliar outras varas na gestão dos processos. -->
 
-Ao comparar varas é usual considerar informações de orçamento, 
-recursos humanos (número de funcionários e magistrados) e 
-informações de movimentação processual (número de processos distribuídos, 
-tamanho do acervo, quantidade de julgamentos, etc). 
-Não se pode comparar diretamente maçã com banana: por exemplo, 
-varas especializadas em execução fiscal são 
-difíceis de comparar com varas de família.
+<!-- A análise de agrupamento pode ser utilizada para separar varas em grupos e  -->
+<!-- investigar o perfil de produtividade das varas de cada um dos grupos formados.  -->
+<!-- Por exemplo, ao separar um conjunto de 10 varas em 3 grupos,  -->
+<!-- poderíamos detectar um grupo que está produzindo pouco em relação à  -->
+<!-- quantidade de funcionários, ou então um conjunto formado por uma vara só,  -->
+<!-- que possui processos de execução de títulos extrajudiciais em excesso.  -->
+<!-- Dessa forma, a identificação e investigação das características desses grupos  -->
+<!-- poderiam ajudar em ações estratégicas do tribunal,  -->
+<!-- como critérios para alocação de recursos (investimento em varas problemáticas) e  -->
+<!-- criação de treinamentos (a partir da identificação de varas-modelo). -->
 
-A base de dados do projeto foi obtida automaticamente 
-através de ferramentas de web scraping e mineração de documentos PDF. 
-Os dados contêm informações de quantidade de funcionários e 
-diversas contagens mensais da vara como acervo, 
-número de sentenças e número de distribuições.
+<!-- Ao comparar varas é usual considerar informações de orçamento,  -->
+<!-- recursos humanos (número de funcionários e magistrados) e  -->
+<!-- informações de movimentação processual (número de processos distribuídos,  -->
+<!-- tamanho do acervo, quantidade de julgamentos, etc).  -->
+<!-- Não se pode comparar diretamente maçã com banana: por exemplo,  -->
+<!-- varas especializadas em execução fiscal são  -->
+<!-- difíceis de comparar com varas de família. -->
 
-O produto final do projeto foi chamado de "waze do judiciário". 
-Trata-se de um aplicativo online de visualização interativa, 
-em que o usuário pode selecionar as entrâncias, alguns tipos de varas e
-a quantidade de grupos a serem formados.
+<!-- A base de dados do projeto foi obtida automaticamente  -->
+<!-- através de ferramentas de web scraping e mineração de documentos PDF.  -->
+<!-- Os dados contêm informações de quantidade de funcionários e  -->
+<!-- diversas contagens mensais da vara como acervo,  -->
+<!-- número de sentenças e número de distribuições. -->
 
+<!-- O produto final do projeto foi chamado de "waze do judiciário".  -->
+<!-- Trata-se de um aplicativo online de visualização interativa,  -->
+<!-- em que o usuário pode selecionar as entrâncias, alguns tipos de varas e -->
+<!-- a quantidade de grupos a serem formados. -->
+
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+
+## Data tidying
+
+Uma base de dados é considerada "tidy" se
+
+- Cada observação é uma linha do bd.
+- Cada variável é uma coluna do bd.
+- Para cada unidade observacional temos um `data_frame` separado (possivelmente com chaves de associação).
+
+Nessa parte do curso, vamos trabalhar com 
+[*arrumação de dados*](http://r4ds.had.co.nz/wrangle-intro.html), 
+que consiste em trabalhar com ferramentas de extração, 
+consolidação e transformação de dados. 
+As ferramentas utilizadas fazem parte do chamado `tidyverse`, 
+um universo de pacotes contemporâneos do `R` que 
+são intuitivos, eficientes e úteis.
+
+O objetivo em *arrumação de dados* é extrair e 
+transformar uma base de dados até que ela esteja em formato *tidy*. 
+Em seguida, mostraremos como fizemos isso no exemplo das câmaras. 
+Adicionalmente, vamos apresentar como foram trabalhados 
+os arquivos PDF no caso do Waze do judiciário.
+
+<img src="http://r4ds.had.co.nz/diagrams/data-science-wrangle.png" style="width: 600px;"/>
 
 <!-- ---------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------- -->
@@ -160,7 +189,7 @@ a quantidade de grupos a serem formados.
 ## Pipe
 
 O operador *pipe* foi uma das grandes revoluções recentes do R, 
-tornando a leitura de códigos muito mais lógica, fácil e compreensível. 
+tornando a leitura de códigos mais lógica, fácil e compreensível. 
 Este operador foi introduzido por Stefan Milton Bache no pacote `magrittr` e 
 já existem diversos pacotes construidos para facilitar a sua utilização.
 
@@ -201,7 +230,7 @@ sqrt(sum(x))
 
 A princípio, a utilização do `%>%` não parece trazer grandes vantagens, 
 pois a expressão `sqrt(sum(x))` é facilmente compreendida. No entanto, 
-se tivermos um grande número de funções aninhadas uma dentro das outras, 
+se tivermos um grande número de funções aninhadas, 
 a utilização do `pipe` transforma um código confuso e 
 difícil de ser lido em algo simples e intuitivo. Como exemplo, 
 imagine que você precise escrever uma receita de um bolo usando o R, 
@@ -228,41 +257,231 @@ Agora o código realmente se parece com uma receita de bolo.
 Para mais informações sobre o `pipe` e exemplos de utilização, visite a página 
 [Ceci n'est pas un pipe](http://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html).
 
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
+## Pacote `lubridate` para trabalhar com datas
 
-## Data tidying
+Originalmente, o `R` é bastante ruim para trabalhar com datas, 
+o que causa frustração e perda de tempo nas análises.
+O pacote `lubridate` foi criado para simplificar ao máximo a
+leitura de datas e extração de informações dessas datas.
 
-Uma base de dados é considerada "tidy" se
+A função mais importante para leitura de dados no `lubridate` é a `ymd`.
+Essa função serve para ler qualquer data de uma `string` no formato `YYYY-MM-DD`.
+Essa função é útil pois funciona com qualquer separador 
+entre os elementos da data e também porque temos uma função para cada formato
+(`mdy`, `dmy`, `dym`, `myd`, `ydm`). 
 
-- Cada observação é uma linha do bd.
-- Cada variável é uma coluna do bd.
-- Para cada unidade observacional temos um `data_frame` separado (possivelmente com chaves de associação).
+Outras funções importantes
 
-Nessa parte do curso, vamos trabalhar com 
-[*arrumação de dados*](http://r4ds.had.co.nz/wrangle-intro.html), 
-que consiste em trabalhar com ferramentas de extração, 
-consolidação e transformação de dados. 
-As ferramentas utilizadas fazem parte do chamado `tidyverse`, 
-um universo de pacotes contemporâneos do `R` que 
-são intuitivas, eficientes e úteis.
+- `ymd_hms`: lê datas e horários, generalizando `ymd`.
+- `year`, `month`, `day`, `quarter`, `weekday`, `week`: extraem componentes da data.
+- `years`, `months`, `days`: adicionam tempos a uma data, ajudando a criar vetores de datas. Por exemplo
 
-O objetivo em *arrumação de dados* é extrair e 
-transformar uma base de dados até que ela esteja em formato *tidy*. 
-Em seguida, mostraremos como fizemos isso no exemplo das câmaras. 
-Adicionalmente, vamos apresentar como foram trabalhados 
-os arquivos PDF no caso do Waze do judiciário.
+```{r, warning=FALSE, message=FALSE}
+library(lubridate)
+ymd('2015-01-01') + months(0:11)
+```
 
-<img src="http://r4ds.had.co.nz/diagrams/data-science-wrangle.png" style="width: 600px;"/>
+- `floor_date` e `ceiling_date`: arredonda datas para uma unidade de interesse. Útil para agregar dados diários por semana, mês, trimestre etc.
+
+Mais informações: ver [aqui](https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html) e [aqui](https://www.jstatsoft.org/index.php/jss/article/view/v040i03/v40i03.pdf).
+
+## Pacote `stringr` para trabalhar com textos
+
+O R básico não tem uma sintaxe consistente para trabalhar com textos.
+O pacote `stringr` ajuda a realizar todas as tarefas básicas de manipulação de texto,
+exigindo que o usuário estude apenas uma sintaxe.
+O `stringr` também é construído sobre a [biblioteca ICU](http://site.icu-project.org/),
+implementada em `C` e `C++`, 
+apresentando resultados rápidos e confiáveis.
+
+As regras básicas do pacote são:
+
+- As funções de manipulação de texto começam com `str_`. Caso esqueça o nome de uma função, basta digitar `stringr::str_` e apertar `TAB` para ver quais são as opções.
+- O primeiro argumento da função é sempre uma `string`.
+
+Antes de listar as funções, precisamos estudar o básico de expressões regulares.
+
+### Expressões regulares
+
+Expressão regular ou *regex* é uma sequência concisa de caracteres
+que representa várias strings.
+Entender o básico de expressões regulares é indispensável para 
+trabalhar com textos.
+
+Vamos estudar expressões regulares através de exemplos e com a função `str_detect()`.
+Essa função retorna `TRUE` se uma string atende à uma expressão regular e 
+`FALSE` em caso contrário.
+
+A tabela abaixo mostra a aplicação de seis `regex` a seis strings distintas.
+
+```{r}
+library(stringr)
+testes <- c('ban', 'banana', 'abandonado', 'pranab anderson', 'BANANA', 'ele levou ban')
+expressoes <- list(
+  'ban', # reconhece tudo que tenha "ban", mas não ignora case
+  'BAN', # reconhece tudo que tenha "BAN", mas não ignora case
+  regex('ban', ignore_case = TRUE), # reconhece tudo que tenha "ban", ignorando case
+  'ban$', # reconhece apenas o que termina exatamente em "ban"
+  '^ban', # reconhece apenas o que começa exatamente com "ban"
+  'b ?an' # reconhece tudo que tenha "ban", com ou sem espaço entre o "b" e o "a"
+)
+```
+
+```{r echo=FALSE}
+purrr::map(testes, ~str_detect(testes, .x)) %>% 
+  {do.call(rbind, .)} %>% 
+  as.data.frame() %>% 
+  setNames(testes) %>% 
+  dplyr::mutate(regex = expressoes) %>% 
+  dplyr::select(regex, dplyr::everything()) %>% 
+  knitr::kable()
+```
+
+#### Quantificadores
+
+Os caracteres `+`, `*` e `{x,y}` indicam quantas vezes um padrão se repete:
+
+- `ey+` significa `e` e depois `y` "**uma vez** ou mais". Por exemplo, reconhece `hey`, `heyy`, `a eyyy`, mas não reconhece `e`, `y` nem `yy`.
+- `ey*` significa "**zero vezes** ou mais". Por exemplo, reconhece `hey`, `heyy`, `a eyyy` e `e`, mas não reconhece `y` nem `yy`.
+- `ey{3}` significa "exatamente três vezes". Por exemplo, reconhece `eyyy` e `eyyyy`, mas não reconhece `ey`.
+- `ey{1,3}` significa "entre uma e três vezes".
+
+Para aplicar um quantificador a um conjunto de caracteres, use parênteses. Por exemplo, `(ey)+` reconhece `eyey`.
+
+#### Conjuntos
+
+Colocando caracteres dentro de `[]`, reconhecemos quaisquer caracteres desse conjunto. 
+Alguns exemplos práticos:
+
+- `[Cc]asa` para reconhecer "casa" em maiúsculo ou minúsculo.
+- `[0-9]` para reconhecer somente números. O mesmo vale para letras `[a-z]`, `[A-Z]`, `[a-zA-Z]` etc.
+- O símbolo `^` dentro do colchete significa negação. Por exemplo, `[^0-9]` significa pegar tudo o que não é número.
+- O símbolo `.` fora do colchete indica "qualquer caractere", mas dentro do colchete é apenas ponto.
+- Use `[[:space:]]+` para reconhecer espaços e `[[:punct:]]+` para reconhecer pontuações.
+
+#### Miscelânea
+
+- Use `abjutils::rm_accent()` para retirar os acentos de um texto.
+- Use `|` para opções, por exemplo `desfavor|desprov` reconhece tanto "desfavorável" quanto "desprovido"
+- `\n` pula linha, `\f` é final da página, `\t` é tab. Use `\` para transformar caracteres especiais em literais.
+- `tolower()` e `toupper()` para mudar o case de uma string. 
+
+A lista de possibilidades com expressões regulares é extensa. 
+Um bom lugar para testar o funcionamento de expressões regulares é o [regex101](https://regex101.com/).
+
+### Funções do `stringr`
+
+- `str_detect()` retorna `TRUE` se a regex é compatível com a string e `FALSE` caso contrário
+
+- `str_lengh()` retorna o comprimento de uma string.
+
+```{r}
+str_length('hye')
+```
+
+- `str_trim()` retira espaços e quebras de linha/tabs no início ou final de string.
+
+```{r}
+string <- '\nessa string é muito suja       \n'
+str_trim(string)
+```
+
+- `str_replace()` e `str_replace_all()` substituem um padrão (ou todos) encontrado para um outro padrão
+
+```{r}
+string <- 'heyyy ui yy'
+str_replace(string, 'y', 'x')
+str_replace(string, 'y+', 'x')
+str_replace_all(string, 'y', 'x')
+str_replace_all('string     com    muitos espaços', ' +', ' ') # tirar espaços extras
+```
+
+- `str_match()` e `str_match_all()` extrai pedaços da string identificados pela regex. Caso queira extrair somente a parte identificada, use parênteses.
+
+```{r}
+frases <- c('a roupa do rei', 'de roma', 'o rato roeu')
+str_match(frases, 'ro')
+str_match_all(frases, 'ro')
+str_match(frases, 'o (ro)')
+```
+
+- `str_split()` separa uma string em várias de acordo com um separador.
+
+```{r}
+string <- 'eu sei, usar virgulas, de forma, perfeita'
+
+str_split(string, ', ')
+str_split(string, ', ', simplify = TRUE)
+```
+
+- `str_split_fixed()` faz o mesmo que `str_split()`, mas separa apenas `n` vezes
+
+```{r}
+str_split_fixed(string, ', ', 3)
+str_split_fixed(string, ', ', 4) # igual a str_split(string, simplify = TRUE)
+```
+
+- `str_sub()` extrai uma parte da string de acordo com os índices.
+
+```{r}
+string <- 'quero pegar só uma parte disso'
+str_sub(string, 13, 14)
+str_sub(string, -5, -1) # usar números negativos para voltar do final da string
+
+indices <- str_locate(string, 'parte')
+indices
+str_sub(string, indices) # pode ser útil usar com str_locate.
+```
+
+- `str_subset()` retorna somente as strings compatíveis com a regex.
+
+```{r}
+frases <- c('a roupa do rei', 'de roma', 'o rato roeu')
+str_subset(frases, 'd[eo]')
+```
+
+### Exemplo: decisões das câmaras
+
+Suponha que temos o seguinte vetor de textos de decisões:
+
+```{r}
+d_decisoes <- readRDS('data-raw/d_decisoes.rds')
+
+condicao <- str_length(d_decisoes$decisao) < 200 & d_decisoes$situacao == 'Julgado'
+set.seed(1247) # reprodutibilidade
+decisoes <- d_decisoes$decisao[condicao] %>% sample(10, replace = FALSE)
+decisoes
+```
+
+```{r}
+negaram <- regex('negaram', ignore_case = TRUE)
+parcial <- regex('parcial', ignore_case = TRUE)
+deram <- regex('deram', ignore_case = TRUE)
+
+tipos_decisao <- function(decisoes) {
+  ifelse(
+    str_detect(decisoes, negaram), 'negado', ifelse(
+      str_detect(decisoes, parcial), 'parcial', ifelse(
+        str_detect(decisoes, deram), 'provido', 'outros'
+    ))
+  )
+}
+
+```
+
+Resultados:
+
+```{r echo=FALSE}
+decisoes_min <- ifelse(str_length(decisoes) > 77, 
+                       paste0(str_sub(decisoes, 1, 77), '...'), 
+                       decisoes)
+```
+
+```{r}
+tibble::tibble(tipo_decisao = tipos_decisao(decisoes), decisao = decisoes_min)
+```
 
 ## Pacotes `dplyr` e `tidyr`
-
-(falta adicionar exemplos)
 
 A transformação de dados é uma tarefa usualmente dolorosa e demorada, 
 podendo tomar a maior parte do tempo da análise. 
@@ -275,22 +494,42 @@ inteligente dos verbos `dplyr` e as facilidades do operador _pipe_ tendem a fica
 organizados, sem perder velocidade de execução.
 
 > "(...) The fact that data science exists as a field is a colossal failure of statistics. To me, [what I do] is what statistics is all about. It is gaining insight from data using modelling and visualization. Data munging and manipulation is hard and statistics has just said that’s not our domain."
-
+> 
 > Hadley Wickham
 
 Por ser um pacote que se propõe a realizar um dos trabalhos mais árduos da análise estatística,
 e por atingir esse objetivo de forma elegante, eficaz e eficiente, o `dplyr` pode ser considerado 
 como uma revolução no `R`.
 
-### Trabalhando com tibbles
+### Trabalhando com `tibble`s
 
-Vamos assumir que temos a seguinte base de dados na forma `tidy`.
+A `tibble` nada mais é do que um `data.frame`, 
+mas com um método de impressão mais adequado.
+Outras diferenças podem ser estudadas 
+[neste link](http://r4ds.had.co.nz/tibbles.html).
 
-```{r}
-4
+Vamos assumir que temos a seguinte base de dados:
+
+```{r echo=FALSE, warning=FALSE, message=FALSE, eval=FALSE}
+library(dplyr)
+library(lubridate)
+library(tidyr)
+d_cjsg <- 'data-raw/cjsg' %>% 
+  dir(full.names = TRUE) %>% 
+  tjsp::parse_cjsg()
+
 ```
 
-### As cinco funções principais do dplyr
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+library(dplyr)
+d_cjsg <- readRDS('~/Downloads/d_cjsg.rds')
+```
+
+```{r}
+d_cjsg
+```
+
+### As cinco funções principais do `dplyr`
 
 - `filter`
 - `mutate`
@@ -300,8 +539,8 @@ Vamos assumir que temos a seguinte base de dados na forma `tidy`.
 
 ### Características
 
-- O _input_  é sempre um `data.frame` (`tbl`), e o _output_  é sempre um `data.frame` (`tbl`).
-- No primeiro argumento colocamos o `data.frame`, e nos outros argumentos colocamo o que queremos fazer.
+- O _input_  é sempre ums `tibble`, e o _output_  é sempre um `tibble`.
+- No primeiro argumento colocamos o `tibble`, e nos outros argumentos colocamo o que queremos fazer.
 - A utilização é facilitada com o emprego do operador `%>%`
 
 ### Vantagens
@@ -309,61 +548,260 @@ Vamos assumir que temos a seguinte base de dados na forma `tidy`.
 - Utiliza `C` e `C++` por trás da maioria das funções, o que geralmente torna o código mais eficiente.
 - Pode trabalhar com diferentes fontes de dados, como bases relacionais (SQL) e `data.table`.
 
-### select
+### `select`
 
 - Utilizar `starts_with(x)`, `contains(x)`, `matches(x)`, `one_of(x)`, etc.
 - Possível colocar nomes, índices, e intervalos de variáveis com `:`.
 
-### filter
+```{r}
+d_cjsg %>% 
+  select(id, cd_acordao, comarca, relator = relatora)
+```
+
+```{r}
+d_cjsg %>% 
+  select(cd_acordao:comarca, classe_assunto)
+```
+
+```{r}
+d_cjsg %>% 
+  select(n_processo, relator = relatora, starts_with('data_'))
+```
+
+### `filter`
 
 - Parecido com `subset`.
 - Condições separadas por vírgulas é o mesmo que separar por `&`.
 
-### mutate
+```{r}
+d_cjsg %>% 
+  select(id, cd_acordao, comarca, relator = relatora) %>% 
+  filter(comarca == 'São Paulo')
+```
+
+```{r}
+library(lubridate)
+d_cjsg %>% 
+  select(id, cd_acordao, comarca, data_julgamento, relator = relatora) %>% 
+  filter(comarca %in% c('Campinas', 'Sorocaba'),
+         day(dmy(data_julgamento)) >= 29 | day(dmy(data_julgamento)) < 25)
+```
+
+### `mutate`
 
 - Parecido com `transform`, mas aceita várias novas colunas iterativamente.
 - Novas variáveis devem ter o mesmo `length` que o `nrow` do bd oridinal ou `1`.
 
-### arrange
+```{r}
+library(stringr)
+d_cjsg %>% 
+  select(id, n_processo, comarca, data_julgamento) %>% 
+  mutate(ano_julgamento = year(dmy(data_julgamento)),
+         ano_proc = str_sub(n_processo, 12, 15),
+         ano_proc = as.numeric(ano_proc)) %>% 
+  mutate(tempo_anos = ano_julgamento - ano_proc)
+```
+
+### `arrange`
 
 - Simplesmente ordena de acordo com as opções.
 - Utilizar `desc` para ordem decrescente.
 
-### summarise
+```{r}
+library(stringr)
+d_cjsg %>% 
+  select(id, n_processo, comarca, data_julgamento) %>% 
+  mutate(ano_julgamento = year(dmy(data_julgamento)),
+         ano_proc = str_sub(n_processo, 12, 15),
+         ano_proc = as.numeric(ano_proc)) %>% 
+  mutate(tempo_anos = ano_julgamento - ano_proc) %>% 
+  arrange(desc(tempo_anos))
+```
+
+### `summarise`
 
 - Retorna um vetor de tamanho `1` a partir de uma conta com as variáveis.
 - Geralmente é utilizado em conjunto com `group_by`.
 - Algumas funções importantes: `n()`, `n_distinct()`.
 
-### spread
+```{r}
+d_cjsg %>% 
+  select(id, n_processo, comarca, data_julgamento) %>% 
+  mutate(ano_julgamento = year(dmy(data_julgamento)),
+         ano_proc = str_sub(n_processo, 12, 15),
+         ano_proc = as.numeric(ano_proc)) %>% 
+  mutate(tempo_anos = ano_julgamento - ano_proc) %>% 
+  arrange(desc(tempo_anos)) %>% 
+  group_by(comarca) %>% 
+  summarise(n = n(),
+            media_anos = mean(tempo_anos),
+            min_anos = min(tempo_anos),
+            max_anos = max(tempo_anos)) %>% 
+  filter(n > 5) %>% 
+  arrange(desc(media_anos))
+```
 
-- "Joga" uma variável nas colunas
+```{r}
+d_cjsg %>% 
+  count(relatora, sort = TRUE) %>% 
+  mutate(prop = n / sum(n), prop = scales::percent(prop))
+```
 
-### gather
+### `gather`
 
 - "Empilha" o banco de dados
+
+```{r warning=FALSE, message=FALSE}
+library(tidyr)
+d_cjsg %>% 
+  select(cd_acordao:data_registro) %>% 
+  gather(key, value, -cd_acordao) %>% 
+  arrange(cd_acordao)
+```
+
+### `spread`
+
+- "Joga" uma variável nas colunas
+- É essencialmente a função inversa de `gather`
+
+```{r}
+d_cjsg %>% 
+  distinct(cd_acordao, .keep_all = TRUE) %>% 
+  select(cd_acordao:data_registro) %>% 
+  gather(key, value, -cd_acordao) %>% 
+  spread(key, value)
+```
 
 ### Funções auxiliares
 
 - `unite` junta duas ou mais colunas usando algum separador (`_`, por exemplo).
 - `separate` faz o inverso de `unite`, e uma coluna em várias usando um separador.
 
-### Um pouco mais de manipulação de dados
+```{r}
+d_cjsg %>% 
+  select(n_processo, classe_assunto) %>% 
+  separate(classe_assunto, c('classe', 'assunto'), sep = ' / ', 
+           extra = 'merge', fill = 'right') %>% 
+  count(classe, sort = TRUE)
+```
+
+### Um pouco mais de transformação de dados
 
 - Para juntar tabelas, usar `inner_join`, `left_join`, `anti_join`, etc.
 - Para realizar operações mais gerais, usar `do`.
 - Para retirar duplicatas, utilizar `distinct`.
 
-## Pacotes `lubridate` e `stringr`
-
-...intro...
-
-Agora, vamos assumir que temos a base de dados em formato tidy,
-mas ao invés do resultado do acórdão, temos os textos das decisões.
-
 ## Pacotes `httr`, `xml2` e `rvest`
 
-(...)
+Esses são os três pacotes mais modernos do R utilizados para fazer web scraping.
+O pacote `xml2` tem a finalidade de estruturar arquivos HTML ou XML de forma eficiente,
+tornando possível a obtenção de *tags* e seus atributos dentro de um arquivo.
+Já o pacote `httr` é responsável por realizar requisições web para 
+obtenção das páginas de interesse, 
+buscando reduzir ao máximo a complexidade da programação.
+O pacote `rvest` é escrito **sobre** os dois anteriores e por isso
+eleva ainda mais o nível de especialização para raspagem de dados.
+
+As características dos pacotes implicam na seguinte regra de bolso.
+Para trabalhar com páginas simples,
+basta carregar o `rvest` e utilizar suas funcionalidades.
+Caso o acesso à página exija ações mais complexas e/ou 
+artifícios de ferramentas web, será necessário utilizar o `httr`.
+O `xml2` só será usado explicitamente nos casos raros em que
+a página está em XML, que pode ser visto como uma generalização do HTML.
+
+Esses pacotes não são suficientes para acessar todo tipo de conteúdo da web.
+Um exemplo claro disso são páginas em que o conteúdo é produzido por `javascript`,
+o que acontece em muitos sites modernos. 
+Para trabalhar com esses sites, é necessário realmente "simular" um navegador que
+acessa a página web. Uma das melhores ferramentas para isso é o `selenium`.
+Não discutiremos `selenium` nesse curso, mas caso queira se aprofundar, acesse
+[aqui](http://www.seleniumhq.org/).
+
+### Sessões e cookies
+
+No momento que acessamos uma página web, 
+nosso navegador baixa alguns arquivos que "identificam" nosso acesso à página.
+Esses arquivos são chamados cookies e 
+são usados pelos sites para realizar diversas atividades, 
+como carregar uma página pré-definida pelo usuário caso este acesse o site pela segunda vez.
+
+O `httr` e por consequência o `rvest` já guardam esses cookies de forma automática,
+de forma que o usuário não precise se preocupar com isso. 
+Em casos raros, para construir o web scraper é necessário modificar esses cookies.
+Nesses casos, estude a função `cookies()` do `httr`.
+
+### `GET` e `POST`
+
+Uma requisição GET envia uma `url` ao servidor, possivelmente com alguns parâmetros nessa `url`
+(que ficam no final da `url` depois do `?`). O servidor, por sua vez, recebe essa `url`,
+processa os parâmetros e retorna uma página HTML para o navegador[^user].
+
+[^user]: para entender sobre server side e user side, acesse [server side e user side](http://programmers.stackexchange.com/a/171210 "diferencas").
+
+A requisição POST, no entanto, envia uma `url` não modificada para o servidor, 
+mas envia também uma lista de dados preenchidos pelo usuário, 
+que podem ser números, textos ou até imagens.
+Na maioria dos casos, ao submeter um formulário de um site, 
+fazemos uma requisição POST.
+
+O `httr` possui os métodos `GET` e `POST` implementados e são muito similares.
+A lista de parâmetros enviados pelo usuário pode ser armazenado numa `list` nomeada,
+e adicionado ao `GET` pelo parâmetro `query` ou no `POST` pelo parâmetro `body`.
+Veremos exemplos disso mais adiante.
+
+### Outras funções do `httr`
+
+Outras funções úteis:
+
+- `write_disk()` para escrever uma requisição direto em disco, além de guardar na memória RAM.
+- `config()` para adicionar configurações adicionais. Por exemplo, quando acessar uma página `https` com certificados inadequados numa requisição GET, rode `GET('https://www...', config(ssl_verifypeer=F))`.
+- `oauth_app()` para trabalhar com APIs. Não discutiremos conexão com APIs nesse curso, mas é um importante conceito a ser estudado.
+
+### Principais funções do `rvest`
+
+```{r}
+library(rvest)
+```
+
+**Para acessar páginas da web:**
+
+- `html_session()` abre uma sessão do usuário (baixa página, carrega cookies etc).
+- `follow_link()`, `jump_to()` acessa uma página web a partir de um link (tag `<a>`) ou url.
+- `html_form()` carrega todos os formulários contidos numa página.
+- `set_value()` atribui valores a parâmetros do formulário.
+- `submit_form()` submete um formulário obtido em `html_form`.
+
+**Para trabalhar com arquivos HTML:**
+
+- `read_html()` lê o arquivo HTML de forma estruturada e facilita impressão.
+- `html_nodes()` cria uma lista com os nós identificados por uma busca em CSS path ou XPath. `html_node()` é um caso especial que assume que só será encontrado um resultado.
+- `html_text()` extrai todo o conteúdo de um objeto e retorna um texto.
+- `html_table()` extrai o conteúdo de uma `<table>` e transforma em um `data_frame`.
+- `html_attr()` extrai um atributo de uma tag, por exemplo `href` da tag `<a>`.
+
+### CSS path e XPath
+
+O CSS path e o XPath são formas distintas de buscar tags dentro de um documento HTML.
+O CSS path é mais simples de implementar e tem uma sintaxe menos verborrágica,
+mas o XPath é mais poderoso. A regra de bolso é tentar fazer a seleção primeiro em CSS e,
+caso não seja possível, implementar em XPath.
+
+Esses paths serão mostrados *en passant* durante o curso, 
+mas não serão abordados em detalhe.
+Caso queira se aprofundar no assunto,
+comece pela ajuda da função `?html_nodes`.
+
+### APIs com `httr`
+
+O `httr` foi criado pensando-se nas modernas APIs que vêm sendo desenvolvidas
+nos últimos anos. O `httr` já tem métodos apropriados para trabalhar com 
+Facebook, Twitter e Google, entre outros.
+
+Para um guia completo de como utilizar APIs no R, 
+acesse [esse tutorial](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html).
+Um exemplo de pacote que utiliza API usando esse tutorial melhores práticas pode ser
+[acessado aqui](https://github.com/jtrecenti/sptrans).
 
 ## Web scraping
 
@@ -476,27 +914,32 @@ uma que faz a busca e outra que acessa uma página específica
 (que será executada várias vezes). 
 Utilizaremos as funções `cjsg` e `cjsg_pag`.
 
-```{r}
-cjsg <- function(parms = cjsg_parms(), path = './cjsg', 
-                 min_pag = 1, max_pag = 10, overwrite = FALSE,
-                 verbose = TRUE, p = .05) {
-  suppressWarnings(dir.create(path))
-  if (!file.exists(path)) stop(sprintf('Pasta não "%s" pôde ser criada', path))
-  conf <- httr::config(ssl_verifypeer = FALSE)
-  r0 <- httr::POST('http://esaj.tjsp.jus.br/cjsg/resultadoCompleta.do', 
-                   body = parms, config = conf)
-  if (is.na(max_pag) || is.infinite(max_pag)) n_pags <- cjsg_n_pags(r0)
-  abjutils::dvec(cjsg_pag, 1:n_pags, path = path, overwrite = overwrite)
+```{r eval=FALSE}
+cjsg_session <- function() {
+  rvest::html_session('http://esaj.tjsp.jus.br/cjsg/consultaCompleta.do')
 }
 ```
 
-```{r eval = FALSE}
-cjsg_pag <- function(pag, path, ow) {
+```{r eval=FALSE}
+cjsg <- function(s, parms = cjsg_parms(s), path = './cjsg', 
+                 min_pag = 1, max_pag = 10, overwrite = FALSE,
+                 verbose = TRUE, p = .05) {
+  suppressWarnings(dir.create(path, recursive = TRUE))
+  if (!file.exists(path)) stop(sprintf('Pasta não "%s" pôde ser criada', path))
+  r0 <- s %>% rvest::submit_form(parms)
+  n_pags <- if (is.na(max_pag) || is.infinite(max_pag)) cjsg_npags(r0) else max_pag
+  abjutils::dvec(cjsg_pag, 1:n_pags, path = path, ow = overwrite, s = s)
+}
+```
+
+```{r eval=FALSE}
+cjsg_pag <- function(pag, path, ow, s) {
+  Sys.sleep(1)
   u <- 'http://esaj.tjsp.jus.br/cjsg/trocaDePagina.do?tipoDeDecisao=A&pagina=%d'
   u_pag <- sprintf(u, pag)
   arq <- sprintf('%s/%05d.html', path, pag)
-  if (!file.exists(pag) || ow) {
-    httr::GET(sprintf(u, pag), httr::write_disk(arq, overwrite = ow))
+  if (!file.exists(arq) || ow) {
+    httr::GET(sprintf(u, pag), httr::write_disk(arq, overwrite = ow), handle = s$handle)
     tibble::data_frame(result = 'OK')
   } else {
     tibble::data_frame(result = 'já existe')
@@ -526,32 +969,30 @@ requisição que não precisam ser preenchidos, e parâmetros que precisam ser
 preenchidos de uma maneira específica, como as datas, que precisam ser
 inseridas no formato `%d/%m/%Y`. Assim, incluimos uma função de "ajuda".
 
-```{r}
-cjsg_parms <- function(livre = '', classes = '', assuntos = '',
-                        data_inicial = '', data_final = '', varas = '') {
-  classes = paste0(classes, collapse = ',')
-  assuntos = paste0(assuntos, collapse = ',')
-  varas = paste0(varas, collapse = ',')
-  if(data_inicial != '' & data_final != '') {
-    # aqui eu uso o pacote lubridate para construir a data no formato
-    # que o e-SAJ exige.
-    cod_data_inicial <- paste(lubridate::day(data_inicial),
-                              lubridate::month(data_inicial),
-                              lubridate::year(data_inicial) ,
-                              sep = '/')
-    cod_data_final <- paste(lubridate::day(data_final),
-                            lubridate::month(data_final),
-                            lubridate::year(data_final) ,
-                            sep = '/')
+```{r eval=FALSE}
+cjsg_parms <- function(s, livre = '', data_inicial = NULL, data_final = NULL, secoes = '') {
+  secoes <- paste(secoes, collapse = ',')
+  dt_inicial <- ''
+  if (!is.null(data_inicial)) {
+    dt_inicial <- sprintf('%02d/%02d/%d', lubridate::day(data_inicial),
+                          lubridate::month(data_inicial),
+                          lubridate::year(data_inicial))
   }
-  parms <- list('dadosConsulta.nuProcesso' = '',
-                'dadosConsulta.pesquisaLivre' = livre,
-                'classeTreeSelection.values' = classes,
-                'assuntoTreeSelection.values' = assuntos,
-                'varasTreeSelection.values' = varas,
-                'dadosConsulta.dtInicio' = cod_data_inicial,
-                'dadosConsulta.dtFim' = cod_data_final)
-  parms
+  dt_final <- ''
+  if (!is.null(data_final)) {
+    dt_final <- sprintf('%02d/%02d/%d', lubridate::day(data_final),
+                        lubridate::month(data_final),
+                        lubridate::year(data_final))
+  }
+  suppressWarnings({
+    s %>% 
+      rvest::html_form() %>% 
+      dplyr::first() %>% 
+      rvest::set_values('dados.buscaInteiroTeor' = livre,
+                        'secoesTreeSelection.values' = secoes,
+                        'dados.dtJulgamentoInicio' = dt_inicial,
+                        'dados.dtJulgamentoFim' = dt_final)
+  })
 }
 ```
 
@@ -559,16 +1000,16 @@ Também foi necessário realizar um pequeno processamento na primeira requisiç�
 quando o usuário não souber a priori quantas páginas deseja baixar. 
 Nesse caso, a função `cjsg_npags` identifica o número de paginações necessárias.
 
-```{r}
-cjsg_npags <- function(req) {
-  val <- xml2::read_html(httr::content(req, 'text')) %>%
-    xml2::xml_find_all(".//*[@id = 'resultados']//td") %>%
-    `[[`(1) %>%
-    xml2::xml_text() %>%
-    stringr::str_trim() %>%
-    stringr::str_match('de ([0-9]+)')
-  num <- as.numeric(val[1, 2])
-  num
+```{r eval=FALSE}
+cjsg_npags <- function(req, parms = NULL) {
+  if (!is.null(parms)) req <- req %>% rvest::submit_form(parms)
+  num <- req$response %>% 
+    httr::content('text') %>% 
+    xml2::read_html() %>%
+    rvest::html_node('#nomeAba-A') %>% 
+    rvest::html_text() %>% 
+    tidyr::extract_numeric()
+  (num %/% 20) + 1
 }
 ```
 
@@ -590,7 +1031,7 @@ não resulta em erro caso um elemento dê erro.
 #' 
 #' @export
 dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
-  f <- dplyr::failwith(data_frame(result = 'erro'), fun)
+  f <- dplyr::failwith(tibble::data_frame(result = 'erro'), fun)
   tibble::data_frame(item = itens) %>%
     dplyr::distinct(item) %>%
     dplyr::group_by(item) %>%
@@ -604,11 +1045,26 @@ dvec <- function(fun, itens, ..., verbose = TRUE, p = .05) {
 }
 ```
 
-No trabalho das câmaras, utilizamos a seguinte chamada da função:
+No projeto das câmaras, rodamos o seguinte código:
 
 ```{r eval=FALSE}
-d_result <- cjsg_parms() %>% 
-  cjsg(path = 'data-raw/cjsg')
+library(magrittr)
+library(tjsp)
+
+sec <- list_secoes_2inst() %>% 
+  dplyr::filter(stringr::str_detect(secao, '[Cc]rim'),
+                stringr::str_detect(pai, 'CRIM')) %>% 
+  with(cod)
+
+session <- cjsg_session()
+parms <- session %>% 
+  cjsg_parms(secoes = sec, data_inicial = '2015-01-01', data_final = '2015-12-31')
+
+# numero de paginas a serem baixadas
+session %>% cjsg_npags(parms)
+
+d_result <- session %>% 
+  cjsg(parms, path = 'data-raw/cjsg', max_pag = 100)
 ```
 
 **Onde guardar os dados?** Ao construir um scraper, 
@@ -627,7 +1083,315 @@ guarde os dados já processados (se couberem) num arquivo `.rda` dentro da pasta
 
 ## Coletar processos
 
-(...)
+Antes de coletar os processos, é necessário ler os arquivos HTML baixados na
+etapa anterior.
+
+```{r}
+parse_cjsg_um <- function(i, nodes) {
+  node <- nodes[[i]]
+  trim <- stringr::str_trim
+  id <- node %>%
+    rvest::html_node('.ementaClass') %>%
+    rvest::html_text() %>%
+    trim() %>%
+    stringr::str_replace_all('[^0-9]', '')
+  infos <- node %>%
+    rvest::html_node('.downloadEmenta') %>% {
+      tibble::tibble(n_processo = trim(rvest::html_text(.)),
+                     cd_acordao = rvest::html_attr(., 'cdacordao'))
+    }
+  ca <- node %>%
+    rvest::html_node('.assuntoClasse') %>%
+    rvest::html_text() %>%
+    trim()
+  tsf <- node %>%
+    rvest::html_node('textarea') %>%
+    rvest::html_text()
+  tab_infos <- node %>%
+    rvest::html_nodes('.ementaClass2') %>%
+    rvest::html_text() %>%
+    stringr::str_split_fixed(':', 2) %>%
+    data.frame(stringsAsFactors = FALSE) %>%
+    magrittr::set_names(c('key', 'val')) %>%
+    dplyr::mutate_all(dplyr::funs(trim(.))) %>%
+    dplyr::mutate(key = tolower(abjutils::rm_accent(key)),
+                  key = stringr::str_replace_all(key, ' +', '_'),
+                  key = stringr::str_replace_all(key, '[^a-z_]', ''),
+                  key = stringr::str_replace_all(key, '_d[eo]_', '_')) %>%
+    tidyr::spread(key, val) %>%
+    dplyr::bind_cols(infos) %>%
+    dplyr::mutate(id = id, classe_assunto = ca, txt_ementa = tsf) %>%
+    dplyr::select(id, cd_acordao, n_processo, dplyr::everything(), txt_ementa)
+  tab_infos
+}
+
+parse_cjsg_arq <- function(arq) {
+  itens <- xml2::read_html(arq, encoding = 'UTF-8') %>%
+    rvest::html_nodes('.fundocinza1')
+  abjutils::dvec(parse_cjsg_um, 1:length(itens), nodes = itens, verbose = FALSE) %>%
+    dplyr::select(-item)
+}
+
+#' Parser do CJSG
+#'
+#' Parser dos arquivos HTML baixados pela função \code{\link{cjsg}}.
+#'
+#' @param arqs vetor de arquivos (caminho completo) a serem lidos.
+#'
+#' @return tibble com as colunas
+#' \itemize{
+#'   \item \code{arq} nome do arquivo lido.
+#'   \item \code{id} id contido na página lida.
+#'   \item \code{cd_acordao} código único do acórdão.
+#'   \item \code{n_processo} número do processo (pode repetir).
+#'   \item \code{comarca} nome da comarca.
+#'   \item \code{data_julgamento} data de julgamento em formato \%d/\%m/\%Y.
+#'   \item \code{data_registro} data de registro no sistem em formato \%d/\%m/\%Y.
+#'   \item \code{ementa} ementa do acórdão (muitos vazios).
+#'   \item \code{orgao_julgador} câmara julgadora do recurso.
+#'   \item \code{outros_numeros} números antigos / complementares.
+#'   \item \code{relatora} Nome do relator ou relatora do recurso.
+#'   \item \code{classe_assunto} Classe / assunto, separados por " / ".
+#'   \item \code{txt_ementa} Texto da ementa sem formatação.
+#' }
+#' @export
+parse_cjsg <- function(arqs) {
+  abjutils::dvec(parse_cjsg_arq, arqs) %>%
+    dplyr::rename(arq = item)
+}
+```
+
+Rodando a função criada.
+
+```{r eval=FALSE}
+arqs <- dir('data-raw/cjsg', full.names = TRUE)
+d_cjsg <- parse_cjsg(arqs)
+saveRDS(d_cjsg, 'data-raw/d_cjsg.rds')
+```
+
+```{r}
+d_cjsg <- readRDS('data-raw/d_cjsg.rds')
+d_cjsg
+```
+
+Agora criamos a função que baixa processos.
+
+```{r}
+dados_cposg <- function(p) {
+  list('conversationId' = '',
+       'paginaConsulta' = '1',
+       'localPesquisa.cdLocal' = '-1',
+       'cbPesquisa' = 'NUMPROC',
+       'tipoNuProcesso' = 'UNIFICADO',
+       'numeroDigitoAnoUnificado' = stringr::str_sub(p, 1, 11),
+       'foroNumeroUnificado' = stringr::str_sub(p, -4, -1),
+       'dePesquisaNuUnificado' = p,
+       'dePesquisaNuAntigo' = '')
+}
+
+#' Baixa um processo.
+#'
+#' Baixa um processo na consulta de processos de segundo grau do TJSP. Deve ser usado internamente.
+#'
+#' @param p número do processo (string apenas com os números).
+#' @param path caminho da pasta onde será salvo o arquivo HTML.
+#' @param ow sobrescrever o arquivo HTML?
+#'
+cposg_um <- function(p, path, ow) {
+  Sys.sleep(1)
+  arq <- sprintf('%s/%s.html', path, p)
+  if (!file.exists(arq) || ow) {
+    httr::GET('https://esaj.tjsp.jus.br/cpo/sg/search.do',
+              query = dados_cposg(p),
+              config = httr::config(ssl_verifypeer = FALSE),
+              httr::write_disk(arq, overwrite = ow))
+    tibble::tibble(result = 'OK')
+  } else {
+    tibble::tibble(result = 'já existe')
+  }
+}
+
+#' Baixa processos
+#'
+#' Baixa processos na consulta de processos de segundo grau do TJSP.
+#'
+#' @param processos número do processo (string apenas com os números).
+#' @param path caminho da pasta onde os arquivos HTML serão salvos.
+#' @param overwrite sobrescrever os arquivos HTML?
+#'
+#' @export
+cposg <- function(processos, path = 'data-raw/cposg', overwrite = FALSE) {
+  suppressWarnings(dir.create(path, recursive = TRUE))
+  processos <- gsub('[^0-9]', '', processos)
+  abjutils::dvec(cposg_um, processos, path = path, ow = overwrite)
+}
+```
+
+Rodando a função criada.
+
+```{r eval=FALSE}
+d_cjsg %>% 
+  distinct(n_processo) %>% 
+  with(n_processo) %>% 
+  cposg()
+```
+
+```{r eval=FALSE, echo=FALSE}
+# ignore esse código! apenas para reprodutibilidade interna.
+# arqs <- dir('data-raw/cposg', full.names = TRUE)
+# dir.create('data-raw/cposg_min')
+# set.seed(12415)
+# file.copy(sample(arqs, 1000, replace = FALSE), 'data-raw/cposg_min')
+```
+
+Extraindo as partes do arquivo HTML.
+
+```{r}
+partes_cposg_um <- function(arq) {
+  h <- arq %>% xml2::read_html(encoding = 'UTF-8')
+  todas_partes <- h %>% rvest::html_nodes('#tableTodasPartes') %>% length()
+  if (todas_partes > 0) {
+    nodes <- h %>% 
+      rvest::html_nodes('#tableTodasPartes > .fundoClaro')
+  } else {
+    nodes <- h %>% 
+      rvest::html_nodes('#tablePartesPrincipais > .fundoClaro')
+  }
+  purrr::map_df(seq_along(nodes), function(i) {
+    node <- nodes[[i]]
+    titulos <- node %>% 
+      rvest::html_nodes('.mensagemExibindo') %>% 
+      rvest::html_text() %>% 
+      stringr::str_trim() %>% 
+      stringr::str_replace_all('&nbsp', '')
+    tirar <- paste(titulos, collapse = '|')
+    nomes <- titulos %>% 
+      tolower() %>% 
+      abjutils::rm_accent() %>% 
+      stringr::str_replace_all('[^a-z]', '') %>% 
+      paste(sprintf('%02d', 1:length(.)), sep = '_')
+    node %>% 
+      rvest::html_text() %>% 
+      stringr::str_trim() %>% 
+      stringr::str_replace_all('&nbsp', '') %>% 
+      stringr::str_replace_all(tirar, '') %>% 
+      stringr::str_trim() %>%
+      stringr::str_split('[\n\t\r ]{2,}', simplify = TRUE) %>% 
+      data.frame(stringsAsFactors = FALSE) %>% 
+      setNames(nomes) %>% 
+      tidyr::gather() %>% 
+      tibble::as_data_frame() %>% 
+      tidyr::separate(key, c('tipo', 'id_tipo'), sep = '_') %>% 
+      dplyr::mutate(id = i) %>% 
+      dplyr::select(id, id_tipo, tipo, nome = value) %>% 
+      dplyr::mutate(result = 'OK')
+  })
+}
+
+partes_cposg <- function(arqs, verbose = FALSE) {
+  abjutils::dvec(partes_cposg_um, arqs, verbose = verbose) %>% 
+    rename(arq = item)
+}
+```
+
+```{r}
+arqs <- dir('data-raw/cposg', full.names = TRUE)
+d_partes <- arqs %>% partes_cposg()
+saveRDS(d_partes, 'data-raw/d_partes.rds')
+d_partes
+```
+
+```{r eval=FALSE}
+decisoes_cposg_um <- function(arq) {
+  html <- xml2::read_html(arq, encoding = 'UTF-8')
+  xpath <- '(//table[@width="98%" and @align="center"])[last()]'
+  r <- rvest::html_node(html, xpath = xpath)
+  tab <- rvest::html_table(r)
+  names(tab) <- c('data', 'situacao', 'decisao')
+  tab$result <- 'OK'
+  return(tab)
+}
+decisoes_cposg <- function(arqs, verbose = FALSE) {
+  abjutils::dvec(decisao_cposg_um, arqs, verbose = verbose) %>% 
+    dplyr::rename(arq = item)
+}
+```
+
+```{r eval=FALSE}
+arqs <- dir('data-raw/cposg', full.names = TRUE)
+d_decisoes <- decisoes_cposg(arqs)
+saveRDS(d_decisoes, 'data-raw/d_decisoes.rds')
+d_decisoes
+```
+
+```{r}
+d_decisoes <- readRDS('data-raw/d_decisoes.rds')
+d_decisoes
+```
+
+## A importância da criação de APIs públicos nos tribunais
+
+(texto extraído do Portal da Jurimetria).
+
+Neste texto fazemos uma apresentação sobre a prática do Jurimetrista, mostrando com um exemplo de como isso é divertido, e também como pode fazer com que passemos por alguns caminhos um tanto tortuosos. Esperamos que o leitor não entenda esse post como um desincentivo à prática da Jurimetria, mas sim como uma motivação para que cada vez mais as pesquisas empíricas no Direito sejam facilitadas.
+
+### Busca e extração
+
+Jurimetristas são aquelas pessoas que, remando contra a maré do abstrato e do determinismo, tentam entender a realidade olhando a realidade. Pessoas que não se contentam em estudar a lei, mas querem ver o que está acontecendo no mundo. Nessa viagem, já encontramos diversos personagens: advogados, juristas, estatísticos, economistas, cientistas sociais, cientistas políticos, psicólogos, sociólogos, e por aí vai. Existem até estes raros profissionais que transitam em duas ou mais áreas de forma exemplar. Muito bonita a ideia da Jurimetria. 
+
+Uma necessidade que temos nessa área (e qualquer ciência) é tentar verificar ou invalidar nossas hipóteses com evidências obtidas através de dados. Para isso, tentamos aprender mais sobre o Direito e seus mecanismos utilizando como ferramenta complementar a estatística. Com metodologias adequadas de pesquisa e com os dados em mãos, construímos e ajustamos modelos que buscam explicar, com erros, a realidade. Com os dados em mãos...
+
+Pois é, nós precisamos de dados. Muitas vezes, nosso objeto de estudo são processos dentro de um determinado escopo (intervalo de tempo, região geográfica, com determinadas características, etc.), seja para estudar seus valores, seus resultados, ou seus tempos de tramitação. Para conseguir isso, só precisamos de um bom repositório de dados, de onde poderemos extrair o que queremos analisar.
+
+Pela Lei 12.527, a Lei de Acesso à Informação, (quase) todos os processos são públicos! Fantástico, pois assim teremos facilidade em obter nossos dados...
+
+No entanto, não é bem isso o que observamos na realidade.
+
+### Como o profissional do Direito acessa seus dados
+
+Chegou um processo no escritório de advocacia. Precisamos preencher dados sobre ele no sistema jurídico. O que fazemos? Entramos no site do tribunal (TJSP, TRT2, ou seja lá qual for), digitamos o número CNJ do processo (todos os processos judiciais do Brasil possuem uma regra de numeração padronizada!), e voilá, encontramos todas as informações que precisamos. Perfeito! Se precisamos de jurisprudência, fazemos uma pesquisa por palavras-chave no TJ, e encontramos os argumentos que precisamos. Aqui não funciona tão bem, mas ainda é tranquilo.
+
+Existem inúmeras ferramentas jurídicas para busca e recuperação de informações. Só alguns exemplos: Digesto, JusBrasil, sistemas para escritórios de advogados, LexML, TJ's, Justiça Aberta, Diário Oficial, e muitos outros. Com eles, podemos buscar as informações que precisamos, dispondo de uma infinidade de alternativas. Desse modo, se um pesquisador tiver em mãos o número do processo, ele achará informações do processo. Se ele quiser uma lista de processos, ainda poderá fazer isso usando as ferramentas de busca, e nessas listas ele usualmente encontrará o que precisa. Concluindo: os sistemas jurídicos até que são eficazes, mas são todos voltados para a busca de informações.
+
+### Como o estatístico acessa seus dados
+
+Um estatístico chora de alegria quando acessa sites como o do PNUD, ou quando tem a possibilidade de exportar para planilhas os dados de acordo com alguma definição de população. Para estatísticos também temos muitos exemplos de sites, como IpeaData, Datasus, IBGE, entre outros. O estatístico mais corajoso ainda poderá utilizar APIs (Application Programming Interfaces) para obter dados de tweets, posts no facebook, e por aí vai. O importante é notar que os sistemas voltados para estatísticos são em sua maioria voltados para extração de informações, no nível de microdados. Os dados chegam praticamente prontos para análise, e não somente para consulta. Claro que muitas vezes é necessário fazer uma limpeza aqui e ali, mas isso também é nosso trabalho.
+
+### Como o jurimetrista acessa seus dados
+
+O jurimetrista então se encontra numa situação engraçada: ele quer dados da população toda (ou pelo menos uma amostra aleatória), com linhas e colunas, numa planilha toda padronizada, e tudo o que consegue encontrar são documentos individuais, listagens de processos, páginas web e arquivos PDF. Nesse contexto, com certeza vale aquela regra de que o estatístico passa 80% do tempo arrumando a base de dados e 20% fazendo análise, sendo essa uma estimativa otimista. Sem sombra de dúvidas este desafio é enfrentado por muitas outras áreas do conhecimento, mas é curioso olhar a Justiça, que é aberta, e verificar que para esse fim, na prática ela não está tão aberta assim.
+
+### Como melhorar?
+
+Tapando o sol com a peneira:
+
+Não é só no Direito que esse problema fica evidente. Muitos cientistas sociais e cientistas políticos, economistas, entre outros, encontram esse tipo de problema. Muitas vezes as páginas web estão lá, disponíveis, mas levaríamos uma eternidade para buscar manualmente todas  as páginas que precisamos. Para resolver isso, construímos web crawlers / scrapers, que a grosso modo são robôs que passeiam pelas páginas e baixam suas informações automaticamente (crawling) e depois tranformam essas páginas baixadas em dados (scraping). 
+
+Os web crawlers / scrapers são muito mais comuns do que imaginamos. O JusBrasil, o Digesto, a AASP, e muitos outros sites que se baseiam nos diários oficiais utilizam essas ferramentas. No entanto, nesses casos, as ferramentas são usadas para baixar e processar as páginas, para então indexar e permitir, mais uma vez, que o usuário faça buscas. Para utilizar esses sites como ferramenta analítica (para fazer uma análise estatística, por exemplo), precisaríamos construir web crawlers/scrapers dessas páginas...
+
+Para o jurimetrista, saber utilizar esse tipo de ferramenta (ou saber quem sabe usar), por conta das circunstâncias, é essencial. Devo admitir que as pesquisas da ABJ foram fortemente impulsionadas por esses brinquedos, e que sem eles não teríamos metade dos dados que temos hoje. Só para se ter uma ideia do poder da ferramenta, mostrarei um exemplo baseado no sistema Justiça Aberta, que é o que dá o nome do artigo.
+
+Mas o problema é mais embaixo: Nem todo mundo sabe criar e usar web crawlers / scrapers e, mesmo na estatística, são raros os profissionais que dominam essa arte. Nesse sentido, até estamos construindo algumas funções básicas de pesquisa em um pacote do R para facilitar algumas pesquisas mais simples (aguardem novidades...), de ordem acadêmica. No entanto, essas ferramentas não são capazes de resolver qualquer problema. Só a existência dos captchas (aqueles textos que vêm em imagem para verificar se você não é um robô), por exemplo, que são feitos para bloquear essas ferramentas, já atrapalha bastante. E pior, existem coisas que não são possíveis de fazer, simplesmente porque os sites não dão acesso. Tente, por exemplo, no TJSP, encontrar uma lista de todos os processos em andamento. Ou então listar todos os processos julgados no TRT2, em primeira instância. São inúmeros os exemplos em que simplesmente não conseguimos as informações que precisamos, o que é irônico pois todos os processos (salvo os que correm em segredo de justiça) são públicos. Nesses casos, talvez o único jeito de driblar o problema seria utilizar a Lei de Acesso à Justiça, que é fantástica, mas faz com que nos tornemos agentes passivos nas pesquisas.
+
+### Solução a longo prazo:
+
+Mais interessante do que caçar dados por toda a eternidade e fazer disso uma profissão, seria resolver o problema na sua raiz: modificar os sites dos Tribunais, permitindo extrações, e construir APIs que permitam que pesquisadores busquem as informações públicas de maneira tranquila, segura e organizada. Esse tipo de ferramenta é surpreendentemente simples de se construir (uma rápida pesquisa no google já mostra dezenas de tutoriais), e não causaria grandes impactos na infraestrutura dos tribunais. Ao permitir que os dados sejam baixados de forma "oficial", seria possível controlar melhor o volume de dados transferido por unidade de tempo, evitando que os servidores dos tribunais fiquem sobrecarregados.
+
+### Vantagens de permitir o acesso aos dados
+
+Não é difícil pensar como uma estrutura para armazenamento e extração de dados pode ajudar a todos, profissionais do Direito, estatísticos, jurimetristas. Aqui, convido o leitor a sugerir soluções e vantagens, colocando apenas um pequeno cardápio:
+
+Jurimetristas terão mais bases de dados para analisar! A pesquisa empírica no Direito teria um grande avanço. Análise de texto, decisões judiciais, tempo processual, volume processual, tudo isso seria possível.
+Ao construir APIs para download dos dados, os tribunais poderão obter informações das pessoas que estão utilizando a ferramenta, e quais consultas fizeram. Essas informações podem ser valiosas para os tribunais.
+Seria maior o feedback a respeito dos dados públicos, o que teria como consequência a melhora da documentação, novas padronizações, etc.
+
+Advogados poderiam falar em números com maior responsabilidade, e discutir com maior propriedade (aqui, sempre tomando cuidado para não mentir com a estatística!).
+Juízes, aliados de um pessoal de TI e estatística, poderiam gerir seus processos e decidir com maior eficiência (aqui, sem entrar nos méritos de decisões "mais justas" por conta dos dados).
+Ferramentas jurídicas em escritórios poderão preencher alguns campos automaticamente, apenas com o número do processo (já existem muitas que fazem isso, mas o caminho é tortuoso).
+
+### Expectativas
+
+Acreditamos fortemente que as preces serão atendidas e que no futuro o Brasil será referência mundial no que diz respeito a estruturação de dados jurídicos, e que isso será muito benéfico para o país. Processos nós temos (e muitos!); só falta analisar.
 
 <!-- ---------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------- -->
@@ -637,35 +1401,18 @@ guarde os dados já processados (se couberem) num arquivo `.rda` dentro da pasta
 <!-- ---------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------- -->
 
-## Visualização de dados
-
-(ainda nada feito)
+## Visualização de dados com `ggplot2`
 
 O `ggplot2` é um pacote do R voltado para a criação de gráficos estatísticos. Ele é baseado na Gramática dos Gráficos (*grammar of graphics*, em inglês), criado por Leland Wilkinson, que é uma resposta para a pergunta: o que é um gráfico estatístico? Resumidamente, a gramática diz que um gráfico estatístico é um mapeamento dos dados a partir de atributos estéticos (cores, formas, tamanho) de formas geométricas (pontos, linhas, barras).
 
 Para mais informações sobre a Gramática dos Gráficos, você pode consultar o livro [*The Grammar of graphics*](http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7), escrito pelo Leland Wilkinson, ou o livro [ggplot2: elegant graphics for data analysis](http://ggplot2.org/book/), do Hadley Wickham.
 Um [pdf do livro](http://moderngraphics11.pbworks.com/f/ggplot2-Book09hWickham.pdf) também está disponível.
 
-### Instalação
+### Construindo gráficos
 
-O `ggplot2` não faz parte dos pacotes base do R. Assim, antes de usá-lo, você precisa baixar e instalar o pacote. Para isso, é necessário ter pelo menos a versão 2.8 do R, pois o `ggplot2` não é compatível com versões anteriores.
+A seguir, vamos discutir os aspcetos básicos para a construção de gráficos com o pacote `ggplot2`. Para isso, utilizaremos o banco de dados contido no objeto `mtcars`. Para visualizar as primeiras linhas deste banco, utilize o comando:
 
-Para baixar e instalar o pacote, utilize a seguitne linha de código:
-
-```{r, eval=FALSE}
-install.packages("ggplot2")
-```
-Não se esqueça de carregar o pacote antes de utilizá-lo:
-
-```{r aula05chunk01}
-library(ggplot2)
-```
-
-## Construindo gráficos
-
-A seguir, vamos discutir os aspcetos básicos para a construção de gráficos com o pacote `gglplot2`. Para isso, utilizaremos o banco de dados contido no objeto `mtcars`. Para visualizar as primeiras linhas deste banco, utilize o comando:
-
-```{r aula05chunk02}
+```{r}
 head(mtcars)
 ```
 
@@ -673,8 +1420,8 @@ head(mtcars)
 
 No `ggplot2`, os gráficos são construídos camada por camada (ou, *layers*, em inglês), sendo que a primeira delas é dada pela função `ggplot` (não tem o "2"). Cada camada representa um tipo de mapeamento ou personalização do gráfico. O código abaixo é um exemplo de um gráfico bem simples, construído a partir das duas principais camadas. 
 
-
-```{r aula05chunk03}
+```{r aula05chunk03, message=FALSE, warning=FALSE}
+library(ggplot2)
 ggplot(data = mtcars, aes(x = disp, y = mpg)) + 
   geom_point()
 ```
@@ -744,7 +1491,6 @@ ggplot(mtcars, aes(x = as.factor(cyl))) +
 ```
 
 Para fazer um boxplot para cada grupo, precisamos passar para o aspecto x do gráfico uma variável do tipo fator. 
-
 ### Personalizando os gráficos
 
 #### Cores
@@ -841,3 +1587,179 @@ ggplot(mtcars, aes(x = mpg, y = disp, colour = as.factor(cyl))) +
   geom_point() + 
   facet_grid(.~am)
 ```
+
+## Exemplo visualização
+
+No exemplo das câmaras, vamos fazer três gráficos.
+O primeiro mostra a proporção de processos por assunto em cada câmara.
+
+```{r warning=FALSE}
+d_cjsg %>%
+  separate(classe_assunto, c('classe', 'assunto'), sep = ' / ', 
+           extra = 'merge', fill = 'right') %>% 
+  group_by(assunto) %>% 
+  mutate(n_assunto = n()) %>% 
+  ungroup() %>% 
+  mutate(assunto = ifelse(n_assunto < 5000, 'Outro', assunto)) %>% 
+  count(orgao_julgador, assunto) %>%
+  mutate(ntot = sum(n), prop = n / ntot) %>%
+  ungroup %>%
+  filter(ntot > 1000) %>% 
+  mutate(num = extract_numeric(orgao_julgador),
+         num = sprintf('%02d', num)) %>% 
+  mutate(extra = str_detect(orgao_julgador, 'Extra'),
+         extra = ifelse(extra, 'Câmara Extraordinária', 
+                        'Câmara de Direito Criminal')) %>% 
+  ggplot(aes(x = num, fill = assunto, y = prop)) +
+  geom_bar(stat = 'identity', colour = 'black') +
+  facet_wrap(~extra, scales = 'free_x') +
+  theme_bw() +
+  scale_y_continuous(labels = scales::percent) +
+  xlab('Órgão julgador') +
+  ylab('Proporção de processos por assunto') +
+  theme(legend.position = "bottom")
+```
+
+O segundo mostra a proporção de decisões favoráveis no tempo.
+
+```{r}
+partes_apelacoes <- d_partes %>% 
+  filter(tipo == 'apelado', str_detect(nome, '[Mm]inist')) %>% 
+  mutate(n_processo = str_replace_all(arq, '[^0-9]', '')) %>% 
+  select(n_processo)
+  
+decisoes <- d_decisoes %>% 
+  mutate(n_processo = str_replace_all(arq, '[^0-9]', '')) %>% 
+  semi_join(partes_apelacoes, 'n_processo') %>% 
+  filter(situacao == 'Julgado') %>% 
+  distinct(n_processo, decisao) %>%
+  mutate(tipo_decisao = tipos_decisao(decisao)) %>% 
+  select(n_processo, tipo_decisao)
+  
+
+aux <- d_cjsg %>%
+  mutate(n_processo = str_replace_all(n_processo, '[^0-9]', '')) %>% 
+  inner_join(decisoes, 'n_processo') %>% 
+  mutate(data = dmy(data_julgamento)) %>%
+  mutate(ano_mes = floor_date(data, 'month'))
+
+aux %>%
+  count(ano_mes, tipo_decisao) %>%
+  mutate(prop = n/sum(n)) %>%
+  ungroup %>%
+  ggplot(aes(x = ano_mes, y = prop, colour = tipo_decisao)) +
+  geom_line() +
+  geom_text(aes(y = 0.65, label = n, colour = NULL), 
+            data = count(aux, ano_mes)) +
+  scale_x_date(breaks = scales::date_breaks('1 month'),
+               labels = scales::date_format("%b")) +
+  scale_y_continuous(labels = scales::percent) +
+  xlab('Tempo (meses)') +
+  ylab('Proporção de cada tipo de decisão') +
+  theme_bw()
+```
+
+O terceiro mostra a proporção de cada tipo de decisão em cada câmara.
+
+```{r}
+d_cjsg %>%
+  mutate(n_processo = str_replace_all(n_processo, '[^0-9]', '')) %>% 
+  inner_join(decisoes, 'n_processo') %>% 
+  count(orgao_julgador, tipo_decisao) %>%
+  mutate(ntot = sum(n), prop = n / ntot) %>%
+  ungroup() %>%
+  filter(ntot > 10) %>% 
+  mutate(num = extract_numeric(orgao_julgador),
+         num = sprintf('%02d', num)) %>% 
+  mutate(extra = str_detect(orgao_julgador, 'Extra'),
+         extra = ifelse(extra, 'Câmara Extraordinária', 
+                        'Câmara de Direito Criminal')) %>% 
+  ggplot(aes(x = num, fill = tipo_decisao, y = prop)) +
+  geom_bar(stat = 'identity', colour = 'black') +
+  facet_wrap(~extra, scales = 'free_x') +
+  theme_bw() +
+  scale_y_continuous(labels = scales::percent) +
+  xlab('Órgão julgador') +
+  ylab('Proporção de processos por tipo de decisão') +
+  theme(legend.position = "bottom")
+```
+
+## Ferramentas de visualização com `shiny`
+
+O Shiny é um sistema para desenvolvimento de aplicações web usando o R, um pacote do R (`shiny`) e um servidor web (`shiny server`). O Shiny não é uma página web não é um substituto para sistemas mais gerais, como Ruby on Rails e Django e não é uma ferramenta gerencial, como o Tableau.
+
+Para entender sobre Shiny, é necessário entender primeiro o que é [server side e user side](http://programmers.stackexchange.com/a/171210 "diferencas"). Quando surfamos na web, nos _comunicamos_ com servidores do mundo inteiro, geralmente através do protocolo HTTP.
+
+No server side, processamos requisições e dados do cliente, estrutura e envia páginas web, interage com banco de dados, etc. Linguagens server side comuns são PHP, C#, Java, R etc (virtualmente qualquer linguagem de programação).
+
+No user side, criamos interfaces gráficas a partir dos códigos recebidos pelo servidor, envia e recebe
+informações do servidor etc. As "linguagens" mais usuais nesse caso são HTML, CSS e JavaScript.
+
+Mas onde está o Shiny nisso tudo?
+O código de uma aplicação shiny fica no _server side_.
+O shiny permite que um computador (servidor) envie páginas web, receba informações do usuário e 
+processe dados, utilizando apenas o R.
+Para rodar aplicativos shiny, geralmente estruturamos a parte relacionada ao HTML, JavaScript e 
+CSS no arquivo `ui.R`, e a parte relacionada com processamento de dados e geração de gráficos e 
+análises no arquivo `server.R`. Os arquivos `ui.R` e `server.R` ficam no servidor! Atualmente é possível construir 
+[aplicativos em um arquivo só](http://shiny.rstudio.com/articles/single-file.html), mas vamos manter 
+a estrutura de `ui.R` e `server.R`.
+
+O pacote `shiny` do R possui internamente um servidor web básico, geralmente utilizado para
+aplicações locais, permitindo somente uma aplicação por vez. 
+O `shiny server` é um programa que roda somente em Linux que permite o acesso a múltiplas
+aplicações simultaneamente.
+
+### Começando com um exemplo
+
+```{r eval=FALSE}
+shiny::runGitHub('abjur/vistemplate', subdir='exemplo_01_helloworld')
+```
+
+O Shiny utiliza como padrão o [bootstrap css](http://getbootstrap.com/css/) do [Twitter](https://twitter.com), que é bonito e responsivo (lida bem com várias plataformas, como notebook e mobile).
+Note que criamos páginas básicas com `pageWithSidebar`.
+Páginas mais trabalhadas são criadas com `fluidPage`, `fluidRow`, `column`.
+Pesquise outros tipos de layouts no shiny. 
+É possível criar páginas web customizadas direto no HTML.
+
+Para estudar os *widgets* (entradas de dados para o usuário), acesse [este link](http://shiny.rstudio.com/gallery/widget-gallery.html 'widgets') ou rode
+
+```{r eval=FALSE}
+shiny::runGitHub('garrettgman/shinyWidgets')
+```
+
+#### Exercício
+
+- Criar um `pageWithSideBar` com dois `wellPanel`, um `dateInput`, um `checkboxGroup` e um `textInput`. 
+- Aprender `fluidRow` e `column`.
+
+### Criando outputs
+
+Imagine que para cada função `xxOutput('foo', ...)` do `ui.R` você pode colocar um código do tipo 
+`output$foo <- renderXX(...)` no `server.R`. A função no arquivo `ui.R` determina a localização e identificação do elemento. Crie gráficos com `plotOutput` e `renderPlot` e exiba dados com `dataTableOutput` e `renderDataTable`.
+
+#### Exercício
+
+- Criar um output de gráfico contento `pairs(mtcars[1:3])` e um output de dados contendo `cor(mtcars[1:3])`.
+
+## Fazendo mais com o shiny
+
+### Shiny Server Pro
+
+- Licença comercial do Shiny-server
+- Possui algumas características a mais, como autenticação e suporte.
+
+### shinyapps.io
+
+- Para compartilhar um aplicativo shiny, geralmente precisamos ter um servidor Linux (geralmente
+utilizando algum serviço na cloud como AWS ou DigitalOcean) com o shiny server instalado.
+- Isso pode ser doloroso.
+- O shinyapps.io é um sistema (que envolve tanto pacote do R como uma página web) que permite que o 
+usuário coloque sua aplicação shiny na web sem muito esforço.
+- O serviço está sendo desenvolvido pela RStudio Inc. e terá contas grátis e pagas.
+
+### Ainda mais!
+
+- Ferramenta em amplo desenvolvimento.
+- Grande oportunidade na área acadêmica e profissional.
+- Potencial de revolucionar as formas atuais de comunicação.

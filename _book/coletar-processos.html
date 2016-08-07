@@ -25,8 +25,13 @@
 
 <meta name="author" content="Associação Brasileira de Jurimetria">
 
-<meta name="date" content="2016-08-04">
+<meta name="date" content="2016-08-07">
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,7 +39,7 @@
   
   
 <link rel="prev" href="buscar-documentos.html">
-<link rel="next" href="visualizacao-de-dados.html">
+<link rel="next" href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -108,50 +113,86 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.1" data-path="definicao-de-jurimetria.html"><a href="definicao-de-jurimetria.html"><i class="fa fa-check"></i><b>1.1</b> Definição de Jurimetria</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html"><i class="fa fa-check"></i><b>2</b> Ferramental de trabalho da ABJ</a><ul>
-<li class="chapter" data-level="2.1" data-path="exemplos-trabalhados.html"><a href="exemplos-trabalhados.html"><i class="fa fa-check"></i><b>2.1</b> Exemplos trabalhados</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="exemplos-trabalhados.html"><a href="exemplos-trabalhados.html#camaras-de-gas"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras de gás</a></li>
-<li class="chapter" data-level="2.1.2" data-path="exemplos-trabalhados.html"><a href="exemplos-trabalhados.html#waze-do-judiciario"><i class="fa fa-check"></i><b>2.1.2</b> Waze do Judiciário</a></li>
+<li class="chapter" data-level="2.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html"><i class="fa fa-check"></i><b>2.1</b> Exemplo trabalhado</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-de-gas"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras de gás</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>2.2</b> Pipe</a></li>
-<li class="chapter" data-level="2.3" data-path="data-tidying.html"><a href="data-tidying.html"><i class="fa fa-check"></i><b>2.3</b> Data tidying</a></li>
-<li class="chapter" data-level="2.4" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html"><i class="fa fa-check"></i><b>2.4</b> Pacotes <code>dplyr</code> e <code>tidyr</code></a><ul>
-<li class="chapter" data-level="2.4.1" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#trabalhando-com-tibbles"><i class="fa fa-check"></i><b>2.4.1</b> Trabalhando com tibbles</a></li>
-<li class="chapter" data-level="2.4.2" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#as-cinco-funcoes-principais-do-dplyr"><i class="fa fa-check"></i><b>2.4.2</b> As cinco funções principais do dplyr</a></li>
-<li class="chapter" data-level="2.4.3" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#caracteristicas"><i class="fa fa-check"></i><b>2.4.3</b> Características</a></li>
-<li class="chapter" data-level="2.4.4" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#vantagens"><i class="fa fa-check"></i><b>2.4.4</b> Vantagens</a></li>
-<li class="chapter" data-level="2.4.5" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#select"><i class="fa fa-check"></i><b>2.4.5</b> select</a></li>
-<li class="chapter" data-level="2.4.6" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#filter"><i class="fa fa-check"></i><b>2.4.6</b> filter</a></li>
-<li class="chapter" data-level="2.4.7" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#mutate"><i class="fa fa-check"></i><b>2.4.7</b> mutate</a></li>
-<li class="chapter" data-level="2.4.8" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#arrange"><i class="fa fa-check"></i><b>2.4.8</b> arrange</a></li>
-<li class="chapter" data-level="2.4.9" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#summarise"><i class="fa fa-check"></i><b>2.4.9</b> summarise</a></li>
-<li class="chapter" data-level="2.4.10" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#spread"><i class="fa fa-check"></i><b>2.4.10</b> spread</a></li>
-<li class="chapter" data-level="2.4.11" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#gather"><i class="fa fa-check"></i><b>2.4.11</b> gather</a></li>
-<li class="chapter" data-level="2.4.12" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#funcoes-auxiliares"><i class="fa fa-check"></i><b>2.4.12</b> Funções auxiliares</a></li>
-<li class="chapter" data-level="2.4.13" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#um-pouco-mais-de-manipulacao-de-dados"><i class="fa fa-check"></i><b>2.4.13</b> Um pouco mais de manipulação de dados</a></li>
+<li class="chapter" data-level="2.2" data-path="data-tidying.html"><a href="data-tidying.html"><i class="fa fa-check"></i><b>2.2</b> Data tidying</a></li>
+<li class="chapter" data-level="2.3" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>2.3</b> Pipe</a></li>
+<li class="chapter" data-level="2.4" data-path="pacote-lubridate-para-trabalhar-com-datas.html"><a href="pacote-lubridate-para-trabalhar-com-datas.html"><i class="fa fa-check"></i><b>2.4</b> Pacote <code>lubridate</code> para trabalhar com datas</a></li>
+<li class="chapter" data-level="2.5" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html"><i class="fa fa-check"></i><b>2.5</b> Pacote <code>stringr</code> para trabalhar com textos</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#expressoes-regulares"><i class="fa fa-check"></i><b>2.5.1</b> Expressões regulares</a></li>
+<li class="chapter" data-level="2.5.2" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#funcoes-do-stringr"><i class="fa fa-check"></i><b>2.5.2</b> Funções do <code>stringr</code></a></li>
+<li class="chapter" data-level="2.5.3" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#exemplo-decisoes-das-camaras"><i class="fa fa-check"></i><b>2.5.3</b> Exemplo: decisões das câmaras</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="pacotes-lubridate-e-stringr.html"><a href="pacotes-lubridate-e-stringr.html"><i class="fa fa-check"></i><b>2.5</b> Pacotes <code>lubridate</code> e <code>stringr</code></a></li>
-<li class="chapter" data-level="2.6" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html"><i class="fa fa-check"></i><b>2.6</b> Pacotes <code>httr</code>, <code>xml2</code> e <code>rvest</code></a></li>
-<li class="chapter" data-level="2.7" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>2.7</b> Web scraping</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="web-scraping.html"><a href="web-scraping.html#informacoes-iniciais"><i class="fa fa-check"></i><b>2.7.1</b> Informações iniciais</a></li>
-<li class="chapter" data-level="2.7.2" data-path="web-scraping.html"><a href="web-scraping.html#diferenca-entre-buscar-baixar-e-processar."><i class="fa fa-check"></i><b>2.7.2</b> Diferença entre buscar, baixar e processar.</a></li>
+<li class="chapter" data-level="2.6" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html"><i class="fa fa-check"></i><b>2.6</b> Pacotes <code>dplyr</code> e <code>tidyr</code></a><ul>
+<li class="chapter" data-level="2.6.1" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#trabalhando-com-tibbles"><i class="fa fa-check"></i><b>2.6.1</b> Trabalhando com <code>tibble</code>s</a></li>
+<li class="chapter" data-level="2.6.2" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#as-cinco-funcoes-principais-do-dplyr"><i class="fa fa-check"></i><b>2.6.2</b> As cinco funções principais do <code>dplyr</code></a></li>
+<li class="chapter" data-level="2.6.3" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#caracteristicas"><i class="fa fa-check"></i><b>2.6.3</b> Características</a></li>
+<li class="chapter" data-level="2.6.4" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#vantagens"><i class="fa fa-check"></i><b>2.6.4</b> Vantagens</a></li>
+<li class="chapter" data-level="2.6.5" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#select"><i class="fa fa-check"></i><b>2.6.5</b> <code>select</code></a></li>
+<li class="chapter" data-level="2.6.6" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#filter"><i class="fa fa-check"></i><b>2.6.6</b> <code>filter</code></a></li>
+<li class="chapter" data-level="2.6.7" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#mutate"><i class="fa fa-check"></i><b>2.6.7</b> <code>mutate</code></a></li>
+<li class="chapter" data-level="2.6.8" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#arrange"><i class="fa fa-check"></i><b>2.6.8</b> <code>arrange</code></a></li>
+<li class="chapter" data-level="2.6.9" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#summarise"><i class="fa fa-check"></i><b>2.6.9</b> <code>summarise</code></a></li>
+<li class="chapter" data-level="2.6.10" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#gather"><i class="fa fa-check"></i><b>2.6.10</b> <code>gather</code></a></li>
+<li class="chapter" data-level="2.6.11" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#spread"><i class="fa fa-check"></i><b>2.6.11</b> <code>spread</code></a></li>
+<li class="chapter" data-level="2.6.12" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#funcoes-auxiliares"><i class="fa fa-check"></i><b>2.6.12</b> Funções auxiliares</a></li>
+<li class="chapter" data-level="2.6.13" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#um-pouco-mais-de-transformacao-de-dados"><i class="fa fa-check"></i><b>2.6.13</b> Um pouco mais de transformação de dados</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="buscar-documentos.html"><a href="buscar-documentos.html"><i class="fa fa-check"></i><b>2.8</b> Buscar documentos</a></li>
-<li class="chapter" data-level="2.9" data-path="coletar-processos.html"><a href="coletar-processos.html"><i class="fa fa-check"></i><b>2.9</b> Coletar processos</a></li>
-<li class="chapter" data-level="2.10" data-path="visualizacao-de-dados.html"><a href="visualizacao-de-dados.html"><i class="fa fa-check"></i><b>2.10</b> Visualização de dados</a><ul>
-<li class="chapter" data-level="2.10.1" data-path="visualizacao-de-dados.html"><a href="visualizacao-de-dados.html#instalacao"><i class="fa fa-check"></i><b>2.10.1</b> Instalação</a></li>
+<li class="chapter" data-level="2.7" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html"><i class="fa fa-check"></i><b>2.7</b> Pacotes <code>httr</code>, <code>xml2</code> e <code>rvest</code></a><ul>
+<li class="chapter" data-level="2.7.1" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#sessoes-e-cookies"><i class="fa fa-check"></i><b>2.7.1</b> Sessões e cookies</a></li>
+<li class="chapter" data-level="2.7.2" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#get-e-post"><i class="fa fa-check"></i><b>2.7.2</b> <code>GET</code> e <code>POST</code></a></li>
+<li class="chapter" data-level="2.7.3" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#outras-funcoes-do-httr"><i class="fa fa-check"></i><b>2.7.3</b> Outras funções do <code>httr</code></a></li>
+<li class="chapter" data-level="2.7.4" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#principais-funcoes-do-rvest"><i class="fa fa-check"></i><b>2.7.4</b> Principais funções do <code>rvest</code></a></li>
+<li class="chapter" data-level="2.7.5" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#css-path-e-xpath"><i class="fa fa-check"></i><b>2.7.5</b> CSS path e XPath</a></li>
+<li class="chapter" data-level="2.7.6" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#apis-com-httr"><i class="fa fa-check"></i><b>2.7.6</b> APIs com <code>httr</code></a></li>
 </ul></li>
-<li class="chapter" data-level="2.11" data-path="construindo-graficos.html"><a href="construindo-graficos.html"><i class="fa fa-check"></i><b>2.11</b> Construindo gráficos</a><ul>
-<li class="chapter" data-level="2.11.1" data-path="construindo-graficos.html"><a href="construindo-graficos.html#as-camadas-de-um-grafico"><i class="fa fa-check"></i><b>2.11.1</b> As camadas de um gráfico</a></li>
-<li class="chapter" data-level="2.11.2" data-path="construindo-graficos.html"><a href="construindo-graficos.html#personalizando-os-graficos"><i class="fa fa-check"></i><b>2.11.2</b> Personalizando os gráficos</a></li>
+<li class="chapter" data-level="2.8" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>2.8</b> Web scraping</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="web-scraping.html"><a href="web-scraping.html#informacoes-iniciais"><i class="fa fa-check"></i><b>2.8.1</b> Informações iniciais</a></li>
+<li class="chapter" data-level="2.8.2" data-path="web-scraping.html"><a href="web-scraping.html#diferenca-entre-buscar-baixar-e-processar."><i class="fa fa-check"></i><b>2.8.2</b> Diferença entre buscar, baixar e processar.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="buscar-documentos.html"><a href="buscar-documentos.html"><i class="fa fa-check"></i><b>2.9</b> Buscar documentos</a></li>
+<li class="chapter" data-level="2.10" data-path="coletar-processos.html"><a href="coletar-processos.html"><i class="fa fa-check"></i><b>2.10</b> Coletar processos</a></li>
+<li class="chapter" data-level="2.11" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><i class="fa fa-check"></i><b>2.11</b> A importância da criação de APIs públicos nos tribunais</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#busca-e-extracao"><i class="fa fa-check"></i><b>2.11.1</b> Busca e extração</a></li>
+<li class="chapter" data-level="2.11.2" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-profissional-do-direito-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.2</b> Como o profissional do Direito acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.3" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-estatistico-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.3</b> Como o estatístico acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.4" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-jurimetrista-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.4</b> Como o jurimetrista acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.5" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-melhorar"><i class="fa fa-check"></i><b>2.11.5</b> Como melhorar?</a></li>
+<li class="chapter" data-level="2.11.6" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#solucao-a-longo-prazo"><i class="fa fa-check"></i><b>2.11.6</b> Solução a longo prazo:</a></li>
+<li class="chapter" data-level="2.11.7" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#vantagens-de-permitir-o-acesso-aos-dados"><i class="fa fa-check"></i><b>2.11.7</b> Vantagens de permitir o acesso aos dados</a></li>
+<li class="chapter" data-level="2.11.8" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#expectativas"><i class="fa fa-check"></i><b>2.11.8</b> Expectativas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html"><i class="fa fa-check"></i><b>2.12</b> Visualização de dados com <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="2.12.1" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html#construindo-graficos"><i class="fa fa-check"></i><b>2.12.1</b> Construindo gráficos</a></li>
+<li class="chapter" data-level="2.12.2" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html#as-camadas-de-um-grafico"><i class="fa fa-check"></i><b>2.12.2</b> As camadas de um gráfico</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="exemplo-visualizacao.html"><a href="exemplo-visualizacao.html"><i class="fa fa-check"></i><b>2.13</b> Exemplo visualização</a></li>
+<li class="chapter" data-level="2.14" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html"><i class="fa fa-check"></i><b>2.14</b> Ferramentas de visualização com <code>shiny</code></a><ul>
+<li class="chapter" data-level="2.14.1" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html#comecando-com-um-exemplo"><i class="fa fa-check"></i><b>2.14.1</b> Começando com um exemplo</a></li>
+<li class="chapter" data-level="2.14.2" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html#criando-outputs"><i class="fa fa-check"></i><b>2.14.2</b> Criando outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.15" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html"><i class="fa fa-check"></i><b>2.15</b> Fazendo mais com o shiny</a><ul>
+<li class="chapter" data-level="2.15.1" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#shiny-server-pro"><i class="fa fa-check"></i><b>2.15.1</b> Shiny Server Pro</a></li>
+<li class="chapter" data-level="2.15.2" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#shinyapps.io"><i class="fa fa-check"></i><b>2.15.2</b> shinyapps.io</a></li>
+<li class="chapter" data-level="2.15.3" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#ainda-mais"><i class="fa fa-check"></i><b>2.15.3</b> Ainda mais!</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="aulas.html"><a href="aulas.html"><i class="fa fa-check"></i><b>3</b> Aulas</a></li>
-<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
-<li class="chapter" data-level="4.1" data-path="example-one.html"><a href="example-one.html"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
-<li class="chapter" data-level="4.2" data-path="example-two.html"><a href="example-two.html"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+<li class="chapter" data-level="3" data-path="simulacao.html"><a href="simulacao.html"><i class="fa fa-check"></i><b>3</b> Simulação</a><ul>
+<li class="chapter" data-level="3.1" data-path="primeiros-passos.html"><a href="primeiros-passos.html"><i class="fa fa-check"></i><b>3.1</b> Primeiros passos</a></li>
+<li class="chapter" data-level="3.2" data-path="estruturacao.html"><a href="estruturacao.html"><i class="fa fa-check"></i><b>3.2</b> Estruturação</a></li>
+<li class="chapter" data-level="3.3" data-path="dados.html"><a href="dados.html"><i class="fa fa-check"></i><b>3.3</b> Dados</a></li>
+<li class="chapter" data-level="3.4" data-path="implementacao.html"><a href="implementacao.html"><i class="fa fa-check"></i><b>3.4</b> Implementação</a></li>
+<li class="chapter" data-level="3.5" data-path="analise-dos-resultados.html"><a href="analise-dos-resultados.html"><i class="fa fa-check"></i><b>3.5</b> Análise dos resultados</a></li>
+<li class="chapter" data-level="3.6" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html"><i class="fa fa-check"></i><b>3.6</b> Exemplo - Cadastro Nacional de Adoção</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#primeiros-passos-1"><i class="fa fa-check"></i><b>3.6.1</b> Primeiros passos</a></li>
+<li class="chapter" data-level="3.6.2" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#estruturacao-1"><i class="fa fa-check"></i><b>3.6.2</b> Estruturação</a></li>
+<li class="chapter" data-level="3.6.3" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#dados-1"><i class="fa fa-check"></i><b>3.6.3</b> Dados</a></li>
+<li class="chapter" data-level="3.6.4" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#implementacao-1"><i class="fa fa-check"></i><b>3.6.4</b> Implementação</a></li>
+<li class="chapter" data-level="3.6.5" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#analise-dos-resultados-1"><i class="fa fa-check"></i><b>3.6.5</b> Análise dos resultados</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -173,15 +214,255 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="coletar-processos" class="section level2">
-<h2><span class="header-section-number">2.9</span> Coletar processos</h2>
-<p>(…)</p>
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
+<h2><span class="header-section-number">2.10</span> Coletar processos</h2>
+<p>Antes de coletar os processos, é necessário ler os arquivos HTML baixados na etapa anterior.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">parse_cjsg_um &lt;-<span class="st"> </span>function(i, nodes) {
+  node &lt;-<span class="st"> </span>nodes[[i]]
+  trim &lt;-<span class="st"> </span>stringr::str_trim
+  id &lt;-<span class="st"> </span>node %&gt;%
+<span class="st">    </span>rvest::<span class="kw">html_node</span>(<span class="st">&#39;.ementaClass&#39;</span>) %&gt;%
+<span class="st">    </span>rvest::<span class="kw">html_text</span>() %&gt;%
+<span class="st">    </span><span class="kw">trim</span>() %&gt;%
+<span class="st">    </span>stringr::<span class="kw">str_replace_all</span>(<span class="st">&#39;[^0-9]&#39;</span>, <span class="st">&#39;&#39;</span>)
+  infos &lt;-<span class="st"> </span>node %&gt;%
+<span class="st">    </span>rvest::<span class="kw">html_node</span>(<span class="st">&#39;.downloadEmenta&#39;</span>) %&gt;%<span class="st"> </span>{
+      tibble::<span class="kw">tibble</span>(<span class="dt">n_processo =</span> <span class="kw">trim</span>(rvest::<span class="kw">html_text</span>(.)),
+                     <span class="dt">cd_acordao =</span> rvest::<span class="kw">html_attr</span>(., <span class="st">&#39;cdacordao&#39;</span>))
+    }
+  ca &lt;-<span class="st"> </span>node %&gt;%
+<span class="st">    </span>rvest::<span class="kw">html_node</span>(<span class="st">&#39;.assuntoClasse&#39;</span>) %&gt;%
+<span class="st">    </span>rvest::<span class="kw">html_text</span>() %&gt;%
+<span class="st">    </span><span class="kw">trim</span>()
+  tsf &lt;-<span class="st"> </span>node %&gt;%
+<span class="st">    </span>rvest::<span class="kw">html_node</span>(<span class="st">&#39;textarea&#39;</span>) %&gt;%
+<span class="st">    </span>rvest::<span class="kw">html_text</span>()
+  tab_infos &lt;-<span class="st"> </span>node %&gt;%
+<span class="st">    </span>rvest::<span class="kw">html_nodes</span>(<span class="st">&#39;.ementaClass2&#39;</span>) %&gt;%
+<span class="st">    </span>rvest::<span class="kw">html_text</span>() %&gt;%
+<span class="st">    </span>stringr::<span class="kw">str_split_fixed</span>(<span class="st">&#39;:&#39;</span>, <span class="dv">2</span>) %&gt;%
+<span class="st">    </span><span class="kw">data.frame</span>(<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) %&gt;%
+<span class="st">    </span>magrittr::<span class="kw">set_names</span>(<span class="kw">c</span>(<span class="st">&#39;key&#39;</span>, <span class="st">&#39;val&#39;</span>)) %&gt;%
+<span class="st">    </span>dplyr::<span class="kw">mutate_all</span>(dplyr::<span class="kw">funs</span>(<span class="kw">trim</span>(.))) %&gt;%
+<span class="st">    </span>dplyr::<span class="kw">mutate</span>(<span class="dt">key =</span> <span class="kw">tolower</span>(abjutils::<span class="kw">rm_accent</span>(key)),
+                  <span class="dt">key =</span> stringr::<span class="kw">str_replace_all</span>(key, <span class="st">&#39; +&#39;</span>, <span class="st">&#39;_&#39;</span>),
+                  <span class="dt">key =</span> stringr::<span class="kw">str_replace_all</span>(key, <span class="st">&#39;[^a-z_]&#39;</span>, <span class="st">&#39;&#39;</span>),
+                  <span class="dt">key =</span> stringr::<span class="kw">str_replace_all</span>(key, <span class="st">&#39;_d[eo]_&#39;</span>, <span class="st">&#39;_&#39;</span>)) %&gt;%
+<span class="st">    </span>tidyr::<span class="kw">spread</span>(key, val) %&gt;%
+<span class="st">    </span>dplyr::<span class="kw">bind_cols</span>(infos) %&gt;%
+<span class="st">    </span>dplyr::<span class="kw">mutate</span>(<span class="dt">id =</span> id, <span class="dt">classe_assunto =</span> ca, <span class="dt">txt_ementa =</span> tsf) %&gt;%
+<span class="st">    </span>dplyr::<span class="kw">select</span>(id, cd_acordao, n_processo, dplyr::<span class="kw">everything</span>(), txt_ementa)
+  tab_infos
+}
+
+parse_cjsg_arq &lt;-<span class="st"> </span>function(arq) {
+  itens &lt;-<span class="st"> </span>xml2::<span class="kw">read_html</span>(arq, <span class="dt">encoding =</span> <span class="st">&#39;UTF-8&#39;</span>) %&gt;%
+<span class="st">    </span>rvest::<span class="kw">html_nodes</span>(<span class="st">&#39;.fundocinza1&#39;</span>)
+  abjutils::<span class="kw">dvec</span>(parse_cjsg_um, <span class="dv">1</span>:<span class="kw">length</span>(itens), <span class="dt">nodes =</span> itens, <span class="dt">verbose =</span> <span class="ot">FALSE</span>) %&gt;%
+<span class="st">    </span>dplyr::<span class="kw">select</span>(-item)
+}
+
+<span class="co">#&#39; Parser do CJSG</span>
+<span class="co">#&#39;</span>
+<span class="co">#&#39; Parser dos arquivos HTML baixados pela função \code{\link{cjsg}}.</span>
+<span class="co">#&#39;</span>
+<span class="co">#&#39; @param arqs vetor de arquivos (caminho completo) a serem lidos.</span>
+<span class="co">#&#39;</span>
+<span class="co">#&#39; @return tibble com as colunas</span>
+<span class="co">#&#39; \itemize{</span>
+<span class="co">#&#39;   \item \code{arq} nome do arquivo lido.</span>
+<span class="co">#&#39;   \item \code{id} id contido na página lida.</span>
+<span class="co">#&#39;   \item \code{cd_acordao} código único do acórdão.</span>
+<span class="co">#&#39;   \item \code{n_processo} número do processo (pode repetir).</span>
+<span class="co">#&#39;   \item \code{comarca} nome da comarca.</span>
+<span class="co">#&#39;   \item \code{data_julgamento} data de julgamento em formato \%d/\%m/\%Y.</span>
+<span class="co">#&#39;   \item \code{data_registro} data de registro no sistem em formato \%d/\%m/\%Y.</span>
+<span class="co">#&#39;   \item \code{ementa} ementa do acórdão (muitos vazios).</span>
+<span class="co">#&#39;   \item \code{orgao_julgador} câmara julgadora do recurso.</span>
+<span class="co">#&#39;   \item \code{outros_numeros} números antigos / complementares.</span>
+<span class="co">#&#39;   \item \code{relatora} Nome do relator ou relatora do recurso.</span>
+<span class="co">#&#39;   \item \code{classe_assunto} Classe / assunto, separados por &quot; / &quot;.</span>
+<span class="co">#&#39;   \item \code{txt_ementa} Texto da ementa sem formatação.</span>
+<span class="co">#&#39; }</span>
+<span class="co">#&#39; @export</span>
+parse_cjsg &lt;-<span class="st"> </span>function(arqs) {
+  abjutils::<span class="kw">dvec</span>(parse_cjsg_arq, arqs) %&gt;%
+<span class="st">    </span>dplyr::<span class="kw">rename</span>(<span class="dt">arq =</span> item)
+}</code></pre></div>
+<p>Rodando a função criada.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arqs &lt;-<span class="st"> </span><span class="kw">dir</span>(<span class="st">&#39;data-raw/cjsg&#39;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+d_cjsg &lt;-<span class="st"> </span><span class="kw">parse_cjsg</span>(arqs)
+<span class="kw">saveRDS</span>(d_cjsg, <span class="st">&#39;data-raw/d_cjsg.rds&#39;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d_cjsg &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&#39;data-raw/d_cjsg.rds&#39;</span>)
+d_cjsg</code></pre></div>
+<pre><code>## # A tibble: 184,250 x 14
+##                                                      arq    id cd_acordao
+##                                                    &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;
+## 1  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     1    9381267
+## 2  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     2    8671548
+## 3  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     3    8634338
+## 4  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     4    8536605
+## 5  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     5    8509346
+## 6  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     6    8490681
+## 7  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     7    8466583
+## 8  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     8    8449087
+## 9  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     9    8429536
+## 10 /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html    10    8331899
+## # ... with 184,240 more rows, and 11 more variables: n_processo &lt;chr&gt;,
+## #   comarca &lt;chr&gt;, data_julgamento &lt;chr&gt;, data_registro &lt;chr&gt;,
+## #   ementa &lt;chr&gt;, orgao_julgador &lt;chr&gt;, outros_numeros &lt;chr&gt;,
+## #   relatora &lt;chr&gt;, classe_assunto &lt;chr&gt;, txt_ementa &lt;chr&gt;, result &lt;chr&gt;</code></pre>
+<p>Agora criamos a função que baixa processos.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dados_cposg &lt;-<span class="st"> </span>function(p) {
+  <span class="kw">list</span>(<span class="st">&#39;conversationId&#39;</span> =<span class="st"> &#39;&#39;</span>,
+       <span class="st">&#39;paginaConsulta&#39;</span> =<span class="st"> &#39;1&#39;</span>,
+       <span class="st">&#39;localPesquisa.cdLocal&#39;</span> =<span class="st"> &#39;-1&#39;</span>,
+       <span class="st">&#39;cbPesquisa&#39;</span> =<span class="st"> &#39;NUMPROC&#39;</span>,
+       <span class="st">&#39;tipoNuProcesso&#39;</span> =<span class="st"> &#39;UNIFICADO&#39;</span>,
+       <span class="st">&#39;numeroDigitoAnoUnificado&#39;</span> =<span class="st"> </span>stringr::<span class="kw">str_sub</span>(p, <span class="dv">1</span>, <span class="dv">11</span>),
+       <span class="st">&#39;foroNumeroUnificado&#39;</span> =<span class="st"> </span>stringr::<span class="kw">str_sub</span>(p, -<span class="dv">4</span>, -<span class="dv">1</span>),
+       <span class="st">&#39;dePesquisaNuUnificado&#39;</span> =<span class="st"> </span>p,
+       <span class="st">&#39;dePesquisaNuAntigo&#39;</span> =<span class="st"> &#39;&#39;</span>)
+}
+
+<span class="co">#&#39; Baixa um processo.</span>
+<span class="co">#&#39;</span>
+<span class="co">#&#39; Baixa um processo na consulta de processos de segundo grau do TJSP. Deve ser usado internamente.</span>
+<span class="co">#&#39;</span>
+<span class="co">#&#39; @param p número do processo (string apenas com os números).</span>
+<span class="co">#&#39; @param path caminho da pasta onde será salvo o arquivo HTML.</span>
+<span class="co">#&#39; @param ow sobrescrever o arquivo HTML?</span>
+<span class="co">#&#39;</span>
+cposg_um &lt;-<span class="st"> </span>function(p, path, ow) {
+  <span class="kw">Sys.sleep</span>(<span class="dv">1</span>)
+  arq &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&#39;%s/%s.html&#39;</span>, path, p)
+  if (!<span class="kw">file.exists</span>(arq) ||<span class="st"> </span>ow) {
+    httr::<span class="kw">GET</span>(<span class="st">&#39;https://esaj.tjsp.jus.br/cpo/sg/search.do&#39;</span>,
+              <span class="dt">query =</span> <span class="kw">dados_cposg</span>(p),
+              <span class="dt">config =</span> httr::<span class="kw">config</span>(<span class="dt">ssl_verifypeer =</span> <span class="ot">FALSE</span>),
+              httr::<span class="kw">write_disk</span>(arq, <span class="dt">overwrite =</span> ow))
+    tibble::<span class="kw">tibble</span>(<span class="dt">result =</span> <span class="st">&#39;OK&#39;</span>)
+  } else {
+    tibble::<span class="kw">tibble</span>(<span class="dt">result =</span> <span class="st">&#39;já existe&#39;</span>)
+  }
+}
+
+<span class="co">#&#39; Baixa processos</span>
+<span class="co">#&#39;</span>
+<span class="co">#&#39; Baixa processos na consulta de processos de segundo grau do TJSP.</span>
+<span class="co">#&#39;</span>
+<span class="co">#&#39; @param processos número do processo (string apenas com os números).</span>
+<span class="co">#&#39; @param path caminho da pasta onde os arquivos HTML serão salvos.</span>
+<span class="co">#&#39; @param overwrite sobrescrever os arquivos HTML?</span>
+<span class="co">#&#39;</span>
+<span class="co">#&#39; @export</span>
+cposg &lt;-<span class="st"> </span>function(processos, <span class="dt">path =</span> <span class="st">&#39;data-raw/cposg&#39;</span>, <span class="dt">overwrite =</span> <span class="ot">FALSE</span>) {
+  <span class="kw">suppressWarnings</span>(<span class="kw">dir.create</span>(path, <span class="dt">recursive =</span> <span class="ot">TRUE</span>))
+  processos &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&#39;[^0-9]&#39;</span>, <span class="st">&#39;&#39;</span>, processos)
+  abjutils::<span class="kw">dvec</span>(cposg_um, processos, <span class="dt">path =</span> path, <span class="dt">ow =</span> overwrite)
+}</code></pre></div>
+<p>Rodando a função criada.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d_cjsg %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">distinct</span>(n_processo) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">with</span>(n_processo) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">cposg</span>()</code></pre></div>
+<p>Extraindo as partes do arquivo HTML.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">partes_cposg_um &lt;-<span class="st"> </span>function(arq) {
+  h &lt;-<span class="st"> </span>arq %&gt;%<span class="st"> </span>xml2::<span class="kw">read_html</span>(<span class="dt">encoding =</span> <span class="st">&#39;UTF-8&#39;</span>)
+  todas_partes &lt;-<span class="st"> </span>h %&gt;%<span class="st"> </span>rvest::<span class="kw">html_nodes</span>(<span class="st">&#39;#tableTodasPartes&#39;</span>) %&gt;%<span class="st"> </span><span class="kw">length</span>()
+  if (todas_partes &gt;<span class="st"> </span><span class="dv">0</span>) {
+    nodes &lt;-<span class="st"> </span>h %&gt;%<span class="st"> </span>
+<span class="st">      </span>rvest::<span class="kw">html_nodes</span>(<span class="st">&#39;#tableTodasPartes &gt; .fundoClaro&#39;</span>)
+  } else {
+    nodes &lt;-<span class="st"> </span>h %&gt;%<span class="st"> </span>
+<span class="st">      </span>rvest::<span class="kw">html_nodes</span>(<span class="st">&#39;#tablePartesPrincipais &gt; .fundoClaro&#39;</span>)
+  }
+  purrr::<span class="kw">map_df</span>(<span class="kw">seq_along</span>(nodes), function(i) {
+    node &lt;-<span class="st"> </span>nodes[[i]]
+    titulos &lt;-<span class="st"> </span>node %&gt;%<span class="st"> </span>
+<span class="st">      </span>rvest::<span class="kw">html_nodes</span>(<span class="st">&#39;.mensagemExibindo&#39;</span>) %&gt;%<span class="st"> </span>
+<span class="st">      </span>rvest::<span class="kw">html_text</span>() %&gt;%<span class="st"> </span>
+<span class="st">      </span>stringr::<span class="kw">str_trim</span>() %&gt;%<span class="st"> </span>
+<span class="st">      </span>stringr::<span class="kw">str_replace_all</span>(<span class="st">&#39;&amp;nbsp&#39;</span>, <span class="st">&#39;&#39;</span>)
+    tirar &lt;-<span class="st"> </span><span class="kw">paste</span>(titulos, <span class="dt">collapse =</span> <span class="st">&#39;|&#39;</span>)
+    nomes &lt;-<span class="st"> </span>titulos %&gt;%<span class="st"> </span>
+<span class="st">      </span><span class="kw">tolower</span>() %&gt;%<span class="st"> </span>
+<span class="st">      </span>abjutils::<span class="kw">rm_accent</span>() %&gt;%<span class="st"> </span>
+<span class="st">      </span>stringr::<span class="kw">str_replace_all</span>(<span class="st">&#39;[^a-z]&#39;</span>, <span class="st">&#39;&#39;</span>) %&gt;%<span class="st"> </span>
+<span class="st">      </span><span class="kw">paste</span>(<span class="kw">sprintf</span>(<span class="st">&#39;%02d&#39;</span>, <span class="dv">1</span>:<span class="kw">length</span>(.)), <span class="dt">sep =</span> <span class="st">&#39;_&#39;</span>)
+    node %&gt;%<span class="st"> </span>
+<span class="st">      </span>rvest::<span class="kw">html_text</span>() %&gt;%<span class="st"> </span>
+<span class="st">      </span>stringr::<span class="kw">str_trim</span>() %&gt;%<span class="st"> </span>
+<span class="st">      </span>stringr::<span class="kw">str_replace_all</span>(<span class="st">&#39;&amp;nbsp&#39;</span>, <span class="st">&#39;&#39;</span>) %&gt;%<span class="st"> </span>
+<span class="st">      </span>stringr::<span class="kw">str_replace_all</span>(tirar, <span class="st">&#39;&#39;</span>) %&gt;%<span class="st"> </span>
+<span class="st">      </span>stringr::<span class="kw">str_trim</span>() %&gt;%
+<span class="st">      </span>stringr::<span class="kw">str_split</span>(<span class="st">&#39;[</span><span class="ch">\n\t\r</span><span class="st"> ]{2,}&#39;</span>, <span class="dt">simplify =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
+<span class="st">      </span><span class="kw">data.frame</span>(<span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>) %&gt;%<span class="st"> </span>
+<span class="st">      </span><span class="kw">setNames</span>(nomes) %&gt;%<span class="st"> </span>
+<span class="st">      </span>tidyr::<span class="kw">gather</span>() %&gt;%<span class="st"> </span>
+<span class="st">      </span>tibble::<span class="kw">as_data_frame</span>() %&gt;%<span class="st"> </span>
+<span class="st">      </span>tidyr::<span class="kw">separate</span>(key, <span class="kw">c</span>(<span class="st">&#39;tipo&#39;</span>, <span class="st">&#39;id_tipo&#39;</span>), <span class="dt">sep =</span> <span class="st">&#39;_&#39;</span>) %&gt;%<span class="st"> </span>
+<span class="st">      </span>dplyr::<span class="kw">mutate</span>(<span class="dt">id =</span> i) %&gt;%<span class="st"> </span>
+<span class="st">      </span>dplyr::<span class="kw">select</span>(id, id_tipo, tipo, <span class="dt">nome =</span> value) %&gt;%<span class="st"> </span>
+<span class="st">      </span>dplyr::<span class="kw">mutate</span>(<span class="dt">result =</span> <span class="st">&#39;OK&#39;</span>)
+  })
+}
+
+partes_cposg &lt;-<span class="st"> </span>function(arqs, <span class="dt">verbose =</span> <span class="ot">FALSE</span>) {
+  abjutils::<span class="kw">dvec</span>(partes_cposg_um, arqs, <span class="dt">verbose =</span> verbose) %&gt;%<span class="st"> </span>
+<span class="st">    </span><span class="kw">rename</span>(<span class="dt">arq =</span> item)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arqs &lt;-<span class="st"> </span><span class="kw">dir</span>(<span class="st">&#39;data-raw/cposg&#39;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+d_partes &lt;-<span class="st"> </span>arqs %&gt;%<span class="st"> </span><span class="kw">partes_cposg</span>()
+<span class="kw">saveRDS</span>(d_partes, <span class="st">&#39;data-raw/d_partes.rds&#39;</span>)
+d_partes</code></pre></div>
+<pre><code>## # A tibble: 3,689 x 6
+##                                         arq    id id_tipo     tipo
+##                                       &lt;chr&gt; &lt;int&gt;   &lt;chr&gt;    &lt;chr&gt;
+## 1  data-raw/cposg/00000021520118260412.html     1      01 apelante
+## 2  data-raw/cposg/00000021520118260412.html     1      02 advogado
+## 3  data-raw/cposg/00000021520118260412.html     2      01  apelado
+## 4  data-raw/cposg/00000049620148260244.html     1      01 apelante
+## 5  data-raw/cposg/00000049620148260244.html     2      01  apelado
+## 6  data-raw/cposg/00000049620148260244.html     2      02 advogada
+## 7  data-raw/cposg/00000071020138260075.html     1      01 apelante
+## 8  data-raw/cposg/00000071020138260075.html     1      02 advogado
+## 9  data-raw/cposg/00000071020138260075.html     2      01  apelado
+## 10 data-raw/cposg/00000085120138260218.html     1      01 apelante
+## # ... with 3,679 more rows, and 2 more variables: nome &lt;chr&gt;, result &lt;chr&gt;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">decisoes_cposg_um &lt;-<span class="st"> </span>function(arq) {
+  html &lt;-<span class="st"> </span>xml2::<span class="kw">read_html</span>(arq, <span class="dt">encoding =</span> <span class="st">&#39;UTF-8&#39;</span>)
+  xpath &lt;-<span class="st"> &#39;(//table[@width=&quot;98%&quot; and @align=&quot;center&quot;])[last()]&#39;</span>
+  r &lt;-<span class="st"> </span>rvest::<span class="kw">html_node</span>(html, <span class="dt">xpath =</span> xpath)
+  tab &lt;-<span class="st"> </span>rvest::<span class="kw">html_table</span>(r)
+  <span class="kw">names</span>(tab) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;data&#39;</span>, <span class="st">&#39;situacao&#39;</span>, <span class="st">&#39;decisao&#39;</span>)
+  tab$result &lt;-<span class="st"> &#39;OK&#39;</span>
+  <span class="kw">return</span>(tab)
+}
+decisoes_cposg &lt;-<span class="st"> </span>function(arqs, <span class="dt">verbose =</span> <span class="ot">FALSE</span>) {
+  abjutils::<span class="kw">dvec</span>(decisao_cposg_um, arqs, <span class="dt">verbose =</span> verbose) %&gt;%<span class="st"> </span>
+<span class="st">    </span>dplyr::<span class="kw">rename</span>(<span class="dt">arq =</span> item)
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arqs &lt;-<span class="st"> </span><span class="kw">dir</span>(<span class="st">&#39;data-raw/cposg&#39;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
+d_decisoes &lt;-<span class="st"> </span><span class="kw">decisoes_cposg</span>(arqs)
+<span class="kw">saveRDS</span>(d_decisoes, <span class="st">&#39;data-raw/d_decisoes.rds&#39;</span>)
+d_decisoes</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d_decisoes &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&#39;data-raw/d_decisoes.rds&#39;</span>)
+d_decisoes</code></pre></div>
+<pre><code>## # A tibble: 1,120 x 5
+##                                         arq       data situacao
+##                                       &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;
+## 1  data-raw/cposg/00000021520118260412.html 15/12/2014  Julgado
+## 2  data-raw/cposg/00000049620148260244.html 10/12/2015  Julgado
+## 3  data-raw/cposg/00000071020138260075.html 18/05/2015  Julgado
+## 4  data-raw/cposg/00000085120138260218.html 11/11/2015  Julgado
+## 5  data-raw/cposg/00000094520148260624.html 26/02/2015  Julgado
+## 6  data-raw/cposg/00000104920148260165.html 12/05/2015  Julgado
+## 7  data-raw/cposg/00000109420148260247.html 24/09/2015  Julgado
+## 8  data-raw/cposg/00000109420148260635.html 15/12/2015  Julgado
+## 9  data-raw/cposg/00000125120108260038.html 03/09/2015  Julgado
+## 10 data-raw/cposg/00000135920148260082.html 17/08/2015  Julgado
+## # ... with 1,110 more rows, and 2 more variables: decisao &lt;chr&gt;,
+## #   result &lt;chr&gt;</code></pre>
 </div>
             </section>
 
@@ -189,7 +470,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="buscar-documentos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="visualizacao-de-dados.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -221,12 +502,23 @@ gitbook.start({
 },
 "download": ["curso-jurimetria.pdf"],
 "toc": {
-"collapse": "subsection"
+"collapse": "section"
 }
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

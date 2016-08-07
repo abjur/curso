@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Curso de Jurimetria</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="Curso de Jurimetria dado ao TSE nos dias 08, 09 e 10 de agosto de 2016.">
+  <meta name="generator" content="bookdown 0.1.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Curso de Jurimetria" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Curso de Jurimetria dado ao TSE nos dias 08, 09 e 10 de agosto de 2016." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Curso de Jurimetria" />
+  
+  <meta name="twitter:description" content="Curso de Jurimetria dado ao TSE nos dias 08, 09 e 10 de agosto de 2016." />
+  
+
+<meta name="author" content="Associação Brasileira de Jurimetria">
+
+<meta name="date" content="2016-08-07">
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="coletar-processos.html">
+<link rel="next" href="visualizacao-de-dados-com-ggplot2.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Curso de Jurimetria</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introdução</a><ul>
+<li class="chapter" data-level="1.1" data-path="definicao-de-jurimetria.html"><a href="definicao-de-jurimetria.html"><i class="fa fa-check"></i><b>1.1</b> Definição de Jurimetria</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html"><i class="fa fa-check"></i><b>2</b> Ferramental de trabalho da ABJ</a><ul>
+<li class="chapter" data-level="2.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html"><i class="fa fa-check"></i><b>2.1</b> Exemplo trabalhado</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-de-gas"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras de gás</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="data-tidying.html"><a href="data-tidying.html"><i class="fa fa-check"></i><b>2.2</b> Data tidying</a></li>
+<li class="chapter" data-level="2.3" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>2.3</b> Pipe</a></li>
+<li class="chapter" data-level="2.4" data-path="pacote-lubridate-para-trabalhar-com-datas.html"><a href="pacote-lubridate-para-trabalhar-com-datas.html"><i class="fa fa-check"></i><b>2.4</b> Pacote <code>lubridate</code> para trabalhar com datas</a></li>
+<li class="chapter" data-level="2.5" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html"><i class="fa fa-check"></i><b>2.5</b> Pacote <code>stringr</code> para trabalhar com textos</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#expressoes-regulares"><i class="fa fa-check"></i><b>2.5.1</b> Expressões regulares</a></li>
+<li class="chapter" data-level="2.5.2" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#funcoes-do-stringr"><i class="fa fa-check"></i><b>2.5.2</b> Funções do <code>stringr</code></a></li>
+<li class="chapter" data-level="2.5.3" data-path="pacote-stringr-para-trabalhar-com-textos.html"><a href="pacote-stringr-para-trabalhar-com-textos.html#exemplo-decisoes-das-camaras"><i class="fa fa-check"></i><b>2.5.3</b> Exemplo: decisões das câmaras</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html"><i class="fa fa-check"></i><b>2.6</b> Pacotes <code>dplyr</code> e <code>tidyr</code></a><ul>
+<li class="chapter" data-level="2.6.1" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#trabalhando-com-tibbles"><i class="fa fa-check"></i><b>2.6.1</b> Trabalhando com <code>tibble</code>s</a></li>
+<li class="chapter" data-level="2.6.2" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#as-cinco-funcoes-principais-do-dplyr"><i class="fa fa-check"></i><b>2.6.2</b> As cinco funções principais do <code>dplyr</code></a></li>
+<li class="chapter" data-level="2.6.3" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#caracteristicas"><i class="fa fa-check"></i><b>2.6.3</b> Características</a></li>
+<li class="chapter" data-level="2.6.4" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#vantagens"><i class="fa fa-check"></i><b>2.6.4</b> Vantagens</a></li>
+<li class="chapter" data-level="2.6.5" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#select"><i class="fa fa-check"></i><b>2.6.5</b> <code>select</code></a></li>
+<li class="chapter" data-level="2.6.6" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#filter"><i class="fa fa-check"></i><b>2.6.6</b> <code>filter</code></a></li>
+<li class="chapter" data-level="2.6.7" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#mutate"><i class="fa fa-check"></i><b>2.6.7</b> <code>mutate</code></a></li>
+<li class="chapter" data-level="2.6.8" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#arrange"><i class="fa fa-check"></i><b>2.6.8</b> <code>arrange</code></a></li>
+<li class="chapter" data-level="2.6.9" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#summarise"><i class="fa fa-check"></i><b>2.6.9</b> <code>summarise</code></a></li>
+<li class="chapter" data-level="2.6.10" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#gather"><i class="fa fa-check"></i><b>2.6.10</b> <code>gather</code></a></li>
+<li class="chapter" data-level="2.6.11" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#spread"><i class="fa fa-check"></i><b>2.6.11</b> <code>spread</code></a></li>
+<li class="chapter" data-level="2.6.12" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#funcoes-auxiliares"><i class="fa fa-check"></i><b>2.6.12</b> Funções auxiliares</a></li>
+<li class="chapter" data-level="2.6.13" data-path="pacotes-dplyr-e-tidyr.html"><a href="pacotes-dplyr-e-tidyr.html#um-pouco-mais-de-transformacao-de-dados"><i class="fa fa-check"></i><b>2.6.13</b> Um pouco mais de transformação de dados</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html"><i class="fa fa-check"></i><b>2.7</b> Pacotes <code>httr</code>, <code>xml2</code> e <code>rvest</code></a><ul>
+<li class="chapter" data-level="2.7.1" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#sessoes-e-cookies"><i class="fa fa-check"></i><b>2.7.1</b> Sessões e cookies</a></li>
+<li class="chapter" data-level="2.7.2" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#get-e-post"><i class="fa fa-check"></i><b>2.7.2</b> <code>GET</code> e <code>POST</code></a></li>
+<li class="chapter" data-level="2.7.3" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#outras-funcoes-do-httr"><i class="fa fa-check"></i><b>2.7.3</b> Outras funções do <code>httr</code></a></li>
+<li class="chapter" data-level="2.7.4" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#principais-funcoes-do-rvest"><i class="fa fa-check"></i><b>2.7.4</b> Principais funções do <code>rvest</code></a></li>
+<li class="chapter" data-level="2.7.5" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#css-path-e-xpath"><i class="fa fa-check"></i><b>2.7.5</b> CSS path e XPath</a></li>
+<li class="chapter" data-level="2.7.6" data-path="pacotes-httr-xml2-e-rvest.html"><a href="pacotes-httr-xml2-e-rvest.html#apis-com-httr"><i class="fa fa-check"></i><b>2.7.6</b> APIs com <code>httr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="web-scraping.html"><a href="web-scraping.html"><i class="fa fa-check"></i><b>2.8</b> Web scraping</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="web-scraping.html"><a href="web-scraping.html#informacoes-iniciais"><i class="fa fa-check"></i><b>2.8.1</b> Informações iniciais</a></li>
+<li class="chapter" data-level="2.8.2" data-path="web-scraping.html"><a href="web-scraping.html#diferenca-entre-buscar-baixar-e-processar."><i class="fa fa-check"></i><b>2.8.2</b> Diferença entre buscar, baixar e processar.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="buscar-documentos.html"><a href="buscar-documentos.html"><i class="fa fa-check"></i><b>2.9</b> Buscar documentos</a></li>
+<li class="chapter" data-level="2.10" data-path="coletar-processos.html"><a href="coletar-processos.html"><i class="fa fa-check"></i><b>2.10</b> Coletar processos</a></li>
+<li class="chapter" data-level="2.11" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><i class="fa fa-check"></i><b>2.11</b> A importância da criação de APIs públicos nos tribunais</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#busca-e-extracao"><i class="fa fa-check"></i><b>2.11.1</b> Busca e extração</a></li>
+<li class="chapter" data-level="2.11.2" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-profissional-do-direito-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.2</b> Como o profissional do Direito acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.3" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-estatistico-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.3</b> Como o estatístico acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.4" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-o-jurimetrista-acessa-seus-dados"><i class="fa fa-check"></i><b>2.11.4</b> Como o jurimetrista acessa seus dados</a></li>
+<li class="chapter" data-level="2.11.5" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#como-melhorar"><i class="fa fa-check"></i><b>2.11.5</b> Como melhorar?</a></li>
+<li class="chapter" data-level="2.11.6" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#solucao-a-longo-prazo"><i class="fa fa-check"></i><b>2.11.6</b> Solução a longo prazo:</a></li>
+<li class="chapter" data-level="2.11.7" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#vantagens-de-permitir-o-acesso-aos-dados"><i class="fa fa-check"></i><b>2.11.7</b> Vantagens de permitir o acesso aos dados</a></li>
+<li class="chapter" data-level="2.11.8" data-path="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html"><a href="a-importancia-da-criacao-de-apis-publicos-nos-tribunais.html#expectativas"><i class="fa fa-check"></i><b>2.11.8</b> Expectativas</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html"><i class="fa fa-check"></i><b>2.12</b> Visualização de dados com <code>ggplot2</code></a><ul>
+<li class="chapter" data-level="2.12.1" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html#construindo-graficos"><i class="fa fa-check"></i><b>2.12.1</b> Construindo gráficos</a></li>
+<li class="chapter" data-level="2.12.2" data-path="visualizacao-de-dados-com-ggplot2.html"><a href="visualizacao-de-dados-com-ggplot2.html#as-camadas-de-um-grafico"><i class="fa fa-check"></i><b>2.12.2</b> As camadas de um gráfico</a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="exemplo-visualizacao.html"><a href="exemplo-visualizacao.html"><i class="fa fa-check"></i><b>2.13</b> Exemplo visualização</a></li>
+<li class="chapter" data-level="2.14" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html"><i class="fa fa-check"></i><b>2.14</b> Ferramentas de visualização com <code>shiny</code></a><ul>
+<li class="chapter" data-level="2.14.1" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html#comecando-com-um-exemplo"><i class="fa fa-check"></i><b>2.14.1</b> Começando com um exemplo</a></li>
+<li class="chapter" data-level="2.14.2" data-path="ferramentas-de-visualizacao-com-shiny.html"><a href="ferramentas-de-visualizacao-com-shiny.html#criando-outputs"><i class="fa fa-check"></i><b>2.14.2</b> Criando outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.15" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html"><i class="fa fa-check"></i><b>2.15</b> Fazendo mais com o shiny</a><ul>
+<li class="chapter" data-level="2.15.1" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#shiny-server-pro"><i class="fa fa-check"></i><b>2.15.1</b> Shiny Server Pro</a></li>
+<li class="chapter" data-level="2.15.2" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#shinyapps.io"><i class="fa fa-check"></i><b>2.15.2</b> shinyapps.io</a></li>
+<li class="chapter" data-level="2.15.3" data-path="fazendo-mais-com-o-shiny.html"><a href="fazendo-mais-com-o-shiny.html#ainda-mais"><i class="fa fa-check"></i><b>2.15.3</b> Ainda mais!</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="simulacao.html"><a href="simulacao.html"><i class="fa fa-check"></i><b>3</b> Simulação</a><ul>
+<li class="chapter" data-level="3.1" data-path="primeiros-passos.html"><a href="primeiros-passos.html"><i class="fa fa-check"></i><b>3.1</b> Primeiros passos</a></li>
+<li class="chapter" data-level="3.2" data-path="estruturacao.html"><a href="estruturacao.html"><i class="fa fa-check"></i><b>3.2</b> Estruturação</a></li>
+<li class="chapter" data-level="3.3" data-path="dados.html"><a href="dados.html"><i class="fa fa-check"></i><b>3.3</b> Dados</a></li>
+<li class="chapter" data-level="3.4" data-path="implementacao.html"><a href="implementacao.html"><i class="fa fa-check"></i><b>3.4</b> Implementação</a></li>
+<li class="chapter" data-level="3.5" data-path="analise-dos-resultados.html"><a href="analise-dos-resultados.html"><i class="fa fa-check"></i><b>3.5</b> Análise dos resultados</a></li>
+<li class="chapter" data-level="3.6" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html"><i class="fa fa-check"></i><b>3.6</b> Exemplo - Cadastro Nacional de Adoção</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#primeiros-passos-1"><i class="fa fa-check"></i><b>3.6.1</b> Primeiros passos</a></li>
+<li class="chapter" data-level="3.6.2" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#estruturacao-1"><i class="fa fa-check"></i><b>3.6.2</b> Estruturação</a></li>
+<li class="chapter" data-level="3.6.3" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#dados-1"><i class="fa fa-check"></i><b>3.6.3</b> Dados</a></li>
+<li class="chapter" data-level="3.6.4" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#implementacao-1"><i class="fa fa-check"></i><b>3.6.4</b> Implementação</a></li>
+<li class="chapter" data-level="3.6.5" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#analise-dos-resultados-1"><i class="fa fa-check"></i><b>3.6.5</b> Análise dos resultados</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Curso de Jurimetria</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="a-importancia-da-criacao-de-apis-publicos-nos-tribunais" class="section level2">
+<h2><span class="header-section-number">2.11</span> A importância da criação de APIs públicos nos tribunais</h2>
+<p>(texto extraído do Portal da Jurimetria).</p>
+<p>Neste texto fazemos uma apresentação sobre a prática do Jurimetrista, mostrando com um exemplo de como isso é divertido, e também como pode fazer com que passemos por alguns caminhos um tanto tortuosos. Esperamos que o leitor não entenda esse post como um desincentivo à prática da Jurimetria, mas sim como uma motivação para que cada vez mais as pesquisas empíricas no Direito sejam facilitadas.</p>
+<div id="busca-e-extracao" class="section level3">
+<h3><span class="header-section-number">2.11.1</span> Busca e extração</h3>
+<p>Jurimetristas são aquelas pessoas que, remando contra a maré do abstrato e do determinismo, tentam entender a realidade olhando a realidade. Pessoas que não se contentam em estudar a lei, mas querem ver o que está acontecendo no mundo. Nessa viagem, já encontramos diversos personagens: advogados, juristas, estatísticos, economistas, cientistas sociais, cientistas políticos, psicólogos, sociólogos, e por aí vai. Existem até estes raros profissionais que transitam em duas ou mais áreas de forma exemplar. Muito bonita a ideia da Jurimetria.</p>
+<p>Uma necessidade que temos nessa área (e qualquer ciência) é tentar verificar ou invalidar nossas hipóteses com evidências obtidas através de dados. Para isso, tentamos aprender mais sobre o Direito e seus mecanismos utilizando como ferramenta complementar a estatística. Com metodologias adequadas de pesquisa e com os dados em mãos, construímos e ajustamos modelos que buscam explicar, com erros, a realidade. Com os dados em mãos…</p>
+<p>Pois é, nós precisamos de dados. Muitas vezes, nosso objeto de estudo são processos dentro de um determinado escopo (intervalo de tempo, região geográfica, com determinadas características, etc.), seja para estudar seus valores, seus resultados, ou seus tempos de tramitação. Para conseguir isso, só precisamos de um bom repositório de dados, de onde poderemos extrair o que queremos analisar.</p>
+<p>Pela Lei 12.527, a Lei de Acesso à Informação, (quase) todos os processos são públicos! Fantástico, pois assim teremos facilidade em obter nossos dados…</p>
+<p>No entanto, não é bem isso o que observamos na realidade.</p>
+</div>
+<div id="como-o-profissional-do-direito-acessa-seus-dados" class="section level3">
+<h3><span class="header-section-number">2.11.2</span> Como o profissional do Direito acessa seus dados</h3>
+<p>Chegou um processo no escritório de advocacia. Precisamos preencher dados sobre ele no sistema jurídico. O que fazemos? Entramos no site do tribunal (TJSP, TRT2, ou seja lá qual for), digitamos o número CNJ do processo (todos os processos judiciais do Brasil possuem uma regra de numeração padronizada!), e voilá, encontramos todas as informações que precisamos. Perfeito! Se precisamos de jurisprudência, fazemos uma pesquisa por palavras-chave no TJ, e encontramos os argumentos que precisamos. Aqui não funciona tão bem, mas ainda é tranquilo.</p>
+<p>Existem inúmeras ferramentas jurídicas para busca e recuperação de informações. Só alguns exemplos: Digesto, JusBrasil, sistemas para escritórios de advogados, LexML, TJ’s, Justiça Aberta, Diário Oficial, e muitos outros. Com eles, podemos buscar as informações que precisamos, dispondo de uma infinidade de alternativas. Desse modo, se um pesquisador tiver em mãos o número do processo, ele achará informações do processo. Se ele quiser uma lista de processos, ainda poderá fazer isso usando as ferramentas de busca, e nessas listas ele usualmente encontrará o que precisa. Concluindo: os sistemas jurídicos até que são eficazes, mas são todos voltados para a busca de informações.</p>
+</div>
+<div id="como-o-estatistico-acessa-seus-dados" class="section level3">
+<h3><span class="header-section-number">2.11.3</span> Como o estatístico acessa seus dados</h3>
+<p>Um estatístico chora de alegria quando acessa sites como o do PNUD, ou quando tem a possibilidade de exportar para planilhas os dados de acordo com alguma definição de população. Para estatísticos também temos muitos exemplos de sites, como IpeaData, Datasus, IBGE, entre outros. O estatístico mais corajoso ainda poderá utilizar APIs (Application Programming Interfaces) para obter dados de tweets, posts no facebook, e por aí vai. O importante é notar que os sistemas voltados para estatísticos são em sua maioria voltados para extração de informações, no nível de microdados. Os dados chegam praticamente prontos para análise, e não somente para consulta. Claro que muitas vezes é necessário fazer uma limpeza aqui e ali, mas isso também é nosso trabalho.</p>
+</div>
+<div id="como-o-jurimetrista-acessa-seus-dados" class="section level3">
+<h3><span class="header-section-number">2.11.4</span> Como o jurimetrista acessa seus dados</h3>
+<p>O jurimetrista então se encontra numa situação engraçada: ele quer dados da população toda (ou pelo menos uma amostra aleatória), com linhas e colunas, numa planilha toda padronizada, e tudo o que consegue encontrar são documentos individuais, listagens de processos, páginas web e arquivos PDF. Nesse contexto, com certeza vale aquela regra de que o estatístico passa 80% do tempo arrumando a base de dados e 20% fazendo análise, sendo essa uma estimativa otimista. Sem sombra de dúvidas este desafio é enfrentado por muitas outras áreas do conhecimento, mas é curioso olhar a Justiça, que é aberta, e verificar que para esse fim, na prática ela não está tão aberta assim.</p>
+</div>
+<div id="como-melhorar" class="section level3">
+<h3><span class="header-section-number">2.11.5</span> Como melhorar?</h3>
+<p>Tapando o sol com a peneira:</p>
+<p>Não é só no Direito que esse problema fica evidente. Muitos cientistas sociais e cientistas políticos, economistas, entre outros, encontram esse tipo de problema. Muitas vezes as páginas web estão lá, disponíveis, mas levaríamos uma eternidade para buscar manualmente todas as páginas que precisamos. Para resolver isso, construímos web crawlers / scrapers, que a grosso modo são robôs que passeiam pelas páginas e baixam suas informações automaticamente (crawling) e depois tranformam essas páginas baixadas em dados (scraping).</p>
+<p>Os web crawlers / scrapers são muito mais comuns do que imaginamos. O JusBrasil, o Digesto, a AASP, e muitos outros sites que se baseiam nos diários oficiais utilizam essas ferramentas. No entanto, nesses casos, as ferramentas são usadas para baixar e processar as páginas, para então indexar e permitir, mais uma vez, que o usuário faça buscas. Para utilizar esses sites como ferramenta analítica (para fazer uma análise estatística, por exemplo), precisaríamos construir web crawlers/scrapers dessas páginas…</p>
+<p>Para o jurimetrista, saber utilizar esse tipo de ferramenta (ou saber quem sabe usar), por conta das circunstâncias, é essencial. Devo admitir que as pesquisas da ABJ foram fortemente impulsionadas por esses brinquedos, e que sem eles não teríamos metade dos dados que temos hoje. Só para se ter uma ideia do poder da ferramenta, mostrarei um exemplo baseado no sistema Justiça Aberta, que é o que dá o nome do artigo.</p>
+<p>Mas o problema é mais embaixo: Nem todo mundo sabe criar e usar web crawlers / scrapers e, mesmo na estatística, são raros os profissionais que dominam essa arte. Nesse sentido, até estamos construindo algumas funções básicas de pesquisa em um pacote do R para facilitar algumas pesquisas mais simples (aguardem novidades…), de ordem acadêmica. No entanto, essas ferramentas não são capazes de resolver qualquer problema. Só a existência dos captchas (aqueles textos que vêm em imagem para verificar se você não é um robô), por exemplo, que são feitos para bloquear essas ferramentas, já atrapalha bastante. E pior, existem coisas que não são possíveis de fazer, simplesmente porque os sites não dão acesso. Tente, por exemplo, no TJSP, encontrar uma lista de todos os processos em andamento. Ou então listar todos os processos julgados no TRT2, em primeira instância. São inúmeros os exemplos em que simplesmente não conseguimos as informações que precisamos, o que é irônico pois todos os processos (salvo os que correm em segredo de justiça) são públicos. Nesses casos, talvez o único jeito de driblar o problema seria utilizar a Lei de Acesso à Justiça, que é fantástica, mas faz com que nos tornemos agentes passivos nas pesquisas.</p>
+</div>
+<div id="solucao-a-longo-prazo" class="section level3">
+<h3><span class="header-section-number">2.11.6</span> Solução a longo prazo:</h3>
+<p>Mais interessante do que caçar dados por toda a eternidade e fazer disso uma profissão, seria resolver o problema na sua raiz: modificar os sites dos Tribunais, permitindo extrações, e construir APIs que permitam que pesquisadores busquem as informações públicas de maneira tranquila, segura e organizada. Esse tipo de ferramenta é surpreendentemente simples de se construir (uma rápida pesquisa no google já mostra dezenas de tutoriais), e não causaria grandes impactos na infraestrutura dos tribunais. Ao permitir que os dados sejam baixados de forma “oficial”, seria possível controlar melhor o volume de dados transferido por unidade de tempo, evitando que os servidores dos tribunais fiquem sobrecarregados.</p>
+</div>
+<div id="vantagens-de-permitir-o-acesso-aos-dados" class="section level3">
+<h3><span class="header-section-number">2.11.7</span> Vantagens de permitir o acesso aos dados</h3>
+<p>Não é difícil pensar como uma estrutura para armazenamento e extração de dados pode ajudar a todos, profissionais do Direito, estatísticos, jurimetristas. Aqui, convido o leitor a sugerir soluções e vantagens, colocando apenas um pequeno cardápio:</p>
+<p>Jurimetristas terão mais bases de dados para analisar! A pesquisa empírica no Direito teria um grande avanço. Análise de texto, decisões judiciais, tempo processual, volume processual, tudo isso seria possível. Ao construir APIs para download dos dados, os tribunais poderão obter informações das pessoas que estão utilizando a ferramenta, e quais consultas fizeram. Essas informações podem ser valiosas para os tribunais. Seria maior o feedback a respeito dos dados públicos, o que teria como consequência a melhora da documentação, novas padronizações, etc.</p>
+<p>Advogados poderiam falar em números com maior responsabilidade, e discutir com maior propriedade (aqui, sempre tomando cuidado para não mentir com a estatística!). Juízes, aliados de um pessoal de TI e estatística, poderiam gerir seus processos e decidir com maior eficiência (aqui, sem entrar nos méritos de decisões “mais justas” por conta dos dados). Ferramentas jurídicas em escritórios poderão preencher alguns campos automaticamente, apenas com o número do processo (já existem muitas que fazem isso, mas o caminho é tortuoso).</p>
+</div>
+<div id="expectativas" class="section level3">
+<h3><span class="header-section-number">2.11.8</span> Expectativas</h3>
+<p>Acreditamos fortemente que as preces serão atendidas e que no futuro o Brasil será referência mundial no que diz respeito a estruturação de dados jurídicos, e que isso será muito benéfico para o país. Processos nós temos (e muitos!); só falta analisar.</p>
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="coletar-processos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualizacao-de-dados-com-ggplot2.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/abjur/curso/edit/master/02-ferramental.Rmd",
+"text": "Editar"
+},
+"download": ["curso-jurimetria.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

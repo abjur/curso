@@ -3,7 +3,7 @@ bookdown::gitbook:
   split_by: section
   config:
     toc:
-      collapse: subsection
+      collapse: section
       before: |
         <li><a href="./">Curso de Jurimetria</a></li>
       after: |
@@ -16,3 +16,4 @@ bookdown::pdf_book:
     in_header: preamble.tex
   latex_engine: xelatex
   citation_package: natbib
+  keep_tex: yes

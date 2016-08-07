@@ -1,0 +1,7994 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+	
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+	
+
+
+
+
+
+
+
+	<script language="javascript" type="text/JavaScript" src="https://esaj.tjsp.jus.br/sajcas/verificarLogin.js?script=1470450797131"></script>
+	
+	<script language="javascript">
+		if(window.sajcas && window.sajcas.usuarioLogadoNoCasServer) {
+			var urlRetornoSistema = '';
+			if(urlRetornoSistema === '') {
+				urlRetornoSistema = window.location.href;
+			}
+	
+			if(urlRetornoSistema.lastIndexOf('?') != -1) {
+				urlRetornoSistema += '&';
+			} else {
+				urlRetornoSistema += '?';
+			}
+			urlRetornoSistema+= 'gateway=true';
+			window.location.href = urlRetornoSistema;
+		}
+	</script>
+
+
+	<title>Portal de Serviços e-SAJ</title>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Includes do spw -->
+
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(u(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(2),u=t(3),c=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","finished","addToTrace","inlineHit"],p="api-",l=p+"ixn-";a(s,function(t,e){f[e]=o(p+e,!0,"api")}),f.addPageAction=o(p+"addPageAction",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){d[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],2:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],3:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?u(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var s=f[m[n]];return s&&s.push([w,n,r,i]),i}function p(t,e){g[t]=l(t).concat(e)}function l(t){return g[t]||[]}function d(t){return s[t]=s[t]||o(n)}function v(t,e){c(t,function(t,n){e=e||"feature",m[n]=e,e in f||(f[e]=[])})}var g={},m={},w={on:p,emit:n,get:d,listeners:l,context:e,buffer:v};return w}function i(){return new r}var a="nr@context",u=t("gos"),c=t(2),f={},s={},p=e.exports=o();p.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!h++){var t=y.info=NREUM.info,e=s.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(m,function(e,n){t[e]||(t[e]=n)});var n="https"===g.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"http://",u("mark",["onload",a()],null,"api");var r=s.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===s.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=t("handle"),c=t(2),f=window,s=f.document,p="addEventListener",l="attachEvent",d=f.XMLHttpRequest,v=d&&d.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:d,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(1);var g=""+location,m={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-963.min.js"},w=d&&v&&v[p]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:g,features:{},xhrWrappable:w};s[p]?(s[p]("DOMContentLoaded",i,!1),f[p]("load",r,!1)):(s[l]("onreadystatechange",o),f[l]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script><link rel="stylesheet" href="/cpo/css/spw/spwConcatenado-4.3.3-14.css" type="text/css"/>
+<link rel="stylesheet" href="/cpo/css/esaj.css" type="text/css"/>
+<link rel="stylesheet" href="/cpo/css/saj/saj-captcha.css" type="text/css"/>
+
+<link rel="stylesheet" href="/cpo/css/cpo.css" type="text/css"/>	
+<link rel="stylesheet" href="/cpo/css/formulario.css" type="text/css"/>
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<!-- 
+<script language="javascript" type="text/JavaScript" src="/cpo/dwr/engine.js"></script>
+<script language="javascript" type="text/JavaScript" src="/cpo/dwr/util.js"></script>
+<script language="javascript" type="text/JavaScript" src="/cpo/dwr/interface/CpoAjaxAction.js"></script>
+ -->
+<script language="javascript" type="text/JavaScript" src="/cpo/js/jquery/jquery-1.3.2.js"></script>
+<script language="javascript" type="text/javascript" src="/cpo/js/jquery/jquery.jplayer-1.2.1-SOFTPLAN.js"></script>
+<script language="javascript" type="text/JavaScript" src="/cpo/js/saj/saj-web.js"></script>
+<script language="javascript" type="text/JavaScript" src="/cpo/js/saj/saj-tooltip.js"></script>
+<script language="javascript" type="text/JavaScript" src="/cpo/js/saj/saj-browser.js"></script>
+<script language="javascript" type="text/JavaScript" src="/cpo/js/saj/saj-mascara-input.js"></script>
+<script language="javascript" type="text/JavaScript" src="/cpo/js/saj/saj-numeroProcesso.js"></script>
+<script language="javascript" type="text/JavaScript" src="/cpo/js/spw/spwConcatenado-4.3.3-14.js"></script>
+ 
+<script>
+	window.saj = window.saj || {};
+	window.saj.env = window.saj.env || {};
+	window.saj.env.root = '/cpo';
+	window.saj.env.css = '/cpo/css';
+	window.saj.env.js = '/cpo/js';
+	window.saj.env.imagens = '/cpo/imagens';
+
+	window.saj.cpo = window.saj.cpo || {};
+
+	// cpo
+	
+	// transfere variavel se cpo esta rodando para totem
+	window.saj.cpo.totem = 'false' == 'true';
+
+	window.saj.cpo.instanciaConsulta = {
+		PG: 'false' == 'true',
+		SG5: 'true' == 'true',
+		SG5TJ: 'true' == 'true',
+		SG5CR: 'false' == 'true',
+		SG3: 'false' == 'true',
+		SG3TJ: 'true' == 'true',
+		SG3CR: 'false' == 'true',
+		SG3CM: 'false' == 'true',		
+		subContexto: 'sg',
+		value: 'SG5TJ'
+	}; 
+</script>
+<script language="javascript" type="text/JavaScript" src="/cpo/js/saj-cpo-cbpesquisa.js"></script>
+<script language="javascript" type="text/JavaScript" src="/cpo/js/formulario.js"></script>
+
+	
+  	 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+<script>
+	window.saj.cpo = window.saj.cpo || {};
+	window.saj.cpo.urlBaseAcessoRecursoProcessoParaUsuario = '/cpo/sg/autorizarAcessoRecursoProcessoParaUsuario.do?processoPK.cdProcesso=RI002E8KP0000&processoPK.cdForo=990&processoPK.tpOrigemProcesso=2&processoPK.flOrigem=S&processoPK.aliasDaBase=SG5SP&numeroProcesso=0001151-06.2011.8.26.0102&cdVara=1188';
+	window.saj.cpo.urlBaseAcessoRecursoMidiaAudienciaProcessoParaUsuario= '/cpo/sg/autorizarAcessoRecursoAudienciaGravada.do?processoPK.cdProcesso=RI002E8KP0000&processoPK.cdForo=990&processoPK.tpOrigemProcesso=2&processoPK.flOrigem=S&processoPK.aliasDaBase=SG5SP&numeroProcesso=0001151-06.2011.8.26.0102&cdVara=1188';
+	window.saj.cpo.urlBaseAcessoRecursoProcessoComSenha = '/cpo/sg/autorizarAcessoRecursoProcessoPorSenha.do?processoPK.cdProcesso=RI002E8KP0000&processoPK.cdForo=990&processoPK.tpOrigemProcesso=2&processoPK.flOrigem=S&processoPK.aliasDaBase=SG5SP&numeroProcesso=0001151-06.2011.8.26.0102';
+	window.saj.cpo.abrirAutorizarAcessoRecursoProcessoPorSenha = '/cpo/sg/abrirAutorizarAcessoRecursoProcessoPorSenha.do?processoPK.cdProcesso=RI002E8KP0000&processoPK.cdForo=990&processoPK.tpOrigemProcesso=2&processoPK.flOrigem=S&processoPK.aliasDaBase=SG5SP&numeroProcesso=0001151-06.2011.8.26.0102';
+</script>
+	<script language="javascript" type="text/JavaScript" src="/cpo/js/acessoRecurso.js"></script>
+  
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<meta http-equiv="pragma" content="no-cache"/>
+<meta http-equiv="cache-control" content="no-cache"/>
+<meta http-equiv="expires" content="0"/>
+
+<link href="https://esaj.tjsp.jus.br/esaj/tema/padrao/css/esajComum.css" rel="stylesheet" type="text/css" />
+<link href="https://esaj.tjsp.jus.br/esaj/tema/padrao/css/esajLayout.css" rel="stylesheet" type="text/css" />
+<link href="https://esaj.tjsp.jus.br/esaj/tema/padrao/clientes/SP/css/esajLayoutSP.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+<!--
+/* botao default means o mais claro, que seria o "botão principal" */
+.spwBotaoDefault, .spwBotaoDefault-o { 
+	background-image: url(https://esaj.tjsp.jus.br/esaj/tema/padrao/clientes/SP/imagens/layout/fundoBotaoDefault.gif);
+}
+/* o botao secundario, menos provavel de ser clicado, mais escuro */
+.spwBotao, .spwBotao-o { 
+	background-image: url(https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/fundoBotao.gif);
+}
+-->
+</style>
+
+
+<script language="javascript" type="text/JavaScript" src="https://esaj.tjsp.jus.br/esaj/tema/padrao/js/menu.js"></script>
+
+<link rel="shortcut icon" href="https://esaj.tjsp.jus.br/esaj/tema/padrao/clientes/SP/imagens/favicon.ico" type="image/x-icon" />
+
+
+	<script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-23111004-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+
+	
+
+
+  
+
+	
+	<!-- Correção temporária do alinhamento do divisor de seção de formulário do SPW -->
+	<script type="text/javascript">
+		$(function(){$('td[background$=spw/fundo_subtitulo2.gif]').attr('valign', 'top')});
+	</script>
+</head>
+
+  <body>
+  	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="esajTabelaCabecalhoCliente" summary=" ">
+	<tr>
+		<td><a href="http://www.tjsp.jus.br"><img src="https://esaj.tjsp.jus.br/esaj/tema/padrao/clientes/SP/imagens/layout/cabecalhoLogo.jpg" width="425" height="58" alt="Tribunal de Justi&ccedil;a do Estado de S&atilde;o Paulo" /></a></td>
+		<td align="right" valign="top"><img src="https://esaj.tjsp.jus.br/esaj/tema/padrao/clientes/SP/imagens/layout/cabecalhoImagem.jpg" width="353" height="58" /></td>
+	</tr>
+</table>
+	
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+
+<!-- cabecalho e-Saj -->
+<table width="100%" cellpadding="0" cellspacing="0" class="esajTabelaCabecalhoServico" summary=" ">
+	<tr>
+		<td class="esajCelulaCabecalhoServicoLogo">
+<a href="https://esaj.tjsp.jus.br/esaj/index.jsp"><img src="https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/eSajServico.gif" title="Voltar para página inicial do e-SAJ" alt="Voltar para página inicial do e-SAJ" width="255" height="53" border="0" /></a><img src="https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/eSajServicoInf.gif" alt=" " width="255" height="28" border="0" /></td>
+		<td class="esajCelulaCabecalhoServicoMenu">
+		    <table width="100%" border="0" cellpadding="0" cellspacing="0" summary=" ">
+				<tr>
+					<td align="right">
+
+
+
+
+
+
+
+
+	
+	<script>
+	
+			if (typeof jQuery === "undefined") {
+				var script = document.createElement('script');
+				script.setAttribute('src','/esaj/js/jquery/jquery.min.js');
+				script.async= true
+				var head = document.body.appendChild(script);
+			}
+			
+			var esperarPeloPopupModal = function() {
+				while(!$.saj.popupModalAjax || !$.blockUI) {
+					 setTimeout(esperarPeloPopupModal, 100);
+				}
+			};			
+			
+			var abrirPopupModalContato = function() {
+				var $headElement = $('head');
+				if(!$.blockUI) {
+					var $blockUIScript = $(document.createElement('script'));
+					$blockUIScript.attr('src', '/esaj/js/jquery/jquery.blockUI.min.js');
+					$blockUIScript.appendTo($headElement);
+				}
+				if(!$.saj || !$.saj.popupModalAjax) {
+					var $popupModalScript = $(document.createElement('script'));
+					$popupModalScript.attr('src', '/esaj/js/saj/saj-popup-modal-1.0.0-1.js');
+					$popupModalScript.appendTo($headElement);
+					var $popupModalCss = $(document.createElement('link'));
+					$popupModalCss.attr('href', '/esaj/css/saj/saj-popup-modal.css');
+					$popupModalCss.attr('rel', 'stylesheet');
+					$popupModalCss.attr('type', 'text/css');
+					$popupModalCss.appendTo($headElement);
+				}
+				esperarPeloPopupModal();
+				$.saj.popupModal($('#divopupContato'), {
+					titulo: 'Contato',
+					altura: 255,
+					largura: 610,
+					mostrarBotaoFechar: true
+				});
+			};
+			
+			var utilizarLinkEmail = function() {
+				window.location = "mailto:''";
+			};
+			
+			document.addEventListener("DOMContentLoaded", function() {
+				try {
+				if (!script) {
+					link();
+					
+				} else if (script.readyState) { //IE
+		            script.onreadystatechange = function () {
+		                if (script.readyState == "loaded" || script.readyState == "complete") {
+		                    script.onreadystatechange = null;
+		                    link();
+		                }
+		            };
+		        } else { //Others
+		            script.onload = function () {
+		                link();
+		            };
+		        }
+				} catch (e) {
+					console.log(e)
+				}
+
+				
+			});
+			
+			function link() {
+				var $linkContato = $('#linkContato');
+				if('true' == 'true') {
+					$linkContato.click(abrirPopupModalContato);	
+				} else {
+					$linkContato.click(utilizarLinkEmail);
+				}
+			}
+			
+			
+			
+	</script>
+	
+	
+		<div id="divopupContato" style="display: none;">
+			<div class="quadroContato"><h2>Suporte Técnico de Sistemas</h2><p class="locaisContato">Cadastro de Advogados,     Peticionamento Eletrônico e Processos de Primeira Instância</p><p class="telefonesLocal">Sistemas de 1ª Instância - Ligue para (11) 3627-1919 ou (11) 3614-7950</p><p class="locaisContato">Processos de Segunda Instância,     Colégio Recursal e Sistema Pushing</p><p class="telefonesLocal">Sistemas de 2ª Instância - Ligue para (11)  3627-1919 ou (11) 3614-7950</p><p class="locaisContato">Consulta de Acórdão,     Decisões Monocráticas,    Homologações de Acordo e </p><p class="telefonesLocal"> Jurisprudência - Ligue para (11) 3627-1919 ou (11) 3614-7950</p></div>
+		</div>
+	
+
+
+
+<img height="24" width="47" alt=" " src="https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/inicioMenuSup.jpg"/><a href="https://esaj.tjsp.jus.br/caixapostal"><img height="24" width="83" border="0" alt="Caixa postal" src="https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/caixaPostal.gif"/></a><img height="24" width="4" alt=" " src="https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/menuSeparador.jpg"/><a href="https://esaj.tjsp.jus.br/esaj/cadastro.do"><img src="https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/cadastro.gif" alt="Cadastro" width="81" height="24" border="0" /></a><img height="24" width="4" alt=" " src="https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/menuSeparador.jpg"/><a id="linkContato" href="#"><img height="24" width="68" border="0" alt="Contato" src="https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/contato.gif"/></a><img height="24" width="4" alt=" " src="https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/menuSeparador.jpg"/><a target="blank" href="https://esaj.tjsp.jus.br/WebHelp/"><img height="24" width="61" border="0" alt="Ajuda do e-Saj" src="https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/ajuda.gif"/></a></td>
+				</tr>
+				<tr>
+					<td class="esajCelulaIdentificacaoServico" >
+
+
+
+<span id="identificacao"></span>
+
+
+
+
+	
+	
+		<script language="javascript" type="text/JavaScript" src="https://esaj.tjsp.jus.br/sajcas/conteudoIdentificacao?script=1470393551975"></script>
+	
+
+</td>
+				</tr>
+				<tr>
+					<td class="esajCelulaCabecalhoServicoCaminho" >
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+<a href="" class="esajCaminhoLink"></a>
+
+ &gt;
+
+
+<a href="https://esaj.tjsp.jus.br/esaj/portal.do?servico=740000" class="esajCaminhoLink">Bem-vindo</a>
+
+ &gt;
+
+
+<a href="https://esaj.tjsp.jus.br/esaj/portal.do?servico=190090" class="esajCaminhoLink">Consultas Processuais</a>
+
+ &gt;
+
+
+
+Consulta de Processos do 2ºGrau
+</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- CONTEUDO -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="esajTabelaTitulo">
+	<tr>
+		<td class="esajCelulaMenuSuspenso">
+		<a href="#" onclick="return showMenuSuspenso()"><img src="https://esaj.tjsp.jus.br/esaj/tema/padrao/imagens/layout/menuSuspenso.gif" alt="Menu de servi&ccedil;os" width="243" height="21" style="display:block" /></a>
+		<div id="layerMenu" style="display:none">
+			
+
+    
+	
+	
+
+<!-- MENU -->
+<ul id="esajMenuArea">
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Consultas Processuais</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/cpopg/open.do">Consulta de Processos do 1ºGrau</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/cpo/sg/open.do">Consulta de Processos do 2ºGrau</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/cpo/sgcr/open.do">Colégio Recursal/Turma de Uniformização</a></li>
+</ul>
+  </li>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Requisitórios</a>
+<ul>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Notificação de Mapas Orçamentários</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/portalDevedor/abrirConsultaNotificacoesMapasOrcamentariosRecebidas.do">Consulta de Notificações Recebidas de Mapas Orçamentários</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/portalDevedor/abrirConsultaNotificacoesMapasOrcamentariosNaoRecebidas.do">Recebimento de Notificações de Mapas Orçamentários</a></li>
+</ul>
+  </li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/portalDevedor/abrirConsultaDeProcessos.do">Consulta de Processos</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/portalDevedor/abrirPeticionamentoIntermediario.do">Peticionamento de Intermediária</a></li>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Notificação de Requisitórios</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/portalDevedor/abrirConsultaNotificacoesRequisitoriosRecebidas.do">Consulta de Notificações Recebidas de Requisitórios</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/portalDevedor/abrirConsultaNotificacoesRequisitoriosNaoRecebidas.do">Recebimento de Notificação de Requisitórios</a></li>
+</ul>
+  </li>
+</ul>
+  </li>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Consultas de Jurisprudência</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/cjsg/consultaSimples.do">Consulta Simples</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/cjsg/consultaCompleta.do">Consulta Completa</a></li>
+</ul>
+  </li>
+  <li class="esajMenuFechado"><a href="https://esaj.tjsp.jus.br/ctoPtl/abrirConsultaContratos.do">Contratos</a></li>
+  <li class="esajMenuFechado"><a href="https://esaj.tjsp.jus.br/cdje">Diário da Justiça Eletrônico</a></li>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Biblioteca</a>
+<ul>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Consultas</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/gcnPtl/jurisprudenciaAbrirConsulta.do">Jurisprudência Selecionada </a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/gcnPtl/obrasAbrirConsulta.do">Consulta de Obras, Periódicos e Artigos</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/gcnPtl/legislacaoAbrirConsulta.do">Consulta de Legislação e Normas</a></li>
+</ul>
+  </li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/gcnPtl/downloadNormasAbrirConsulta.do">Download de Normas</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/gcnPtl/boletimAbrirConsulta.do">Boletins</a></li>
+</ul>
+  </li>
+  <li class="esajMenuFechado"><a href="https://esaj.tjsp.jus.br/push">Push</a></li>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Certidões</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/sco/abrirCadastro.do">Cadastro de Pedido de Certidão</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/sco/abrirConferencia.do">Conferência de Certidão</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/sco/abrirDownload.do">Visualizar Certidão</a></li>
+</ul>
+  </li>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Corregedoria</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/cco">Consulta de Pareceres e Decisões da Corregedoria</a></li>
+</ul>
+  </li>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Conferência de Documento Digital</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/pastadigital/pg/abrirConferenciaDocumento.do">Conferência de Documento Digital do 1ºGrau</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/pastadigital/sg/abrirConferenciaDocumento.do">Conferência de Documento Digital do 2ºGrau</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/pastadigital/sgcr/abrirConferenciaDocumento.do">Conferência de Documento Digital do Colégio Recursal </a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/atendimento/abrirConferenciaDocOriginal.do">Conferência de Documento Digital de Expediente Administrativo </a></li>
+</ul>
+  </li>
+  <li class="esajMenuFechado"><a href="https://esaj.tjsp.jus.br/cjpg">Consulta de Julgados de 1º Grau</a></li>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Peticionamento Eletrônico</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/petpg/abrirVerificacaoRequisitosPet.do">Verificação de Requisitos</a></li>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Peticionamento Eletrônico de 1º Grau</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/petpg/abrirNovaPeticaoInicial.do">Petição Inicial de 1° Grau</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/petpg/abrirNovaPeticaoIntermediaria.do">Petição Intermediária de 1° Grau</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/petpg/abrirConsultaPeticoes.do">Consulta de Petições de 1º Grau</a></li>
+</ul>
+  </li>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Peticionamento Eletrônico do Colégio Recursal</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/petcr/abrirNovaPeticaoInicial.do">Peticionamento Inicial - Colégio Recursal</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/petcr/abrirNovaPeticaoIntermediaria.do">Peticionamento Intermediário - Colégio Recursal</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/petcr/abrirConsultaPeticoes.do">Consulta de Petições - Colégio Recursal</a></li>
+</ul>
+  </li>
+	<li class="esajMenuFechado"><a href="#" onclick="return esajMenu(this)">Peticionamento Eletrônico de 2º Grau</a>
+<ul>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/petsg/abrirNovaPeticaoInicial.do">Peticionamento Inicial de 2º Grau</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/petsg/abrirNovaPeticaoIntermediaria.do">Peticionamento Intermediário de 2º Grau</a></li>
+  <li class="esajMenuItem"><a href="https://esaj.tjsp.jus.br/petsg/abrirConsultaPeticoes.do">Consulta de Petições de 2º Grau</a></li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+
+		</div>
+		</td>
+		<td class="esajCelulaTituloServico"><h1 class="esajTituloPagina">Consulta de Processos do 2ºGrau</h1></td>
+	</tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0" summary=" ">
+	<tr>
+		<td class="esajCelulaConteudoServico" >
+		
+	
+
+
+  
+ 
+
+
+        	
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form name="consultarProcessoForm" method="GET" action="/cpo/sg/search.do" autocomplete="off" enctype="" onsubmit="return applySubmit(this, eval('function spwSubmit(t, e){if (!IS_enableSubmit) return false; return BENV_isCamposValidos(t); } spwSubmit(this, event);'));" id="formConsulta" target="">
+	<input type="hidden" name="conversationId" value="">
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+		
+			
+		
+		
+	
+	
+	<div class="">
+		
+			<br/>
+			
+						
+				
+				
+					
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+	   <td height="21" valign="top" nowrap background="/cpo/imagens/spw/fundo_subtitulo.gif" class="subtitle"> Dados para Pesquisa </td>
+    <td background="/cpo/imagens/spw/fundo_subtitulo2.gif" width="90%">
+      <img src="/cpo/imagens/spw/final_subtitulo.gif" width="16" height="20"></td>
+  </tr>
+</table>
+				
+			
+			<br/>
+		
+		<table id="secaoFormConsulta" class="secaoFormBody" width="100%" cellpadding="2" cellspacing="0" border="0">
+				
+			
+			
+			<input type="hidden" name="paginaConsulta" value="1">
+		  	
+			
+			
+			
+			<script>
+			(function($){
+				$(function(){
+					var $selectComboLocal = $('select[name=localPesquisa.cdLocal]');
+					if($selectComboLocal.val() == '-1') {
+						$selectComboLocal.val('-1');					
+					}
+				});	
+			})(jQuery);
+			</script>
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="" style="text-align:right;font-weight:bold;;">Seção:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	
+		
+		
+		
+			
+		    	<select name="localPesquisa.cdLocal" obrigatorio="" rotulo="Seção"><option value="-2">Selecione a Seção</option>
+<option value="9">Conselho Superior da Magistratura</option>
+<option value="4">Direito Criminal</option>
+<option value="1">Direito Privado 1</option>
+<option value="2">Direito Privado 2</option>
+<option value="3">Direito Privado 3</option>
+<option value="5">Direito Público</option>
+<option value="105">Feitos Em Grau de Recurso - Triagem</option>
+<option value="7">Órgão e Câmara Especial</option>
+<option value="-1" selected="selected">Todas as seções</option></select>
+			
+			
+		
+	
+	
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="cbTipoConsulta" class="" style="text-align:right;font-weight:bold;;">Pesquisar por:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="">
+		<tr>
+			<td>
+				
+				
+				
+
+
+
+
+
+
+
+
+<select name="cbPesquisa"><option value="NUMPROC" selected="selected">Número do Processo</option>	
+	
+ 		<option value="NMPARTE">Nome da parte</option>	
+	
+ 		<option value="DOCPARTE">Documento da Parte</option>	
+	
+ 		<option value="NMADVOGADO">Nome do Advogado</option>	
+	
+ 		<option value="NUMOAB">OAB</option></select>
+			
+				
+			</td>
+		</tr>
+	  </table>
+	
+	
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+			
+			
+			
+				
+					
+					
+						
+							
+							
+								
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+
+	
+	 
+		
+	
+	 
+		
+	
+	
+	
+	
+	
+	
+		<script>$.saj.numeroProcesso.desabilitarNumeroOculto = false;</script>
+	
+
+	
+		
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="">
+		<tr>
+			<td>
+				
+				
+			   <input type="radio" name="tipoNuProcesso" value="UNIFICADO" checked="checked" id="radioNumeroUnificado"><label for="radioNumeroUnificado">Unificado</label>
+			   <input type="radio" name="tipoNuProcesso" value="SAJ" id="radioNumeroAntigo"><label for="radioNumeroAntigo">Outros</label>
+			
+				
+			</td>
+		</tr>
+	  </table>
+	
+	
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				
+				<tr id="NUMPROC" class="">
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="" style="text-align:right;font-weight:bold;;">Número do Processo:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="">
+		<tr>
+			<td>
+				
+				
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+	
+	
+	
+	
+	
+		<span id="linhaProcessoUnificado">
+		
+	
+	
+	
+
+
+
+
+
+
+
+
+	
+
+
+	
+	
+	
+	
+	
+	
+
+
+	
+ 
+<input type="text" name="numeroDigitoAnoUnificado" maxlength="25" size="20" value="00011510620" formatType="TEXT" onkeypress="CT_KPS(this, event);" onblur="CT_BLR(this);" onkeydown="CT_KDN(this, event);" onmousemove="CT_MMOV(this, event);" onmouseout="CT_MOUT(this, event);" onmouseover="CT_MOV(this, event);" onfocus="C_OFC(this, event);" id="numeroDigitoAnoUnificado">
+<input type="text" id="JTRNumeroUnificado" size="3" disabled="disabled" value="8.26"/>
+<input type="text" name="foroNumeroUnificado" maxlength="4" size="3" value="0102" formatType="TEXT" onkeypress="CT_KPS(this, event);" onblur="CT_BLR(this);" onkeydown="CT_KDN(this, event);" onmousemove="CT_MMOV(this, event);" onmouseout="CT_MOUT(this, event);" onmouseover="CT_MOV(this, event);" onfocus="C_OFC(this, event);" id="foroNumeroUnificado">
+<input type="hidden" name="dePesquisaNuUnificado" value="00011510620118260102" id="nuProcessoUnificadoFormatado">
+
+
+<script>
+	(function($){
+		$(function() {
+			var saj = $.saj;
+			var mascaraNumeroUnificado = saj.mascaraNumeroUnificado;
+			var $campoNumeroDigitoAnoUnificado = $('input#numeroDigitoAnoUnificado');
+			var $campoForoNumeroUnificado = $('input#foroNumeroUnificado');
+			var $campoJTRNumeroUnificado = $('input#JTRNumeroUnificado');
+			saj.configurarMascaraInput($campoForoNumeroUnificado, '0000');
+			saj.configurarMascaraInput($campoNumeroDigitoAnoUnificado, mascaraNumeroUnificado, $campoForoNumeroUnificado,{
+				afterPaste: afterPaste			
+			});
+			saj.bindCamposNumeroProcesso();
+			
+			var conteudoToolTip = '';
+			if(!conteudoToolTip){
+				conteudoToolTip = '<div style="width: 500px;" ><div><b>Número de Processo Unificado</b></div><div>O sistema disponibiliza facilidades no preenchimento do número unificado, seu formato é NNNNNNN-DD.AAAA.J.TR.OOOO:</div><div style="padding-top: 3px;"><b>NNNNNNN</b>: Caso o número possua zeros à esquerda o sistema preenche-os automaticamente, basta informar o número e o dígito "-" ou ".". Exemplo: ao informar "310-" o sistema irá preencher "0000310-".</div><div><b>DD</b>     : Deve ser preenchido pelo usuário.</div><div><b>AAAA</b>   : Ao informar dois dígitos para o ano o sistema completa o mesmo, basta pressionar a tecla Tab. Exemplo: ao informar "08" e "Tab" o sistema irá preencher "2008".</div><div><b>J.TR</b>    : São números fixos preenchidos pelo sistema.Exemplo: 8.99.</div><div><b>OOOO</b>   : Caso o número possua zeros à esquerda o sistema preenche-os automaticamente, basta informar o número pressionar a tecla Tab. Exemplo: ao informar "10" e "Tab" o sistema irá preencher "0010".</div></div>';
+			}
+			$('input#numeroDigitoAnoUnificado, input#foroNumeroUnificado').registrarTooltip({
+						conteudoTooltip: conteudoToolTip,
+						localImagensTooltip: '/cpo/imagens/saj',
+						offsetHorizontalExtra: '',
+						offsetVertficalExtra: '',
+						urlConteudoTooltip: '',
+						posicaoTooltip: '',
+						objReferenciaPosicaoTooltip:$campoForoNumeroUnificado
+			});
+								
+		});		
+		
+		var afterPaste = function(textoOriginal) {
+			var texto = getDigits(textoOriginal);
+			if (!texto || texto.length < 16) {
+				return;
+			}
+			
+			var jtr = $('#JTRNumeroUnificado').val();
+			jtr = getDigits(jtr);
+			var jtrDigitado = texto.substring(13,16);
+			var foroUnificado;
+			//pega os 4 ultimos digitos, e caso o jtr colado for o mesmo, coloca os 4 no campo de foro unificado
+			//se o jtr for diferente nao coloca nada no campo de foro unificado
+			if (jtr == jtrDigitado) {
+				foroUnificado = texto.substring(16,texto.length);
+			} else {
+				foroUnificado = '';
+			}
+			
+			var numeroDigitoAno = texto.substring(0,13);
+			var $numeroDigitoAno = $('input#numeroDigitoAnoUnificado');
+			$numeroDigitoAno.val(numeroDigitoAno);
+			
+			var $foroNumeroUnificado = $('#foroNumeroUnificado');
+			$foroNumeroUnificado.val(foroUnificado);
+			$foroNumeroUnificado.trigger('blur');	
+			$foroNumeroUnificado.focus();
+		};
+		
+		var getDigits = function(texto) {
+			return texto.replace(/[^0-9]/g, '');
+		};
+		
+	})(jQuery);
+	
+</script>
+
+	
+	
+	
+	    
+    
+	
+	
+		
+	
+	
+	
+	
+		</span>
+	
+
+
+
+				
+					
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+
+
+<script type="text/javascript">
+	(function($){
+		$(function() {
+			var saj = $.saj;
+			var id = 'nuProcessoAntigoFormatado';
+			if ('' !== '' && !false) {
+				var idObjetoReferencia = '#' + id;
+				$(idObjetoReferencia).registrarTooltip({
+					conteudoTooltip: '',
+					posicaoTooltip: 'direita',
+					objReferenciaPosicaoTooltip:$(idObjetoReferencia)
+				});
+			} 
+		});		
+	})(jQuery);
+	
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+	
+	
+	
+	
+	
+		<span id="linhaProcessoAntigo">
+		
+	
+	
+	<input type="text" name="dePesquisaNuAntigo" size="" value="" formatType="TEXT" formato="25" obrigatorio="false" rotulo="" onkeypress="CT_KPS(this, event);" onblur="CT_BLR(this);" onkeydown="CT_KDN(this, event);" onmousemove="CT_MMOV(this, event);" onmouseout="CT_MOUT(this, event);" onmouseover="CT_MOV(this, event);" onfocus="C_OFC(this, event);" disabled="disabled" style="" class="spwCampoTexto disabled " id="nuProcessoAntigoFormatado" title="" alt="">
+		
+	
+	
+	
+		
+	    
+    
+	
+	
+	
+		
+	
+	
+	
+	
+		</span>
+	
+
+
+
+
+
+					
+				
+				
+			
+				
+			</td>
+		</tr>
+	  </table>
+	
+	
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+		
+	
+
+							
+						
+					
+					
+					
+					
+				
+			
+				
+					
+					
+					
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				
+				<tr id="NMPARTE" class="">
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="cbParteOuAdvogado" class="" style="text-align:right;font-weight:bold;;">Nome da parte:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="">
+		<tr>
+			<td>
+				
+				
+							<input type="text" name="dePesquisa" value="" formatType="TEXT" onkeypress="CT_KPS(this, event);" onblur="CT_BLR(this);" onkeydown="CT_KDN(this, event);" onmousemove="CT_MMOV(this, event);" onmouseout="CT_MOUT(this, event);" onmouseover="CT_MOV(this, event);" onfocus="C_OFC(this, event);" disabled="disabled" class="spwCampoTexto">
+							<input type="checkbox" name="chNmCompleto" value="true" style="margin-top: 0;">
+							<label>Pesquisar por nome completo</label>
+						
+				
+			</td>
+		</tr>
+	  </table>
+	
+	
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+					
+					
+				
+			
+				
+					
+					
+					
+					
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+	
+
+
+<script type="text/javascript">
+	(function($){
+		$(function() {
+			var saj = $.saj;
+			var id = 'iddePesquisa';
+			if ('' !== '' && !false) {
+				var idObjetoReferencia = '#' + id;
+				$(idObjetoReferencia).registrarTooltip({
+					conteudoTooltip: '',
+					posicaoTooltip: 'direita',
+					objReferenciaPosicaoTooltip:$(idObjetoReferencia)
+				});
+			} 
+		});		
+	})(jQuery);
+	
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				
+				<tr id="DOCPARTE" class="">
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="iddePesquisa" class="" style="text-align:right;font-weight:bold;;">Documento da Parte:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<input type="text" name="dePesquisa" size="" value="" formatType="TEXT" formato="100" obrigatorio="false" rotulo="Documento da Parte" onkeypress="CT_KPS(this, event);" onblur="CT_BLR(this);" onkeydown="CT_KDN(this, event);" onmousemove="CT_MMOV(this, event);" onmouseout="CT_MOUT(this, event);" onmouseover="CT_MOV(this, event);" onfocus="C_OFC(this, event);" disabled="disabled" style="" class="spwCampoTexto disabled " id="iddePesquisa" title="" alt="">
+		
+	
+	
+	
+		
+	    
+    
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+
+
+					
+				
+			
+				
+					
+					
+					
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				
+				<tr id="NMADVOGADO" class="">
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="cbParteOuAdvogado" class="" style="text-align:right;font-weight:bold;;">Nome do Advogado:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="">
+		<tr>
+			<td>
+				
+				
+							<input type="text" name="dePesquisa" value="" formatType="TEXT" onkeypress="CT_KPS(this, event);" onblur="CT_BLR(this);" onkeydown="CT_KDN(this, event);" onmousemove="CT_MMOV(this, event);" onmouseout="CT_MOUT(this, event);" onmouseover="CT_MOV(this, event);" onfocus="C_OFC(this, event);" disabled="disabled" class="spwCampoTexto">
+							<input type="checkbox" name="chNmCompleto" value="true" style="margin-top: 0;">
+							<label>Pesquisar por nome completo</label>
+						
+				
+			</td>
+		</tr>
+	  </table>
+	
+	
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+					
+					
+				
+			
+				
+					
+					
+					
+					
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+	
+
+
+<script type="text/javascript">
+	(function($){
+		$(function() {
+			var saj = $.saj;
+			var id = 'iddePesquisa';
+			if ('' !== '' && !false) {
+				var idObjetoReferencia = '#' + id;
+				$(idObjetoReferencia).registrarTooltip({
+					conteudoTooltip: '',
+					posicaoTooltip: 'direita',
+					objReferenciaPosicaoTooltip:$(idObjetoReferencia)
+				});
+			} 
+		});		
+	})(jQuery);
+	
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				
+				<tr id="NUMOAB" class="">
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="iddePesquisa" class="" style="text-align:right;font-weight:bold;;">OAB:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<input type="text" name="dePesquisa" size="" value="" formatType="TEXT" formato="100" obrigatorio="false" rotulo="OAB" onkeypress="CT_KPS(this, event);" onblur="CT_BLR(this);" onkeydown="CT_KDN(this, event);" onmousemove="CT_MMOV(this, event);" onmouseout="CT_MOUT(this, event);" onmouseover="CT_MOV(this, event);" onfocus="C_OFC(this, event);" disabled="disabled" style="" class="spwCampoTexto disabled " id="iddePesquisa" title="" alt="">
+		
+	
+	
+	
+		
+	    
+    
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+
+
+					
+				
+			
+			
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		  	
+	
+		</table>
+	</div>
+	
+	
+	
+
+
+  	
+
+
+
+
+
+
+
+
+
+	<table id="" class="secaoBotoesBody" width="100%" cellpadding="2" cellspacing="0" border="0">
+		<tr>
+ 			
+ 				<td width="150">&nbsp;</td>
+ 			
+			<td align="">
+			
+		
+
+
+
+
+
+
+
+
+
+
+
+	
+	<input type="submit" name="pbEnviar" value="Pesquisar" onclick="" onmouseover="B_mOver(this);" onmouseout="B_mOut(this);" onmouseover="B_mOver(this);" onmouseout="B_mOut(this);" class="spwBotaoDefault" id="botaoPesaquisar">
+
+		  	
+  	
+			</td>
+		</tr>
+	</table>
+
+		
+  	
+  	<script>
+		$(function(){
+			var acessoInterrompidoPorCaptcha = 'false' === 'true'; 
+			$('input#botaoPesaquisar').bind('click', function(){
+					var $paginaConsulta = $('input[name=paginaConsulta]');
+					if(!acessoInterrompidoPorCaptcha || $paginaConsulta.val() == 0){
+						$paginaConsulta.val(1);
+					}
+				});
+		});  	
+  	</script>
+
+</form>
+
+
+
+
+		
+	   
+		
+			
+				
+			  		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+<!-- pasta digital -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+		
+			
+		
+		
+	
+	
+	<div class="">
+		
+			<br/>
+			
+						
+				
+				
+					
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+	   <td height="21" valign="top" nowrap background="/cpo/imagens/spw/fundo_subtitulo.gif" class="subtitle"> Dados do Processo </td>
+    <td background="/cpo/imagens/spw/fundo_subtitulo2.gif" width="90%">
+      <img src="/cpo/imagens/spw/final_subtitulo.gif" width="16" height="20"></td>
+  </tr>
+</table>
+				
+			
+			<br/>
+		
+		<table id="" class="secaoFormBody" width="100%" cellpadding="2" cellspacing="0" border="0">
+				
+		
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Processo:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="">
+		<tr>
+			<td>
+				
+				
+			<!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+	
+	
+	
+		<span id="">
+		
+	
+	
+	<span id="">0001151-06.2011.8.26.0102</span>
+	
+	
+	
+	    
+	    
+    
+    
+	
+	
+		
+	
+	
+	
+	
+		</span>
+	
+
+
+
+-->
+			
+
+
+
+<!-- Atributos -->
+
+
+
+
+
+
+
+
+
+	
+	
+		<span class="">
+			0001151-06.2011.8.26.0102
+		</span>
+		<span class="" >
+			
+		</span>
+	
+
+
+			
+				<span style="color: red;" >Encerrado</span>
+			
+			
+		
+				
+			</td>
+		</tr>
+	  </table>
+	
+	
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Classe:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="">
+		<tr>
+			<td>
+				
+				
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+	
+	
+	
+	
+	
+		<span id="">
+		
+	
+	
+	<span id="">Apelação</span>
+	
+	
+	
+	    
+	    
+    
+    
+	
+	
+		
+	
+	
+	
+	
+		</span>
+	
+
+
+
+
+						
+			
+		
+				
+			</td>
+		</tr>
+	  </table>
+	
+	
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="">
+		<tr>
+			<td>
+				
+				
+			<span class="labelClass">Área:</span> Criminal 
+		
+				
+			</td>
+		</tr>
+	  </table>
+	
+	
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+		
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Assunto:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<span id="">DIREITO PENAL-Crimes contra o Patrimônio-Receptação</span>
+	
+	
+	
+	    
+	    
+    
+    
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Local Físico:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<span id="">29/06/2015 00:00 - Sem local físico definido</span>
+	
+	
+	
+	    
+	    
+    
+    
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+
+	
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Origem:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<span id="">Comarca de Cachoeira Paulista / Foro de Cachoeira Paulista / 1ª Vara</span>
+	
+	
+	
+	    
+	    
+    
+    
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Números de origem:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<span id="">102.01.2011.001151-4/000000-000</span>
+	
+	
+	
+	    
+	    
+    
+    
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Distribuição:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<span id="">2ª Câmara Criminal Extraordinária</span>
+	
+	
+	
+	    
+	    
+    
+    
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+
+		
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Relator:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<span id="">CLAUDIA LÚCIA FONSECA FANUCCHI</span>
+	
+	
+	
+	    
+	    
+    
+    
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Revisor:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<span id="">FRANÇA CARVALHO</span>
+	
+	
+	
+	    
+	    
+    
+    
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Volume / Apenso:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<span id="">1 / 1</span>
+	
+	
+	
+	    
+	    
+    
+    
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Outros números:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<span id="">232/2011</span>
+	
+	
+	
+	    
+	    
+    
+    
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+
+	
+	
+		
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+			  
+		  	  
+		      
+				
+		  	    <label for="" class="labelClass" style="text-align:right;font-weight:bold;;">Última carga:</label>
+		      
+		    
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="">
+		<tr>
+			<td>
+				
+				
+				<span class="labelClass">Origem:</span> Serviço de Processamento de Grupos/Câmaras / 2ª Câmara Criminal Extraordinária.&nbsp;
+				<span class="labelClass">Remessa:</span> 05/09/2015
+			
+				
+			</td>
+		</tr>
+	  </table>
+	
+	
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+	
+	
+		
+		
+			
+				<tr class="">
+				
+			
+		
+		
+		
+		  <td id="" width="150" valign="">
+			
+		  </td>
+		
+		
+		
+		  
+		  
+		    <td valign="">
+		  
+		
+			
+	
+	
+	
+	
+	
+	<table cellpadding="0" cellspacing="0" border="0" width="">
+		<tr>
+			<td>
+				
+				
+				<span class="labelClass">Destino:</span> Foro / Fórum de Cachoeira Paulista.&nbsp;
+				<span class="labelClass">Recebimento:</span> 05/09/2015 
+			
+				
+			</td>
+		</tr>
+	  </table>
+	
+	
+	
+	
+	
+	
+		
+		</td>
+		
+			</tr>
+		
+	
+	
+
+
+
+		
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+		
+	
+
+
+
+
+
+
+
+	
+
+		</table>
+	</div>
+	
+	
+	
+
+
+
+			  	
+				
+			  	
+				
+			  	
+				
+				
+			  	
+			  	
+			  				  	
+			
+	  	
+			
+				
+				
+			  	
+				
+			  	
+				
+				
+			  	
+			  	
+	  				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="padding: 10px 0 10px 0;">
+	
+	
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+	   <td height="21" valign="top" nowrap background="/cpo/imagens/spw/fundo_subtitulo.gif" class="subtitle"> Apensos / Vinculados </td>
+    <td background="/cpo/imagens/spw/fundo_subtitulo2.gif" width="90%">
+      <img src="/cpo/imagens/spw/final_subtitulo.gif" width="16" height="20"></td>
+  </tr>
+</table>
+</div>
+<!--  cabecalho do bloco (apensos) -->
+	<!--  cabecalho da tabela de (apensos) -->
+	<table style="margin-left:15px; margin-top:1px;" align="center" width="98%" border="0" cellspacing="0" cellpadding="1">
+		
+			
+			  <tr class="label"> 
+			    <td align="left" valign="top" width="115" >Nº processo</td>
+				<td align="left" valign="top" width="40" >A/V</td>
+				<td align="left" valign="top" width="60" >Volume</td>
+				<td align="left" valign="top" width="60" >Folhas</td>
+				<td align="left" valign="top" width="350" >Classe</td>
+				<td align="left" valign="top" width="*" >Obs.</td>
+			  </tr>
+  			  <tr class="fundoEscuro" height="2">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			  </tr>
+			
+			
+		
+	</table>
+	<!--  cabecalho da tabela de (apensos) -->
+	
+	<!--  dados da lista (apensos) -->
+	<table style="margin-left:15px; margin-top:1px;" align="center" width="98%" border="0" cellspacing="0" cellpadding="1"  >
+		
+		  <tr class="fundoClaro"> 
+		    <td align="left" valign="top" width="115">
+		       232/2011
+		    </td>
+			<td align="left" valign="top" width="40">
+		      A
+		    </td>
+			<td align="left" valign="top" width="60">
+		      1
+		    </td>
+		    <td align="left" valign="top" width="60">
+		      14
+			</td>
+			<td align="left" valign="top" width="350">
+		      -
+			</td>
+			<td align="left" valign="top">
+		      fa e certidões
+			</td>
+		  </tr>
+		
+	</table>
+
+			  	
+			  				  	
+			
+	  	
+			
+				
+				
+			  	
+				
+			  	
+				
+				
+			  	
+			  	
+			  	
+	  				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="padding: 10px 0 10px 0;">
+	
+	
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+	   <td height="21" valign="top" nowrap background="/cpo/imagens/spw/fundo_subtitulo.gif" class="subtitle"> Números de 1ª Instância </td>
+    <td background="/cpo/imagens/spw/fundo_subtitulo2.gif" width="90%">
+      <img src="/cpo/imagens/spw/final_subtitulo.gif" width="16" height="20"></td>
+  </tr>
+</table>
+</div>
+
+
+<table  style="margin-left:15px; margin-top:1px;"  align="center" width="98%" border="0" cellspacing="0" cellpadding="1">
+  
+  	
+  	
+  		<tr>
+			<td colspan="3" align="left" >Não há números de 1ª instância para este processo.</td> 
+		</tr>
+  	
+  
+</table>
+
+
+
+<table style="margin-left:15px; margin-top:1px;"  align="center" width="98%" border="0" cellspacing="0" cellpadding="1"  >
+			
+</table>
+
+			  				  	
+			
+	  	
+			
+				
+				
+	  				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="padding: 10px 0 10px 0;">
+	
+	
+
+	
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+	   <td height="21" valign="top" nowrap background="/cpo/imagens/spw/fundo_subtitulo.gif" class="subtitle"> Partes do Processo </td>
+    <td background="/cpo/imagens/spw/fundo_subtitulo2.gif" width="90%">
+      <img src="/cpo/imagens/spw/final_subtitulo.gif" width="16" height="20"></td>
+  </tr>
+</table>
+</div>
+
+<!--  cabecalho da tabela de lista (partes) -->
+
+
+<!--  dados da lista partes principais (partes) -->
+<table id="tablePartesPrincipais" style="margin-left:15px; margin-top:1px;" align="center" border="0" cellPadding="0" cellSpacing="0" width="98%">
+	
+			
+
+
+
+
+
+<tr class="fundoClaro"> 
+    <td valign="top" align="right" width="141" style="padding-bottom: 5px">
+      <span class="mensagemExibindo">Apelante:&nbsp;</span>
+    </td>
+    <td width="*" align="left" style="padding-bottom: 5px">
+	  
+	     Alair Marques Fernandes
+	     
+      
+ 	  
+	  
+   	 	 <br/><span class="mensagemExibindo">Advogada:&nbsp</span>Fabiana da Silva Costa Reis&nbsp;
+   	 	 
+      
+      
+  	 </td>
+</tr> 
+	
+			
+
+
+
+
+
+<tr class="fundoClaro"> 
+    <td valign="top" align="right" width="141" style="padding-bottom: 5px">
+      <span class="mensagemExibindo">Apelado:&nbsp;</span>
+    </td>
+    <td width="*" align="left" style="padding-bottom: 5px">
+	  
+	     Ministério Público do Estado de São Paulo
+	     
+      
+ 	  
+	  
+      
+  	 </td>
+</tr> 
+	
+</table>	
+
+
+			  	
+			  	
+				
+			  	
+				
+				
+			  	
+			  	
+			  				  	
+			
+	  	
+			
+				
+				
+			  	
+				
+			  	
+				
+		  			
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+<div style="padding: 10px 0 10px 0;">
+	
+		
+			
+			
+			
+			
+			<div id="divLinksTituloBlocoMovimentacoes" style="position:absolute; padding:0 160px; margin-top: 0px;">
+				
+
+
+
+
+
+
+
+
+
+
+<input id="mensagemNaoExibidamovimentacoes" type="hidden" value="Exibindo todas as movimentações." />  
+<input id="linkNaoExibidomovimentacoes" type="hidden" value="Listar somente as 5 últimas." />  
+	
+<span id="mensagensExibindomovimentacoes" class="mensagemExibindo">Exibindo 5 últimas.</span> &nbsp; <a id="linkmovimentacoes" href="#" class="linkNaoSelecionado" ><span id="setasDireitamovimentacoes" class="setasDireita" >&gt;&gt;</span>Listar todas as movimentações.</a>
+
+<script>
+	$(function() {
+		var controlarLink = function() {
+			var $linkNaoExibido = $('input#linkNaoExibidomovimentacoes');
+			var conteudoLinkNaoApresentado = $linkNaoExibido.val();
+			var $link = $('a#linkmovimentacoes');
+			
+			$linkNaoExibido.val($link.html());
+			$link.html(conteudoLinkNaoApresentado);
+		};
+
+		var controlarMensagem = function() {
+			var $mensagemNaoExibida = $('input#mensagemNaoExibidamovimentacoes');
+			var $spanMensagem = $('span#mensagensExibindomovimentacoes');
+			var mensagemExibida = $spanMensagem.html();
+			var mensagemNaoExibida = $mensagemNaoExibida.val();
+			
+			$spanMensagem.html(mensagemNaoExibida);
+			$mensagemNaoExibida.val(mensagemExibida);
+		};
+
+		var controlarMensagemLink = function() {
+			controlarMensagem();
+			controlarLink();
+		};
+		
+		var esconderElementosExtrasMostrarDefault = function() {
+			$('table#tabelaTodasMovimentacoes').hide();
+			$('table#tabelaUltimasMovimentacoes').show();
+
+		};
+
+		var mostrarElementosExtrasEsconderDefault = function() {
+			$('table#tabelaUltimasMovimentacoes').hide();
+			$('table#tabelaTodasMovimentacoes').show();
+		};
+
+		var initPagina = function() {
+			var setasDireita = '<span id="setasDireitamovimentacoes" class="setasDireita">&gt;&gt;</span>';
+			var $linkEscondido = $('input#linkNaoExibidomovimentacoes');
+			$linkEscondido.val(setasDireita+$linkEscondido.val());
+		};
+
+		var bindLink = function() {
+			var $link = $('a#linkmovimentacoes');
+			$link.toggle(mostrarElementosExtrasEsconderDefault, esconderElementosExtrasMostrarDefault);
+			$link.bind('click', controlarMensagemLink);
+		};
+
+		initPagina();
+		bindLink();
+		esconderElementosExtrasMostrarDefault();
+	});
+</script>
+			</div> 
+		
+	
+	
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+	   <td height="21" valign="top" nowrap background="/cpo/imagens/spw/fundo_subtitulo.gif" class="subtitle"> Movimentações </td>
+    <td background="/cpo/imagens/spw/fundo_subtitulo2.gif" width="90%">
+      <img src="/cpo/imagens/spw/final_subtitulo.gif" width="16" height="20"></td>
+  </tr>
+</table>
+</div>
+	 
+		
+	
+	<table  style="margin-left:15px; margin-top:1px;" align="center" border="0" cellPadding="0" cellSpacing="0" width="98%">
+		
+			
+				<tr> 
+				  <td width="120" class="label" style="vertical-align: bottom">Data</td>
+				  <td vAlign="middle" width="20">&nbsp;</td>
+				  <td vAlign="middle"  class="label">Movimento</td>
+				</tr>
+				<tr class="fundoEscuro" height="2" >
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			
+			
+		
+	</table>
+		
+	
+	<table style="margin-left:15px; margin-top:1px;" id="tabelaUltimasMovimentacoes" align="center" border="0" cellPadding="0" cellSpacing="0" width="98%">
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    10/05/2016
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Informação
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Of. comunicando o tr&acirc;nsito em julgado para a defesa em 25.04.2016</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    05/09/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos para Vara de Origem 
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    05/09/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Trânsito em julgado
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">certificado o transito em julgado para efeito de recursos em 2&ordf; instancia, para o MP e remetidos os autos para vara de origem para intimar o defensor dativo, funap e paj </span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    04/09/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Recebidos os Autos da Procuradoria Geral da Justiça (Ciência do Acórdão)
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    24/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Publicado em
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Disponibilizado em 21/08/2015
+Tipo de publica&ccedil;&atilde;o: Intima&ccedil;&atilde;o de Ac&oacute;rd&atilde;o
+N&uacute;mero do Di&aacute;rio Eletr&ocirc;nico: 1951</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+	</table>
+	
+	
+	<table style="margin-left:15px; margin-top:1px; display: none;" id="tabelaTodasMovimentacoes" align="center" border="0" cellPadding="0" cellSpacing="0" width="98%">
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    10/05/2016
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Informação
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Of. comunicando o tr&acirc;nsito em julgado para a defesa em 25.04.2016</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    05/09/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos para Vara de Origem 
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    05/09/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Trânsito em julgado
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">certificado o transito em julgado para efeito de recursos em 2&ordf; instancia, para o MP e remetidos os autos para vara de origem para intimar o defensor dativo, funap e paj </span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    04/09/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Recebidos os Autos da Procuradoria Geral da Justiça (Ciência do Acórdão)
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    24/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Publicado em
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Disponibilizado em 21/08/2015
+Tipo de publica&ccedil;&atilde;o: Intima&ccedil;&atilde;o de Ac&oacute;rd&atilde;o
+N&uacute;mero do Di&aacute;rio Eletr&ocirc;nico: 1951</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    21/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos a PGJ (Eletrônico) para Ciência do Acórdão (Criminal)
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">(REMETIDOS EM 25/08/2015)</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    18/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Acórdão registrado
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Ac&oacute;rd&atilde;o registrado sob n&ordm; 20150000589785, com 7 folhas.</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    17/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+				  	<a class="linkMovVincProc" title="Visualizar documento em inteiro teor" href="#" name="M" cdDocumento="23619589">
+				  		
+				  			
+				  			
+				  				<img src="/cpo/imagens/doc2.gif" width="16" height="16" border="0"/>				  			
+				  							  		
+				  		
+		  		</a>
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        		<a class="linkMovVincProc" title="Visualizar documento em inteiro teor" href="#" name="M" cdDocumento="23619589">
+	        			Acordão Finalizado
+	        		</a>
+	        	
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Ac&oacute;rd&atilde;o_CFF</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    17/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Julgado
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Negaram provimento ao recurso. V. U.</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    17/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Não-Provimento
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    12/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Publicado em
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Disponibilizado em 11/08/2015
+Tipo de publica&ccedil;&atilde;o: Pr&oacute;ximos Julgados
+N&uacute;mero do Di&aacute;rio Eletr&ocirc;nico: 1943</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    12/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Publicado em
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Disponibilizado em 11/08/2015
+Tipo de publica&ccedil;&atilde;o: Pr&oacute;ximos Julgados
+N&uacute;mero do Di&aacute;rio Eletr&ocirc;nico: 1943</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    10/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Inclusão em pauta
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Para 17/08/2015</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    05/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Recebidos os Autos à Mesa
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    03/08/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos para Processamento Grupos e Câmaras - A mesa
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Revisor - &Agrave; Mesa</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    16/07/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Recebidos os Autos pelo Revisor 
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">
+Fran&ccedil;a Carvalho</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    15/07/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos para Magistrado - Revisor com Passagem de Autos
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">CFF11464</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    15/07/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Recebidos os Autos pelo Relator
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">
+Claudia L&uacute;cia Fonseca Fanucchi</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    15/07/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Publicado em
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Disponibilizado em 14/07/2015
+Tipo de publica&ccedil;&atilde;o: Distribu&iacute;dos
+N&uacute;mero do Di&aacute;rio Eletr&ocirc;nico: 1923</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    13/07/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos para Relator (Conclusão)
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    13/07/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Redistribuição por Sorteio
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Redistribui&ccedil;&atilde;o em cump. O.S. 21/15, conforme  art. 5&ordm; da Resolu&ccedil;&atilde;o 590/2015.
+&Oacute;rg&atilde;o Julgador: 1188 - 2&ordf; C&acirc;mara Criminal Extraordin&aacute;ria
+Relator: 10853 - Claudia L&uacute;cia Fonseca Fanucchi</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    01/07/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Recebidos os Autos pelo Distribuidor de Recursos
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    01/07/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos para Distribuição de Recursos
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    29/06/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Recebidos os Autos pelo Processamento do Acervo
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    29/06/2015
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos ao Serviço de Processamento do Acervo
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    15/10/2014
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Recebidos os Autos pelo Acervo (Ipiranga)
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    15/10/2014
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos para Acervo (Ipiranga)
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    15/10/2014
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Recebidos os Autos pelo Processamento de Acervo da Procuradoria Geral da Justiça (Parecer)
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    15/10/2014
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos para o Processamento de Acervo da Procuradoria Geral da Justiça (Parecer)
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    10/09/2014
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Publicado em
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Disponibilizado em 09/09/2014
+Tipo de publica&ccedil;&atilde;o: Distribu&iacute;dos
+N&uacute;mero do Di&aacute;rio Eletr&ocirc;nico: 1729</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    05/09/2014
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos para a Procuradoria Geral da Justiça (Parecer)
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    05/09/2014
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Distribuição por Sorteio
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">&Oacute;rg&atilde;o Julgador: 96 - 11&ordf; C&acirc;mara de Direito Criminal
+Relator: 12842 - Maria Tereza do Amaral</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    03/09/2014
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Publicado em
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">Disponibilizado em 02/09/2014
+Tipo de publica&ccedil;&atilde;o: Entrados
+N&uacute;mero do Di&aacute;rio Eletr&ocirc;nico: 1724</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    30/08/2014
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Recebidos os Autos pelo Distribuidor de Recursos
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoClaro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    30/08/2014
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Remetidos os Autos para Distribuição de Recursos
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;"></span>
+		    
+		    
+		  </td>
+		</tr>
+		
+			
+
+
+
+
+
+
+
+
+<tr class="fundoEscuro" style=""> 
+		  <td width="120" style="vertical-align: top">
+		    29/08/2014
+		  </td>
+		  <td width="20" valign="top">
+		  	
+		  </td>  
+		  <td style="vertical-align: top; padding-bottom: 5px" >
+		    
+		
+	    	
+	        	
+	        	
+					Processo Cadastrado
+	        	
+			
+			
+		  	
+		    
+		    <br/>
+		    <span style="font-style: italic;">SJ 2.1.5 - Servi&ccedil;o de Entrada de Autos de Direito Criminal</span>
+		    
+		    
+		  </td>
+		</tr>
+		
+	</table>
+
+			  	
+				
+			  	
+			  	
+			  				  	
+			
+	  	
+			
+				
+				
+			  	
+				
+		  			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+<div style="padding: 10px 0 10px 0;">
+	
+	
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+	   <td height="21" valign="top" nowrap background="/cpo/imagens/spw/fundo_subtitulo.gif" class="subtitle"> Subprocessos e Recursos </td>
+    <td background="/cpo/imagens/spw/fundo_subtitulo2.gif" width="90%">
+      <img src="/cpo/imagens/spw/final_subtitulo.gif" width="16" height="20"></td>
+  </tr>
+</table>
+</div>
+<table style="margin-left:15px; margin-top:1px;" align="center" width="98%" border="0" cellspacing="0" cellpadding="1"  >
+
+	
+	
+		<tr>
+		  <td colspan="3" align="left">
+		 	
+		 		
+		 			Não há subprocessos ou recursos vinculados a este processo.
+		 		
+		 		
+		 	
+		  </td> 
+	    </tr>
+	
+
+</table>
+<!--  cabecalho da lista (incidentes) -->
+
+<!--  dados da lista (incidentes) -->
+<table style="margin-left:15px; margin-top:1px;" align="center" width="98%" border="0" cellspacing="0" cellpadding="1"  >
+	
+</table>
+
+			  	
+			  	
+				
+				
+			  	
+			  	
+			  				  	
+			
+	  	
+			
+				
+				
+			  	
+	  				
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+<div style="padding: 10px 0 10px 0;">
+	
+	
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+	   <td height="21" valign="top" nowrap background="/cpo/imagens/spw/fundo_subtitulo.gif" class="subtitle"> Composição do Julgamento </td>
+    <td background="/cpo/imagens/spw/fundo_subtitulo2.gif" width="90%">
+      <img src="/cpo/imagens/spw/final_subtitulo.gif" width="16" height="20"></td>
+  </tr>
+</table>
+</div>
+	
+	<table style="margin-left:15px; margin-top:1px;" align="center" width="98%" border="0" cellspacing="0" cellpadding="1"  >
+		<tr class="label"> 
+		  <td width="140">Participação</td>
+		  <td >Magistrado</td>
+		</tr>
+		<tr class="fundoEscuro" height="2">
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	
+	
+	
+	<table style="margin-left:15px; margin-top:1px;" align="center" width="98%" border="0" cellspacing="0" cellpadding="1"  >
+		
+		  <tr class="fundoClaro"> 
+		    <td valign="top" width="140" class="label" style="padding-bottom: 5px">
+		      Relator
+			</td>
+			<td valign="top" style="padding-bottom: 5px">
+		      Claudia Lúcia Fonseca Fanucchi&nbsp;(11464)
+		    </td>
+		  </tr>
+		
+		  <tr class="fundoEscuro"> 
+		    <td valign="top" width="140" class="label" style="padding-bottom: 5px">
+		      Revisor
+			</td>
+			<td valign="top" style="padding-bottom: 5px">
+		      França Carvalho&nbsp;(33099)
+		    </td>
+		  </tr>
+		
+		  <tr class="fundoClaro"> 
+		    <td valign="top" width="140" class="label" style="padding-bottom: 5px">
+		      3º Juiz
+			</td>
+			<td valign="top" style="padding-bottom: 5px">
+		      Tristão Ribeiro&nbsp;
+		    </td>
+		  </tr>
+		
+	</table>
+	
+
+			  	
+				
+			  	
+				
+				
+			  	
+			  	
+			  				  	
+			
+	  	
+			
+				
+				
+			  	
+				
+			  	
+		  			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="padding: 10px 0 10px 0;">
+	
+	
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+	   <td height="21" valign="top" nowrap background="/cpo/imagens/spw/fundo_subtitulo.gif" class="subtitle"> Petições diversas </td>
+    <td background="/cpo/imagens/spw/fundo_subtitulo2.gif" width="90%">
+      <img src="/cpo/imagens/spw/final_subtitulo.gif" width="16" height="20"></td>
+  </tr>
+</table>
+</div>
+<!--  cabecalho da tabela de petições diversas -->
+<table style="margin-left:15px; margin-top:1px;" align="center" width="98%" border="0" cellspacing="0" cellpadding="1"  >
+	
+		
+		
+			<tr> 
+				<td colspan="2" align="left" >
+					
+						
+						
+							Não há petições diversas vinculadas a este processo.
+						
+					
+				</td> 
+			</tr>
+		
+	
+</table>
+<!--  cabecalho da tabela de petições diversas -->
+
+<!--  dados da lista (incidentes) -->
+<table  style="margin-left:15px; margin-top:1px;" align="center" width="98%" border="0" cellspacing="0" cellpadding="1"  >
+	
+</table>
+
+			  	
+				
+				
+			  	
+			  	
+			  				  	
+			
+	  	
+			
+				
+				
+			  	
+				
+			  	
+				
+				
+			  	
+			  	
+			  				  	
+			
+	  	
+			
+				
+				
+			  	
+				
+			  	
+				
+				
+			  	
+	  				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="padding: 10px 0 10px 0;">
+	
+	
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr valign="top">
+	   <td height="21" valign="top" nowrap background="/cpo/imagens/spw/fundo_subtitulo.gif" class="subtitle"> Julgamentos </td>
+    <td background="/cpo/imagens/spw/fundo_subtitulo2.gif" width="90%">
+      <img src="/cpo/imagens/spw/final_subtitulo.gif" width="16" height="20"></td>
+  </tr>
+</table>
+</div>
+<table style="margin-left:15px; margin-top:1px;" align="center" width="98%" border="0" cellspacing="0" cellpadding="1">
+  
+  	
+	  <tr class="label"> 
+	    <td align="left" valign="top" width="150" >Data</td>
+		<td align="left" valign="top" width="220" >Situação do julgamento</td>
+		<td align="left" valign="top" width="*" >Decisão</td>
+	  </tr>
+	  <tr class="fundoEscuro" height="2">
+		<td></td>
+		<td></td>
+		<td></td>
+	  </tr>
+  	
+  	
+  
+</table>
+
+
+<table style="margin-left:15px; margin-top:1px;" align="center" width="98%" border="0" cellspacing="0" cellpadding="1"  >
+		
+		  <tr class="fundoClaro"> 
+		    <td valign="top" align="left" valign="top" width="150">
+		      17/08/2015
+			</td>
+			<td align="left" valign="top" width="220"">
+		      Julgado
+		    </td>
+			<td align="left" valign="top" width="*">
+		      Negaram provimento ao recurso. V. U.
+		    </td>
+		  </tr>
+		
+</table>
+
+			  	
+			  	
+			  				  	
+			
+	  	
+	  	<br/>
+	  	<br/>
+	  	
+	  		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<table id="" class="secaoBotoesBody" width="100%" cellpadding="2" cellspacing="0" border="0">
+		<tr>
+ 			
+			<td align="center">
+			 
+	<input type="button" name="" value="Voltar para os resultados da pesquisa" onclick="javascript:history.go(-1);" disabled="disabled" onmouseover="B_mOver(this);" onmouseout="B_mOut(this);" class="disabled">
+
+			</td>
+		</tr>
+	</table>
+
+ 
+		
+	
+        
+
+
+
+
+
+
+
+
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+
+		</td>
+	</tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="esajTabelaRodape" summary=" ">
+	<tr>
+		<td class="esajCelulaRodapeCentro">
+		   Desenvolvido pela Softplan em parceria com a Secretaria de Tecnologia da Informação - STI
+		   
+		</td>
+	</tr>
+</table>
+	
+
+
+  
+	
+	
+
+
+
+	
+
+	
+  
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"applicationID":"12201968","applicationTime":483,"beacon":"bam.nr-data.net","queueTime":0,"licenseKey":"b61bdf610d","transactionName":"MlZRN0QECkMAVERZDgscYBdEEBBDIFREWQ4LHFERGAYLXU9EX1YVFV9SDRgWBVpPVEBfTxZHQRZCFkpRAkNZXw9LYFYCRAYMcQJDWV8P","agent":"","errorBeacon":"bam.nr-data.net"}</script></body>
+
+</html>
+
