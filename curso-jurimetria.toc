@@ -1,0 +1,84 @@
+\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{5}{chapter.1}
+\contentsline {section}{\numberline {1.1}Defini\IeC {\c c}\IeC {\~a}o de Jurimetria}{5}{section.1.1}
+\contentsline {chapter}{\numberline {2}Ferramental de trabalho da ABJ}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Exemplo trabalhado}{8}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}C\IeC {\^a}maras de g\IeC {\'a}s}{8}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Data tidying}{8}{section.2.2}
+\contentsline {section}{\numberline {2.3}Pipe}{9}{section.2.3}
+\contentsline {section}{\numberline {2.4}Pacote \texttt {lubridate} para trabalhar com datas}{10}{section.2.4}
+\contentsline {section}{\numberline {2.5}Pacote \texttt {stringr} para trabalhar com textos}{11}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Express\IeC {\~o}es regulares}{11}{subsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.1.1}Quantificadores}{12}{subsubsection.2.5.1.1}
+\contentsline {subsubsection}{\numberline {2.5.1.2}Conjuntos}{12}{subsubsection.2.5.1.2}
+\contentsline {subsubsection}{\numberline {2.5.1.3}Miscel\IeC {\^a}nea}{13}{subsubsection.2.5.1.3}
+\contentsline {subsection}{\numberline {2.5.2}Fun\IeC {\c c}\IeC {\~o}es do \texttt {stringr}}{13}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Exemplo: decis\IeC {\~o}es das c\IeC {\^a}maras}{16}{subsection.2.5.3}
+\contentsline {section}{\numberline {2.6}Pacotes \texttt {dplyr} e \texttt {tidyr}}{17}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Trabalhando com \texttt {tibble}s}{18}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}As cinco fun\IeC {\c c}\IeC {\~o}es principais do \texttt {dplyr}}{18}{subsection.2.6.2}
+\contentsline {subsection}{\numberline {2.6.3}Caracter\IeC {\'\i }sticas}{19}{subsection.2.6.3}
+\contentsline {subsection}{\numberline {2.6.4}Vantagens}{19}{subsection.2.6.4}
+\contentsline {subsection}{\numberline {2.6.5}\texttt {select}}{19}{subsection.2.6.5}
+\contentsline {subsection}{\numberline {2.6.6}\texttt {filter}}{21}{subsection.2.6.6}
+\contentsline {subsection}{\numberline {2.6.7}\texttt {mutate}}{22}{subsection.2.6.7}
+\contentsline {subsection}{\numberline {2.6.8}\texttt {arrange}}{23}{subsection.2.6.8}
+\contentsline {subsection}{\numberline {2.6.9}\texttt {summarise}}{23}{subsection.2.6.9}
+\contentsline {subsection}{\numberline {2.6.10}\texttt {gather}}{25}{subsection.2.6.10}
+\contentsline {subsection}{\numberline {2.6.11}\texttt {spread}}{26}{subsection.2.6.11}
+\contentsline {subsection}{\numberline {2.6.12}Fun\IeC {\c c}\IeC {\~o}es auxiliares}{26}{subsection.2.6.12}
+\contentsline {subsection}{\numberline {2.6.13}Um pouco mais de transforma\IeC {\c c}\IeC {\~a}o de dados}{27}{subsection.2.6.13}
+\contentsline {section}{\numberline {2.7}Pacotes \texttt {httr}, \texttt {xml2} e \texttt {rvest}}{27}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Sess\IeC {\~o}es e cookies}{28}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}\texttt {GET} e \texttt {POST}}{28}{subsection.2.7.2}
+\contentsline {subsection}{\numberline {2.7.3}Outras fun\IeC {\c c}\IeC {\~o}es do \texttt {httr}}{29}{subsection.2.7.3}
+\contentsline {subsection}{\numberline {2.7.4}Principais fun\IeC {\c c}\IeC {\~o}es do \texttt {rvest}}{29}{subsection.2.7.4}
+\contentsline {subsection}{\numberline {2.7.5}CSS path e XPath}{29}{subsection.2.7.5}
+\contentsline {subsection}{\numberline {2.7.6}APIs com \texttt {httr}}{30}{subsection.2.7.6}
+\contentsline {section}{\numberline {2.8}Web scraping}{30}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}Informa\IeC {\c c}\IeC {\~o}es iniciais}{30}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}Diferen\IeC {\c c}a entre buscar, baixar e processar.}{31}{subsection.2.8.2}
+\contentsline {section}{\numberline {2.9}Buscar documentos}{32}{section.2.9}
+\contentsline {section}{\numberline {2.10}Coletar processos}{36}{section.2.10}
+\contentsline {section}{\numberline {2.11}A import\IeC {\^a}ncia da cria\IeC {\c c}\IeC {\~a}o de APIs p\IeC {\'u}blicos nos tribunais}{44}{section.2.11}
+\contentsline {subsection}{\numberline {2.11.1}Busca e extra\IeC {\c c}\IeC {\~a}o}{44}{subsection.2.11.1}
+\contentsline {subsection}{\numberline {2.11.2}Como o profissional do Direito acessa seus dados}{44}{subsection.2.11.2}
+\contentsline {subsection}{\numberline {2.11.3}Como o estat\IeC {\'\i }stico acessa seus dados}{45}{subsection.2.11.3}
+\contentsline {subsection}{\numberline {2.11.4}Como o jurimetrista acessa seus dados}{45}{subsection.2.11.4}
+\contentsline {subsection}{\numberline {2.11.5}Como melhorar?}{45}{subsection.2.11.5}
+\contentsline {subsection}{\numberline {2.11.6}Solu\IeC {\c c}\IeC {\~a}o a longo prazo:}{46}{subsection.2.11.6}
+\contentsline {subsection}{\numberline {2.11.7}Vantagens de permitir o acesso aos dados}{47}{subsection.2.11.7}
+\contentsline {subsection}{\numberline {2.11.8}Expectativas}{47}{subsection.2.11.8}
+\contentsline {section}{\numberline {2.12}Visualiza\IeC {\c c}\IeC {\~a}o de dados com \texttt {ggplot2}}{47}{section.2.12}
+\contentsline {subsection}{\numberline {2.12.1}Construindo gr\IeC {\'a}ficos}{48}{subsection.2.12.1}
+\contentsline {subsection}{\numberline {2.12.2}As camadas de um gr\IeC {\'a}fico}{48}{subsection.2.12.2}
+\contentsline {subsubsection}{\numberline {2.12.2.1}Aesthetics}{49}{subsubsection.2.12.2.1}
+\contentsline {subsubsection}{\numberline {2.12.2.2}Geoms}{50}{subsubsection.2.12.2.2}
+\contentsline {subsubsection}{\numberline {2.12.2.3}Cores}{51}{subsubsection.2.12.2.3}
+\contentsline {subsubsection}{\numberline {2.12.2.4}Eixos}{52}{subsubsection.2.12.2.4}
+\contentsline {subsubsection}{\numberline {2.12.2.5}Legendas}{53}{subsubsection.2.12.2.5}
+\contentsline {subsubsection}{\numberline {2.12.2.6}Facets}{54}{subsubsection.2.12.2.6}
+\contentsline {section}{\numberline {2.13}Exemplo visualiza\IeC {\c c}\IeC {\~a}o}{54}{section.2.13}
+\contentsline {section}{\numberline {2.14}Ferramentas de visualiza\IeC {\c c}\IeC {\~a}o com \texttt {shiny}}{57}{section.2.14}
+\contentsline {subsection}{\numberline {2.14.1}Come\IeC {\c c}ando com um exemplo}{58}{subsection.2.14.1}
+\contentsline {subsubsection}{\numberline {2.14.1.1}Exerc\IeC {\'\i }cio}{58}{subsubsection.2.14.1.1}
+\contentsline {subsection}{\numberline {2.14.2}Criando outputs}{58}{subsection.2.14.2}
+\contentsline {subsubsection}{\numberline {2.14.2.1}Exerc\IeC {\'\i }cio}{58}{subsubsection.2.14.2.1}
+\contentsline {section}{\numberline {2.15}Fazendo mais com o shiny}{59}{section.2.15}
+\contentsline {subsection}{\numberline {2.15.1}Shiny Server Pro}{59}{subsection.2.15.1}
+\contentsline {subsection}{\numberline {2.15.2}shinyapps.io}{59}{subsection.2.15.2}
+\contentsline {subsection}{\numberline {2.15.3}Ainda mais!}{59}{subsection.2.15.3}
+\contentsline {chapter}{\numberline {3}Simula\IeC {\c c}\IeC {\~a}o}{61}{chapter.3}
+\contentsline {section}{\numberline {3.1}Primeiros passos}{61}{section.3.1}
+\contentsline {section}{\numberline {3.2}Estrutura\IeC {\c c}\IeC {\~a}o}{62}{section.3.2}
+\contentsline {section}{\numberline {3.3}Dados}{63}{section.3.3}
+\contentsline {section}{\numberline {3.4}Implementa\IeC {\c c}\IeC {\~a}o}{63}{section.3.4}
+\contentsline {section}{\numberline {3.5}An\IeC {\'a}lise dos resultados}{64}{section.3.5}
+\contentsline {section}{\numberline {3.6}Exemplo - Cadastro Nacional de Ado\IeC {\c c}\IeC {\~a}o}{64}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Primeiros passos}{65}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}Estrutura\IeC {\c c}\IeC {\~a}o}{65}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}Dados}{67}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}Implementa\IeC {\c c}\IeC {\~a}o}{68}{subsection.3.6.4}
+\contentsline {subsection}{\numberline {3.6.5}An\IeC {\'a}lise dos resultados}{74}{subsection.3.6.5}
+\contentsline {subsubsection}{\numberline {3.6.5.1}Idade de entrada no CNA}{74}{subsubsection.3.6.5.1}
+\contentsline {subsubsection}{\numberline {3.6.5.2}Estrat\IeC {\'e}gia utilizada}{77}{subsubsection.3.6.5.2}
+\contentsline {chapter}{\numberline {4}Refer\IeC {\^e}ncias}{79}{chapter.4}
