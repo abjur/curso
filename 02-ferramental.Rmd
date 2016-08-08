@@ -45,7 +45,7 @@ devtools::install_github('abjur/abjutils')
 
 ## Exemplo trabalhado
 
-### Câmaras de gás
+### Câmaras do TJSP
 
 Uma das principais questões que surgem quando o tema é impunidade e 
 que motivou esse trabalho é: 
@@ -466,7 +466,6 @@ tipos_decisao <- function(decisoes) {
     ))
   )
 }
-
 ```
 
 Resultados:
@@ -922,7 +921,7 @@ cjsg_session <- function() {
 
 ```{r eval=FALSE}
 cjsg <- function(s, parms = cjsg_parms(s), path = './cjsg', 
-                 min_pag = 1, max_pag = 10, overwrite = FALSE,
+                 max_pag = 10, overwrite = FALSE,
                  verbose = TRUE, p = .05) {
   suppressWarnings(dir.create(path, recursive = TRUE))
   if (!file.exists(path)) stop(sprintf('Pasta não "%s" pôde ser criada', path))
@@ -947,7 +946,7 @@ cjsg_pag <- function(pag, path, ow, s) {
 }
 ```
 
-A função `search_docs` precisa ser capaz de realizar uma pesquisa e retornar
+A função `cjsg_pag` precisa ser capaz de realizar uma pesquisa e retornar
 a resposta do servidoe que contém a primeira página dos resultados. Para 
 isso, ela recebe uma lista com dados da busca (do formulário) a url base e um
 método para realizar a requisição, podendo ser 'get' ou 'post'. Caso a pesquisa
