@@ -25,7 +25,7 @@
 
 <meta name="author" content="Associação Brasileira de Jurimetria">
 
-<meta name="date" content="2016-08-07">
+<meta name="date" content="2016-08-10">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -39,7 +39,7 @@ MathJax.Hub.Config({
   
   
 <link rel="prev" href="analise-dos-resultados.html">
-<link rel="next" href="referencias.html">
+<link rel="next" href="links.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -114,7 +114,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html"><i class="fa fa-check"></i><b>2</b> Ferramental de trabalho da ABJ</a><ul>
 <li class="chapter" data-level="2.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html"><i class="fa fa-check"></i><b>2.1</b> Exemplo trabalhado</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-de-gas"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras de gás</a></li>
+<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-do-tjsp"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras do TJSP</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="data-tidying.html"><a href="data-tidying.html"><i class="fa fa-check"></i><b>2.2</b> Data tidying</a></li>
 <li class="chapter" data-level="2.3" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>2.3</b> Pipe</a></li>
@@ -192,6 +192,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.5" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#analise-dos-resultados-1"><i class="fa fa-check"></i><b>3.6.5</b> Análise dos resultados</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>4</b> Links</a></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -357,7 +358,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <p>Outra importante informação obtida através da análise de dados é a distribuição de idade das crianças cadastradas no CNA. Analisando a idade de entrada dos cadastrados, obtivemos as seguintes distribuições:</p>
-<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-66-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-68-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Note que, como cada uma destas distriuições está associada a uma causa de cadastro no CNA, vamos incluir a proporção de crianças registradas devido a processos de restituição familiar como um parâmetro do modelo. Por simplicidade, fixaremos este valor em 15%, equivalente à proporção observada no relatório supra citado.</p>
 <p>O impacto de variações na distribuição de idades das crianças cadastradas no CNA será resumido no parâmetro que controla a localização da segunda “corcova” da distribuição de idades das crianças cadastradas no CNA após processos com restituição familiar.</p>
 <p>Por fim, precisamos fixar os valores de <span class="math inline">\(K\)</span> e <span class="math inline">\(P\)</span>. Para isso, fixaremos a razão <span class="math inline">\(\frac{K}{P}\)</span> em <span class="math inline">\(3,52\)</span>, pois este número representa a razão do número total de crianças cadastradas no CNA, ativas ou inativas, pelo número total de pretendentes cadastrados no CNA, ativos ou inativos. Como <span class="math inline">\(P=3,52K\)</span>, vamos nos preocupar apenas variar o parâmetro <span class="math inline">\(K\)</span>.</p>
@@ -660,7 +661,7 @@ pareamentos_estrategia_2 &lt;-<span class="st"> </span><span class="kw">matching
 <span class="st">  </span><span class="kw">theme_bw</span>()+
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&#39;Iteração&#39;</span>)+
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&#39;Número de maiores de idade&#39;</span>)</code></pre></div>
-<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
 <p>A diminuição no número de maiores de idade implica em mais crianças sendo adotadas ao longo do tempo, de forma que devemos verificar uma diminuição nesta variável também. O resultado deste teste segue na figura abaixo.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">criancas_disponiveis &lt;-<span class="st"> </span>function(<span class="dt">tipo =</span> <span class="dv">1</span>, <span class="dt">tempos =</span> <span class="dv">1</span>:<span class="dv">10</span>, <span class="dt">K =</span> <span class="dv">100</span>, <span class="dt">p_cada_tipo =</span> <span class="fl">0.1</span>, <span class="dt">unidade =</span> <span class="dv">1</span>, <span class="dt">idade_maxima =</span> <span class="dv">9</span>){
     <span class="kw">realiza_processo</span>(tipo, tempos, K, p_cada_tipo, unidade, idade_maxima)$criancas_disponiveis
@@ -679,7 +680,7 @@ pareamentos_estrategia_2 &lt;-<span class="st"> </span><span class="kw">matching
 <span class="st">  </span><span class="kw">theme_bw</span>()+
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&#39;Iteração&#39;</span>)+
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&#39;Número de crianças disponíveis para adoção&#39;</span>)</code></pre></div>
-<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 <p>Por fim, uma diminuição na idade das crianças cadastradas no CNA deve favorecer a ocorrência de um maior número de pareamentos entre pretendentes e crianças, considerando que grande parte dos pretendentes prefere crianças mais jovens.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numero_de_pareamentos &lt;-<span class="st"> </span>function(<span class="dt">tipo =</span> <span class="dv">1</span>, <span class="dt">tempos =</span> <span class="dv">1</span>:<span class="dv">10</span>, <span class="dt">K =</span> <span class="dv">100</span>, <span class="dt">p_cada_tipo =</span> <span class="fl">0.1</span>, <span class="dt">unidade =</span> <span class="dv">1</span>, <span class="dt">idade_maxima =</span> <span class="dv">9</span>){
     <span class="kw">realiza_processo</span>(tipo, tempos, K, p_cada_tipo, unidade, idade_maxima)$numero_de_pareamentos
@@ -698,7 +699,7 @@ pareamentos_estrategia_2 &lt;-<span class="st"> </span><span class="kw">matching
 <span class="st">  </span><span class="kw">theme_bw</span>()+
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&#39;Iteração&#39;</span>)+
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&#39;Número de pareamentos&#39;</span>)</code></pre></div>
-<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
 </div>
 <div id="estrategia-utilizada" class="section level4">
 <h4><span class="header-section-number">3.6.5.2</span> Estratégia utilizada</h4>
@@ -715,7 +716,7 @@ pareamentos_estrategia_2 &lt;-<span class="st"> </span><span class="kw">matching
 <span class="st">  </span><span class="kw">geom_line</span>()+
 <span class="st">    </span><span class="kw">facet_wrap</span>(~K)+
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">expand.grid</span>(<span class="dt">tipo =</span> <span class="dv">1</span>:<span class="dv">2</span> , <span class="dt">K =</span> <span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">300</span>)) %&gt;%<span class="st">    </span>plyr:::<span class="kw">mdply</span>(maiores_de_idade, <span class="dt">tempo =</span> <span class="dv">1</span>:<span class="dv">20</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span>reshape2::<span class="kw">melt</span>(<span class="dt">id.vars =</span> <span class="kw">c</span>(<span class="st">&#39;tipo&#39;</span>,<span class="st">&#39;K&#39;</span>)) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">select</span>(-variable) %&gt;%<span class="st"> </span>
@@ -727,7 +728,7 @@ pareamentos_estrategia_2 &lt;-<span class="st"> </span><span class="kw">matching
 <span class="st">  </span><span class="kw">geom_line</span>()+
 <span class="st">    </span><span class="kw">facet_wrap</span>(~K)+
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-77-2.png" width="672" /></p>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-79-2.png" width="672" /></p>
 
 </div>
 </div>
@@ -739,7 +740,7 @@ pareamentos_estrategia_2 &lt;-<span class="st"> </span><span class="kw">matching
         </div>
       </div>
 <a href="analise-dos-resultados.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="referencias.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="links.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>

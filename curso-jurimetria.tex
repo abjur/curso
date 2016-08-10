@@ -130,7 +130,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2016-08-07}
+  \date{2016-08-10}
 
 \begin{document}
 \maketitle
@@ -261,7 +261,7 @@ algumas necessidades frequentes da ABJ. Recomenda-se a utilização do
 
 \section{Exemplo trabalhado}\label{exemplo-trabalhado}
 
-\subsection{Câmaras de gás}\label{camaras-de-gas}
+\subsection{Câmaras do TJSP}\label{camaras-do-tjsp}
 
 Uma das principais questões que surgem quando o tema é impunidade e que
 motivou esse trabalho é: quando um réu condenado deve começar a cumprir
@@ -307,6 +307,57 @@ recursos nas câmaras é aleatória.
 No curso, vamos replicar o estudo das câmaras para 2015, passando por
 todas as fases! Como são muitos processos, vamos trabalhar com uma
 amostra de apenas mil casos para as visualizações finais.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d_cjsg <-}\StringTok{ }\KeywordTok{readRDS}\NormalTok{(}\StringTok{'data-raw/d_cjsg.rds'}\NormalTok{)}
+
+\NormalTok{d_cjsg}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 184,250 x 14
+##                                                      arq    id cd_acordao
+##                                                    <chr> <chr>      <chr>
+## 1  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     1    9381267
+## 2  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     2    8671548
+## 3  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     3    8634338
+## 4  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     4    8536605
+## 5  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     5    8509346
+## 6  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     6    8490681
+## 7  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     7    8466583
+## 8  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     8    8449087
+## 9  /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html     9    8429536
+## 10 /home/storage/abj/raw/TJSP/cjsg/cjsg_mes01/00001.html    10    8331899
+## # ... with 184,240 more rows, and 11 more variables: n_processo <chr>,
+## #   comarca <chr>, data_julgamento <chr>, data_registro <chr>,
+## #   ementa <chr>, orgao_julgador <chr>, outros_numeros <chr>,
+## #   relatora <chr>, classe_assunto <chr>, txt_ementa <chr>, result <chr>
+\end{verbatim}
 
 \section{Data tidying}\label{data-tidying}
 
@@ -447,6 +498,24 @@ funciona com qualquer separador entre os elementos da data e também
 porque temos uma função para cada formato (\texttt{mdy}, \texttt{dmy},
 \texttt{dym}, \texttt{myd}, \texttt{ydm}).
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d1 <-}\StringTok{ '04/15/06'}
+\KeywordTok{library}\NormalTok{(lubridate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'lubridate'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:base':
+## 
+##     date
+\end{verbatim}
+
 Outras funções importantes
 
 \begin{itemize}
@@ -529,6 +598,7 @@ distintas.
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(stringr)}
 \NormalTok{testes <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'ban'}\NormalTok{, }\StringTok{'banana'}\NormalTok{, }\StringTok{'abandonado'}\NormalTok{, }\StringTok{'pranab anderson'}\NormalTok{, }\StringTok{'BANANA'}\NormalTok{, }\StringTok{'ele levou ban'}\NormalTok{)}
+
 \NormalTok{expressoes <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
   \StringTok{'ban'}\NormalTok{, }\CommentTok{# reconhece tudo que tenha "ban", mas não ignora case}
   \StringTok{'BAN'}\NormalTok{, }\CommentTok{# reconhece tudo que tenha "BAN", mas não ignora case}
@@ -577,13 +647,13 @@ vezes um padrão se repete:
 \item
   \texttt{ey\{3\}} significa ``exatamente três vezes''. Por exemplo,
   reconhece \texttt{eyyy} e \texttt{eyyyy}, mas não reconhece
-  \texttt{ey}.
+  \texttt{eyy}.
 \item
   \texttt{ey\{1,3\}} significa ``entre uma e três vezes''.
 \end{itemize}
 
 Para aplicar um quantificador a um conjunto de caracteres, use
-parênteses. Por exemplo, \texttt{(ey)+} reconhece \texttt{eyey}.
+parênteses. Por exemplo, \texttt{(ey\ )+} reconhece \texttt{ey\ ey}.
 
 \subsubsection{Conjuntos}\label{conjuntos}
 
@@ -666,13 +736,13 @@ lugar para testar o funcionamento de expressões regulares é o
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{string <-}\StringTok{ '}\CharTok{\textbackslash{}n}\StringTok{essa string é muito suja       }\CharTok{\textbackslash{}n}\StringTok{'}
+\NormalTok{string <-}\StringTok{ '}\CharTok{\textbackslash{}n}\StringTok{essa      string é muito suja       }\CharTok{\textbackslash{}n}\StringTok{'}
 \KeywordTok{str_trim}\NormalTok{(string)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "essa string é muito suja"
+## [1] "essa      string é muito suja"
 \end{verbatim}
 
 \begin{itemize}
@@ -734,15 +804,15 @@ lugar para testar o funcionamento de expressões regulares é o
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{frases <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'a roupa do rei'}\NormalTok{, }\StringTok{'de roma'}\NormalTok{, }\StringTok{'o rato roeu'}\NormalTok{)}
-\KeywordTok{str_match}\NormalTok{(frases, }\StringTok{'ro'}\NormalTok{)}
+\KeywordTok{str_match}\NormalTok{(frases, }\StringTok{'roe'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##      [,1]
-## [1,] "ro"
-## [2,] "ro"
-## [3,] "ro"
+##      [,1] 
+## [1,] NA   
+## [2,] NA   
+## [3,] "roe"
 \end{verbatim}
 
 \begin{Shaded}
@@ -962,19 +1032,18 @@ Resultados:
 
 \begin{verbatim}
 ## # A tibble: 10 x 2
-##    tipo_decisao
-##           <chr>
-## 1        negado
-## 2        negado
-## 3        negado
-## 4       provido
-## 5        outros
-## 6       parcial
-## 7        negado
-## 8        negado
-## 9        negado
-## 10       negado
-## # ... with 1 more variables: decisao <chr>
+##    tipo_decisao                                            decisao
+##           <chr>                                              <chr>
+## 1        negado               Negaram provimento ao recurso. V. U.
+## 2        negado                NEGARAM PROVIMENTO ao recurso. V.U.
+## 3        negado            Negaram provimento ao apelo do réu.V.U.
+## 4       provido Deram provimento ao apelo ministerial para anul...
+## 5        outros     Declararam prejudicado o exame do recurso.V.U.
+## 6       parcial DERAM PROVIMENTO PARCIAL ao recurso para corrig...
+## 7        negado Rejeitaram as preliminares arguidas e negaram p...
+## 8        negado               Negaram provimento ao recurso. V. U.
+## 9        negado               Negaram provimento ao recurso. V. U.
+## 10       negado Negaram provimento aos recursos defensivos e de...
 \end{verbatim}
 
 \section{\texorpdfstring{Pacotes \texttt{dplyr} e
@@ -1064,7 +1133,7 @@ Vamos assumir que temos a seguinte base de dados:
 \begin{itemize}
 \tightlist
 \item
-  O \emph{input} é sempre ums \texttt{tibble}, e o \emph{output} é
+  O \emph{input} é sempre uma \texttt{tibble}, e o \emph{output} é
   sempre um \texttt{tibble}.
 \item
   No primeiro argumento colocamos o \texttt{tibble}, e nos outros
@@ -1149,25 +1218,25 @@ Vamos assumir que temos a seguinte base de dados:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{d_cjsg %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{select}\NormalTok{(n_processo, }\DataTypeTok{relator =} \NormalTok{relatora, }\KeywordTok{starts_with}\NormalTok{(}\StringTok{'data_'}\NormalTok{))}
+\StringTok{  }\KeywordTok{select}\NormalTok{(n_processo, }\KeywordTok{starts_with}\NormalTok{(}\StringTok{'data_'}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 184,250 x 4
-##                   n_processo                  relator data_julgamento
-##                        <chr>                    <chr>           <chr>
-## 1  0081568-68.2012.8.26.0050           Encinas Manfré      29/01/2015
-## 2  2132739-15.2014.8.26.0000           Edison Brandão      27/01/2015
-## 3  2204759-04.2014.8.26.0000             Ivan Sartori      27/01/2015
-## 4  2179832-71.2014.8.26.0000          Walter da Silva      22/01/2015
-## 5  2055376-49.2014.8.26.0000 Guilherme de Souza Nucci      27/01/2015
-## 6  0014476-05.2014.8.26.0050         Roberto Solimene      29/01/2015
-## 7  0067859-48.2014.8.26.0000             Poças Leitão      29/01/2015
-## 8  0054802-60.2014.8.26.0000             Ivan Sartori      27/01/2015
-## 9  2128810-71.2014.8.26.0000           Willian Campos      29/01/2015
-## 10 2002343-13.2015.8.26.0000     Luis Soares de Mello      27/01/2015
-## # ... with 184,240 more rows, and 1 more variables: data_registro <chr>
+## # A tibble: 184,250 x 3
+##                   n_processo data_julgamento data_registro
+##                        <chr>           <chr>         <chr>
+## 1  0081568-68.2012.8.26.0050      29/01/2015    27/04/2016
+## 2  2132739-15.2014.8.26.0000      27/01/2015    04/08/2015
+## 3  2204759-04.2014.8.26.0000      27/01/2015    22/07/2015
+## 4  2179832-71.2014.8.26.0000      22/01/2015    16/06/2015
+## 5  2055376-49.2014.8.26.0000      27/01/2015    02/06/2015
+## 6  0014476-05.2014.8.26.0050      29/01/2015    27/05/2015
+## 7  0067859-48.2014.8.26.0000      29/01/2015    19/05/2015
+## 8  0054802-60.2014.8.26.0000      27/01/2015    13/05/2015
+## 9  2128810-71.2014.8.26.0000      29/01/2015    06/05/2015
+## 10 2002343-13.2015.8.26.0000      27/01/2015    29/03/2015
+## # ... with 184,240 more rows
 \end{verbatim}
 
 \subsection{\texorpdfstring{\texttt{filter}}{filter}}\label{filter}
@@ -1211,8 +1280,8 @@ Vamos assumir que temos a seguinte base de dados:
 \KeywordTok{library}\NormalTok{(lubridate)}
 \NormalTok{d_cjsg %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{select}\NormalTok{(id, cd_acordao, comarca, data_julgamento, }\DataTypeTok{relator =} \NormalTok{relatora) %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{filter}\NormalTok{(comarca %in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'Campinas'}\NormalTok{, }\StringTok{'Sorocaba'}\NormalTok{),}
-         \KeywordTok{day}\NormalTok{(}\KeywordTok{dmy}\NormalTok{(data_julgamento)) >=}\StringTok{ }\DecValTok{29} \NormalTok{|}\StringTok{ }\KeywordTok{day}\NormalTok{(}\KeywordTok{dmy}\NormalTok{(data_julgamento)) <}\StringTok{ }\DecValTok{25}\NormalTok{)}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(comarca %in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'Campinas'}\NormalTok{, }\StringTok{'Sorocaba'}\NormalTok{) &}
+\StringTok{         }\NormalTok{(}\KeywordTok{day}\NormalTok{(}\KeywordTok{dmy}\NormalTok{(data_julgamento)) >=}\StringTok{ }\DecValTok{29} \NormalTok{|}\StringTok{ }\KeywordTok{day}\NormalTok{(}\KeywordTok{dmy}\NormalTok{(data_julgamento)) <}\StringTok{ }\DecValTok{25}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1233,6 +1302,31 @@ Vamos assumir que temos a seguinte base de dados:
 ## # ... with 6,252 more rows
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d_cjsg %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(comarca) %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(}\KeywordTok{str_detect}\NormalTok{(comarca, }\StringTok{'^[gG]'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6,463 x 1
+##      comarca
+##        <chr>
+## 1  Guarulhos
+## 2  Guarulhos
+## 3  Guarulhos
+## 4  Guarulhos
+## 5      Guará
+## 6  Guarulhos
+## 7  Guarulhos
+## 8  Guarulhos
+## 9  Guarulhos
+## 10 Guarulhos
+## # ... with 6,453 more rows
+\end{verbatim}
+
 \subsection{\texorpdfstring{\texttt{mutate}}{mutate}}\label{mutate}
 
 \begin{itemize}
@@ -1249,30 +1343,29 @@ Vamos assumir que temos a seguinte base de dados:
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(stringr)}
 \NormalTok{d_cjsg %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{select}\NormalTok{(id, n_processo, comarca, data_julgamento) %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(id, n_processo, data_julgamento) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{ano_julgamento =} \KeywordTok{year}\NormalTok{(}\KeywordTok{dmy}\NormalTok{(data_julgamento)),}
          \DataTypeTok{ano_proc =} \KeywordTok{str_sub}\NormalTok{(n_processo, }\DecValTok{12}\NormalTok{, }\DecValTok{15}\NormalTok{),}
-         \DataTypeTok{ano_proc =} \KeywordTok{as.numeric}\NormalTok{(ano_proc)) %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{tempo_anos =} \NormalTok{ano_julgamento -}\StringTok{ }\NormalTok{ano_proc)}
+         \DataTypeTok{ano_proc =} \KeywordTok{as.numeric}\NormalTok{(ano_proc),}
+         \DataTypeTok{tempo_anos =} \NormalTok{ano_julgamento -}\StringTok{ }\NormalTok{ano_proc)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 184,250 x 7
-##       id                n_processo             comarca data_julgamento
-##    <chr>                     <chr>               <chr>           <chr>
-## 1      1 0081568-68.2012.8.26.0050           São Paulo      29/01/2015
-## 2      2 2132739-15.2014.8.26.0000           Guarulhos      27/01/2015
-## 3      3 2204759-04.2014.8.26.0000              Osasco      27/01/2015
-## 4      4 2179832-71.2014.8.26.0000          Adamantina      22/01/2015
-## 5      5 2055376-49.2014.8.26.0000             Limeira      27/01/2015
-## 6      6 0014476-05.2014.8.26.0050           São Paulo      29/01/2015
-## 7      7 0067859-48.2014.8.26.0000              Suzano      29/01/2015
-## 8      8 0054802-60.2014.8.26.0000 Presidente Prudente      27/01/2015
-## 9      9 2128810-71.2014.8.26.0000           São Paulo      29/01/2015
-## 10    10 2002343-13.2015.8.26.0000           São Paulo      27/01/2015
-## # ... with 184,240 more rows, and 3 more variables: ano_julgamento <dbl>,
-## #   ano_proc <dbl>, tempo_anos <dbl>
+## # A tibble: 184,250 x 6
+##       id                n_processo data_julgamento ano_julgamento ano_proc
+##    <chr>                     <chr>           <chr>          <dbl>    <dbl>
+## 1      1 0081568-68.2012.8.26.0050      29/01/2015           2015     2012
+## 2      2 2132739-15.2014.8.26.0000      27/01/2015           2015     2014
+## 3      3 2204759-04.2014.8.26.0000      27/01/2015           2015     2014
+## 4      4 2179832-71.2014.8.26.0000      22/01/2015           2015     2014
+## 5      5 2055376-49.2014.8.26.0000      27/01/2015           2015     2014
+## 6      6 0014476-05.2014.8.26.0050      29/01/2015           2015     2014
+## 7      7 0067859-48.2014.8.26.0000      29/01/2015           2015     2014
+## 8      8 0054802-60.2014.8.26.0000      27/01/2015           2015     2014
+## 9      9 2128810-71.2014.8.26.0000      29/01/2015           2015     2014
+## 10    10 2002343-13.2015.8.26.0000      27/01/2015           2015     2015
+## # ... with 184,240 more rows, and 1 more variables: tempo_anos <dbl>
 \end{verbatim}
 
 \subsection{\texorpdfstring{\texttt{arrange}}{arrange}}\label{arrange}
@@ -1289,7 +1382,7 @@ Vamos assumir que temos a seguinte base de dados:
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(stringr)}
 \NormalTok{d_cjsg %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{select}\NormalTok{(id, n_processo, comarca, data_julgamento) %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(id, n_processo, data_julgamento) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{ano_julgamento =} \KeywordTok{year}\NormalTok{(}\KeywordTok{dmy}\NormalTok{(data_julgamento)),}
          \DataTypeTok{ano_proc =} \KeywordTok{str_sub}\NormalTok{(n_processo, }\DecValTok{12}\NormalTok{, }\DecValTok{15}\NormalTok{),}
          \DataTypeTok{ano_proc =} \KeywordTok{as.numeric}\NormalTok{(ano_proc)) %>%}\StringTok{ }
@@ -1299,21 +1392,20 @@ Vamos assumir que temos a seguinte base de dados:
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 184,250 x 7
-##       id                n_processo   comarca data_julgamento
-##    <chr>                     <chr>     <chr>           <chr>
-## 1   1797 0901097-67.1957.8.26.0050 São Paulo      30/04/2015
-## 2  13650 0815784-50.1971.8.26.0050 São Paulo      12/11/2015
-## 3   7222 9000001-18.1976.8.26.0309   Jundiaí      16/07/2015
-## 4   8228 9000001-74.1979.8.26.0224 Guarulhos      23/02/2015
-## 5   6512 0909882-46.1979.8.26.0050 São Paulo      26/05/2015
-## 6   3439 9000001-81.1981.8.26.0005 São Paulo      26/02/2015
-## 7   1469 0000014-17.1982.8.26.0292   Jacareí      29/01/2015
-## 8  12850 0000784-59.1982.8.26.0114  Campinas      02/07/2015
-## 9   7040 0000019-02.1983.8.26.0584 São Pedro      27/01/2015
-## 10  3920 2050003-20.1984.8.26.0281   Itatiba      26/02/2015
-## # ... with 184,240 more rows, and 3 more variables: ano_julgamento <dbl>,
-## #   ano_proc <dbl>, tempo_anos <dbl>
+## # A tibble: 184,250 x 6
+##       id                n_processo data_julgamento ano_julgamento ano_proc
+##    <chr>                     <chr>           <chr>          <dbl>    <dbl>
+## 1   1797 0901097-67.1957.8.26.0050      30/04/2015           2015     1957
+## 2  13650 0815784-50.1971.8.26.0050      12/11/2015           2015     1971
+## 3   7222 9000001-18.1976.8.26.0309      16/07/2015           2015     1976
+## 4   8228 9000001-74.1979.8.26.0224      23/02/2015           2015     1979
+## 5   6512 0909882-46.1979.8.26.0050      26/05/2015           2015     1979
+## 6   3439 9000001-81.1981.8.26.0005      26/02/2015           2015     1981
+## 7   1469 0000014-17.1982.8.26.0292      29/01/2015           2015     1982
+## 8  12850 0000784-59.1982.8.26.0114      02/07/2015           2015     1982
+## 9   7040 0000019-02.1983.8.26.0584      27/01/2015           2015     1983
+## 10  3920 2050003-20.1984.8.26.0281      26/02/2015           2015     1984
+## # ... with 184,240 more rows, and 1 more variables: tempo_anos <dbl>
 \end{verbatim}
 
 \subsection{\texorpdfstring{\texttt{summarise}}{summarise}}\label{summarise}
@@ -1332,13 +1424,13 @@ Vamos assumir que temos a seguinte base de dados:
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{d_cjsg %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{select}\NormalTok{(id, n_processo, comarca, data_julgamento) %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(id, n_processo, comarca, data_julgamento, orgao_julgador) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{ano_julgamento =} \KeywordTok{year}\NormalTok{(}\KeywordTok{dmy}\NormalTok{(data_julgamento)),}
          \DataTypeTok{ano_proc =} \KeywordTok{str_sub}\NormalTok{(n_processo, }\DecValTok{12}\NormalTok{, }\DecValTok{15}\NormalTok{),}
          \DataTypeTok{ano_proc =} \KeywordTok{as.numeric}\NormalTok{(ano_proc)) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{tempo_anos =} \NormalTok{ano_julgamento -}\StringTok{ }\NormalTok{ano_proc) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(tempo_anos)) %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{group_by}\NormalTok{(comarca) %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(comarca, orgao_julgador) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{n =} \KeywordTok{n}\NormalTok{(),}
             \DataTypeTok{media_anos =} \KeywordTok{mean}\NormalTok{(tempo_anos),}
             \DataTypeTok{min_anos =} \KeywordTok{min}\NormalTok{(tempo_anos),}
@@ -1349,20 +1441,23 @@ Vamos assumir que temos a seguinte base de dados:
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 275 x 5
-##                       comarca     n media_anos min_anos max_anos
-##                         <chr> <int>      <dbl>    <dbl>    <dbl>
-## 1      F.D. PAULÍNIA/CAMPINAS     7   9.142857        4       13
-## 2                      Queluz    63   3.984127        0        7
-## 3                      Rosana   126   3.865079        0       14
-## 4                   Nhandeara   144   3.777778        0       15
-## 5  Santa Rita do Passa Quatro   128   3.765625        0       12
-## 6             Pindamonhangaba   582   3.762887        0       19
-## 7                   Rancharia   293   3.744027        0       29
-## 8                     Bananal    36   3.611111        0       11
-## 9                   Paraibuna    61   3.524590        0       14
-## 10    Mirante do Paranapanema    85   3.517647        0       19
-## # ... with 265 more rows
+## Source: local data frame [4,351 x 6]
+## Groups: comarca [271]
+## 
+##                  comarca                    orgao_julgador     n
+##                    <chr>                             <chr> <int>
+## 1                 Piraju 2ª Câmara Criminal Extraordinária     8
+## 2         José Bonifácio 6ª Câmara Criminal Extraordinária     6
+## 3           Miguelópolis 2ª Câmara Criminal Extraordinária     6
+## 4                Piedade 3ª Câmara Criminal Extraordinária     6
+## 5               Valinhos 1ª Câmara Criminal Extraordinária     6
+## 6       Lençóis Paulista     2ª Câmara de Direito Criminal     8
+## 7        Pindamonhangaba 5ª Câmara Criminal Extraordinária     8
+## 8           Praia Grande 6ª Câmara Criminal Extraordinária     8
+## 9  Santa Bárbara D Oeste 4ª Câmara Criminal Extraordinária     7
+## 10             Ituverava 3ª Câmara Criminal Extraordinária     6
+## # ... with 4,341 more rows, and 3 more variables: media_anos <dbl>,
+## #   min_anos <dbl>, max_anos <dbl>
 \end{verbatim}
 
 \begin{Shaded}
@@ -1480,25 +1575,25 @@ Vamos assumir que temos a seguinte base de dados:
 \StringTok{  }\KeywordTok{select}\NormalTok{(n_processo, classe_assunto) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{separate}\NormalTok{(classe_assunto, }\KeywordTok{c}\NormalTok{(}\StringTok{'classe'}\NormalTok{, }\StringTok{'assunto'}\NormalTok{), }\DataTypeTok{sep =} \StringTok{' / '}\NormalTok{, }
            \DataTypeTok{extra =} \StringTok{'merge'}\NormalTok{, }\DataTypeTok{fill =} \StringTok{'right'}\NormalTok{) %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{count}\NormalTok{(classe, }\DataTypeTok{sort =} \OtherTok{TRUE}\NormalTok{)}
+\StringTok{  }\KeywordTok{count}\NormalTok{(assunto, }\DataTypeTok{sort =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## # A tibble: 30 x 2
-##                                 classe     n
-##                                  <chr> <int>
-## 1                             Apelação 88322
-## 2                        Habeas Corpus 54237
-## 3             Agravo de Execução Penal 25388
-## 4               Embargos de Declaração  6125
-## 5           Recurso em Sentido Estrito  4038
-## 6                     Revisão Criminal  3675
-## 7                 Mandado de Segurança   891
-## 8  Embargos Infringentes e de Nulidade   485
-## 9                   Reexame Necessário   305
-## 10                   Agravo Regimental   217
-## # ... with 20 more rows
+## # A tibble: 287 x 2
+##                                               assunto     n
+##                                                 <chr> <int>
+## 1                  Tráfico de Drogas e Condutas Afins 30993
+## 2                                               Roubo 17556
+## 3                                      Roubo Majorado 17461
+## 4  Crimes de Tráfico Ilícito e Uso Indevido de Drogas 13635
+## 5                                   Furto Qualificado 13275
+## 6                         Pena Privativa de Liberdade 10801
+## 7                                               Furto  9870
+## 8                                Progressão de Regime  7068
+## 9                                          Receptação  5978
+## 10                Crimes do Sistema Nacional de Armas  5675
+## # ... with 277 more rows
 \end{verbatim}
 
 \subsection{Um pouco mais de transformação de
@@ -1800,7 +1895,7 @@ No TJSP temos \emph{uma busca e muitas paginações}. Acesse a página do
 ``acordam'' no campo ``Pesquisa Livre'' e clique em ``Pesquisar'', para
 ter uma ideia de como é essa página.
 
-A página (acessada no dia 2016-08-07) é uma ferramenta de busca com
+A página (acessada no dia 2016-08-10) é uma ferramenta de busca com
 vários campos, que não permite pesquisa com dados em branco. Na parte de
 baixo o site mostra uma série de documentos, organizados em páginas de
 vinte em vinte resultados.
@@ -1821,11 +1916,12 @@ várias vezes). Utilizaremos as funções \texttt{cjsg} e
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{cjsg <-}\StringTok{ }\NormalTok{function(s, }\DataTypeTok{parms =} \KeywordTok{cjsg_parms}\NormalTok{(s), }\DataTypeTok{path =} \StringTok{'./cjsg'}\NormalTok{, }
-                 \DataTypeTok{min_pag =} \DecValTok{1}\NormalTok{, }\DataTypeTok{max_pag =} \DecValTok{10}\NormalTok{, }\DataTypeTok{overwrite =} \OtherTok{FALSE}\NormalTok{,}
+                 \DataTypeTok{max_pag =} \DecValTok{10}\NormalTok{, }\DataTypeTok{overwrite =} \OtherTok{FALSE}\NormalTok{,}
                  \DataTypeTok{verbose =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{p =} \NormalTok{.}\DecValTok{05}\NormalTok{) \{}
   \KeywordTok{suppressWarnings}\NormalTok{(}\KeywordTok{dir.create}\NormalTok{(path, }\DataTypeTok{recursive =} \OtherTok{TRUE}\NormalTok{))}
   \NormalTok{if (!}\KeywordTok{file.exists}\NormalTok{(path)) }\KeywordTok{stop}\NormalTok{(}\KeywordTok{sprintf}\NormalTok{(}\StringTok{'Pasta não "%s" pôde ser criada'}\NormalTok{, path))}
-  \NormalTok{r0 <-}\StringTok{ }\NormalTok{s %>%}\StringTok{ }\NormalTok{rvest::}\KeywordTok{submit_form}\NormalTok{(parms)}
+  \NormalTok{r0 <-}\StringTok{ }\NormalTok{s %>%}\StringTok{ }
+\StringTok{    }\NormalTok{rvest::}\KeywordTok{submit_form}\NormalTok{(parms)}
   \NormalTok{n_pags <-}\StringTok{ }\NormalTok{if (}\KeywordTok{is.na}\NormalTok{(max_pag) ||}\StringTok{ }\KeywordTok{is.infinite}\NormalTok{(max_pag)) }\KeywordTok{cjsg_npags}\NormalTok{(r0) else max_pag}
   \NormalTok{abjutils::}\KeywordTok{dvec}\NormalTok{(cjsg_pag, }\DecValTok{1}\NormalTok{:n_pags, }\DataTypeTok{path =} \NormalTok{path, }\DataTypeTok{ow =} \NormalTok{overwrite, }\DataTypeTok{s =} \NormalTok{s)}
 \NormalTok{\}}
@@ -1840,7 +1936,9 @@ várias vezes). Utilizaremos as funções \texttt{cjsg} e
   \NormalTok{u_pag <-}\StringTok{ }\KeywordTok{sprintf}\NormalTok{(u, pag)}
   \NormalTok{arq <-}\StringTok{ }\KeywordTok{sprintf}\NormalTok{(}\StringTok{'%s/%05d.html'}\NormalTok{, path, pag)}
   \NormalTok{if (!}\KeywordTok{file.exists}\NormalTok{(arq) ||}\StringTok{ }\NormalTok{ow) \{}
-    \NormalTok{httr::}\KeywordTok{GET}\NormalTok{(}\KeywordTok{sprintf}\NormalTok{(u, pag), httr::}\KeywordTok{write_disk}\NormalTok{(arq, }\DataTypeTok{overwrite =} \NormalTok{ow), }\DataTypeTok{handle =} \NormalTok{s$handle)}
+    \NormalTok{httr::}\KeywordTok{GET}\NormalTok{(u_pag, }
+              \NormalTok{httr::}\KeywordTok{write_disk}\NormalTok{(arq, }\DataTypeTok{overwrite =} \NormalTok{ow), }
+              \DataTypeTok{handle =} \NormalTok{s$handle)}
     \NormalTok{tibble::}\KeywordTok{data_frame}\NormalTok{(}\DataTypeTok{result =} \StringTok{'OK'}\NormalTok{)}
   \NormalTok{\} else \{}
     \NormalTok{tibble::}\KeywordTok{data_frame}\NormalTok{(}\DataTypeTok{result =} \StringTok{'já existe'}\NormalTok{)}
@@ -1849,9 +1947,9 @@ várias vezes). Utilizaremos as funções \texttt{cjsg} e
 \end{Highlighting}
 \end{Shaded}
 
-A função \texttt{search\_docs} precisa ser capaz de realizar uma
-pesquisa e retornar a resposta do servidoe que contém a primeira página
-dos resultados. Para isso, ela recebe uma lista com dados da busca (do
+A função \texttt{cjsg\_pag} precisa ser capaz de realizar uma pesquisa e
+retornar a resposta do servidoe que contém a primeira página dos
+resultados. Para isso, ela recebe uma lista com dados da busca (do
 formulário) a url base e um método para realizar a requisição, podendo
 ser `get' ou `post'. Caso a pesquisa seja mais complicada, é possível
 adicionar também uma função que sobrepõe a busca padrão.
@@ -2029,7 +2127,7 @@ baixados na etapa anterior.
 \StringTok{    }\NormalTok{rvest::}\KeywordTok{html_text}\NormalTok{() %>%}
 \StringTok{    }\NormalTok{stringr::}\KeywordTok{str_split_fixed}\NormalTok{(}\StringTok{':'}\NormalTok{, }\DecValTok{2}\NormalTok{) %>%}
 \StringTok{    }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{stringsAsFactors =} \OtherTok{FALSE}\NormalTok{) %>%}
-\StringTok{    }\NormalTok{magrittr::}\KeywordTok{set_names}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{'key'}\NormalTok{, }\StringTok{'val'}\NormalTok{)) %>%}
+\StringTok{    }\KeywordTok{setNames}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{'key'}\NormalTok{, }\StringTok{'val'}\NormalTok{)) %>%}
 \StringTok{    }\NormalTok{dplyr::}\KeywordTok{mutate_all}\NormalTok{(dplyr::}\KeywordTok{funs}\NormalTok{(}\KeywordTok{trim}\NormalTok{(.))) %>%}
 \StringTok{    }\NormalTok{dplyr::}\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{key =} \KeywordTok{tolower}\NormalTok{(abjutils::}\KeywordTok{rm_accent}\NormalTok{(key)),}
                   \DataTypeTok{key =} \NormalTok{stringr::}\KeywordTok{str_replace_all}\NormalTok{(key, }\StringTok{' +'}\NormalTok{, }\StringTok{'_'}\NormalTok{),}
@@ -2877,7 +2975,7 @@ proporção de processos por assunto em cada câmara.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-59-1.pdf}
+\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-61-1.pdf}
 
 O segundo mostra a proporção de decisões favoráveis no tempo.
 
@@ -2890,7 +2988,7 @@ O segundo mostra a proporção de decisões favoráveis no tempo.
   
 \NormalTok{decisoes <-}\StringTok{ }\NormalTok{d_decisoes %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{n_processo =} \KeywordTok{str_replace_all}\NormalTok{(arq, }\StringTok{'[^0-9]'}\NormalTok{, }\StringTok{''}\NormalTok{)) %>%}\StringTok{ }
-\StringTok{  }\KeywordTok{semi_join}\NormalTok{(partes_apelacoes, }\StringTok{'n_processo'}\NormalTok{) %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{inner_join}\NormalTok{(partes_apelacoes, }\StringTok{'n_processo'}\NormalTok{) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{filter}\NormalTok{(situacao ==}\StringTok{ 'Julgado'}\NormalTok{) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{distinct}\NormalTok{(n_processo, decisao) %>%}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{tipo_decisao =} \KeywordTok{tipos_decisao}\NormalTok{(decisao)) %>%}\StringTok{ }
@@ -2900,6 +2998,8 @@ O segundo mostra a proporção de decisões favoráveis no tempo.
 \NormalTok{aux <-}\StringTok{ }\NormalTok{d_cjsg %>%}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{n_processo =} \KeywordTok{str_replace_all}\NormalTok{(n_processo, }\StringTok{'[^0-9]'}\NormalTok{, }\StringTok{''}\NormalTok{)) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{inner_join}\NormalTok{(decisoes, }\StringTok{'n_processo'}\NormalTok{) %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(}\KeywordTok{desc}\NormalTok{(}\KeywordTok{dmy}\NormalTok{(data_julgamento))) %>%}\StringTok{ }
+\StringTok{  }\KeywordTok{distinct}\NormalTok{(n_processo, }\DataTypeTok{.keep_all =} \OtherTok{TRUE}\NormalTok{) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{dmy}\NormalTok{(data_julgamento)) %>%}
 \StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{ano_mes =} \KeywordTok{floor_date}\NormalTok{(data, }\StringTok{'month'}\NormalTok{))}
 
@@ -2920,7 +3020,7 @@ O segundo mostra a proporção de decisões favoráveis no tempo.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-60-1.pdf}
+\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-62-1.pdf}
 
 O terceiro mostra a proporção de cada tipo de decisão em cada câmara.
 
@@ -2939,7 +3039,7 @@ O terceiro mostra a proporção de cada tipo de decisão em cada câmara.
          \DataTypeTok{extra =} \KeywordTok{ifelse}\NormalTok{(extra, }\StringTok{'Câmara Extraordinária'}\NormalTok{, }
                         \StringTok{'Câmara de Direito Criminal'}\NormalTok{)) %>%}\StringTok{ }
 \StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{num, }\DataTypeTok{fill =} \NormalTok{tipo_decisao, }\DataTypeTok{y =} \NormalTok{prop)) +}
-\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat =} \StringTok{'identity'}\NormalTok{, }\DataTypeTok{colour =} \StringTok{'black'}\NormalTok{) +}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat =} \StringTok{'identity'}\NormalTok{, }\DataTypeTok{colour =} \StringTok{'black'}\NormalTok{, }\DataTypeTok{position =} \StringTok{'dodge'}\NormalTok{) +}
 \StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(~extra, }\DataTypeTok{scales =} \StringTok{'free_x'}\NormalTok{) +}
 \StringTok{  }\KeywordTok{theme_bw}\NormalTok{() +}
 \StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels =} \NormalTok{scales::percent) +}
@@ -2949,7 +3049,7 @@ O terceiro mostra a proporção de cada tipo de decisão em cada câmara.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-61-1.pdf}
+\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-63-1.pdf}
 
 \section{\texorpdfstring{Ferramentas de visualização com
 \texttt{shiny}}{Ferramentas de visualização com shiny}}\label{ferramentas-de-visualizacao-com-shiny}
@@ -3552,7 +3652,7 @@ Outra importante informação obtida através da análise de dados é a
 distribuição de idade das crianças cadastradas no CNA. Analisando a
 idade de entrada dos cadastrados, obtivemos as seguintes distribuições:
 
-\begin{center}\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-66-1} \end{center}
+\begin{center}\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-68-1} \end{center}
 
 Note que, como cada uma destas distriuições está associada a uma causa
 de cadastro no CNA, vamos incluir a proporção de crianças registradas
@@ -4040,7 +4140,7 @@ se observa na figura abaixo.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-74-1.pdf}
+\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-76-1.pdf}
 
 A diminuição no número de maiores de idade implica em mais crianças
 sendo adotadas ao longo do tempo, de forma que devemos verificar uma
@@ -4069,7 +4169,7 @@ figura abaixo.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-75-1.pdf}
+\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-77-1.pdf}
 
 Por fim, uma diminuição na idade das crianças cadastradas no CNA deve
 favorecer a ocorrência de um maior número de pareamentos entre
@@ -4098,7 +4198,7 @@ prefere crianças mais jovens.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-76-1.pdf}
+\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-78-1.pdf}
 
 \subsubsection{Estratégia utilizada}\label{estrategia-utilizada}
 
@@ -4128,7 +4228,7 @@ das crianças cadastradas.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-77-1.pdf}
+\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-79-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4146,7 +4246,97 @@ das crianças cadastradas.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-77-2.pdf}
+\includegraphics{curso-jurimetria_files/figure-latex/unnamed-chunk-79-2.pdf}
+
+\chapter{Links}\label{links}
+
+\textbf{Palestras}
+
+Julio Trecenti:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{http://rpubs.com/julio_trecenti/ferramental}{Ferramental da
+  ABJ}.
+\item
+  \href{http://rpubs.com/julio_trecenti/scrape}{Web Scraping}.
+\item
+  \href{http://rpubs.com/julio_trecenti/adm}{Administração do
+  judiciário}.
+\end{itemize}
+
+Fernando Correa:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/abjur/curso/raw/master/pres/curso_tse.pdf}{Análise
+  de sobrevivência}.
+\item
+  \href{https://github.com/abjur/alocTJSP}{Alocação de varas}.
+\item
+  \href{https://github.com/abjur/tjsp_app}{Waze}.
+\end{itemize}
+
+Rafael Stern:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/abjur/curso/raw/master/pres/presentation-teoria-decisao.pdf}{Teoria
+  da decisão}.
+\item
+  \href{https://github.com/abjur/curso/raw/master/pres/presentation_guidelines.pdf}{Weinstein}.
+\item
+  \href{https://github.com/abjur/curso/raw/master/pres/mining.pdf}{Topic
+  Models}.
+\end{itemize}
+
+Carlos Alberto de Bragança Pereira:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/abjur/curso/raw/master/pres/Aula_Brasilia.pdf}{Inferência
+  Bayesiana e estatística forense}.
+\item
+  \href{https://github.com/abjur/curso/raw/master/pres/BAYESIAN_SCIENCE_FORENSIC_W.pdf}{Livro
+  de estatística forense}.
+\end{itemize}
+
+Julio Michael Stern:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/abjur/curso/raw/master/pres/ABJ161.pdf}{Intencionalidade
+  vs Randomização}.
+\end{itemize}
+
+Adilson Simonis:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/abjur/curso/raw/master/pres/conference_presentation(6).pdf}{Tópicos
+  de probabilidade e estatística}.
+\end{itemize}
+
+\textbf{Outros links}
+
+\begin{itemize}
+\tightlist
+\item
+  Github da ABJ: \url{https://github.com/abjur}
+\item
+  Github do Julio: \url{https://github.com/jtrecenti}
+\item
+  Github do Fernando: \url{https://github.com/azeloc}
+\item
+  \href{http://www.somos.ufscar.br/professores/view/3477}{Página do
+  Rafael Stern}
+\end{itemize}
 
 \chapter{Referências}\label{referencias}
 

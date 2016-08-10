@@ -25,7 +25,7 @@
 
 <meta name="author" content="Associação Brasileira de Jurimetria">
 
-<meta name="date" content="2016-08-07">
+<meta name="date" content="2016-08-10">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -114,7 +114,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html"><i class="fa fa-check"></i><b>2</b> Ferramental de trabalho da ABJ</a><ul>
 <li class="chapter" data-level="2.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html"><i class="fa fa-check"></i><b>2.1</b> Exemplo trabalhado</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-de-gas"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras de gás</a></li>
+<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-do-tjsp"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras do TJSP</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="data-tidying.html"><a href="data-tidying.html"><i class="fa fa-check"></i><b>2.2</b> Data tidying</a></li>
 <li class="chapter" data-level="2.3" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>2.3</b> Pipe</a></li>
@@ -192,6 +192,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.5" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#analise-dos-resultados-1"><i class="fa fa-check"></i><b>3.6.5</b> Análise dos resultados</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>4</b> Links</a></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -223,17 +224,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Muitas buscas e muitas paginações por busca.</li>
 </ul>
 <p>No TJSP temos <em>uma busca e muitas paginações</em>. Acesse a página do <a href="http://esaj.tjsp.jus.br/cjsg/consultaCompleta.do">e-SAJ</a>, digite “acordam” no campo “Pesquisa Livre” e clique em “Pesquisar”, para ter uma ideia de como é essa página.</p>
-<p>A página (acessada no dia 2016-08-07) é uma ferramenta de busca com vários campos, que não permite pesquisa com dados em branco. Na parte de baixo o site mostra uma série de documentos, organizados em páginas de vinte em vinte resultados.</p>
+<p>A página (acessada no dia 2016-08-10) é uma ferramenta de busca com vários campos, que não permite pesquisa com dados em branco. Na parte de baixo o site mostra uma série de documentos, organizados em páginas de vinte em vinte resultados.</p>
 <p>Para realizar a coleta, precisamos de duas funções principais, uma que faz a busca e outra que acessa uma página específica (que será executada várias vezes). Utilizaremos as funções <code>cjsg</code> e <code>cjsg_pag</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cjsg_session &lt;-<span class="st"> </span>function() {
   rvest::<span class="kw">html_session</span>(<span class="st">&#39;http://esaj.tjsp.jus.br/cjsg/consultaCompleta.do&#39;</span>)
 }</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cjsg &lt;-<span class="st"> </span>function(s, <span class="dt">parms =</span> <span class="kw">cjsg_parms</span>(s), <span class="dt">path =</span> <span class="st">&#39;./cjsg&#39;</span>, 
-                 <span class="dt">min_pag =</span> <span class="dv">1</span>, <span class="dt">max_pag =</span> <span class="dv">10</span>, <span class="dt">overwrite =</span> <span class="ot">FALSE</span>,
+                 <span class="dt">max_pag =</span> <span class="dv">10</span>, <span class="dt">overwrite =</span> <span class="ot">FALSE</span>,
                  <span class="dt">verbose =</span> <span class="ot">TRUE</span>, <span class="dt">p =</span> .<span class="dv">05</span>) {
   <span class="kw">suppressWarnings</span>(<span class="kw">dir.create</span>(path, <span class="dt">recursive =</span> <span class="ot">TRUE</span>))
   if (!<span class="kw">file.exists</span>(path)) <span class="kw">stop</span>(<span class="kw">sprintf</span>(<span class="st">&#39;Pasta não &quot;%s&quot; pôde ser criada&#39;</span>, path))
-  r0 &lt;-<span class="st"> </span>s %&gt;%<span class="st"> </span>rvest::<span class="kw">submit_form</span>(parms)
+  r0 &lt;-<span class="st"> </span>s %&gt;%<span class="st"> </span>
+<span class="st">    </span>rvest::<span class="kw">submit_form</span>(parms)
   n_pags &lt;-<span class="st"> </span>if (<span class="kw">is.na</span>(max_pag) ||<span class="st"> </span><span class="kw">is.infinite</span>(max_pag)) <span class="kw">cjsg_npags</span>(r0) else max_pag
   abjutils::<span class="kw">dvec</span>(cjsg_pag, <span class="dv">1</span>:n_pags, <span class="dt">path =</span> path, <span class="dt">ow =</span> overwrite, <span class="dt">s =</span> s)
 }</code></pre></div>
@@ -243,13 +245,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   u_pag &lt;-<span class="st"> </span><span class="kw">sprintf</span>(u, pag)
   arq &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&#39;%s/%05d.html&#39;</span>, path, pag)
   if (!<span class="kw">file.exists</span>(arq) ||<span class="st"> </span>ow) {
-    httr::<span class="kw">GET</span>(<span class="kw">sprintf</span>(u, pag), httr::<span class="kw">write_disk</span>(arq, <span class="dt">overwrite =</span> ow), <span class="dt">handle =</span> s$handle)
+    httr::<span class="kw">GET</span>(u_pag, 
+              httr::<span class="kw">write_disk</span>(arq, <span class="dt">overwrite =</span> ow), 
+              <span class="dt">handle =</span> s$handle)
     tibble::<span class="kw">data_frame</span>(<span class="dt">result =</span> <span class="st">&#39;OK&#39;</span>)
   } else {
     tibble::<span class="kw">data_frame</span>(<span class="dt">result =</span> <span class="st">&#39;já existe&#39;</span>)
   }
 }</code></pre></div>
-<p>A função <code>search_docs</code> precisa ser capaz de realizar uma pesquisa e retornar a resposta do servidoe que contém a primeira página dos resultados. Para isso, ela recebe uma lista com dados da busca (do formulário) a url base e um método para realizar a requisição, podendo ser ‘get’ ou ‘post’. Caso a pesquisa seja mais complicada, é possível adicionar também uma função que sobrepõe a busca padrão.</p>
+<p>A função <code>cjsg_pag</code> precisa ser capaz de realizar uma pesquisa e retornar a resposta do servidoe que contém a primeira página dos resultados. Para isso, ela recebe uma lista com dados da busca (do formulário) a url base e um método para realizar a requisição, podendo ser ‘get’ ou ‘post’. Caso a pesquisa seja mais complicada, é possível adicionar também uma função que sobrepõe a busca padrão.</p>
 <p>É possível visualizar a página baixada com a função <code>BROWSE</code> do pacote <code>httr</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">arqs &lt;-<span class="st"> </span><span class="kw">dir</span>(<span class="st">&#39;data-raw/cjsg&#39;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)
 httr::<span class="kw">BROWSE</span>(arqs[<span class="dv">1</span>])</code></pre></div>
