@@ -2,17 +2,17 @@
 
 **Palestras**
 
-Julio Trecenti: Ferramental da ABJ.
+Julio Trecenti: [Ferramental da ABJ](http://rpubs.com/julio_trecenti/ferramental).
 
-Fernando Correa: 
+Fernando Correa: [Análise de sobrevivência]()
 
 Julio Trecenti: [Web Scraping](http://rpubs.com/julio_trecenti/scrape)
 
-Rafael Stern:
+Rafael Stern: [Teoria da decisão]()
 
-Carlos Alberto de Bragança Pereira: Inferência Bayesiana e estatística forense
+Carlos Alberto de Bragança Pereira: [Inferência Bayesiana e estatística forense]().
 
-Julio Michael Stern: Intencionalidade vs Randomização.
+Julio Michael Stern: [Intencionalidade vs Randomização]().
 
 Julio e Fernando: [Administração do judiciário](), 
 
