@@ -1,15 +1,18 @@
 ---
-title: Curso de Jurimetria
+title: "Curso de Jurimetria"
 author: "Associação Brasileira de Jurimetria"
-date : 2016-08-08
+date: '2016-08-08'
+output:
+  ioslides_presentation:
+    css: style.css
+    keep_md: no
+    mathjax: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    self_contained: yes
+    smaller: no
+  slidy_presentation: default
 layout: post
 tags: slides
 category: slides
-output: 
-  ioslides_presentation:
-    mathjax: "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-    keep_md: false
-    self_contained: true
 ---
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
@@ -40,14 +43,14 @@ library(abjutils)
 ## Amanhã (09/08)
 
 - Estatística forense: paternidade
-- Teoria da decisão na administração judiciária: perda de uma chance e valor de indenização
+- Teoria da decisão no direito: perda de uma chance e valor de indenização
 - Randomização vs Intencionalidade na justiça
 - Alocação de varas, complexidade processual, produtividade e especialização
 
 ## Quarta (10/08)
 
 - Processos estocásticos e simulação: Cadastro Nacional de Adoção
-- Indenização por danos morais e guidelines para decisões
+- Classificação de danos morais e guidelines para decisões
 - Jurimetria e como fazer boas leis
 - Discussões e feedback
 
@@ -132,9 +135,9 @@ ggplot(df, aes(x = as.character(ano), y = prop, group = 1)) +
 
 ## Arrumação de dados
 
-<img src="http://r4ds.had.co.nz/diagrams/data-science-wrangle.png" style="width: 600px;"/>
+<img src="http://r4ds.had.co.nz/diagrams/data-science-wrangle.png" style="width: 800px;"/>
 
-## Data tidying
+## Data tidying {.bigger}
 
 Uma base de dados é considerada "tidy" se
 
@@ -197,7 +200,7 @@ expressoes <- list(
   '^ban', # reconhece apenas o que começa exatamente com "ban"
   'b ?an' # reconhece tudo que tenha "ban", com ou sem espaço entre o "b" e o "a"
 )
-purrr::map(testes, ~str_detect(testes, .x)) %>% 
+purrr::map(expressoes, ~str_detect(testes, .x)) %>% 
   {do.call(rbind, .)} %>% 
   as.data.frame() %>% 
   setNames(testes) %>% 

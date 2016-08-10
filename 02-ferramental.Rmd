@@ -99,6 +99,14 @@ No curso, vamos replicar o estudo das câmaras para 2015,
 passando por todas as fases! Como são muitos processos, 
 vamos trabalhar com uma amostra de apenas mil casos para as visualizações finais.
 
+```{r}
+library(dplyr)
+d_cjsg <- readRDS('data-raw/d_cjsg.rds')
+
+d_cjsg
+```
+
+
 <!-- ### Waze do Judiciário -->
 
 <!-- A produtividade de varas e juízes é  -->
@@ -270,6 +278,14 @@ Essa função é útil pois funciona com qualquer separador
 entre os elementos da data e também porque temos uma função para cada formato
 (`mdy`, `dmy`, `dym`, `myd`, `ydm`). 
 
+```{r}
+d1 <- '04/15/06'
+library(lubridate)
+
+
+```
+
+
 Outras funções importantes
 
 - `ymd_hms`: lê datas e horários, generalizando `ymd`.
@@ -299,14 +315,17 @@ As regras básicas do pacote são:
 - As funções de manipulação de texto começam com `str_`. Caso esqueça o nome de uma função, basta digitar `stringr::str_` e apertar `TAB` para ver quais são as opções.
 - O primeiro argumento da função é sempre uma `string`.
 
-Antes de listar as funções, precisamos estudar o básico de expressões regulares.
+Antes de listar as funções, 
+precisamos estudar o básico de 
+expressões regulares.
 
 ### Expressões regulares
 
-Expressão regular ou *regex* é uma sequência concisa de caracteres
-que representa várias strings.
-Entender o básico de expressões regulares é indispensável para 
-trabalhar com textos.
+Expressão regular ou *regex* é 
+uma sequência concisa de caracteres que
+representa várias strings.
+Entender o básico de expressões regulares é 
+indispensável para trabalhar com textos.
 
 Vamos estudar expressões regulares através de exemplos e com a função `str_detect()`.
 Essa função retorna `TRUE` se uma string atende à uma expressão regular e 
@@ -317,6 +336,7 @@ A tabela abaixo mostra a aplicação de seis `regex` a seis strings distintas.
 ```{r}
 library(stringr)
 testes <- c('ban', 'banana', 'abandonado', 'pranab anderson', 'BANANA', 'ele levou ban')
+
 expressoes <- list(
   'ban', # reconhece tudo que tenha "ban", mas não ignora case
   'BAN', # reconhece tudo que tenha "BAN", mas não ignora case
@@ -343,10 +363,10 @@ Os caracteres `+`, `*` e `{x,y}` indicam quantas vezes um padrão se repete:
 
 - `ey+` significa `e` e depois `y` "**uma vez** ou mais". Por exemplo, reconhece `hey`, `heyy`, `a eyyy`, mas não reconhece `e`, `y` nem `yy`.
 - `ey*` significa "**zero vezes** ou mais". Por exemplo, reconhece `hey`, `heyy`, `a eyyy` e `e`, mas não reconhece `y` nem `yy`.
-- `ey{3}` significa "exatamente três vezes". Por exemplo, reconhece `eyyy` e `eyyyy`, mas não reconhece `ey`.
+- `ey{3}` significa "exatamente três vezes". Por exemplo, reconhece `eyyy` e `eyyyy`, mas não reconhece `eyy`.
 - `ey{1,3}` significa "entre uma e três vezes".
 
-Para aplicar um quantificador a um conjunto de caracteres, use parênteses. Por exemplo, `(ey)+` reconhece `eyey`.
+Para aplicar um quantificador a um conjunto de caracteres, use parênteses. Por exemplo, `(ey )+` reconhece `ey ey `.
 
 #### Conjuntos
 
@@ -382,7 +402,7 @@ str_length('hye')
 - `str_trim()` retira espaços e quebras de linha/tabs no início ou final de string.
 
 ```{r}
-string <- '\nessa string é muito suja       \n'
+string <- '\nessa      string é muito suja       \n'
 str_trim(string)
 ```
 
@@ -400,7 +420,7 @@ str_replace_all('string     com    muitos espaços', ' +', ' ') # tirar espaços
 
 ```{r}
 frases <- c('a roupa do rei', 'de roma', 'o rato roeu')
-str_match(frases, 'ro')
+str_match(frases, 'roe')
 str_match_all(frases, 'ro')
 str_match(frases, 'o (ro)')
 ```
@@ -471,8 +491,8 @@ tipos_decisao <- function(decisoes) {
 Resultados:
 
 ```{r echo=FALSE}
-decisoes_min <- ifelse(str_length(decisoes) > 77, 
-                       paste0(str_sub(decisoes, 1, 77), '...'), 
+decisoes_min <- ifelse(str_length(decisoes) > 47, 
+                       paste0(str_sub(decisoes, 1, 47), '...'), 
                        decisoes)
 ```
 
@@ -521,7 +541,7 @@ d_cjsg <- 'data-raw/cjsg' %>%
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 library(dplyr)
-d_cjsg <- readRDS('~/Downloads/d_cjsg.rds')
+d_cjsg <- readRDS('data-raw/d_cjsg.rds')
 ```
 
 ```{r}
@@ -538,7 +558,7 @@ d_cjsg
 
 ### Características
 
-- O _input_  é sempre ums `tibble`, e o _output_  é sempre um `tibble`.
+- O _input_  é sempre uma `tibble`, e o _output_  é sempre um `tibble`.
 - No primeiro argumento colocamos o `tibble`, e nos outros argumentos colocamo o que queremos fazer.
 - A utilização é facilitada com o emprego do operador `%>%`
 
@@ -564,7 +584,7 @@ d_cjsg %>%
 
 ```{r}
 d_cjsg %>% 
-  select(n_processo, relator = relatora, starts_with('data_'))
+  select(n_processo, starts_with('data_'))
 ```
 
 ### `filter`
@@ -576,14 +596,20 @@ d_cjsg %>%
 d_cjsg %>% 
   select(id, cd_acordao, comarca, relator = relatora) %>% 
   filter(comarca == 'São Paulo')
+
+
 ```
 
 ```{r}
 library(lubridate)
 d_cjsg %>% 
   select(id, cd_acordao, comarca, data_julgamento, relator = relatora) %>% 
-  filter(comarca %in% c('Campinas', 'Sorocaba'),
-         day(dmy(data_julgamento)) >= 29 | day(dmy(data_julgamento)) < 25)
+  filter(comarca %in% c('Campinas', 'Sorocaba') &
+         (day(dmy(data_julgamento)) >= 29 | day(dmy(data_julgamento)) < 25))
+
+d_cjsg %>% 
+  select(comarca) %>% 
+  filter(str_detect(comarca, '^[gG]'))
 ```
 
 ### `mutate`
@@ -594,11 +620,11 @@ d_cjsg %>%
 ```{r}
 library(stringr)
 d_cjsg %>% 
-  select(id, n_processo, comarca, data_julgamento) %>% 
+  select(id, n_processo, data_julgamento) %>% 
   mutate(ano_julgamento = year(dmy(data_julgamento)),
          ano_proc = str_sub(n_processo, 12, 15),
-         ano_proc = as.numeric(ano_proc)) %>% 
-  mutate(tempo_anos = ano_julgamento - ano_proc)
+         ano_proc = as.numeric(ano_proc),
+         tempo_anos = ano_julgamento - ano_proc)
 ```
 
 ### `arrange`
@@ -609,7 +635,7 @@ d_cjsg %>%
 ```{r}
 library(stringr)
 d_cjsg %>% 
-  select(id, n_processo, comarca, data_julgamento) %>% 
+  select(id, n_processo, data_julgamento) %>% 
   mutate(ano_julgamento = year(dmy(data_julgamento)),
          ano_proc = str_sub(n_processo, 12, 15),
          ano_proc = as.numeric(ano_proc)) %>% 
@@ -625,13 +651,13 @@ d_cjsg %>%
 
 ```{r}
 d_cjsg %>% 
-  select(id, n_processo, comarca, data_julgamento) %>% 
+  select(id, n_processo, comarca, data_julgamento, orgao_julgador) %>% 
   mutate(ano_julgamento = year(dmy(data_julgamento)),
          ano_proc = str_sub(n_processo, 12, 15),
          ano_proc = as.numeric(ano_proc)) %>% 
   mutate(tempo_anos = ano_julgamento - ano_proc) %>% 
   arrange(desc(tempo_anos)) %>% 
-  group_by(comarca) %>% 
+  group_by(comarca, orgao_julgador) %>% 
   summarise(n = n(),
             media_anos = mean(tempo_anos),
             min_anos = min(tempo_anos),
@@ -681,7 +707,7 @@ d_cjsg %>%
   select(n_processo, classe_assunto) %>% 
   separate(classe_assunto, c('classe', 'assunto'), sep = ' / ', 
            extra = 'merge', fill = 'right') %>% 
-  count(classe, sort = TRUE)
+  count(assunto, sort = TRUE)
 ```
 
 ### Um pouco mais de transformação de dados
@@ -689,6 +715,7 @@ d_cjsg %>%
 - Para juntar tabelas, usar `inner_join`, `left_join`, `anti_join`, etc.
 - Para realizar operações mais gerais, usar `do`.
 - Para retirar duplicatas, utilizar `distinct`.
+
 
 ## Pacotes `httr`, `xml2` e `rvest`
 
@@ -925,7 +952,8 @@ cjsg <- function(s, parms = cjsg_parms(s), path = './cjsg',
                  verbose = TRUE, p = .05) {
   suppressWarnings(dir.create(path, recursive = TRUE))
   if (!file.exists(path)) stop(sprintf('Pasta não "%s" pôde ser criada', path))
-  r0 <- s %>% rvest::submit_form(parms)
+  r0 <- s %>% 
+    rvest::submit_form(parms)
   n_pags <- if (is.na(max_pag) || is.infinite(max_pag)) cjsg_npags(r0) else max_pag
   abjutils::dvec(cjsg_pag, 1:n_pags, path = path, ow = overwrite, s = s)
 }
@@ -938,7 +966,9 @@ cjsg_pag <- function(pag, path, ow, s) {
   u_pag <- sprintf(u, pag)
   arq <- sprintf('%s/%05d.html', path, pag)
   if (!file.exists(arq) || ow) {
-    httr::GET(sprintf(u, pag), httr::write_disk(arq, overwrite = ow), handle = s$handle)
+    httr::GET(u_pag, 
+              httr::write_disk(arq, overwrite = ow), 
+              handle = s$handle)
     tibble::data_frame(result = 'OK')
   } else {
     tibble::data_frame(result = 'já existe')
@@ -1111,7 +1141,7 @@ parse_cjsg_um <- function(i, nodes) {
     rvest::html_text() %>%
     stringr::str_split_fixed(':', 2) %>%
     data.frame(stringsAsFactors = FALSE) %>%
-    magrittr::set_names(c('key', 'val')) %>%
+    setNames(c('key', 'val')) %>%
     dplyr::mutate_all(dplyr::funs(trim(.))) %>%
     dplyr::mutate(key = tolower(abjutils::rm_accent(key)),
                   key = stringr::str_replace_all(key, ' +', '_'),
@@ -1629,7 +1659,7 @@ partes_apelacoes <- d_partes %>%
   
 decisoes <- d_decisoes %>% 
   mutate(n_processo = str_replace_all(arq, '[^0-9]', '')) %>% 
-  semi_join(partes_apelacoes, 'n_processo') %>% 
+  inner_join(partes_apelacoes, 'n_processo') %>% 
   filter(situacao == 'Julgado') %>% 
   distinct(n_processo, decisao) %>%
   mutate(tipo_decisao = tipos_decisao(decisao)) %>% 
@@ -1639,6 +1669,8 @@ decisoes <- d_decisoes %>%
 aux <- d_cjsg %>%
   mutate(n_processo = str_replace_all(n_processo, '[^0-9]', '')) %>% 
   inner_join(decisoes, 'n_processo') %>% 
+  arrange(desc(dmy(data_julgamento))) %>% 
+  distinct(n_processo, .keep_all = TRUE) %>% 
   mutate(data = dmy(data_julgamento)) %>%
   mutate(ano_mes = floor_date(data, 'month'))
 
@@ -1674,7 +1706,7 @@ d_cjsg %>%
          extra = ifelse(extra, 'Câmara Extraordinária', 
                         'Câmara de Direito Criminal')) %>% 
   ggplot(aes(x = num, fill = tipo_decisao, y = prop)) +
-  geom_bar(stat = 'identity', colour = 'black') +
+  geom_bar(stat = 'identity', colour = 'black', position = 'dodge') +
   facet_wrap(~extra, scales = 'free_x') +
   theme_bw() +
   scale_y_continuous(labels = scales::percent) +

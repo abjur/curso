@@ -1,0 +1,90 @@
+---
+title: Administração judiciária
+author: "Associação Brasileira de Jurimetria"
+date : 2016-08-08
+layout: post
+tags: slides
+category: slides
+output: 
+  ioslides_presentation:
+    mathjax: "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    keep_md: false
+    self_contained: true
+---
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(lubridate)
+library(httr)
+library(xml2)
+library(rvest)
+library(abjutils)
+```
+
+## Outline
+
+- Guia sobre especialização de órgãos julgadores.
+- Jurisdição estendida e alocação ótima de varas.
+- Produtividade de varas.
+
+## Especializaçao de órgãos julgadores
+
+- O problema da complexidade processual.
+
+### Vantagens segundo a IACA
+
+1. Decisões são tomadas por especialistas.
+
+2. Reduz pendências e atrasos transferindo classes processuais complexas para
+a jurisdição de especialistas, gerando menores custos.
+
+3. Reduz o número de horas gastas pelo magistrados e o volume de trabalho de advogados.
+
+## Especializaçao de órgãos julgadores
+
+### Vantagens segundo a IACA
+
+4. Reduz o atrito institucional do órgão julgador.
+
+5. Aumenta a resistência a choques de processos.
+
+6. Pode reduzir número de litígios (Priest & Klein).
+
+## Especializaçao de órgãos julgadores
+
+### Desvantagens segundo a IACA
+
+1. Direcionamento político / ideológico.
+
+2. Muda perfil de comarcas com e sem especialização.
+
+3. Ineficiência por conta de assimetria no volume de trabalho.
+
+## Recomendações
+
+- Isolar a jurisdição.
+
+- A oferta não deve ser maior que a demanda.
+
+- Considerar a crianção de orgãos temporários.
+
+## Recomendações
+
+Critérios a considerar na escolha das matérias de especialização
+
+1. Complexidade, num sentido amplo e estrito, da matéria processual em questão.
+
+2. Volume processual.
+
+3. Facilidade na separação com relação à outras áreas.
+
+4. Monitorar áreas do Direito em expansão.
+
+## Exemplo: varas empresariais no TJSP
+
+- Varas empresariais e varas de falências e recuperações.
+
+- Quantas varas criar, onde criar as varas.

@@ -1,3 +1,34 @@
+# Links
+
+**Palestras**
+
+Julio Trecenti: Ferramental da ABJ.
+
+Fernando Correa: 
+
+Julio Trecenti: [Web Scraping](http://rpubs.com/julio_trecenti/scrape)
+
+Rafael Stern:
+
+Carlos Alberto de Bragança Pereira: Inferência Bayesiana e estatística forense
+
+Julio Michael Stern: Intencionalidade vs Randomização.
+
+Julio e Fernando: [Administração do judiciário](), 
+
+Rafael Stern: Weinstein, Topic Models
+
+Adilson Simonis: Tópicos de probabilidade e estatística.
+
+
+
+**Outros links**
+
+- Github da ABJ: [https://github.com/abjur](https://github.com/abjur)
+- Github do Julio: [https://github.com/abjur](https://github.com/jtrecenti)
+- Github do Fernando: [https://github.com/abjur](https://github.com/azeloc)
+- [Página do Rafael Stern](http://www.somos.ufscar.br/professores/view/3477)
+
 `r if (knitr:::is_html_output()) '# Referências {-}' else '# Referências \nocite'`
 
 Allen TT, Bernshteyn M (2008) Helping Franklin county vote in 2008: Waiting line report to
