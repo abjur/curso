@@ -25,7 +25,7 @@
 
 <meta name="author" content="Associação Brasileira de Jurimetria">
 
-<meta name="date" content="2016-08-07">
+<meta name="date" content="2016-08-10">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -114,7 +114,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html"><i class="fa fa-check"></i><b>2</b> Ferramental de trabalho da ABJ</a><ul>
 <li class="chapter" data-level="2.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html"><i class="fa fa-check"></i><b>2.1</b> Exemplo trabalhado</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-de-gas"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras de gás</a></li>
+<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-do-tjsp"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras do TJSP</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="data-tidying.html"><a href="data-tidying.html"><i class="fa fa-check"></i><b>2.2</b> Data tidying</a></li>
 <li class="chapter" data-level="2.3" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>2.3</b> Pipe</a></li>
@@ -192,6 +192,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.5" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#analise-dos-resultados-1"><i class="fa fa-check"></i><b>3.6.5</b> Análise dos resultados</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>4</b> Links</a></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -240,7 +241,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&#39;Órgão julgador&#39;</span>) +
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&#39;Proporção de processos por assunto&#39;</span>) +
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
 <p>O segundo mostra a proporção de decisões favoráveis no tempo.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">partes_apelacoes &lt;-<span class="st"> </span>d_partes %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(tipo ==<span class="st"> &#39;apelado&#39;</span>, <span class="kw">str_detect</span>(nome, <span class="st">&#39;[Mm]inist&#39;</span>)) %&gt;%<span class="st"> </span>
@@ -249,7 +250,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   
 decisoes &lt;-<span class="st"> </span>d_decisoes %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">n_processo =</span> <span class="kw">str_replace_all</span>(arq, <span class="st">&#39;[^0-9]&#39;</span>, <span class="st">&#39;&#39;</span>)) %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">semi_join</span>(partes_apelacoes, <span class="st">&#39;n_processo&#39;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">inner_join</span>(partes_apelacoes, <span class="st">&#39;n_processo&#39;</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">filter</span>(situacao ==<span class="st"> &#39;Julgado&#39;</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">distinct</span>(n_processo, decisao) %&gt;%
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">tipo_decisao =</span> <span class="kw">tipos_decisao</span>(decisao)) %&gt;%<span class="st"> </span>
@@ -259,6 +260,8 @@ decisoes &lt;-<span class="st"> </span>d_decisoes %&gt;%<span class="st"> </span
 aux &lt;-<span class="st"> </span>d_cjsg %&gt;%
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">n_processo =</span> <span class="kw">str_replace_all</span>(n_processo, <span class="st">&#39;[^0-9]&#39;</span>, <span class="st">&#39;&#39;</span>)) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">inner_join</span>(decisoes, <span class="st">&#39;n_processo&#39;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(<span class="kw">dmy</span>(data_julgamento))) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">distinct</span>(n_processo, <span class="dt">.keep_all =</span> <span class="ot">TRUE</span>) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">data =</span> <span class="kw">dmy</span>(data_julgamento)) %&gt;%
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ano_mes =</span> <span class="kw">floor_date</span>(data, <span class="st">&#39;month&#39;</span>))
 
@@ -276,7 +279,7 @@ aux %&gt;%
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&#39;Tempo (meses)&#39;</span>) +
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&#39;Proporção de cada tipo de decisão&#39;</span>) +
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 <p>O terceiro mostra a proporção de cada tipo de decisão em cada câmara.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d_cjsg %&gt;%
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">n_processo =</span> <span class="kw">str_replace_all</span>(n_processo, <span class="st">&#39;[^0-9]&#39;</span>, <span class="st">&#39;&#39;</span>)) %&gt;%<span class="st"> </span>
@@ -291,14 +294,14 @@ aux %&gt;%
          <span class="dt">extra =</span> <span class="kw">ifelse</span>(extra, <span class="st">&#39;Câmara Extraordinária&#39;</span>, 
                         <span class="st">&#39;Câmara de Direito Criminal&#39;</span>)) %&gt;%<span class="st"> </span>
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> num, <span class="dt">fill =</span> tipo_decisao, <span class="dt">y =</span> prop)) +
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">colour =</span> <span class="st">&#39;black&#39;</span>) +
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&#39;identity&#39;</span>, <span class="dt">colour =</span> <span class="st">&#39;black&#39;</span>, <span class="dt">position =</span> <span class="st">&#39;dodge&#39;</span>) +
 <span class="st">  </span><span class="kw">facet_wrap</span>(~extra, <span class="dt">scales =</span> <span class="st">&#39;free_x&#39;</span>) +
 <span class="st">  </span><span class="kw">theme_bw</span>() +
 <span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales::percent) +
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&#39;Órgão julgador&#39;</span>) +
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&#39;Proporção de processos por tipo de decisão&#39;</span>) +
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<p><img src="curso-jurimetria_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
 </div>
             </section>
 

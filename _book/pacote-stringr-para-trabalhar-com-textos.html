@@ -25,7 +25,7 @@
 
 <meta name="author" content="Associação Brasileira de Jurimetria">
 
-<meta name="date" content="2016-08-07">
+<meta name="date" content="2016-08-10">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -114,7 +114,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="ferramental-de-trabalho-da-abj.html"><a href="ferramental-de-trabalho-da-abj.html"><i class="fa fa-check"></i><b>2</b> Ferramental de trabalho da ABJ</a><ul>
 <li class="chapter" data-level="2.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html"><i class="fa fa-check"></i><b>2.1</b> Exemplo trabalhado</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-de-gas"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras de gás</a></li>
+<li class="chapter" data-level="2.1.1" data-path="exemplo-trabalhado.html"><a href="exemplo-trabalhado.html#camaras-do-tjsp"><i class="fa fa-check"></i><b>2.1.1</b> Câmaras do TJSP</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="data-tidying.html"><a href="data-tidying.html"><i class="fa fa-check"></i><b>2.2</b> Data tidying</a></li>
 <li class="chapter" data-level="2.3" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>2.3</b> Pipe</a></li>
@@ -192,6 +192,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.5" data-path="exemplo-cadastro-nacional-de-adocao.html"><a href="exemplo-cadastro-nacional-de-adocao.html#analise-dos-resultados-1"><i class="fa fa-check"></i><b>3.6.5</b> Análise dos resultados</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="links.html"><a href="links.html"><i class="fa fa-check"></i><b>4</b> Links</a></li>
 <li class="chapter" data-level="" data-path="referencias.html"><a href="referencias.html"><i class="fa fa-check"></i>Referências</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -229,6 +230,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>A tabela abaixo mostra a aplicação de seis <code>regex</code> a seis strings distintas.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringr)
 testes &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;ban&#39;</span>, <span class="st">&#39;banana&#39;</span>, <span class="st">&#39;abandonado&#39;</span>, <span class="st">&#39;pranab anderson&#39;</span>, <span class="st">&#39;BANANA&#39;</span>, <span class="st">&#39;ele levou ban&#39;</span>)
+
 expressoes &lt;-<span class="st"> </span><span class="kw">list</span>(
   <span class="st">&#39;ban&#39;</span>, <span class="co"># reconhece tudo que tenha &quot;ban&quot;, mas não ignora case</span>
   <span class="st">&#39;BAN&#39;</span>, <span class="co"># reconhece tudo que tenha &quot;BAN&quot;, mas não ignora case</span>
@@ -312,10 +314,10 @@ expressoes &lt;-<span class="st"> </span><span class="kw">list</span>(
 <ul>
 <li><code>ey+</code> significa <code>e</code> e depois <code>y</code> “<strong>uma vez</strong> ou mais”. Por exemplo, reconhece <code>hey</code>, <code>heyy</code>, <code>a eyyy</code>, mas não reconhece <code>e</code>, <code>y</code> nem <code>yy</code>.</li>
 <li><code>ey*</code> significa “<strong>zero vezes</strong> ou mais”. Por exemplo, reconhece <code>hey</code>, <code>heyy</code>, <code>a eyyy</code> e <code>e</code>, mas não reconhece <code>y</code> nem <code>yy</code>.</li>
-<li><code>ey{3}</code> significa “exatamente três vezes”. Por exemplo, reconhece <code>eyyy</code> e <code>eyyyy</code>, mas não reconhece <code>ey</code>.</li>
+<li><code>ey{3}</code> significa “exatamente três vezes”. Por exemplo, reconhece <code>eyyy</code> e <code>eyyyy</code>, mas não reconhece <code>eyy</code>.</li>
 <li><code>ey{1,3}</code> significa “entre uma e três vezes”.</li>
 </ul>
-<p>Para aplicar um quantificador a um conjunto de caracteres, use parênteses. Por exemplo, <code>(ey)+</code> reconhece <code>eyey</code>.</p>
+<p>Para aplicar um quantificador a um conjunto de caracteres, use parênteses. Por exemplo, <code>(ey )+</code> reconhece <code>ey ey</code>.</p>
 </div>
 <div id="conjuntos" class="section level4">
 <h4><span class="header-section-number">2.5.1.2</span> Conjuntos</h4>
@@ -350,9 +352,9 @@ expressoes &lt;-<span class="st"> </span><span class="kw">list</span>(
 <ul>
 <li><code>str_trim()</code> retira espaços e quebras de linha/tabs no início ou final de string.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string &lt;-<span class="st"> &#39;</span><span class="ch">\n</span><span class="st">essa string é muito suja       </span><span class="ch">\n</span><span class="st">&#39;</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">string &lt;-<span class="st"> &#39;</span><span class="ch">\n</span><span class="st">essa      string é muito suja       </span><span class="ch">\n</span><span class="st">&#39;</span>
 <span class="kw">str_trim</span>(string)</code></pre></div>
-<pre><code>## [1] &quot;essa string é muito suja&quot;</code></pre>
+<pre><code>## [1] &quot;essa      string é muito suja&quot;</code></pre>
 <ul>
 <li><code>str_replace()</code> e <code>str_replace_all()</code> substituem um padrão (ou todos) encontrado para um outro padrão</li>
 </ul>
@@ -369,11 +371,11 @@ expressoes &lt;-<span class="st"> </span><span class="kw">list</span>(
 <li><code>str_match()</code> e <code>str_match_all()</code> extrai pedaços da string identificados pela regex. Caso queira extrair somente a parte identificada, use parênteses.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">frases &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;a roupa do rei&#39;</span>, <span class="st">&#39;de roma&#39;</span>, <span class="st">&#39;o rato roeu&#39;</span>)
-<span class="kw">str_match</span>(frases, <span class="st">&#39;ro&#39;</span>)</code></pre></div>
-<pre><code>##      [,1]
-## [1,] &quot;ro&quot;
-## [2,] &quot;ro&quot;
-## [3,] &quot;ro&quot;</code></pre>
+<span class="kw">str_match</span>(frases, <span class="st">&#39;roe&#39;</span>)</code></pre></div>
+<pre><code>##      [,1] 
+## [1,] NA   
+## [2,] NA   
+## [3,] &quot;roe&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str_match_all</span>(frases, <span class="st">&#39;ro&#39;</span>)</code></pre></div>
 <pre><code>## [[1]]
 ##      [,1]
@@ -466,19 +468,18 @@ tipos_decisao &lt;-<span class="st"> </span>function(decisoes) {
 <p>Resultados:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tibble::<span class="kw">tibble</span>(<span class="dt">tipo_decisao =</span> <span class="kw">tipos_decisao</span>(decisoes), <span class="dt">decisao =</span> decisoes_min)</code></pre></div>
 <pre><code>## # A tibble: 10 x 2
-##    tipo_decisao
-##           &lt;chr&gt;
-## 1        negado
-## 2        negado
-## 3        negado
-## 4       provido
-## 5        outros
-## 6       parcial
-## 7        negado
-## 8        negado
-## 9        negado
-## 10       negado
-## # ... with 1 more variables: decisao &lt;chr&gt;</code></pre>
+##    tipo_decisao                                            decisao
+##           &lt;chr&gt;                                              &lt;chr&gt;
+## 1        negado               Negaram provimento ao recurso. V. U.
+## 2        negado                NEGARAM PROVIMENTO ao recurso. V.U.
+## 3        negado            Negaram provimento ao apelo do réu.V.U.
+## 4       provido Deram provimento ao apelo ministerial para anul...
+## 5        outros     Declararam prejudicado o exame do recurso.V.U.
+## 6       parcial DERAM PROVIMENTO PARCIAL ao recurso para corrig...
+## 7        negado Rejeitaram as preliminares arguidas e negaram p...
+## 8        negado               Negaram provimento ao recurso. V. U.
+## 9        negado               Negaram provimento ao recurso. V. U.
+## 10       negado Negaram provimento aos recursos defensivos e de...</code></pre>
 </div>
 </div>
             </section>

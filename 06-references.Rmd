@@ -2,31 +2,42 @@
 
 **Palestras**
 
-Julio Trecenti: [Ferramental da ABJ](http://rpubs.com/julio_trecenti/ferramental).
+Julio Trecenti: 
 
-Fernando Correa: [Análise de sobrevivência]()
+- [Ferramental da ABJ](http://rpubs.com/julio_trecenti/ferramental).
+- [Web Scraping](http://rpubs.com/julio_trecenti/scrape).
+- [Administração do judiciário](http://rpubs.com/julio_trecenti/adm).
 
-Julio Trecenti: [Web Scraping](http://rpubs.com/julio_trecenti/scrape)
+Fernando Correa: 
 
-Rafael Stern: [Teoria da decisão]()
+- [Análise de sobrevivência](https://github.com/abjur/curso/raw/master/pres/curso_tse.pdf).
+- [Alocação de varas](https://github.com/abjur/alocTJSP).
+- [Waze](https://github.com/abjur/tjsp_app).
 
-Carlos Alberto de Bragança Pereira: [Inferência Bayesiana e estatística forense]().
+Rafael Stern: 
 
-Julio Michael Stern: [Intencionalidade vs Randomização]().
+- [Teoria da decisão](https://github.com/abjur/curso/raw/master/pres/presentation-teoria-decisao.pdf).
+- [Weinstein](https://github.com/abjur/curso/raw/master/pres/presentation_guidelines.pdf).
+- [Topic Models](https://github.com/abjur/curso/raw/master/pres/mining.pdf).
 
-Julio e Fernando: [Administração do judiciário](), 
+Carlos Alberto de Bragança Pereira: 
 
-Rafael Stern: Weinstein, Topic Models
+- [Inferência Bayesiana e estatística forense](https://github.com/abjur/curso/raw/master/pres/Aula_Brasilia.pdf). 
+- [Livro de estatística forense](https://github.com/abjur/curso/raw/master/pres/BAYESIAN_SCIENCE_FORENSIC_W.pdf).
 
-Adilson Simonis: Tópicos de probabilidade e estatística.
+Julio Michael Stern: 
 
+- [Intencionalidade vs Randomização](https://github.com/abjur/curso/raw/master/pres/ABJ161.pdf).
 
+Adilson Simonis: 
+
+- [Tópicos de probabilidade e estatística](https://github.com/abjur/curso/raw/master/pres/conference_presentation(6).pdf).
 
 **Outros links**
 
 - Github da ABJ: [https://github.com/abjur](https://github.com/abjur)
-- Github do Julio: [https://github.com/abjur](https://github.com/jtrecenti)
-- Github do Fernando: [https://github.com/abjur](https://github.com/azeloc)
+- Github do Julio: [https://github.com/jtrecenti](https://github.com/jtrecenti)
+- Github do Fernando: [https://github.com/azeloc](https://github.com/azeloc)
 - [Página do Rafael Stern](http://www.somos.ufscar.br/professores/view/3477)
 
 `r if (knitr:::is_html_output()) '# Referências {-}' else '# Referências \nocite'`
