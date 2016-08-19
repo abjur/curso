@@ -16,7 +16,8 @@ Fernando Correa:
 
 Rafael Stern: 
 
-- [Teoria da decisão](https://github.com/abjur/curso/raw/master/pres/presentation-teoria-decisao.pdf).
+- [Teoria da decisão (apresentação)](https://github.com/abjur/curso/raw/master/pres/presentation-teoria-decisao.pdf).
+- [Teoria da decisão (texto)](https://github.com/abjur/curso/raw/master/pres/teoria_decisao.pdf).
 - [Weinstein](https://github.com/abjur/curso/raw/master/pres/presentation_guidelines.pdf).
 - [Topic Models](https://github.com/abjur/curso/raw/master/pres/mining.pdf).
 
@@ -27,7 +28,7 @@ Carlos Alberto de Bragança Pereira:
 
 Julio Michael Stern: 
 
-- [Intencionalidade vs Randomização](https://github.com/abjur/curso/raw/master/pres/ABJ161.pdf).
+- [Intencionalidade vs Randomização](https://www.ime.usp.br/~jstern/miscellanea/jmsslide/ABJ161.pdf).
 
 Adilson Simonis: 
 
